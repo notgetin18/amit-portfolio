@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.amitdevjourney.xyz/"),
   title: "Amit Kumar | Full Stack Developer & Portfolio",
   description:
-    "Amit Kumar, MERN stack developer, specializes in JavaScript and its frameworks, building scalable web apps with React, Node.js, and MongoDB. Explore my portfolio!",
+    "Amit Kumar, Full stack developer, specializes in JavaScript and its frameworks, building scalable web apps with React, Node.js, Express.js and MongoDB. Explore my portfolio!",
   keywords:
-    "Amit Kumar, MERN stack, web developer, Full stack developer, React, Node.js, MongoDB, Next.js, TypeScript, JavaScript, portfolio, freelance, India",
+    "Amit Kumar, MERN stack, web developer, Full stack developer, React, Node.js, Express js, MongoDB, Next.js, TypeScript, JavaScript, portfolio, freelance, India",
   authors: [{ name: "Amit Kumar" }],
   robots: {
     index: true,
