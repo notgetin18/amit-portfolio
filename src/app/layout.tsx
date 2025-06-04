@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/home/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -88,7 +89,12 @@ export default function RootLayout({
         />
         <link rel="manifest" href="/favicons/site.webmanifest" />
       </Head> */}
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="flex justify-center ">
+          <Navbar />
+        </div>
+        {children}
+      </body>
     </html>
   );
 }

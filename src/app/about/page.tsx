@@ -32,42 +32,8 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
       {/* Navigation */}
-      <motion.nav
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200"
-      >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
-            >
-              <Link href="/">Amit Kumar</Link>
-            </motion.div>
-            <div className="hidden md:flex space-x-8">
-              <Link
-                href="/"
-                className="text-slate-700 hover:text-blue-600 transition-colors"
-              >
-                Home
-              </Link>
-              <Link href="/about" className="text-blue-600 font-medium">
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className="text-slate-700 hover:text-blue-600 transition-colors"
-              >
-                Contact
-              </Link>
-            </div>
-          </div>
-        </div>
-      </motion.nav>
 
-      <div className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+      <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Hero Section */}
           <motion.div

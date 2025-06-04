@@ -7,7 +7,7 @@ export const handleDownloadResume = (format: string) => {
     filename = "Amit_Kumar_Resume.pdf";
   } else if (format === "docx") {
     url = "/Amit-kumar_Resume.docx";
-    filename = "AmitKumar_Resume.docx";
+    filename = "Amit_Kumar_Resume.docx";
   } else {
     return;
   }

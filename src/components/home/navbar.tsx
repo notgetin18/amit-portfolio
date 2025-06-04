@@ -6,6 +6,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { handleDownloadResume } from "@/utility";
+import Image from "next/image";
+import amitImage from "../../../public/favicons/web-app-manifest-192x192.png";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,33 +29,43 @@ export default function Navbar() {
       className="fixed top-4 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200 max-w-7xl border-1 rounded-xl "
     >
       <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          <motion.div
+        <div className="flex justify-between items-center py-2">
+          {/* <motion.div
             whileHover={{ scale: 1.05 }}
             className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
           >
             Amit Kumar
+          </motion.div> */}
+
+          <motion.div whileHover={{ scale: 1.05 }} className="  ">
+            <Image
+              src={amitImage}
+              width={192}
+              height={192}
+              alt="amit image"
+              className="h-16 w-16 rounded-full"
+            />
           </motion.div>
 
           {/* Desktop Links */}
           <div className="hidden md:flex space-x-8">
             <Link
               href="/"
-              className="text-slate-700 hover:text-blue-600 transition-colors"
+              className="text-slate-700 hover:text-blue-600 transition-colors font-semibold"
               aria-label="Go to Home page"
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="text-slate-700 hover:text-blue-600 transition-colors"
+              className="text-slate-700 hover:text-blue-600 transition-colors font-semibold"
               aria-label="Go to About page"
             >
               About
             </Link>
             <Link
               href="/contact"
-              className="text-slate-700 hover:text-blue-600 transition-colors"
+              className="text-slate-700 hover:text-blue-600 transition-colors font-semibold"
               aria-label="Go to Contact page"
             >
               Contact
@@ -98,7 +110,7 @@ export default function Navbar() {
           <div className="flex flex-col space-y-4 pb-4">
             <Link
               href="/"
-              className="text-slate-700 hover:text-blue-600 transition-colors text-center"
+              className="text-slate-700 hover:text-blue-600 transition-colors text-center font-semibold"
               onClick={() => setIsMenuOpen(false)}
               aria-label="Go to Home page"
             >
@@ -106,7 +118,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/about"
-              className="text-slate-700 hover:text-blue-600 transition-colors text-center"
+              className="text-slate-700 hover:text-blue-600 transition-colors text-center font-semibold"
               onClick={() => setIsMenuOpen(false)}
               aria-label="Go to About page"
             >
@@ -114,7 +126,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/contact"
-              className="text-slate-700 hover:text-blue-600 transition-colors text-center"
+              className="text-slate-700 hover:text-blue-600 transition-colors text-center font-semibold"
               onClick={() => setIsMenuOpen(false)}
               aria-label="Go to Contact page"
             >
