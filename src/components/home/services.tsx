@@ -6,7 +6,7 @@ const Services = () => {
   return (
     <div>
       {/* Services Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white/50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}

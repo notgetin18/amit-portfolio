@@ -19,7 +19,7 @@ import Services from "@/components/home/services";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
       {/* Navigation */}
       {/* <div className="flex justify-center">
         <Navbar />
