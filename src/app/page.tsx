@@ -12,7 +12,6 @@ import {
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { fadeInUp, resumeContent, staggerContainer } from "@/constant";
-import Navbar from "@/components/home/navbar";
 import Skills from "@/components/home/Skills";
 import Projects from "@/components/home/projects";
 import Services from "@/components/home/services";
@@ -20,10 +19,6 @@ import Services from "@/components/home/services";
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
-      {/* Navigation */}
-      {/* <div className="flex justify-center">
-        <Navbar />
-      </div> */}
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
