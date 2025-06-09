@@ -26,7 +26,12 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-4 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200 max-w-7xl border-1 rounded-xl "
+      style={{
+        background:
+          "linear-gradient(to right,rgb(70, 80, 188) 0%, rgba(209, 213, 255, 0) 40%, rgba(0, 0, 0, 0) 100%)",
+      }}
+      className="w-full max-w-7xl fixed top-3 backdrop-blur-lg z-20 border-b border-[0.5px] border-blue-200 rounded-xl shadow-[0px_0px_65px_0_rgba(147,197,253,0.5)]"
+      // bg-gradient-to-r from-blue-500 via-purple-500 to-gray-900
     >
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-2">

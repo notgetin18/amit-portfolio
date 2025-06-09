@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import {
   ArrowDown,
@@ -14,9 +13,10 @@ import { Button } from "@/components/ui/button";
 import { fadeInUp, staggerContainer } from "@/constant";
 import Skills from "@/components/home/Skills";
 import Projects from "@/components/home/projects";
+import Services from "@/components/home/services";
 import Particles from "@tsparticles/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Engine, MoveDirection, OutMode } from "@tsparticles/engine";
+import { MoveDirection, OutMode } from "@tsparticles/engine";
 import { handleDownloadResume } from "@/utility";
 
 export default function HomePage() {
@@ -50,7 +50,8 @@ export default function HomePage() {
       });
   }, [particlesInitCb]);
 
-  const options = useMemo(
+  // Background particles (static, tiny, some squares)
+  const backgroundParticles = useMemo(
     () => ({
       background: {
         color: {
@@ -58,12 +59,62 @@ export default function HomePage() {
         },
       },
       fpsLimit: 60,
+      particles: {
+        number: {
+          value: 800,
+          density: {
+            enable: true,
+            area: 1000,
+          },
+        },
+        color: {
+          value: ["#dde2e6", "#fff", "dde2e6"], // White, light blue, light purple
+        },
+        shape: {
+          type: ["circle", "square"], // Added square shape
+          options: {
+            circle: {
+              weight: 0.8, // 70% chance for circles
+            },
+            square: {
+              weight: 0.2, // 20% chance for squares
+            },
+          },
+        },
+        opacity: {
+          value: { min: 0.7, max: 0.2 }, // Very faint
+          animation: {
+            enable: false,
+            speed: 0.5, // Slow twinkling
+            sync: false,
+          },
+        },
+        size: {
+          value: { min: 0.5, max: 1 }, // Tiny particles
+        },
+        move: {
+          enable: false, // Static particles
+        },
+        links: {
+          enable: false,
+        },
+      },
+      detectRetina: true,
+    }),
+    []
+  );
+
+  // Foreground particles (moving, circular, larger)
+  const foregroundParticles = useMemo(
+    () => ({
+      fpsLimit: 60,
       interactivity: {
         events: {
           onClick: {
             enable: true,
             mode: "push",
           },
+          onHover: {},
           resize: {
             enable: true,
           },
@@ -80,32 +131,40 @@ export default function HomePage() {
       },
       particles: {
         number: {
-          value: 300,
+          value: 400,
           density: {
             enable: true,
-            area: 800,
+            area: 1000,
           },
         },
         color: {
-          value: ["#F5BF03"],
+          value: ["#FFFF00"], // Keep yellow for foreground
         },
         shape: {
-          type: "circle",
+          type: ["circle", "square"], // Added square shape
+          options: {
+            circle: {
+              weight: 0.8, // 70% chance for circles
+            },
+            square: {
+              weight: 0.2, // 20% chance for squares
+            },
+          },
         },
         opacity: {
-          value: { min: 0.1, max: 0.4 },
+          value: { min: 0.2, max: 0.5 },
           animation: {
-            enable: true,
-            speed: 2,
+            enable: false,
+            speed: 1,
             sync: false,
           },
         },
         size: {
-          value: { min: 1, max: 3 },
+          value: { min: 0.5, max: 2 },
         },
         move: {
           enable: true,
-          speed: { min: 1, max: 1 },
+          speed: { min: 1, max: 2 },
           direction: MoveDirection.top,
           random: false,
           straight: true,
@@ -124,18 +183,34 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Particle Background - Moved to the top */}
+      {/* Particle Background Layers */}
       {init && (
-        <Particles
-          id="tsparticles"
-          options={options}
-          particlesLoaded={particlesLoaded}
-          className="absolute inset-0 z-0"
-        />
+        <>
+          <Particles
+            id="tsparticles-background"
+            options={backgroundParticles}
+            particlesLoaded={particlesLoaded}
+            className="absolute inset-0 z-0"
+          />
+          <Particles
+            id="tsparticles-foreground"
+            options={foregroundParticles}
+            particlesLoaded={particlesLoaded}
+            className="absolute inset-0 z-0"
+          />
+          <div
+            className="absolute inset-0 z-1"
+            style={{
+              background:
+                "linear-gradient(to right,rgb(34, 113, 225) 0%, rgba(62, 62, 71, 0) 30%, rgba(0, 0, 0, 0) 100%)",
+              opacity: "50%",
+            }}
+          />
+        </>
       )}
 
       {/* Hero Section */}
-      <section className="pt-[calc(4rem+2rem)]  px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="pt-[calc(4rem+2rem)] px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           <motion.div
             variants={staggerContainer}
@@ -145,7 +220,7 @@ export default function HomePage() {
           >
             <motion.h1
               variants={fadeInUp}
-              className="text-5xl md:text-7xl font-bold text-white mb-6 mt-5"
+              className="text-5xl md:text-7xl font-bold text-white mb-6 mt-10"
             >
               MERN Stack
               <span className="block bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
@@ -155,7 +230,7 @@ export default function HomePage() {
 
             <motion.p
               variants={fadeInUp}
-              className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl md:text-2xl text-white mb-6"
             >
               Crafting exceptional digital experiences with modern technologies,
               specializing in the MERN stack. Building scalable applications for
@@ -248,7 +323,7 @@ export default function HomePage() {
         <Projects />
       </section>
 
-      {/* Services Section -->
+      {/* Services Section */}
       <section className="relative z-10">
         <Services />
       </section>

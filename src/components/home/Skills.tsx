@@ -15,10 +15,10 @@ const Skills = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-200 mb-4">
               Technical Expertise
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
               Proficient in modern web technologies with a focus on creating
               scalable, user-friendly applications
             </p>
@@ -55,7 +55,7 @@ const Skills = () => {
                 skills: [
                   "MongoDB",
                   "MySQL",
-                  "AWS (basics)",
+                  "AWS",
                   "Data Visualization",
                 ],
               },
@@ -65,7 +65,7 @@ const Skills = () => {
               },
             ].map((skillGroup, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300 border-slate-200">
+                <Card className="h-full bg-gradient-to-bl from-gray-100 to-indigo-600 hover:shadow-lg transition-shadow duration-300 border-slate-200">
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold text-slate-800 mb-4">
                       {skillGroup.category}
@@ -93,3 +93,53 @@ const Skills = () => {
 };
 
 export default Skills;
+
+// const RevolvingLogos = () => {
+//   const logos = [
+//     { src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mongodb.svg", alt: "MongoDB" },
+//     { src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/express.svg", alt: "Express.js" },
+//     { src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg", alt: "React" },
+//     { src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nodedotjs.svg", alt: "Node.js" },
+//   ];
+
+//   return (
+//     <div className="relative w-64 h-64 mx-auto my-8">
+//       {logos.map((logo, index) => (
+//         <div
+//           key={logo.alt}
+//           className="absolute w-full h-full animate-revolve"
+//           style={{
+//             transformOrigin: "center",
+//             animationDelay: `${index * 1.5}s`, // Stagger the start of each logo's animation
+//           }}
+//         >
+//           <img
+//             src={logo.src}
+//             alt={logo.alt}
+//             className="absolute w-12 h-12 text-white fill-current top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform-origin-[50%_128px] drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"
+//             style={{
+//               transform: `rotate(${index * 90}deg) translate(128px) rotate(-${index * 90}deg)`, // Position logos at 90-degree intervals
+//             }}
+//           />
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+//  <style jsx>{`
+//         @keyframes revolve {
+//           from {
+//             transform: rotate(0deg);
+//           }
+//           to {
+//             transform: rotate(360deg);
+//           }
+//         }
+//         .animate-revolve {
+//           animation: revolve 6s linear infinite;
+//         }
+//         .transform-origin-[50%_128px] {
+//           transform-origin: 50% 128px;
+//         }
+//       `}</style>

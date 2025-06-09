@@ -12,27 +12,18 @@ import {
   Rocket,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
-};
-
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
+import { fadeInUp, staggerContainer } from "@/constant";
 
 export default function AboutUs() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
-      {/* bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 */}
+    <div
+      className="min-h-screen h-screen bg-cover bg-center bg-no-repeat relative bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50"
+      style={{ backgroundImage: "url('/workspace.jpg')" }}
+    >
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-black/10 z-0" />
 
-      <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+      <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Hero Section */}
           <motion.div
@@ -43,13 +34,13 @@ export default function AboutUs() {
           >
             <motion.h1
               variants={fadeInUp}
-              className="text-4xl md:text-6xl font-bold text-slate-800 mb-6"
+              className="text-4xl md:text-6xl font-bold text-white mb-6"
             >
               About Me
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
+              className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed"
             >
               A passionate full-stack developer specializing in the MERN stack,
               with a proven track record of building scalable applications and
@@ -73,7 +64,7 @@ export default function AboutUs() {
               { icon: Award, number: "3+", label: "Years Experience" },
             ].map((stat, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="text-center p-6 hover:shadow-lg transition-shadow duration-300">
+                <Card className="text-center p-6 hover:shadow-lg transition-shadow duration-300 bg-white/90">
                   <stat.icon className="w-8 h-8 text-blue-600 mx-auto mb-3" />
                   <div className="text-2xl font-bold text-slate-800 mb-1">
                     {stat.number}
@@ -92,7 +83,7 @@ export default function AboutUs() {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
               Professional Journey
             </h2>
 
@@ -105,7 +96,7 @@ export default function AboutUs() {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <Card className="p-6 ml-8 hover:shadow-lg transition-shadow duration-300">
+                <Card className="p-6 ml-8 hover:shadow-lg transition-shadow duration-300 bg-white/90">
                   <div className="absolute -left-4 top-6 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg"></div>
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <div>
@@ -155,7 +146,7 @@ export default function AboutUs() {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <Card className="p-6 ml-8 hover:shadow-lg transition-shadow duration-300">
+                <Card className="p-6 ml-8 hover:shadow-lg transition-shadow duration-300 bg-white/90">
                   <div className="absolute -left-4 top-6 w-4 h-4 bg-indigo-600 rounded-full border-4 border-white shadow-lg"></div>
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <div>
@@ -201,11 +192,11 @@ export default function AboutUs() {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
               Services I Offer
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <Card className="p-6 hover:shadow-lg transition-shadow duration-300">
+              <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-white/90">
                 <Wrench className="w-8 h-8 text-blue-600 mx-auto mb-3" />
                 <h3 className="text-xl font-semibold text-slate-800 mb-2 text-center">
                   Web Development
@@ -215,7 +206,7 @@ export default function AboutUs() {
                   MERN stack.
                 </p>
               </Card>
-              <Card className="p-6 hover:shadow-lg transition-shadow duration-300">
+              <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-white/90">
                 <Palette className="w-8 h-8 text-blue-600 mx-auto mb-3" />
                 <h3 className="text-xl font-semibold text-slate-800 mb-2 text-center">
                   UI/UX Design
@@ -225,7 +216,7 @@ export default function AboutUs() {
                   web and mobile platforms.
                 </p>
               </Card>
-              <Card className="p-6 hover:shadow-lg transition-shadow duration-300">
+              <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-white/90">
                 <Rocket className="w-8 h-8 text-blue-600 mx-auto mb-3" />
                 <h3 className="text-xl font-semibold text-slate-800 mb-2 text-center">
                   Performance Optimization
@@ -248,7 +239,7 @@ export default function AboutUs() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Education */}
-              <Card className="p-6 hover:shadow-lg transition-shadow duration-300">
+              <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-white/90">
                 <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
                   <Award className="w-6 h-6 mr-3 text-blue-600" />
                   Education
@@ -278,7 +269,7 @@ export default function AboutUs() {
               </Card>
 
               {/* Community Work */}
-              <Card className="p-6 hover:shadow-lg transition-shadow duration-300">
+              <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-white/90">
                 <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center">
                   <Users className="w-6 h-6 mr-3 text-green-600" />
                   Community Impact
@@ -314,11 +305,11 @@ export default function AboutUs() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
               Beyond Code
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <Card className="p-6 hover:shadow-lg transition-shadow duration-300">
+              <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-white/90">
                 <div className="text-4xl mb-4">📚</div>
                 <h3 className="text-xl font-semibold text-slate-800 mb-2">
                   Audio Books
@@ -329,7 +320,7 @@ export default function AboutUs() {
                   development.
                 </p>
               </Card>
-              <Card className="p-6 hover:shadow-lg transition-shadow duration-300">
+              <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-white/90">
                 <div className="text-4xl mb-4">🏏</div>
                 <h3 className="text-xl font-semibold text-slate-800 mb-2">
                   Cricket
@@ -339,7 +330,7 @@ export default function AboutUs() {
                   and develop teamwork and strategic thinking skills.
                 </p>
               </Card>
-              <Card className="p-6 hover:shadow-lg transition-shadow duration-300">
+              <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-white/90">
                 <div className="text-4xl mb-4">🌱</div>
                 <h3 className="text-xl font-semibold text-slate-800 mb-2">
                   Gardening

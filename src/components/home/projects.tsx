@@ -17,10 +17,10 @@ const Projects = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-200 mb-4">
               Featured Projects
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
               Showcasing impactful applications that serve thousands of users
             </p>
           </motion.div>

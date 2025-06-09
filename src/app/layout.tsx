@@ -89,7 +89,7 @@ export default function RootLayout({
         />
         <link rel="manifest" href="/favicons/site.webmanifest" />
       </Head> */}
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-black`}>
         <div className="flex justify-center ">
           <Navbar />
         </div>
