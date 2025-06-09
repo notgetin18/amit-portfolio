@@ -10,6 +10,7 @@ import {
   Wrench,
   Palette,
   Rocket,
+  MapPin,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { fadeInUp, staggerContainer } from "@/constant";
@@ -17,11 +18,11 @@ import { fadeInUp, staggerContainer } from "@/constant";
 export default function AboutUs() {
   return (
     <div
-      className="min-h-screen h-screen bg-cover bg-center bg-no-repeat relative bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50"
+      className="min-h-screen h-screen bg-cover bg-center bg-no-repeat relative  overflow-y-auto"
       style={{ backgroundImage: "url('/workspace.jpg')" }}
     >
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-black/10 z-0" />
+      <div className="absolute inset-0  z-0" />
 
       <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
@@ -249,20 +250,32 @@ export default function AboutUs() {
                     <h4 className="text-lg font-semibold text-slate-800">
                       Master of Computer Application
                     </h4>
-                    <p className="text-blue-600 font-medium">MAHGU</p>
+                    <p className="text-blue-600 font-medium">
+                      Maharaja Agrasen Himalayan Garhwal University (MAHGU)
+                    </p>
+                    <div className="flex items-center gap-1.5">
+                      <MapPin className="w-5 h-5 text-slate-700 " />
+                      <span>Uttarakhand</span>
+                    </div>
                     <div className="flex items-center text-slate-600 mt-1">
                       <Calendar className="w-4 h-4 mr-2" />
                       2021 - 2023
                     </div>
                   </div>
-                  <div className="border-l-2 border-slate-200 pl-4">
+                  <div className="border-l-2 border-slate-200">
                     <h4 className="text-lg font-semibold text-slate-800">
-                      Bachelor's Degree in Computer Application
+                      Bachelor in Computer Application
                     </h4>
-                    <p className="text-blue-600 font-medium">IGNOU, Delhi</p>
+                    <p className="text-blue-600 font-medium">
+                      Indira Gandhi National Open University (IGNOU)
+                    </p>
+                    <div className="flex items-center gap-1.5">
+                      <MapPin className="w-5 h-5 text-slate-700 " />
+                      <span>Delhi</span>
+                    </div>
                     <div className="flex items-center text-slate-600 mt-1">
                       <Calendar className="w-4 h-4 mr-2" />
-                      June 2018 - June 2021
+                      2018 - 2021
                     </div>
                   </div>
                 </div>
