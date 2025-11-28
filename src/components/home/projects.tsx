@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github } from "lucide-react";
+import { Github, Link } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeInUp, staggerContainer } from "@/constant";
@@ -69,9 +69,18 @@ const Projects = () => {
                       <Github className="w-4 h-4 mr-2" />
                       Code
                     </Button>
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
-                      Live Demo
-                    </Button>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://www.brightdigigold.com/"
+                    >
+                      <Button
+                        size="sm"
+                        className="bg-blue-600 hover:bg-blue-700"
+                      >
+                        Live Demo
+                      </Button>
+                    </a>
                   </div>
                 </CardContent>
               </Card>
@@ -79,14 +88,17 @@ const Projects = () => {
 
             <motion.div variants={fadeInUp}>
               <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 border-slate-200">
-                {/* <Image
-                  alt="Project Image"
-                  src="/Medical Kundali.svg"
-                  width={600}
-                  height={300}
-                  className="w-full h-48 object-cover"
-                /> */}
-                <div className="h-48 bg-gradient-to-br from-purple-400 to-pink-500"></div>
+                <div className="flex justify-between place-items-center">
+                  <Image
+                    alt="Project Image"
+                    src="/Testofire.webp"
+                    width={600}
+                    height={300}
+                    className="w-full h-48 object-contain"
+                  />
+                  <p className="text-4xl pr-2">TestOfire</p>
+                </div>
+                <div className="border-2 border-[#1A1E2E]"></div>
                 <CardContent className="p-6">
                   <h2 className="text-2xl font-bold text-slate-800 mb-3">
                     TestOfire Technologies
@@ -114,12 +126,18 @@ const Projects = () => {
                       <Github className="w-4 h-4 mr-2" />
                       Code
                     </Button>
-                    <Button
-                      size="sm"
-                      className="bg-purple-600 hover:bg-purple-700"
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://testofire.in/"
                     >
-                      Live Demo
-                    </Button>
+                      <Button
+                        size="sm"
+                        className="bg-purple-600 hover:bg-purple-700"
+                      >
+                        Live Demo
+                      </Button>
+                    </a>
                   </div>
                 </CardContent>
               </Card>
@@ -132,9 +150,9 @@ const Projects = () => {
                   src="/Medical Kundali.svg"
                   width={600}
                   height={300}
-                  className="w-full h-48 object-contain"
+                  className="w-full h-48 object-contain px-3 border-1 border-slate-900"
                 />
-                {/* <div className="h-48 bg-gradient-to-br from-green-400 to-teal-500"></div> */}
+                <div className="border-2 border-red-900"></div>
                 <CardContent className="p-6">
                   <h2 className="text-2xl font-bold text-slate-800 mb-3">
                     Medical Kundali
@@ -161,12 +179,18 @@ const Projects = () => {
                       <Github className="w-4 h-4 mr-2" />
                       Code
                     </Button>
-                    <Button
-                      size="sm"
-                      className="bg-green-600 hover:bg-green-700"
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://medicalkundali.com/"
                     >
-                      Live Demo
-                    </Button>
+                      <Button
+                        size="sm"
+                        className="bg-green-600 hover:bg-green-700"
+                      >
+                        Live Demo
+                      </Button>
+                    </a>
                   </div>
                 </CardContent>
               </Card>
