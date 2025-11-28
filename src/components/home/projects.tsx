@@ -48,7 +48,7 @@ const Projects = () => {
                     Bright Digi Gold
                   </h2>
                   <p className="text-slate-600 mb-4">
-                    Comprehensive digital gold platform serving 50,000+ users
+                    Comprehensive digital gold platform serving 100,000+ users
                     with optimized performance and integrated payment gateways.
                     Achieved 30% speed improvement and 20% revenue increase.
                   </p>
