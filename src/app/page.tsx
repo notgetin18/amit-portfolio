@@ -5,6 +5,7 @@ import {
   Download,
   Github,
   Linkedin,
+  Loader2,
   Mail,
   Twitter,
 } from "lucide-react";
@@ -18,6 +19,8 @@ import Particles from "@tsparticles/react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { MoveDirection, OutMode } from "@tsparticles/engine";
 import { handleDownloadResume } from "@/utility";
+import SecondaryButton from "@/components/buttons/secondaryButton";
+import PrimaryButtons from "@/components/buttons/primaryButtons";
 
 export default function HomePage() {
   const [init, setInit] = useState(false);
@@ -184,7 +187,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Particle Background Layers */}
-      {init && (
+      {init ? (
         <>
           <Particles
             id="tsparticles-background"
@@ -207,6 +210,12 @@ export default function HomePage() {
             }}
           />
         </>
+      ) : (
+        <>
+          <div className="absolute inset-0 flex items-center justify-center z-1">
+            <Loader2 className="w-12 h-12 text-[#FFFF00] animate-spin" />{" "}
+          </div>
+        </>
       )}
 
       {/* Hero Section */}
@@ -220,47 +229,46 @@ export default function HomePage() {
           >
             <motion.h1
               variants={fadeInUp}
-              className="text-5xl md:text-7xl font-bold text-white mb-6 mt-10"
+              className="text-5xl md:text-7xl font-bold primary-text-color shadow-xl shadow-primary-text-color py-6 mt-10 transform-[rotate(-28deg) skew(25deg)]"
             >
               MERN Stack
-              <span className="block bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                Developer
-              </span>
+              <span className="block bg-clip-text ">Developer</span>
             </motion.h1>
 
             <motion.p
               variants={fadeInUp}
-              className="text-xl md:text-2xl text-white mb-6"
+              className="text-xl md:text-2xl text-white py-6"
             >
-              Crafting exceptional digital experiences with modern technologies,
+              <span className="font-extrabold h-8">“ </span>
+              Built Medical Kundali (live healthcare SaaS) • Bright Digi Gold (1
+              Million+ users) • TestOfire Technologies (Real-time EdTech){" "}
+              <span>”</span>
+              {/* Crafting exceptional digital experiences with modern technologies,
               specializing in the MERN stack. Building scalable applications for
-              1 Million+ users.
+              1 Million+ users. */}
             </motion.p>
 
             <motion.div
               variants={fadeInUp}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center py-6"
             >
-              <Button
-                asChild
-                size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
-              >
-                <Link href="/contact">Get In Touch</Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="px-8 py-3 text-black border-white hover:bg-white hover:text-blue-600"
-              >
-                <Link href="/about">Learn More</Link>
-              </Button>
+              <Link href="/contact">
+                <SecondaryButton
+                  title="Get In Touch"
+                  containerStyles="px-8 py-3 rounded-3xl text-lg font-base leading-wide"
+                />
+              </Link>
+              <Link href="/about">
+                <PrimaryButtons
+                  title="Learn More"
+                  containerStyles="px-8 py-3 rounded-3xl text-lg font-base leading-wide"
+                />
+              </Link>
             </motion.div>
 
             <motion.div
               variants={fadeInUp}
-              className="flex justify-center space-x-6"
+              className="flex justify-center space-x-8 py-4"
             >
               <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -268,7 +276,7 @@ export default function HomePage() {
                 className="text-gray-300 hover:text-blue-400 transition-colors"
                 aria-label="Visit Amit Kumar's GitHub profile"
               >
-                <Github className="w-6 h-6" />
+                <Github className="w-7 h-7" />
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -276,7 +284,7 @@ export default function HomePage() {
                 className="text-gray-300 hover:text-blue-400 transition-colors"
                 aria-label="Visit Amit Kumar's LinkedIn profile"
               >
-                <Linkedin className="w-6 h-6" />
+                <Linkedin className="w-7 h-7" />
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -284,7 +292,7 @@ export default function HomePage() {
                 className="text-gray-300 hover:text-blue-400 transition-colors"
                 aria-label="Visit Amit Kumar's Twitter profile"
               >
-                <Twitter className="w-6 h-6" />
+                <Twitter className="w-7 h-7" />
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -292,7 +300,7 @@ export default function HomePage() {
                 className="text-gray-300 hover:text-blue-400 transition-colors"
                 aria-label="Email Amit Kumar"
               >
-                <Mail className="w-6 h-6" />
+                <Mail className="w-7 h-7" />
               </motion.a>
             </motion.div>
           </motion.div>
@@ -301,13 +309,13 @@ export default function HomePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.6 }}
-            className="flex justify-center my-12"
+            className="flex justify-center my-8"
           >
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}
             >
-              <ArrowDown className="w-6 h-6 text-white" />
+              <ArrowDown className="w-8 h-8 text-white" />
             </motion.div>
           </motion.div>
         </div>

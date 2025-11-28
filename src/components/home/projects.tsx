@@ -3,6 +3,7 @@ import { Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeInUp, staggerContainer } from "@/constant";
+import Image from "next/image";
 
 const Projects = () => {
   return (
@@ -30,14 +31,21 @@ const Projects = () => {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+            className="grid grid-cols-1 lg:grid-cols-3 gap-8"
           >
             <motion.div variants={fadeInUp}>
               <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 border-slate-200">
-                <div className="h-48 bg-gradient-to-br from-yellow-400 to-orange-500"></div>
+                {/* <div className="h-48 bg-gradient-to-br from-yellow-400 to-orange-500"></div> */}
+                <Image
+                  alt="Project Image"
+                  src="/Bright DiGi Gold.jpg"
+                  width={600}
+                  height={300}
+                  className="w-full h-48 object-contain"
+                />
                 <CardContent className="p-6">
                   <h2 className="text-2xl font-bold text-slate-800 mb-3">
-                    BrightDigiGold
+                    Bright Digi Gold
                   </h2>
                   <p className="text-slate-600 mb-4">
                     Comprehensive digital gold platform serving 50,000+ users
@@ -71,6 +79,13 @@ const Projects = () => {
 
             <motion.div variants={fadeInUp}>
               <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 border-slate-200">
+                {/* <Image
+                  alt="Project Image"
+                  src="/Medical Kundali.svg"
+                  width={600}
+                  height={300}
+                  className="w-full h-48 object-cover"
+                /> */}
                 <div className="h-48 bg-gradient-to-br from-purple-400 to-pink-500"></div>
                 <CardContent className="p-6">
                   <h2 className="text-2xl font-bold text-slate-800 mb-3">
@@ -112,7 +127,14 @@ const Projects = () => {
 
             <motion.div variants={fadeInUp}>
               <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 border-slate-200">
-                <div className="h-48 bg-gradient-to-br from-green-400 to-teal-500"></div>
+                <Image
+                  alt="Project Image"
+                  src="/Medical Kundali.svg"
+                  width={600}
+                  height={300}
+                  className="w-full h-48 object-contain"
+                />
+                {/* <div className="h-48 bg-gradient-to-br from-green-400 to-teal-500"></div> */}
                 <CardContent className="p-6">
                   <h2 className="text-2xl font-bold text-slate-800 mb-3">
                     Medical Kundali

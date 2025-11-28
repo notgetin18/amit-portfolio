@@ -8,6 +8,7 @@ import { useState } from "react";
 import { handleDownloadResume } from "@/utility";
 import Image from "next/image";
 import amitImage from "../../../public/favicons/web-app-manifest-192x192.png";
+import PrimaryButtons from "../buttons/primaryButtons";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,7 +29,7 @@ export default function Navbar() {
       transition={{ duration: 0.6 }}
       style={{
         background:
-          "linear-gradient(to right,rgb(70, 80, 188) 0%, rgba(209, 213, 255, 0) 40%, rgba(0, 0, 0, 0) 100%)",
+          "linear-gradient(to right,rgb(70, 80, 188) 0%, rgba(209, 213, 255, 0) 50%, rgba(255, 255, 255, 0.3) 100%)",
       }}
       className="w-full max-w-7xl fixed top-3 backdrop-blur-lg z-20 border-b border-[0.5px] border-blue-200 rounded-xl shadow-[0px_0px_65px_0_rgba(147,197,253,0.5)]"
       // bg-gradient-to-r from-blue-500 via-purple-500 to-gray-900
@@ -56,21 +57,21 @@ export default function Navbar() {
           <div className="hidden md:flex space-x-8">
             <Link
               href="/"
-              className="text-slate-700 hover:text-blue-600 transition-colors font-semibold"
+              className="text-slate-200 hover:text-blue-600 transition-colors font-semibold"
               aria-label="Go to Home page"
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="text-slate-700 hover:text-blue-600 transition-colors font-semibold"
+              className="text-slate-200 hover:text-blue-600 transition-colors font-semibold"
               aria-label="Go to About page"
             >
               About
             </Link>
             <Link
               href="/contact"
-              className="text-slate-700 hover:text-blue-600 transition-colors font-semibold"
+              className="text-slate-200 hover:text-blue-600 transition-colors font-semibold"
               aria-label="Go to Contact page"
             >
               Contact
@@ -96,10 +97,20 @@ export default function Navbar() {
           <div className="hidden md:block">
             <Button
               onClick={() => handleDownloadResume("pdf")}
-              className="bg-blue-600 hover:bg-blue-700 text-white"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-medium uppercase"
+              style={{
+                fontWeight: 500,
+                borderRadius: "20px",
+                border: "0.5px solid #F9DDB5",
+                background:
+                  "linear-gradient(90deg, #EEB056 0%,rgb(161, 103, 16) 100%)", // Gradient background
+                boxShadow: "0px 4px 8px 0pxrgba(251, 250, 250, 0.3)", // Subtle shadow for depth
+                position: "relative", // Ensure proper layering
+                outline: "none", // Remove default outline
+              }}
               aria-label="Download Amit Kumar's resume in PDF format"
             >
-              <Download className="w-4 h-4 mr-2" />
+              <Download className="w-4 h-4 mr-1 text-white" />
               Resume
             </Button>
           </div>
@@ -115,7 +126,7 @@ export default function Navbar() {
           <div className="flex flex-col space-y-4 pb-4">
             <Link
               href="/"
-              className="text-slate-700 hover:text-blue-600 transition-colors text-center font-semibold"
+              className="text-slate-200 hover:text-blue-600 transition-colors text-center font-semibold"
               onClick={() => setIsMenuOpen(false)}
               aria-label="Go to Home page"
             >
@@ -123,7 +134,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/about"
-              className="text-slate-700 hover:text-blue-600 transition-colors text-center font-semibold"
+              className="text-slate-200 hover:text-blue-600 transition-colors text-center font-semibold"
               onClick={() => setIsMenuOpen(false)}
               aria-label="Go to About page"
             >
@@ -131,7 +142,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/contact"
-              className="text-slate-700 hover:text-blue-600 transition-colors text-center font-semibold"
+              className="text-slate-200 hover:text-blue-600 transition-colors text-center font-semibold"
               onClick={() => setIsMenuOpen(false)}
               aria-label="Go to Contact page"
             >

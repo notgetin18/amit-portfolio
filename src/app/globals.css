@@ -81,3 +81,19 @@
   }
 }
 
+/* global class */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.primary-text-color {
+  position: relative;
+  color: #33ff00;
+  text-shadow: 0 10px 30px #e9eeea;
+  transform: rotate(-28deg) skew(25deg);
+}

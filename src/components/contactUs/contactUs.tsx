@@ -106,8 +106,8 @@ export default function ContactUs() {
       url = "/Amit-Resume.pdf";
       filename = "Amit_Kumar_Resume.pdf";
     } else if (format === "docx") {
-      url = "/Amit-kumar_Resume.docx";
-      filename = "AmitKumar_Resume.docx";
+      url = "/Amit-Resume.docx";
+      filename = "Amit_Kumar_Resume.docx";
     } else {
       return;
     }
@@ -246,27 +246,27 @@ export default function ContactUs() {
                 <div className="flex space-x-4">
                   <motion.a
                     whileHover={{ scale: 1.1, y: -2 }}
-                    href="https://github.com/amitkumar"
+                    href="https://www.github.com/notgetin18"
                     className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center text-slate-600 hover:text-slate-800 hover:bg-slate-200 transition-colors"
                     aria-label="Visit Amit Kumar's GitHub profile"
                   >
-                    <Github className="w-6 h-6" />
+                    <Github className="w-7 h-7" />
                   </motion.a>
                   <motion.a
                     whileHover={{ scale: 1.1, y: -2 }}
-                    href="https://linkedin.com/in/amitkumar"
+                    href="https://www.linkedin.com/in/notgetin18"
                     className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 hover:text-blue-700 hover:bg-blue-200 transition-colors"
                     aria-label="Visit Amit Kumar's LinkedIn profile"
                   >
-                    <Linkedin className="w-6 h-6" />
+                    <Linkedin className="w-7 h-7" />
                   </motion.a>
                   <motion.a
                     whileHover={{ scale: 1.1, y: -2 }}
-                    href="https://twitter.com/amitkumar"
+                    href="https://www.x.com/Amitsin40190332"
                     className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center text-sky-600 hover:text-sky-700 hover:bg-sky-200 transition-colors"
                     aria-label="Visit Amit Kumar's Twitter profile"
                   >
-                    <Twitter className="w-6 h-6" />
+                    <Twitter className="w-7 h-7" />
                   </motion.a>
                 </div>
               </motion.div>
