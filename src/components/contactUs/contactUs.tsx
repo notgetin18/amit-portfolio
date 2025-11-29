@@ -2,17 +2,11 @@
 
 import type React from "react";
 import { motion } from "framer-motion";
-import {
-  Mail,
-  Phone,
-  Github,
-  Linkedin,
-  Twitter,
-  Download,
-  MapPin,
-  Send,
-} from "lucide-react";
+import { Mail, Phone, Download, MapPin, Send } from "lucide-react";
+import LinkedinIcon from "@/components/icons/LinkedinIcon";
+import XIcon from "@/components/icons/XIcon";
 import Link from "next/link";
+import GitHubIcon from "@/components/icons/GitHubIcon";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -245,12 +239,13 @@ export default function ContactUs() {
                 </h3>
                 <div className="flex space-x-4">
                   <motion.a
-                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
                     href="https://www.github.com/notgetin18"
-                    className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center text-slate-600 hover:text-slate-800 hover:bg-slate-200 transition-colors"
+                    className="w-12 h-12 rounded-lg flex items-center justify-center text-slate-600 hover:text-white transition-all hover:bg-gradient-to-r hover:from-[#EEB056] hover:to-[#82540D] duration-500 "
                     aria-label="Visit Amit Kumar's GitHub profile"
+                    style={{ backgroundColor: "#f1f5f9" }}
                   >
-                    <Github className="w-7 h-7" />
+                    <GitHubIcon className="w-7 h-7" />
                   </motion.a>
                   <motion.a
                     whileHover={{ scale: 1.1, y: -2 }}
@@ -258,15 +253,15 @@ export default function ContactUs() {
                     className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 hover:text-blue-700 hover:bg-blue-200 transition-colors"
                     aria-label="Visit Amit Kumar's LinkedIn profile"
                   >
-                    <Linkedin className="w-7 h-7" />
+                    <LinkedinIcon className="w-7 h-7" />
                   </motion.a>
                   <motion.a
                     whileHover={{ scale: 1.1, y: -2 }}
                     href="https://www.x.com/Amitsin40190332"
-                    className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center text-sky-600 hover:text-sky-700 hover:bg-sky-200 transition-colors"
-                    aria-label="Visit Amit Kumar's Twitter profile"
+                    className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center text-sky-600 hover:text-white transition-all hover:bg-gradient-to-r hover:from-[#EEB056] hover:to-[#82540D]"
+                    aria-label="Visit Amit Kumar's X profile"
                   >
-                    <Twitter className="w-7 h-7" />
+                    <XIcon className="w-7 h-7" />
                   </motion.a>
                 </div>
               </motion.div>

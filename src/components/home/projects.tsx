@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Github, Link } from "lucide-react";
+import { Link } from "lucide-react";
+import GitHubIcon from "@/components/icons/GitHubIcon";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeInUp, staggerContainer } from "@/constant";
@@ -66,7 +67,7 @@ const Projects = () => {
                   </div>
                   <div className="flex space-x-4">
                     <Button variant="outline" size="sm">
-                      <Github className="w-4 h-4 mr-2" />
+                      <GitHubIcon className="w-4 h-4 mr-2" />
                       Code
                     </Button>
                     <a
@@ -123,7 +124,7 @@ const Projects = () => {
                   </div>
                   <div className="flex space-x-4">
                     <Button variant="outline" size="sm">
-                      <Github className="w-4 h-4 mr-2" />
+                      <GitHubIcon className="w-4 h-4 mr-2" />
                       Code
                     </Button>
                     <a
@@ -176,7 +177,7 @@ const Projects = () => {
                   </div>
                   <div className="flex space-x-4">
                     <Button variant="outline" size="sm">
-                      <Github className="w-4 h-4 mr-2" />
+                      <GitHubIcon className="w-4 h-4 mr-2" />
                       Code
                     </Button>
                     <a
