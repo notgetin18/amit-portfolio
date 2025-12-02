@@ -286,24 +286,22 @@ export default function ContactUs() {
                 className="pt-6"
               >
                 <div className="flex flex-col space-y-4">
-                  <button
-                    type="button"
+                  <div
                     onClick={() => handleDownloadResume("pdf")}
-                    className="w-full flex items-center justify-center py-3 text-base rounded-md bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-200 text-white"
+                    className="w-full flex items-center justify-center py-3 text-base rounded-md bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-200 text-white cursor-pointer"
                     aria-label="Download Amit Kumar's resume in PDF format"
                   >
                     <Download className="w-5 h-5 mr-2 text-[#3ed6ac]" />
                     <span>Download Resume (PDF)</span>
-                  </button>
-                  <button
-                    type="button"
+                  </div>
+                  <div
                     onClick={() => handleDownloadResume("docx")}
-                    className="w-full flex items-center justify-center py-3 text-base rounded-md bg-transparent border border-white/10 hover:bg-white/5 transition-colors duration-200 text-white"
+                    className="w-full flex items-center justify-center py-3 text-base rounded-md bg-transparent border border-white/10 hover:bg-white/5 transition-colors duration-200 text-white cursor-pointer"
                     aria-label="Download Amit Kumar's resume in DOCX format"
                   >
                     <Download className="w-5 h-5 mr-2 text-[#3ed6ac]" />
                     <span>Download Resume (DOCX)</span>
-                  </button>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>

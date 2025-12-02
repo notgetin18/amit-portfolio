@@ -21,6 +21,10 @@ import PrimaryButtons from "@/components/buttons/primaryButtons";
 export default function HomePage() {
   const shouldReduceMotion = useReducedMotion();
   const [init, setInit] = useState(false);
+  const [particleCount, setParticleCount] = useState({
+    background: 800,
+    foreground: 400,
+  });
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -71,6 +75,18 @@ export default function HomePage() {
     return () => clearTimeout(t);
   }, [particlesInitCb]);
 
+  useEffect(() => {
+    // Set particle count based on window size only on the client-side to avoid hydration mismatch
+    const updateParticleCount = () => {
+      const isMobile = window.innerWidth < 640;
+      setParticleCount({
+        background: isMobile ? 80 : 800,
+        foreground: isMobile ? 40 : 400,
+      });
+    };
+    updateParticleCount();
+  }, []);
+
   // Background particles (static, tiny, some squares)
   const backgroundParticles = useMemo(
     () => ({
@@ -83,8 +99,7 @@ export default function HomePage() {
       particles: {
         number: {
           // Adaptive particle count — keep lighter on small screens for Web Vitals
-          value:
-            typeof window !== "undefined" && window.innerWidth < 640 ? 80 : 800,
+          value: particleCount.background,
           density: {
             enable: true,
             area: 1000,
@@ -124,7 +139,7 @@ export default function HomePage() {
       },
       detectRetina: true,
     }),
-    []
+    [particleCount.background]
   );
 
   // Foreground particles (moving, circular, larger)
@@ -154,8 +169,7 @@ export default function HomePage() {
       },
       particles: {
         number: {
-          value:
-            typeof window !== "undefined" && window.innerWidth < 640 ? 40 : 400,
+          value: particleCount.foreground,
           density: {
             enable: true,
             area: 1000,
@@ -206,7 +220,7 @@ export default function HomePage() {
         ...(shouldReduceMotion ? { enable: false } : {}),
       },
     }),
-    []
+    [particleCount.foreground, shouldReduceMotion]
   );
 
   // Load particles client-side only and lazily (next/dynamic)
@@ -533,16 +547,11 @@ export default function HomePage() {
                       />
                     </Link>
 
-                    <button
-                      onClick={() => handleDownloadResume("pdf")}
-                      aria-label="Download resume"
-                      className="w-full sm:w-auto"
-                    >
-                      <SecondaryButton
-                        title="Download resume"
-                        containerStyles="px-6 py-3 rounded-3xl text-base w-full sm:w-auto"
-                      />
-                    </button>
+                    <SecondaryButton
+                      title="Download resume"
+                      handleClick={() => handleDownloadResume("pdf")}
+                      containerStyles="px-6 py-3 rounded-3xl text-base w-full sm:w-auto"
+                    />
                   </div>
 
                   <div className="mt-6 flex items-center gap-6 text-sm text-slate-300 flex-wrap">
