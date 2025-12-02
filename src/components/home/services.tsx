@@ -20,7 +20,7 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <div className="inline-flex items-center text-sm text-slate-400 uppercase tracking-widest rounded-full bg-gradient-to-r from-white/5 via-white/3 to-transparent px-3 py-1 mb-4">
+            <div className="inline-flex items-center text-sm text-slate-300 uppercase tracking-widest rounded-full bg-gradient-to-r from-white/5 via-white/3 to-transparent px-3 py-1 mb-4">
               What I do
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] mb-3">
@@ -101,7 +101,11 @@ const Services = () => {
                       />
                     </svg>
                   ),
-                  category: ["React Native", "Flutter", "Play Store / App Store"],
+                  category: [
+                    "React Native",
+                    "Flutter",
+                    "Play Store / App Store",
+                  ],
                 },
                 {
                   title: "API Design & Integrations",
@@ -246,13 +250,16 @@ const Services = () => {
                   >
                     Download resume
                   </Button>
-                  <Button
-                    variant="ghost"
-                    className="w-full sm:w-auto text-slate-300 border border-white/4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8ef3c1]"
-                    aria-label="Contact to hire"
-                  >
-                    Contact to hire
-                  </Button>
+
+                  <a href="mailto:notgetin18@gmail.com">
+                    <Button
+                      variant="ghost"
+                      className="w-full sm:w-auto text-slate-300 border border-white/4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8ef3c1]"
+                      aria-label="Contact to hire"
+                    >
+                      Contact to hire
+                    </Button>
+                  </a>
                 </div>
               </Card>
 

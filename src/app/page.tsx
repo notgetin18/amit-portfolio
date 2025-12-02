@@ -383,7 +383,7 @@ export default function HomePage() {
 
             <motion.div
               variants={fadeInUp}
-              className="flex justify-center space-x-8 mt-8"
+              className="flex justify-center space-x-6 mt-8"
             >
               <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -408,7 +408,7 @@ export default function HomePage() {
                 className="text-gray-100 hover:text-[#eeb056] transition-colors "
                 aria-label="Visit Amit Kumar's X profile"
               >
-                <XIcon className="w-9 h-9" />
+                <XIcon className="w-10 h-10 my-1" />
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}

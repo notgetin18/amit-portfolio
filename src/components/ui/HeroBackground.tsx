@@ -57,7 +57,7 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
             background: { color: { value: "#000000" } },
             fpsLimit: 60,
             particles: {
-                number: { value: typeof window !== "undefined" && window.innerWidth < 640 ? 80 : 600, density: { enable: true, area: 1000 } },
+                number: { value: typeof window !== "undefined" && window.innerWidth < 640 ? 300 : 600, density: { enable: true, area: 1000 } },
                 color: { value: ["#dde2e6", "#fff", "#dde2e6"] },
                 shape: { type: ["circle", "square"] },
                 opacity: { value: { min: 0.7, max: 0.2 } },
@@ -97,7 +97,7 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
             },
             particles: {
                 number: {
-                    value: typeof window !== "undefined" && window.innerWidth < 640 ? 40 : 400,
+                    value: typeof window !== "undefined" && window.innerWidth < 640 ? 140 : 400,
                     density: {
                         enable: true,
                         area: 1000,

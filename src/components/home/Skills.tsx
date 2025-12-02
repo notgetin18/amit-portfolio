@@ -58,7 +58,7 @@ const Skills = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <div className="inline-flex items-center text-sm text-slate-400 uppercase tracking-widest rounded-full bg-gradient-to-r from-white/5 via-white/3 to-transparent px-3 py-1 mb-4">Expertise & Focus</div>
+            <div className="inline-flex items-center text-sm text-slate-300 uppercase tracking-widest rounded-full bg-gradient-to-r from-white/5 via-white/3 to-transparent px-3 py-1 mb-4">Expertise & Focus</div>
             <h2 className="text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] mb-3">
               Technical Expertise & Core Strengths
             </h2>
@@ -78,7 +78,7 @@ const Skills = () => {
               {
                 category: "Frontend",
                 icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                     <g stroke="#61DBFB" strokeWidth="1.2" fill="none">
                       <ellipse cx="12" cy="12" rx="6.5" ry="2.6" transform="rotate(25 12 12)" />
                       <ellipse cx="12" cy="12" rx="6.5" ry="2.6" transform="rotate(-25 12 12)" />
@@ -95,20 +95,20 @@ const Skills = () => {
               {
                 category: "Backend",
                 icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <svg width="38" height="38" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                     <path d="M12 2l7 4v8l-7 4-7-4V6l7-4z" fill="#8CC84B" />
                   </svg>
                 ),
                 skills: [
                   { name: "Node.js & Express", level: 88 },
-                  { name: "API Design", level: 86 },
+                  { name: "API Design", level: 80 },
                   { name: "TypeScript", level: 82 },
                 ],
               },
               {
                 category: "Database & Infra",
                 icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                     <rect x="3" y="4" width="18" height="16" rx="3" fill="#47A248" />
                   </svg>
                 ),
@@ -121,7 +121,7 @@ const Skills = () => {
               {
                 category: "Platform & DevOps",
                 icon: (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                  <svg width="38" height="38" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                     <path d="M3 18h18v-2H3v2z" fill="#FF9900" opacity="0.95" />
                   </svg>
                 ),
@@ -169,52 +169,10 @@ const Skills = () => {
 
 export default Skills;
 
-// const RevolvingLogos = () => {
 //   const logos = [
 //     { src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mongodb.svg", alt: "MongoDB" },
 //     { src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/express.svg", alt: "Express.js" },
 //     { src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg", alt: "React" },
 //     { src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nodedotjs.svg", alt: "Node.js" },
 //   ];
-
-//   return (
-//     <div className="relative w-64 h-64 mx-auto my-8">
-//       {logos.map((logo, index) => (
-//         <div
-//           key={logo.alt}
-//           className="absolute w-full h-full animate-revolve"
-//           style={{
-//             transformOrigin: "center",
-//             animationDelay: `${index * 1.5}s`, // Stagger the start of each logo's animation
-//           }}
-//         >
-//           <img
-//             src={logo.src}
-//             alt={logo.alt}
-//             className="absolute w-12 h-12 text-white fill-current top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform-origin-[50%_128px] drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"
-//             style={{
-//               transform: `rotate(${index * 90}deg) translate(128px) rotate(-${index * 90}deg)`, // Position logos at 90-degree intervals
-//             }}
-//           />
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-//  <style jsx>{`
-//         @keyframes revolve {
-//           from {
-//             transform: rotate(0deg);
-//           }
-//           to {
-//             transform: rotate(360deg);
-//           }
-//         }
-//         .animate-revolve {
-//           animation: revolve 6s linear infinite;
-//         }
-//         .transform-origin-[50%_128px] {
-//           transform-origin: 50% 128px;
-//         }
-//       `}</style>
+   
