@@ -8,7 +8,7 @@ import { MoveDirection, OutMode } from "@tsparticles/engine";
 // Load particles only in the browser and when not running tests (vitest/jsdom)
 const Particles = dynamic(() => import("@tsparticles/react"), { ssr: false });
 
-export default function HeroBackground({ delay = 600 }: { delay?: number }) {
+export default function HeroBackground({ delay = 400 }: { delay?: number }) {
     const shouldReduceMotion = useReducedMotion();
     const [init, setInit] = useState(false);
 

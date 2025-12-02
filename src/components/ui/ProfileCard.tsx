@@ -14,9 +14,9 @@ type Props = {
 export default function ProfileCard({ name, title, description, email = "notgetin18@gmail.com" }: Props) {
     return (
         // flatter profile surface — subtle translucent panel without heavy border
-        <Card className="rounded-3xl bg-white/3 p-5">
+        <Card className="rounded-3xl bg-white/5 p-5 backdrop-blur-lg border border-white/10 max-w-md mx-auto">
             <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#3ed6ac] text-white font-extrabold flex items-center justify-center text-lg">{name.split(' ')[0].slice(0, 2).toUpperCase()}</div>
+                <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#3ed6ac] text-white font-extrabold flex items-center justify-center text-lg">AK</div>
                 <div>
                     <div className="text-sm text-slate-200 font-semibold">{name}</div>
                     <div className="text-xs text-slate-400">{title}</div>
