@@ -92,7 +92,7 @@ export default function HomePage() {
           },
         },
         color: {
-          value: ["#dde2e6", "#fff", "dde2e6"], // White, light blue, light purple
+          value: ["#dde2e6", "#fff", "#dde2e6"], // White, light blue, light purple
         },
         shape: {
           type: ["circle", "square", "triangle"], // Added square shape
