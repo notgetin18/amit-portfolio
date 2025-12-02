@@ -55,6 +55,7 @@ export default function Navbar() {
               height={192}
               alt="amit image"
               className="h-16 w-16 rounded-full"
+              priority
             />
           </motion.div>
 

@@ -1,12 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowDown, Download, Loader2, Mail } from "lucide-react";
+import { ArrowDown, Loader2, Mail } from "lucide-react";
 import Image from "next/image";
 import LinkedinIcon from "@/components/icons/LinkedinIcon";
 import XIcon from "@/components/icons/XIcon";
 import GitHubIcon from "@/components/icons/GitHubIcon";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { fadeInUp, staggerContainer } from "@/constant";
 import Skills from "@/components/home/Skills";
 import Projects from "@/components/home/projects";
@@ -22,6 +21,23 @@ import PrimaryButtons from "@/components/buttons/primaryButtons";
 export default function HomePage() {
   const shouldReduceMotion = useReducedMotion();
   const [init, setInit] = useState(false);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Amit Kumar",
+    url: "https://www.amitdevjourney.xyz/",
+    sameAs: [
+      "https://github.com/notgetin18",
+      "https://www.linkedin.com/in/notgetin18",
+      "https://x.com/notgetin18",
+    ],
+    jobTitle: "MERN Full-Stack Developer & Product Engineer",
+    worksFor: {
+      "@type": "Organization",
+      name: "Bright DiGi Gold",
+    },
+  };
 
   const particlesInitCb = useCallback(async () => {
     console.log("callback");
@@ -79,7 +95,7 @@ export default function HomePage() {
           value: ["#dde2e6", "#fff", "dde2e6"], // White, light blue, light purple
         },
         shape: {
-          type: ["circle", "square"], // Added square shape
+          type: ["circle", "square", "triangle"], // Added square shape
           options: {
             circle: {
               weight: 0.8, // 70% chance for circles
@@ -199,6 +215,13 @@ export default function HomePage() {
 
   return (
     <div className="relative overflow-hidden" lang="en">
+      {/* Add JSON-LD to the head of the document */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        key="person-jsonld"
+      />
+
       {/* Particle Background Layers */}
       {init ? (
         <>

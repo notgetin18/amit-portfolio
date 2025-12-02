@@ -117,7 +117,7 @@ export default function ContactUs() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#07162b]/80 via-[#061025]/70 to-[#071826]/95">
       {/* Decorative gradient layers */}
-        <HeroBackground />
+      <HeroBackground />
       <div
         className="absolute -left-20 -top-10 w-72 h-72 bg-gradient-to-tr from-[#34d399]/30 to-[#06b6d4]/12 rounded-full blur-3xl mix-blend-screen pointer-events-none z-0"
         aria-hidden
@@ -162,7 +162,7 @@ export default function ContactUs() {
               className="space-y-8 lg:col-span-5"
             >
               <div>
-                <h2 className="text-3xl font-bold text-white mb-4">
+                <h2 className="text-3xl font-bold text-[#06b6d4] mb-4">
                   Get in Touch
                 </h2>
                 <p className="text-base text-slate-400">

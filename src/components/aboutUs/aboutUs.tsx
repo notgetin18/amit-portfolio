@@ -291,11 +291,6 @@ export default function AboutUs() {
                   icon: Wrench,
                   desc: "Architecture reviews, migration planning and developer experience improvements for teams scaling fast.",
                 },
-                {
-                  title: "UX & Product Design",
-                  icon: Palette,
-                  desc: "Human-first design, rapid prototyping and accessible UI systems that convert users into customers.",
-                },
               ].map((s, index) => (
                 <motion.div
                   key={s.title}
@@ -357,7 +352,7 @@ export default function AboutUs() {
                 className="outline-none"
               >
                 <Card className="p-6 h-full rounded-xl bg-white/5 border border-white/10 transition-transform duration-150 hover:translate-y-[-3px]">
-                  <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
+                  <h3 className="text-2xl font-bold text-[#06b6d4] mb-4 flex items-center ">
                     <Award className="w-6 h-6 mr-3 text-[#8ef3c1]" />
                     Education
                   </h3>
@@ -408,7 +403,7 @@ export default function AboutUs() {
                 className="outline-none"
               >
                 <Card className="p-6 h-full rounded-xl bg-white/5 border border-white/10 transition-transform duration-150 hover:translate-y-[-3px]">
-                  <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
+                  <h3 className="text-2xl font-bold text-[#06b6d4] mb-4 flex items-center">
                     <Users className="w-6 h-6 mr-3 text-[#8ef3c1]" />
                     Community Impact
                   </h3>
