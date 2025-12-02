@@ -16,7 +16,7 @@ const Projects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-10 sm:mb-12"
           >
             <div className="inline-flex items-center text-sm text-slate-300 uppercase tracking-widest rounded-full bg-gradient-to-r from-white/5 via-white/3 to-transparent px-3 py-1 mb-4">
               Featured Work
@@ -56,7 +56,7 @@ const Projects = () => {
                   <div className="absolute inset-0 bg-gradient-to-tr from-black/50 via-transparent to-black/10 mix-blend-overlay" />
                 </div>
 
-                <CardContent className="p-8 relative z-20 min-h-[340px] flex flex-col justify-between">
+                <CardContent className="p-4 relative z-20 min-h-[340px] flex flex-col justify-between">
                   <div>
                     <div className="inline-flex items-center gap-3 mb-4">
                       <div className="px-3 rounded-full text-xs text-slate-200 bg-white/3 border border-white/5">
@@ -142,8 +142,6 @@ const Projects = () => {
                         Live Demo
                       </Button>
                     </a>
-
-                    {/* <Button variant="ghost" size="sm" className="text-xs text-slate-300 px-3" aria-label="Case study">Case study</Button> */}
                   </div>
                 </CardContent>
               </Card>

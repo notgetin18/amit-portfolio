@@ -376,10 +376,10 @@ export default function HomePage() {
                       </div>
                     </div>
                     <div className="hidden sm:flex items-center gap-2 text-xs text-slate-300">
-                      <div className="px-3 py-1 bg-white/5 rounded-full">
+                      <div className="px-1.5 py-1 bg-white/5 rounded-full">
                         SaaS
                       </div>
-                      <div className="px-3 py-1 bg-white/5 rounded-full">
+                      <div className="px-1.5 py-1 bg-white/5 rounded-full">
                         Real-time
                       </div>
                     </div>
