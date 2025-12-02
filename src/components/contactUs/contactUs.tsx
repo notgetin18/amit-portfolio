@@ -2,22 +2,16 @@
 
 import type React from "react";
 import { motion } from "framer-motion";
-import {
-  Mail,
-  Phone,
-  Github,
-  Linkedin,
-  Twitter,
-  Download,
-  MapPin,
-  Send,
-} from "lucide-react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Mail, Phone, Download, MapPin, Send } from "lucide-react";
+import LinkedinIcon from "@/components/icons/LinkedinIcon";
+import XIcon from "@/components/icons/XIcon";
+import GitHubIcon from "@/components/icons/GitHubIcon";
+import PrimaryButtons from "@/components/buttons/primaryButtons";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
+import HeroBackground from "../ui/HeroBackground";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -106,8 +100,8 @@ export default function ContactUs() {
       url = "/Amit-Resume.pdf";
       filename = "Amit_Kumar_Resume.pdf";
     } else if (format === "docx") {
-      url = "/Amit-kumar_Resume.docx";
-      filename = "AmitKumar_Resume.docx";
+      url = "/Amit-Resume.docx";
+      filename = "Amit_Kumar_Resume.docx";
     } else {
       return;
     }
@@ -121,25 +115,36 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
-      <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#07162b]/80 via-[#061025]/70 to-[#071826]/95">
+      {/* Decorative gradient layers */}
+      <HeroBackground />
+      <div
+        className="absolute -left-20 -top-10 w-72 h-72 bg-gradient-to-tr from-[#34d399]/30 to-[#06b6d4]/12 rounded-full blur-3xl mix-blend-screen pointer-events-none z-0"
+        aria-hidden
+      />
+      <div
+        className="absolute -right-14 bottom-8 w-80 h-80 bg-gradient-to-bl from-[#6ee7b7]/25 to-[#06b6d4]/8 rounded-full blur-3xl mix-blend-screen pointer-events-none z-0"
+        aria-hidden
+      />
+
+      <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Hero Section */}
           <motion.div
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
             <motion.h1
               variants={fadeInUp}
-              className="text-4xl md:text-6xl font-bold text-slate-800 mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] mb-4"
             >
               Let's Connect
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
+              className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed"
             >
               Ready to discuss your next project or just want to say hello? I'm
               available for freelance opportunities and would love to explore
@@ -147,22 +152,22 @@ export default function ContactUs() {
             </motion.p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Contact Information */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
-              animate={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-8"
+              viewport={{ once: true }}
+              className="space-y-8 lg:col-span-5"
             >
               <div>
-                <h2 className="text-3xl font-bold text-slate-800 mb-6">
+                <h2 className="text-3xl font-bold text-[#06b6d4] mb-4">
                   Get in Touch
                 </h2>
-                <p className="text-lg text-slate-600 mb-8">
-                  I'm always open to discussing new freelance opportunities,
-                  interesting projects, or just having a chat about technology
-                  and development.
+                <p className="text-base text-slate-400">
+                  I'm always open to discussing new freelance opportunities or
+                  interesting projects. Feel free to reach out.
                 </p>
               </div>
 
@@ -170,21 +175,21 @@ export default function ContactUs() {
                 variants={staggerContainer}
                 initial="initial"
                 animate="animate"
-                className="space-y-6"
+                className="space-y-4"
               >
                 <motion.div variants={fadeInUp}>
-                  <Card className="p-6 hover:shadow-lg transition-shadow duration-300">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                        <Mail className="w-6 h-6 text-blue-600" />
+                  <Card className="p-4 bg-white/5 border border-white/10 hover:border-white/20 transition-colors duration-300">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
+                        <Mail className="w-5 h-5 text-[#3ed6ac]" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-slate-800">
+                        <h3 className="text-base font-semibold text-slate-100">
                           Email
                         </h3>
                         <a
                           href="mailto:notgetin18@gmail.com"
-                          className="text-blue-600 hover:text-blue-700 transition-colors"
+                          className="text-sm text-[#3ed6ac] hover:text-[#8ef3c1] transition-colors"
                           aria-label="Email Amit Kumar at notgetin18@gmail.com"
                         >
                           notgetin18@gmail.com
@@ -195,18 +200,18 @@ export default function ContactUs() {
                 </motion.div>
 
                 <motion.div variants={fadeInUp}>
-                  <Card className="p-6 hover:shadow-lg transition-shadow duration-300">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                        <Phone className="w-6 h-6 text-green-600" />
+                  <Card className="p-4 bg-white/5 border border-white/10 hover:border-white/20 transition-colors duration-300">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
+                        <Phone className="w-5 h-5 text-[#3ed6ac]" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-slate-800">
+                        <h3 className="text-base font-semibold text-slate-100">
                           Phone
                         </h3>
                         <a
                           href="tel:+919660637657"
-                          className="text-green-600 hover:text-green-700 transition-colors"
+                          className="text-sm text-[#3ed6ac] hover:text-[#8ef3c1] transition-colors"
                           aria-label="Call Amit Kumar at +91 9660637657"
                         >
                           (+91) 9660637657
@@ -217,16 +222,16 @@ export default function ContactUs() {
                 </motion.div>
 
                 <motion.div variants={fadeInUp}>
-                  <Card className="p-6 hover:shadow-lg transition-shadow duration-300">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                        <MapPin className="w-6 h-6 text-purple-600" />
+                  <Card className="p-4 bg-white/5 border border-white/10 hover:border-white/20 transition-colors duration-300">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
+                        <MapPin className="w-5 h-5 text-[#3ed6ac]" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-slate-800">
+                        <h3 className="text-base font-semibold text-slate-100">
                           Location
                         </h3>
-                        <p className="text-purple-600">Delhi, India</p>
+                        <p className="text-sm text-slate-300">Delhi, India</p>
                       </div>
                     </div>
                   </Card>
@@ -236,37 +241,38 @@ export default function ContactUs() {
               {/* Social Links */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="pt-8"
+                viewport={{ once: true }}
+                className="pt-6"
               >
-                <h3 className="text-xl font-semibold text-slate-800 mb-4">
+                <h3 className="text-xl font-semibold text-white mb-4">
                   Follow Me
                 </h3>
                 <div className="flex space-x-4">
                   <motion.a
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    href="https://github.com/amitkumar"
-                    className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center text-slate-600 hover:text-slate-800 hover:bg-slate-200 transition-colors"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    href="https://www.github.com/notgetin18"
+                    className="w-12 h-12 rounded-lg flex items-center justify-center text-slate-300 bg-white/10 hover:text-white hover:bg-white/20 transition-all duration-300"
                     aria-label="Visit Amit Kumar's GitHub profile"
                   >
-                    <Github className="w-6 h-6" />
+                    <GitHubIcon className="w-7 h-7" />
                   </motion.a>
                   <motion.a
                     whileHover={{ scale: 1.1, y: -2 }}
-                    href="https://linkedin.com/in/amitkumar"
-                    className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 hover:text-blue-700 hover:bg-blue-200 transition-colors"
+                    href="https://www.linkedin.com/in/notgetin18"
+                    className="w-12 h-12 rounded-lg flex items-center justify-center text-slate-300 bg-white/10 hover:text-white hover:bg-white/20 transition-all duration-300"
                     aria-label="Visit Amit Kumar's LinkedIn profile"
                   >
-                    <Linkedin className="w-6 h-6" />
+                    <LinkedinIcon className="w-7 h-7" />
                   </motion.a>
                   <motion.a
                     whileHover={{ scale: 1.1, y: -2 }}
-                    href="https://twitter.com/amitkumar"
-                    className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center text-sky-600 hover:text-sky-700 hover:bg-sky-200 transition-colors"
-                    aria-label="Visit Amit Kumar's Twitter profile"
+                    href="https://x.com/notgetin18"
+                    className="w-12 h-12 rounded-lg flex items-center justify-center text-slate-300 bg-white/10 hover:text-white hover:bg-white/20 transition-all duration-300"
+                    aria-label="Visit Amit Kumar's X profile"
                   >
-                    <Twitter className="w-6 h-6" />
+                    <XIcon className="w-10 h-10 pt-2.5 pl-2.5" />
                   </motion.a>
                 </div>
               </motion.div>
@@ -274,29 +280,30 @@ export default function ContactUs() {
               {/* Resume Download */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="pt-8"
+                viewport={{ once: true }}
+                className="pt-6"
               >
                 <div className="flex flex-col space-y-4">
-                  <Button
+                  <button
+                    type="button"
                     onClick={() => handleDownloadResume("pdf")}
-                    size="lg"
-                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
+                    className="w-full flex items-center justify-center py-3 text-base rounded-md bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-200 text-white"
                     aria-label="Download Amit Kumar's resume in PDF format"
                   >
-                    <Download className="w-5 h-5 mr-2" />
-                    Download Resume (PDF)
-                  </Button>
-                  <Button
+                    <Download className="w-5 h-5 mr-2 text-[#3ed6ac]" />
+                    <span>Download Resume (PDF)</span>
+                  </button>
+                  <button
+                    type="button"
                     onClick={() => handleDownloadResume("docx")}
-                    size="lg"
-                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
+                    className="w-full flex items-center justify-center py-3 text-base rounded-md bg-transparent border border-white/10 hover:bg-white/5 transition-colors duration-200 text-white"
                     aria-label="Download Amit Kumar's resume in DOCX format"
                   >
-                    <Download className="w-5 h-5 mr-2" />
-                    Download Resume (DOCX)
-                  </Button>
+                    <Download className="w-5 h-5 mr-2 text-[#3ed6ac]" />
+                    <span>Download Resume (DOCX)</span>
+                  </button>
                 </div>
               </motion.div>
             </motion.div>
@@ -304,11 +311,13 @@ export default function ContactUs() {
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="lg:col-span-7"
             >
-              <Card className="p-8 hover:shadow-lg transition-shadow duration-300">
-                <h2 className="text-2xl font-bold text-slate-800 mb-6">
+              <Card className="p-6 sm:p-8 bg-white/5 border border-white/10 backdrop-blur-lg">
+                <h2 className="text-2xl font-bold text-white mb-6">
                   Send a Message
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -316,7 +325,7 @@ export default function ContactUs() {
                     <div>
                       <label
                         htmlFor="name"
-                        className="block text-sm font-medium text-slate-700 mb-2"
+                        className="block text-sm font-medium text-slate-300 mb-2"
                       >
                         Name
                       </label>
@@ -327,7 +336,7 @@ export default function ContactUs() {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full"
+                        className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac]"
                         placeholder="Your name"
                         aria-invalid={!!errors.name}
                         aria-describedby={
@@ -346,7 +355,7 @@ export default function ContactUs() {
                     <div>
                       <label
                         htmlFor="email"
-                        className="block text-sm font-medium text-slate-700 mb-2"
+                        className="block text-sm font-medium text-slate-300 mb-2"
                       >
                         Email
                       </label>
@@ -357,7 +366,7 @@ export default function ContactUs() {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full"
+                        className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac]"
                         placeholder="your.email@example.com"
                         aria-invalid={!!errors.email}
                         aria-describedby={
@@ -378,7 +387,7 @@ export default function ContactUs() {
                   <div>
                     <label
                       htmlFor="subject"
-                      className="block text-sm font-medium text-slate-700 mb-2"
+                      className="block text-sm font-medium text-slate-300 mb-2"
                     >
                       Subject
                     </label>
@@ -389,7 +398,7 @@ export default function ContactUs() {
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      className="w-full"
+                      className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac]"
                       placeholder="What's this about?"
                       aria-invalid={!!errors.subject}
                       aria-describedby={
@@ -409,7 +418,7 @@ export default function ContactUs() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-slate-700 mb-2"
+                      className="block text-sm font-medium text-slate-300 mb-2"
                     >
                       Message
                     </label>
@@ -420,7 +429,7 @@ export default function ContactUs() {
                       onChange={handleInputChange}
                       required
                       rows={6}
-                      className="w-full"
+                      className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac]"
                       placeholder="Tell me about your project or just say hello..."
                       aria-invalid={!!errors.message}
                       aria-describedby={
@@ -437,17 +446,15 @@ export default function ContactUs() {
                     )}
                   </div>
 
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
-                    aria-label="Send message to Amit Kumar"
-                  >
-                    <Send className="w-5 h-5 mr-2" />
-                    Send Message
-                  </Button>
+                  <PrimaryButtons
+                    title="Send Message"
+                    // Icon={Send}
+                    btnType="submit"
+                    containerStyles="w-full justify-center py-3 text-xl font-semibold rounded-2xl"
+                    ariaLabel="Send message to Amit Kumar"
+                  />
                 </form>
-                <p className="text-sm text-slate-500 mt-4">
+                <p className="text-xs text-slate-500 mt-4 text-center">
                   This form uses client-side validation and doesn't store your
                   data. By sending, you agree that I will receive your message
                   via email.
@@ -455,51 +462,6 @@ export default function ContactUs() {
               </Card>
             </motion.div>
           </div>
-
-          {/* Call to Action */}
-          <motion.section
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mt-16 text-center"
-          >
-            <Card className="p-8 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-              <h2 className="text-3xl font-bold mb-4">
-                Ready to Start Your Project?
-              </h2>
-              <p className="text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
-                Whether you need a full-stack application, API integration, or
-                performance optimization, I'm here to help bring your ideas to
-                life as a freelancer.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  asChild
-                  size="lg"
-                  variant="secondary"
-                  className="px-8 py-3"
-                >
-                  <a
-                    href="mailto:notgetin18@gmail.com"
-                    aria-label="Start a conversation with Amit Kumar via email"
-                  >
-                    Start a Conversation
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="px-8 py-3 border-white text-black hover:bg-white hover:text-blue-600"
-                >
-                  <Link href="/about" aria-label="Learn more about Amit Kumar">
-                    Learn More About Me
-                  </Link>
-                </Button>
-              </div>
-            </Card>
-          </motion.section>
         </div>
       </div>
     </div>

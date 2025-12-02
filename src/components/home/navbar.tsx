@@ -1,20 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, Menu, X } from "lucide-react"; // Added Menu and X icons
+import { Download, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { handleDownloadResume } from "@/utility";
 import Image from "next/image";
 import amitImage from "../../../public/favicons/web-app-manifest-192x192.png";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const navLinks = useMemo(
+    () => [
+      { href: "/", label: "Home" },
+      { href: "/about", label: "About" },
+      { href: "/contact", label: "Contact" },
+    ],
+    []
+  );
 
   const navVariants = {
     open: { opacity: 1, height: "auto", transition: { duration: 0.3 } },
@@ -26,7 +37,7 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-4 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200 max-w-7xl border-1 rounded-xl "
+      className="w-full max-w-7xl fixed top-3 -translate-x-1/2 bg-[#07162b]/50 backdrop-blur-lg z-20 border border-white/10 rounded-xl shadow-lg shadow-black/20"
     >
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-2">
@@ -44,45 +55,42 @@ export default function Navbar() {
               height={192}
               alt="amit image"
               className="h-16 w-16 rounded-full"
+              priority
             />
           </motion.div>
 
           {/* Desktop Links */}
           <div className="hidden md:flex space-x-8">
-            <Link
-              href="/"
-              className="text-slate-700 hover:text-blue-600 transition-colors font-semibold"
-              aria-label="Go to Home page"
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="text-slate-700 hover:text-blue-600 transition-colors font-semibold"
-              aria-label="Go to About page"
-            >
-              About
-            </Link>
-            <Link
-              href="/contact"
-              className="text-slate-700 hover:text-blue-600 transition-colors font-semibold"
-              aria-label="Go to Contact page"
-            >
-              Contact
-            </Link>
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`font-semibold transition-colors duration-300 ${
+                    isActive
+                      ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
+                      : "text-slate-300 hover:text-[#3ed6ac]"
+                  }`}
+                  aria-label={`Go to ${link.label} page`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-slate-700 hover:text-blue-600 focus:outline-none"
+              className="text-slate-200 hover:text-[#3ed6ac] focus:outline-none"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6 text-white" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6 h-6 text-white" />
               )}
             </button>
           </div>
@@ -91,10 +99,20 @@ export default function Navbar() {
           <div className="hidden md:block">
             <Button
               onClick={() => handleDownloadResume("pdf")}
-              className="bg-blue-600 hover:bg-blue-700 text-white"
+              className=" text-white font-medium uppercase"
+              style={{
+                fontWeight: 500,
+                borderRadius: "20px",
+                border: "0.5px solid #F9DDB5",
+                background:
+                  "linear-gradient(90deg, #EEB056 0%,rgb(161, 103, 16) 100%)", // Gradient background
+                boxShadow: "0px 4px 8px 0pxrgba(251, 250, 250, 0.3)", // Subtle shadow for depth
+                position: "relative", // Ensure proper layering
+                outline: "none", // Remove default outline
+              }}
               aria-label="Download Amit Kumar's resume in PDF format"
             >
-              <Download className="w-4 h-4 mr-2" />
+              <Download className="w-4 h-4 mr-1 text-white " />
               Resume
             </Button>
           </div>
@@ -108,39 +126,46 @@ export default function Navbar() {
           className="md:hidden overflow-hidden"
         >
           <div className="flex flex-col space-y-4 pb-4">
-            <Link
-              href="/"
-              className="text-slate-700 hover:text-blue-600 transition-colors text-center font-semibold"
-              onClick={() => setIsMenuOpen(false)}
-              aria-label="Go to Home page"
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="text-slate-700 hover:text-blue-600 transition-colors text-center font-semibold"
-              onClick={() => setIsMenuOpen(false)}
-              aria-label="Go to About page"
-            >
-              About
-            </Link>
-            <Link
-              href="/contact"
-              className="text-slate-700 hover:text-blue-600 transition-colors text-center font-semibold"
-              onClick={() => setIsMenuOpen(false)}
-              aria-label="Go to Contact page"
-            >
-              Contact
-            </Link>
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={`mobile-${link.href}`}
+                  href={link.href}
+                  className={`text-center font-semibold transition-colors duration-300 py-2 ${
+                    isActive
+                      ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
+                      : "text-slate-200 hover:text-[#3ed6ac]"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                  aria-label={`Go to ${link.label} page`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <Button
               onClick={() => {
                 handleDownloadResume("pdf");
                 setIsMenuOpen(false);
               }}
-              className="bg-blue-600 hover:bg-blue-700 text-white w-full"
+              style={{
+                fontWeight: 600,
+                borderRadius: "20px",
+                border: "0.5px solid #F9DDB5",
+                background:
+                  "linear-gradient(90deg, #EEB056 0%,rgb(161, 103, 16) 100%)", // Gradient background
+                boxShadow: "0px 4px 8px 0pxrgba(251, 250, 250, 0.3)", // Subtle shadow for depth
+                position: "relative", // Ensure proper layering
+                outline: "none", // Remove default outline
+              }}
+              className=" text-white w-full tracking-wide"
               aria-label="Download Amit Kumar's resume in PDF format"
             >
-              <Download className="w-4 h-4 mr-2" />
+              <Download
+                className="w-4 h-4 mr-1.5"
+                style={{ fontWeight: 600 }}
+              />
               Resume
             </Button>
           </div>

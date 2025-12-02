@@ -1,3 +1,4 @@
+@import url("https://fonts.cdnfonts.com/css/satoshi");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,8 +16,6 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
-
 
 @layer base {
   :root {
@@ -74,13 +73,93 @@
   }
 }
 
-
-
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+    /* Font variables injected by next/font (see src/app/layout.tsx) */
+    font-family: var(
+      --font-sora,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial
+    );
   }
+
+  /* Headings should use Satoshi for a clean modern contrast */
+}
+
+/* fallback shown for clarity */
+:root {
+  --font-satoshi: "Satoshi", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial;
+}
+
+/* tuned heading styles */
+/* Heading styles: Satoshi (sans) — cleaner modern look that pairs with Sora */
+h1 {
+  font-family: var(--font-satoshi);
+  font-weight: 700; /* strong for dark backgrounds */
+  letter-spacing: -0.02em; /* slightly tighter for big titles */
+  line-height: 1.05;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h2 {
+  font-family: var(--font-satoshi);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+}
+
+/* keep smaller headings readable */
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-satoshi);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.neon-text {
+  color: #fff;
+  text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e,
+    0 0 40px #ff005e, 0 0 80px #ff005e;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 3px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e,
+      0 0 40px #ff005e, 0 0 80px #ff005e;
+  }
+  100% {
+    text-shadow: 0 0 6px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff,
+      0 0 80px #00d4ff, 0 0 160px #00d4ff;
+  }
+}
+
+/* global class */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.primary-text-color {
+  position: relative;
+  color: #33ff00;
+  text-shadow: 0 10px 30px #e9eeea;
+  transform: rotate(-28deg) skew(25deg);
 }

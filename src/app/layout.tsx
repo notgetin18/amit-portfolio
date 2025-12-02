@@ -1,17 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Sora } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/home/navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const sora = Sora({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-sora",
+});
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.amitdevjourney.xyz/"),
   title: "Amit Kumar | Full Stack Developer & Portfolio",
   description:
-    "Amit Kumar, Full stack developer, specializes in JavaScript and its frameworks, building scalable web apps with React, Node.js, Express.js and MongoDB. Explore my portfolio!",
+    "Amit Kumar — MERN Full‑Stack developer. I build production-grade web apps (React, Next.js, Node, Express, MongoDB) — shipped healthcare SaaS, real-time EdTech, and consumer apps with 1M+ users. Explore case studies and the dev journey.",
   keywords:
-    "Amit Kumar, MERN stack, web developer, Full stack developer, React, Node.js, Express js, MongoDB, Next.js, TypeScript, JavaScript, portfolio, freelance, India",
+    "Amit Kumar, MERN, full stack developer, React, Next.js, Node.js, Express, MongoDB, TypeScript, JavaScript, SaaS, healthcare SaaS, EdTech, real-time, 1M+ users, portfolio, freelance, India",
   authors: [{ name: "Amit Kumar" }],
   robots: {
     index: true,
@@ -38,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Amit Kumar | MERN Stack Developer Portfolio",
     description:
-      "Amit Kumar, MERN stack developer, specializes in JavaScript and its frameworks, building scalable web apps with React, Node.js, and MongoDB. Explore my portfolio!",
+      "Amit Kumar — Full stack MERN developer. Built production SaaS, real-time platforms and consumer products (1M+ users). Explore case studies, architecture, and product-first engineering.",
     url: "https://www.amitdevjourney.xyz/",
     siteName: "Amit Kumar Portfolio",
     images: [
@@ -73,23 +78,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      {/* <Head>
-        <link
-          rel="icon"
-          type="image/png"
-          href="/favicons/favicon-96x96.png"
-          sizes="96x96"
-        />
-        <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
-        <link rel="shortcut icon" href="/favicons/favicon.ico" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/favicons/apple-touch-icon.png"
-        />
-        <link rel="manifest" href="/favicons/site.webmanifest" />
-      </Head> */}
-      <body className={inter.className}>
+      <body className={`${sora.variable} bg-black`}>
         <div className="flex justify-center ">
           <Navbar />
         </div>
