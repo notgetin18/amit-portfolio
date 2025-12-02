@@ -42,7 +42,7 @@ PrimaryButtonProps) => {
       )}
       onClick={handleClick}
       style={{
-        borderRadius: "20px",
+        // borderRadius: "20px",
         border: "0.5px solid #F9DDB5", // Border to match the image
         background: "linear-gradient(90deg, #EEB056 0%, #82540D 100%)", // Gradient background
         boxShadow: "0px 4px 8px 0px #0000004D", // Subtle shadow for depth

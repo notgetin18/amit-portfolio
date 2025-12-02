@@ -49,6 +49,7 @@ const Services = () => {
                       <path d="M7 12h10M7 8h10M7 16h6" stroke="#8ef3c1" strokeWidth="1.6" strokeLinecap="round" />
                     </svg>
                   ),
+                  category: ["React + Next.js", "Tailwind"]
                 },
                 {
                   title: "API Design & Integrations",
@@ -59,6 +60,7 @@ const Services = () => {
                       <path d="M8 12h8M12 8v8" stroke="#06b6d4" strokeWidth="1.6" strokeLinecap="round" />
                     </svg>
                   ),
+                  category: ["RESTful APIs", "axios"]
                 },
                 {
                   title: "Performance & Observability",
@@ -69,6 +71,7 @@ const Services = () => {
                       <path d="M6 15l3-4 2 3 4-7 3 10" stroke="#34d399" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   ),
+                  category: ["FCP", "TTFB"]
                 },
                 {
                   title: "Cloud & Infrastructure",
@@ -79,6 +82,7 @@ const Services = () => {
                       <path d="M8 14s1.5-4 7-3" stroke="#8ef3c1" strokeWidth="1.6" strokeLinecap="round" />
                     </svg>
                   ),
+                  category: ["AWS", "Docker"]
                 },
               ].map((s, i) => (
                 <motion.div key={s.title} variants={fadeInUp} whileHover={{ y: -6 }} whileTap={{ scale: 0.995 }}>
@@ -89,8 +93,13 @@ const Services = () => {
                         <h4 className="text-sm font-semibold text-white">{s.title}</h4>
                         <p className="mt-1 text-sm text-slate-400 max-w-[24rem]">{s.desc}</p>
                         <div className="mt-3 flex items-center gap-2 flex-wrap">
-                          <span className="text-[11px] px-2 py-0.5 rounded-full bg-white/3 border border-white/6 text-slate-200">MERN</span>
-                          <span className="text-[11px] px-2 py-0.5 rounded-full bg-white/3 border border-white/6 text-slate-200">TypeScript</span>
+                          {Array.isArray(s.category)
+                            ? s.category.map((c, ci) => (
+                              <span key={`${s.title}-cat-${ci}`} className="text-[11px] px-2 py-0.5 rounded-full bg-white/3 border border-white/6 text-slate-200">{c}</span>
+                            ))
+                            : (
+                              <span className="text-[11px] px-2 py-0.5 rounded-full bg-white/3 border border-white/6 text-slate-200">{s.category}</span>
+                            )}
                         </div>
                       </div>
                     </CardContent>
@@ -103,7 +112,7 @@ const Services = () => {
             <motion.div variants={fadeInUp} className="space-y-6">
               <Card className="p-6 border border-white/5 bg-gradient-to-br from-[#071826]/50 via-transparent to-[#061025]/20 backdrop-blur-md shadow-xl">
                 <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#3ed6ac] flex items-center justify-center text-white font-semibold text-lg">A</div>
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#3ed6ac] flex items-center justify-center text-white font-semibold text-lg px-5">A</div>
                   <div>
                     <h4 className="text-lg font-extrabold text-white">From product idea to production</h4>
                     <p className="text-sm text-slate-300 mt-2">I focus on measurable outcomes — higher performance, better retention and fewer outages. Below are representational metrics from previous products.</p>

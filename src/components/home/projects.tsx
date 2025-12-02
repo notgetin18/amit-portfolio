@@ -90,9 +90,9 @@ const Projects = () => {
             <div className="flex flex-col gap-6 order-1 lg:order-2">
               <motion.div variants={fadeInUp}>
                 <Card className="overflow-hidden border border-white/15 bg-gradient-to-br from-[#061025]/40 via-[#07162b]/30 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-300">
-                  <div className="relative flex items-stretch">
-                    <div className="w-1/3 bg-gradient-to-tr from-[#6ee7b7]/40 to-[#06b6d4]/20 p-4 flex items-center justify-center">
-                      <Image alt="TestOfire" src="/Testofire.webp" width={160} height={120} className="object-contain rounded-lg" />
+                  <div className="relative flex flex-col sm:flex-row items-stretch p-2 sm:p-0">
+                    <div className="w-full sm:w-1/3 bg-gradient-to-tr from-[#6ee7b7]/40 to-[#06b6d4]/20 p-2 sm:p-4 flex items-center justify-center rounded-lg sm:rounded-none">
+                      <Image alt="TestOfire" src="/Testofire.webp" width={160} height={120} className="object-contain rounded-lg h-20 w-20 sm:h-32 sm:w-32" />
                     </div>
 
                     <div className="flex-1 p-6">
@@ -123,8 +123,8 @@ const Projects = () => {
 
               <motion.div variants={fadeInUp}>
                 <Card className="overflow-hidden border border-white/15 bg-gradient-to-br from-[#071826]/20 via-[#07162b]/10 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-300">
-                  <div className="relative p-4 flex items-start gap-4">
-                    <div className="flex-shrink-0 w-44 h-24 rounded-lg bg-gradient-to-br from-[#22c55e]/40 to-[#10b981]/20 flex items-center justify-center p-2">
+                  <div className="relative p-2 sm:p-4 flex sm:items-start gap-4 flex-col sm:flex-row items-stretch">
+                    <div className="flex-shrink-0 w-full h-24 sm:w-44 sm:h-24 rounded-lg bg-gradient-to-br from-[#22c55e]/40 to-[#10b981]/20 flex items-center justify-center p-2">
                       <Image alt="Medical Kundali" src="/Medical Kundali.svg" width={176} height={176} className="object-contain" />
                     </div>
 

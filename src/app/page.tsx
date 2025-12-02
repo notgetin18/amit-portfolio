@@ -197,7 +197,7 @@ export default function HomePage() {
   const Particles = dynamic(() => import("@tsparticles/react"), { ssr: false });
 
   return (
-    <div className="min-h-screen relative overflow-hidden" lang="en">
+    <div className="relative overflow-hidden" lang="en">
       {/* Particle Background Layers */}
       {init ? (
         <>
@@ -245,22 +245,22 @@ export default function HomePage() {
                   <span className="block text-3xl md:text-4xl font-semibold text-white/80 mt-2">MERN Full‑Stack Developer & Product Engineer</span>
                 </motion.h1>
 
-                <motion.p variants={fadeInUp} className="mt-6 text-lg md:text-xl text-slate-200 max-w-3xl">
+                <motion.p variants={fadeInUp} className="mt-6 leading-snug text-sm sm:text-lg md:text-xl text-slate-200 max-w-3xl">
                   I design and ship resilient, production-grade web applications — from fast, SEO-friendly Next.js frontends to scalable Node/Express backends and resilient cloud infra. I’ve launched SaaS products and platforms used by 1M+ users.
                 </motion.p>
 
                 <motion.div variants={fadeInUp} className="mt-6 flex flex-wrap gap-3 items-center">
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <div className="flex flex-row gap-4 justify-center items-center">
                     <Link href="/contact">
                       <SecondaryButton
                         title="Get In Touch"
-                        containerStyles="px-8 py-2 rounded-3xl text-lg font-base leading-wide"
+                        containerStyles="px-2 sm:px-8 py-2 rounded-3xl text-lg font-base leading-wide"
                       />
                     </Link>
                     <Link href="/about">
                       <PrimaryButtons
                         title="Learn More"
-                        containerStyles="px-8 py-2 rounded-3xl text-lg font-base leading-wide"
+                        containerStyles="px-4 sm:px-8 py-2 rounded-3xl text-lg font-base leading-wide"
                       />
                     </Link>
                   </div>
@@ -303,7 +303,7 @@ export default function HomePage() {
 
                   <div className="mt-4 flex justify-between items-center gap-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 text-white rounded-full flex items-center justify-center text-transparent bg-gradient-to-r from-[#739d88] via-[#52a18b] to-[#508c96] drop-shadow-2xl font-bold">AK</div>
+                      <div className="w-11 h-10 text-white rounded-full flex items-center justify-center text-transparent bg-gradient-to-r from-[#739d88] via-[#52a18b] to-[#508c96] drop-shadow-2xl font-bold">AK</div>
                       <div>
                         <div className="text-sm text-slate-200 font-semibold">Amit Kumar</div>
                         <div className="text-xs text-slate-400">MERN Full‑Stack • Product Engineer</div>
@@ -386,7 +386,7 @@ export default function HomePage() {
       {/* Main content (semantic) */}
       <main className="relative z-10" id="main-content">
         {/* Skills Section */}
-        <section aria-labelledby="skills-heading" className="py-12">
+        <section aria-labelledby="skills-heading" className="py-6">
           <h2 id="skills-heading" className="sr-only">Skills and Technologies</h2>
           <Skills />
         </section>
@@ -403,42 +403,66 @@ export default function HomePage() {
           <Services />
         </section>
 
-        {/* CTA Section / Contact */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-indigo-600 relative z-10" aria-labelledby="contact-heading">
+        {/* CTA Section / Contact — upgraded to match hero visual language */}
+        <section aria-labelledby="contact-heading" className="py-4 sm:py-12 md:py-16 px-3 sm:px-6 lg:px-8 relative z-10">
           <h2 id="contact-heading" className="sr-only">Contact and call to action</h2>
-          <div className="max-w-4xl mx-auto">
+
+          <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
+              className="rounded-3xl border-[1px] border-white/6 bg-gradient-to-br from-[#07162b]/60 via-[#061025]/30 to-[#071826]/50 p-3 sm:p-6 md:p-10 backdrop-blur-md shadow-2xl"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Ready to Build Something Amazing?
-              </h2>
-              <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
-                Let's collaborate on your next project and create exceptional
-                digital experiences together.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  asChild
-                  size="lg"
-                  variant="secondary"
-                  className="px-8 py-3"
-                >
-                  <Link href="/contact">Start a Project</Link>
-                </Button>
-                <Button
-                  onClick={() => handleDownloadResume("pdf")}
-                  size="lg"
-                  variant="outline"
-                  className="px-8 py-3 border-white text-black hover:bg-white hover:text-blue-600"
-                  aria-label="Download Amit Kumar's resume in PDF format"
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Download Resume
-                </Button>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <div className="lg:col-span-7 px-2 sm:px-6">
+                  <div className="inline-flex items-center text-sm text-slate-400 uppercase tracking-widest rounded-full bg-gradient-to-r from-white/5 via-white/3 to-transparent px-3 py-1 mb-3">Let’s build together</div>
+
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] leading-tight">Ready to ship great product and delightful experiences?</h2>
+
+                  <p className="mt-4 text-lg text-slate-300 max-w-3xl">I help product teams go from concept to production — fast iteration, measured outcomes and resilient infrastructure. Book a short discovery call and let's scope an approach that fits your roadmap.</p>
+
+                  <div className="mt-6 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                    <Link href="/contact" className="w-full sm:w-auto">
+                      <PrimaryButtons title="Start a project" containerStyles="px-8 py-3 rounded-3xl text-lg font-medium w-full sm:w-auto" />
+                    </Link>
+
+                    <button onClick={() => handleDownloadResume("pdf")} aria-label="Download resume" className="w-full sm:w-auto">
+                      <SecondaryButton title="Download resume" containerStyles="px-6 py-3 rounded-3xl text-base w-full sm:w-auto" />
+                    </button>
+                  </div>
+
+                  <div className="mt-6 flex items-center gap-6 text-sm text-slate-300 flex-wrap">
+                    <div className="inline-flex items-center gap-2"><strong className="text-white text-lg">1M+</strong> users reached (Bright Digi Gold)</div>
+                    <div className="inline-flex items-center gap-2"><strong className="text-white text-lg">30%</strong> faster page loads (selected clients)</div>
+                    <div className="inline-flex items-center gap-2"><strong className="text-white text-lg">20%</strong> average revenue uplift</div>
+                    <div className="inline-flex items-center gap-2"><strong className="text-white text-lg">100%</strong> Client satisfaction</div>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5 flex justify-center lg:justify-end px-2 sm:px-6">
+                  <div className="w-full max-w-[420px] rounded-2xl overflow-hidden border border-white/6 bg-gradient-to-br from-white/5 to-transparent p-4 backdrop-blur-sm shadow-lg">
+                    <div className="flex items-center gap-4">
+                      <div className="h-6 w-6 sm:w-12 sm:h-12 rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#3ed6ac] flex items-center justify-center text-white font-semibold sm:font-semibold text-xs sm:text-lg p-1 sm:p-0">AK</div>
+                      <div>
+                        <div className="text-sm text-white font-semibold">Schedule a quick call</div>
+                        <div className="text-xs text-slate-300 mt-1">15–30 minute discovery to scope your project & outcomes</div>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 flex gap-3">
+                      <Link href="/contact" className="flex-1">
+                        <PrimaryButtons title="Book call" containerStyles="px-4 py-2 rounded-xl w-full text-sm" />
+                      </Link>
+                      <a href="mailto:notgetin18@gmail.com" className="block">
+                        <button className="px-3 py-2 rounded-xl border border-white/6 bg-white/3 text-sm text-slate-100">Email me</button>
+                      </a>
+                    </div>
+
+                    <div className="mt-4 text-xs text-slate-400">No-salesy calls — just a short conversation to understand requirements and find the right next steps.</div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
