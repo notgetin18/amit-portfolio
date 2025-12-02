@@ -357,7 +357,7 @@ export default function HomePage() {
                       width={900}
                       height={600}
                       className="w-full h-auto"
-                      priority={false}
+                      priority={true}
                     />
                   </div>
 

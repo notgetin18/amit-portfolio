@@ -312,9 +312,9 @@ export default function AboutUs() {
                         )}
                       </div>
                       <div>
-                        <h4 className="text-sm font-semibold text-white">
+                        <h3 className="text-sm font-semibold text-white">
                           {s.title}
-                        </h4>
+                        </h3>
                         <p className="mt-1 text-sm text-slate-400">{s.desc}</p>
                       </div>
                     </CardContent>

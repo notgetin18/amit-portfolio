@@ -176,9 +176,9 @@ const Services = () => {
                         {s.icon}
                       </div>
                       <div>
-                        <h4 className="text-sm font-semibold text-white">
+                        <h3 className="text-sm font-semibold text-white">
                           {s.title}
-                        </h4>
+                        </h3>
                         <p className="mt-1 text-sm text-slate-400 max-w-[24rem]">
                           {s.desc}
                         </p>
@@ -213,9 +213,9 @@ const Services = () => {
                     A
                   </div>
                   <div>
-                    <h4 className="text-lg font-extrabold text-white">
+                    <h3 className="text-lg font-extrabold text-white">
                       From product idea to production
-                    </h4>
+                    </h3>
                     <p className="text-sm text-slate-300 mt-2">
                       I focus on measurable outcomes — higher performance,
                       better retention and fewer outages. Below are
@@ -264,9 +264,9 @@ const Services = () => {
               </Card>
 
               <Card className="p-6 border border-white/5 bg-gradient-to-br from-[#061025]/40 via-[#07162b]/20 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-200 rounded-xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#8ef3c1]/25">
-                <h5 className="text-sm text-slate-200 font-semibold mb-2">
+                <h3 className="text-sm text-slate-200 font-semibold mb-2">
                   How I work
-                </h5>
+                </h3>
                 <ol className="text-xs text-slate-300 list-inside list-decimal space-y-2">
                   <li>Discovery & scoping — outcomes first, not features.</li>
                   <li>

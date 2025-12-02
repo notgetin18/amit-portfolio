@@ -9,10 +9,12 @@ const sora = Sora({
   variable: "--font-sora",
 });
 
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.amitdevjourney.xyz/"),
-  title: "Amit Kumar | Full Stack Developer & Portfolio",
+  title: {
+    default: "Amit Kumar | MERN Full-Stack Developer & Portfolio",
+    template: "%s | Amit Kumar Portfolio",
+  },
   description:
     "Amit Kumar — MERN Full‑Stack developer. I build production-grade web apps (React, Next.js, Node, Express, MongoDB) — shipped healthcare SaaS, real-time EdTech, and consumer apps with 1M+ users. Explore case studies and the dev journey.",
   keywords:
@@ -69,6 +71,10 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#061025" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
 };
 
 export default function RootLayout({
