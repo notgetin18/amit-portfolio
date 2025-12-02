@@ -52,6 +52,17 @@ const Services = () => {
                   category: ["React + Next.js", "Tailwind"]
                 },
                 {
+                  title: "Mobile & App Development",
+                  desc: "Full-stack mobile and cross-platform apps with React Native, performance-minded architectures, and deployment to app stores.",
+                  icon: (
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
+                      <rect x="4" y="3" width="14" height="18" rx="2" fill="#041824" opacity="0.6" />
+                      <path d="M8 6h8M8 18h8" stroke="#06b6d4" strokeWidth="1.6" strokeLinecap="round" />
+                    </svg>
+                  ),
+                  category: ["React Native", "Play Store / App Store"],
+                },
+                {
                   title: "API Design & Integrations",
                   desc: "REST and GraphQL APIs, integrations with payments, 3rd-party services and event-driven backends with Node/Express and TypeScript.",
                   icon: (
@@ -63,27 +74,17 @@ const Services = () => {
                   category: ["RESTful APIs", "axios"]
                 },
                 {
-                  title: "Performance & Observability",
-                  desc: "Lighthouse-driven LCP/TTFB optimizations, caching, and observability (logs/metrics/traces) for resilient production systems.",
+                  title: "SEO & Growth Optimization",
+                  desc: "SEO-first web engineering — technical SEO, structured data, Lighthouse-driven optimizations and sustainable growth strategies.",
                   icon: (
                     <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
-                      <rect x="3" y="3" width="18" height="18" rx="4" fill="#041824" opacity="0.6" />
-                      <path d="M6 15l3-4 2 3 4-7 3 10" stroke="#34d399" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                      <circle cx="12" cy="12" r="9" fill="#041824" opacity="0.6" />
+                      <path d="M10 14l2-4 2 6" stroke="#ffd166" strokeWidth="1.6" strokeLinecap="round" />
                     </svg>
                   ),
-                  category: ["FCP", "TTFB"]
+                  category: ["Technical SEO", "Lighthouse"],
                 },
-                {
-                  title: "Cloud & Infrastructure",
-                  desc: "AWS-native deployments, CI/CD, Docker-based workflows and scalable infra design for sustainable cost/performance trade-offs.",
-                  icon: (
-                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
-                      <rect x="3" y="3" width="18" height="18" rx="4" fill="#041824" opacity="0.6" />
-                      <path d="M8 14s1.5-4 7-3" stroke="#8ef3c1" strokeWidth="1.6" strokeLinecap="round" />
-                    </svg>
-                  ),
-                  category: ["AWS", "Docker"]
-                },
+
               ].map((s, i) => (
                 <motion.div key={s.title} variants={fadeInUp} whileHover={{ y: -6 }} whileTap={{ scale: 0.995 }}>
                   <Card className="h-full border border-white/15 bg-gradient-to-br from-[#061025]/50 via-[#07162b]/30 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-300 rounded-xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#06b6d4]/30">
@@ -150,6 +151,53 @@ const Services = () => {
                 <div className="mt-4 text-xs text-slate-400">Sample projects: Bright Digi Gold, TestOfire, Medical Kundali</div>
               </Card>
             </motion.div>
+          </motion.div>
+            {/* Complementary / Specialized services */}
+          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-6xl mx-auto mt-4 sm:mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-4 sm:px-6 lg:px-0">
+              {[
+                {
+                  title: "Digital Marketing & Acquisition",
+                  desc: "Data-driven acquisition, landing page optimization, funnels and A/B testing to convert traffic into customers",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
+                      <rect x="3" y="3" width="18" height="18" rx="3" fill="#041824" opacity="0.6" />
+                      <path d="M7 12h10M11 8v8" stroke="#f97316" strokeWidth="1.6" strokeLinecap="round" />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Performance & Observability",
+                  desc: "Lighthouse-driven LCP/TTFB optimizations, caching, and observability (logs/metrics/traces).",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
+                      <rect x="3" y="3" width="18" height="18" rx="4" fill="#041824" opacity="0.6" />
+                      <path d="M6 15l3-4 2 3 4-7 3 10" stroke="#34d399" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  ),
+                },
+                {
+                  title: "Cloud & Infrastructure",
+                  desc: "AWS-native deployments, CI/CD, Docker workflows and scalable infra patterns for sustainable cost/perf trade-offs.",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
+                      <rect x="3" y="3" width="18" height="18" rx="4" fill="#041824" opacity="0.6" />
+                      <path d="M8 14s1.5-4 7-3" stroke="#8ef3c1" strokeWidth="1.6" strokeLinecap="round" />
+                    </svg>
+                  ),
+                },
+              ].map((s) => (
+                <div key={s.title} className="p-3 rounded-lg bg-white/5 border border-white/5">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center text-[#8ef3c1]">{s.icon}</div>
+                    <div>
+                      <div className="text-sm font-semibold text-white">{s.title}</div>
+                      <div className="text-xs text-slate-400 mt-1">{s.desc}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
