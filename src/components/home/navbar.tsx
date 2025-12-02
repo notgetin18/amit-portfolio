@@ -1,14 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, Menu, X } from "lucide-react"; // Added Menu and X icons
+import { Download, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { handleDownloadResume } from "@/utility";
 import Image from "next/image";
 import amitImage from "../../../public/favicons/web-app-manifest-192x192.png";
-import PrimaryButtons from "../buttons/primaryButtons";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -86,9 +85,9 @@ export default function Navbar() {
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6 text-white" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6 h-6 text-white" />
               )}
             </button>
           </div>
@@ -97,7 +96,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <Button
               onClick={() => handleDownloadResume("pdf")}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium uppercase"
+              className=" text-white font-medium uppercase"
               style={{
                 fontWeight: 500,
                 borderRadius: "20px",
@@ -153,10 +152,20 @@ export default function Navbar() {
                 handleDownloadResume("pdf");
                 setIsMenuOpen(false);
               }}
-              className="bg-blue-600 hover:bg-blue-700 text-white w-full"
+              style={{
+                fontWeight: 600,
+                borderRadius: "20px",
+                border: "0.5px solid #F9DDB5",
+                background:
+                  "linear-gradient(90deg, #EEB056 0%,rgb(161, 103, 16) 100%)", // Gradient background
+                boxShadow: "0px 4px 8px 0pxrgba(251, 250, 250, 0.3)", // Subtle shadow for depth
+                position: "relative", // Ensure proper layering
+                outline: "none", // Remove default outline
+              }}
+              className=" text-white w-full tracking-wide"
               aria-label="Download Amit Kumar's resume in PDF format"
             >
-              <Download className="w-4 h-4 mr-2" />
+              <Download className="w-4 h-4 mr-1.5" style={{ fontWeight: 600, }} />
               Resume
             </Button>
           </div>
