@@ -25,12 +25,14 @@ const PrimaryButtons = ({
   Icon,
   isDisabled,
   loading,
+  ariaLabel
 }: 
 PrimaryButtonProps) => {
   return (
     <button
       disabled={isDisabled || loading}
       type={btnType || "button"}
+      aria-label={ariaLabel || title}
       className={clsx(
         {
           "flex justify-center items-center": Icon || loading,

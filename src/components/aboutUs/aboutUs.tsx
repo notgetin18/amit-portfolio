@@ -17,9 +17,7 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import StatTile from "@/components/ui/StatTile";
-import TimelineItem from "@/components/ui/TimelineItem";
 import ProfileCard from "@/components/ui/ProfileCard";
-import { handleDownloadResume } from "@/utility";
 import { fadeInUp, staggerContainer } from "@/constant";
 import HeroBackground from "@/components/ui/HeroBackground";
 
@@ -98,7 +96,7 @@ export default function AboutUs() {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-14"
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-14"
           >
             {[
               { Icon: Users, number: "100k+", label: "Users Served" },
@@ -147,7 +145,7 @@ export default function AboutUs() {
                     company: "Bright Digital Gold",
                     dateRange: "April 2022 - Present",
                     bullets: [
-                      "Developed responsive web and mobile interfaces serving 50,000+ users with JavaScript, React.js, TypeScript, and Redux",
+                      "Developed responsive web and mobile interfaces serving 100,000+ users with JavaScript, React.js, TypeScript, and Redux",
                       "Boosted website speed by 30% through React State management optimization and KYC/transaction improvements",
                       "Implemented promotional strategies driving 20% revenue increase through coupon calculations and gifting scenarios",
                       "Led cross-functional teams achieving 10% revenue growth and 15% boost in customer engagement",
@@ -311,7 +309,7 @@ export default function AboutUs() {
                 >
                   <Card className="h-full border border-white/15 bg-gradient-to-br from-[#061025]/50 via-[#07162b]/30 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-300 rounded-xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#06b6d4]/30">
                     <CardContent className="p-4 flex gap-2 items-start">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-white/3 flex items-center justify-center text-[#8ef3c1]">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-white/3 flex  items-center justify-center text-[#8ef3c1]">
                         {s.icon ? (
                           <s.icon className="w-6 h-6" />
                         ) : (
