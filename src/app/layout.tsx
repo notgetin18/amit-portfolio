@@ -83,8 +83,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${sora.variable} bg-black`}>
+    <html lang="en" className={sora.variable}>
+      <body className="bg-black">
         <div className="flex justify-center ">
           <Navbar />
         </div>
