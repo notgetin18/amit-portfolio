@@ -328,7 +328,15 @@ export default function HomePage() {
                 >
                   <div className="inline-flex items-center gap-3">
                     <strong className="text-white text-lg">1M+</strong>
-                    <div className="text-sm neon-text">
+                    <div
+                      className="text-sm"
+                      style={{
+                        color: "#fff",
+                        textShadow:
+                          "0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e",
+                        animation: "glow 2s infinite alternate",
+                      }}
+                    >
                       users reached via Bright Digi Gold
                     </div>
                   </div>
