@@ -159,6 +159,7 @@ const Projects = () => {
                         width={160}
                         height={120}
                         className="object-contain rounded-lg h-20 w-20 sm:h-32 sm:w-32"
+                        sizes="(max-width: 640px) 80px, 128px"
                       />
                     </div>
 

@@ -40,7 +40,6 @@ export default function HomePage() {
   };
 
   const particlesInitCb = useCallback(async () => {
-    console.log("callback");
     const engineModule = await import("@tsparticles/engine");
     const tsParticles = engineModule.tsParticles || engineModule.default;
     if (tsParticles) {
@@ -50,7 +49,7 @@ export default function HomePage() {
   }, []);
 
   const particlesLoaded = useCallback(async (container?: unknown) => {
-    console.log("loaded===", container);
+    // console.log("Particles loaded:", container);
   }, []);
 
   useEffect(() => {
@@ -274,7 +273,7 @@ export default function HomePage() {
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] drop-shadow-2xl"
                 >
                   Amit Kumar
-                  <span className="block text-3xl md:text-4xl font-semibold text-white/80 mt-2">
+                  <span className="block text-2xl md:text-4xl font-semibold text-white/80 mt-2 tracking-normal">
                     MERN Full‑Stack Developer & Product Engineer
                   </span>
                 </motion.h1>
@@ -302,7 +301,7 @@ export default function HomePage() {
                     </Link>
                     <Link href="/about">
                       <PrimaryButtons
-                        title="Learn More"
+                        title="More About Me"
                         containerStyles="px-4 sm:px-8 py-2 rounded-3xl text-lg font-base leading-wide"
                       />
                     </Link>
