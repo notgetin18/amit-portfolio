@@ -24,7 +24,7 @@ export default function HomePage() {
     sameAs: [
       "https://github.com/notgetin18",
       "https://www.linkedin.com/in/notgetin18",
-      "https://x.com/notgetin18",
+      "https://x.com/Amitsin40190332",
     ],
     jobTitle: "MERN Full-Stack Developer & Product Engineer",
     worksFor: {
