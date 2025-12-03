@@ -80,8 +80,8 @@ export default function HomePage() {
     const updateParticleCount = () => {
       const isMobile = window.innerWidth < 640;
       setParticleCount({
-        background: isMobile ? 80 : 800,
-        foreground: isMobile ? 40 : 400,
+        background: isMobile ? 180 : 800,
+        foreground: isMobile ? 140 : 400,
       });
     };
     updateParticleCount();
@@ -179,14 +179,17 @@ export default function HomePage() {
           value: ["#FFFF00"], // Keep yellow for foreground
         },
         shape: {
-          type: ["circle", "square"], // Added square shape
+          type: ["circle", "square", "triangle"], // Added square shape
           options: {
             circle: {
-              weight: 0.8, // 70% chance for circles
+              weight: 0.6, // 60% chance for circles
             },
             square: {
-              weight: 0.2, // 20% chance for squares
+              weight: 0.3, // 30% chance for squares
             },
+            triangle: {
+              weight: 0.1,
+            }
           },
         },
         opacity: {
@@ -255,7 +258,7 @@ export default function HomePage() {
             style={{
               background:
                 "linear-gradient(to right,rgb(34, 113, 225) 0%, rgba(62, 62, 71, 0) 30%, rgba(0, 0, 0, 0) 100%)",
-              opacity: "50%",
+              opacity: "25%",
             }}
           />
         </>
@@ -294,7 +297,7 @@ export default function HomePage() {
 
                 <motion.p
                   variants={fadeInUp}
-                  className="mt-6 leading-snug text-sm sm:text-lg md:text-xl text-slate-200 max-w-3xl"
+                  className="mt-6 leading-snug text-base sm:text-lg md:text-xl text-slate-200 max-w-3xl"
                 >
                   I design and ship resilient, production-grade web applications
                   — from fast, SEO-friendly Next.js frontends to scalable
@@ -306,17 +309,17 @@ export default function HomePage() {
                   variants={fadeInUp}
                   className="mt-6 flex flex-wrap gap-3 items-center"
                 >
-                  <div className="flex flex-row gap-4 justify-center items-center">
+                  <div className="flex flex-row gap-2 sm:gap-4 justify-center items-center">
                     <Link href="/contact">
                       <SecondaryButton
                         title="Get In Touch"
-                        containerStyles="px-2 sm:px-8 py-2 rounded-3xl text-lg font-base leading-wide"
+                        containerStyles="px-4 sm:px-8 py-2 rounded-3xl text-sm sm:text-lg font-base sm:leading-wide"
                       />
                     </Link>
                     <Link href="/about">
                       <PrimaryButtons
                         title="More About Me"
-                        containerStyles="px-4 sm:px-8 py-2 rounded-3xl text-lg font-base leading-wide"
+                        containerStyles="px-4 sm:px-8 py-2 rounded-3xl text-sm sm:text-lg font-base sm:leading-wide"
                       />
                     </Link>
                   </div>

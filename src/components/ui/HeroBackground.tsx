@@ -57,7 +57,7 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
             background: { color: { value: "#000000" } },
             fpsLimit: 60,
             particles: {
-                number: { value: typeof window !== "undefined" && window.innerWidth < 640 ? 300 : 600, density: { enable: true, area: 1000 } },
+                number: { value: typeof window !== "undefined" && window.innerWidth < 640 ? 180 : 800, density: { enable: true, area: 1000 } },
                 color: { value: ["#dde2e6", "#fff", "#dde2e6"] },
                 shape: { type: ["circle", "square"] },
                 opacity: { value: { min: 0.7, max: 0.2 } },
@@ -107,7 +107,7 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
                     value: ["#FFFF00"], // Keep yellow for foreground
                 },
                 shape: {
-                    type: ["circle", "square"], // Added square shape
+                    type: ["circle", "square", "trianle"], // Added square shape
                     options: {
                         circle: {
                             weight: 0.8, // 70% chance for circles
@@ -167,7 +167,7 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
                         className="absolute inset-0 z-1"
                         style={{
                             background: "linear-gradient(to right,rgb(34, 113, 225) 0%, rgba(62, 62, 71, 0) 30%, rgba(0, 0, 0, 0) 100%)",
-                            opacity: "50%",
+                            opacity: "25%",
                         }}
                     />
                 </>
