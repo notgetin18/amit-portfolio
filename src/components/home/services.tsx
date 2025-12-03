@@ -293,7 +293,7 @@ const Services = () => {
             className="max-w-6xl mx-auto mt-16 sm:mt-20"
           >
             <div className="text-center mb-8 px-4">
-              <h3 className="text-lg tracking-wide sm:text-2xl font-bold text-[#06b6d4] tracking-tight">
+              <h3 className="text-lg tracking-wide sm:text-2xl font-bold text-[#06b6d4]">
                 Additional Expertise
               </h3>
               <p className="mt-2 text-base text-slate-300 max-w-2xl mx-auto">
