@@ -8,24 +8,14 @@ import GitHubIcon from "@/components/icons/GitHubIcon";
 import Link from "next/link";
 import { fadeInUp, staggerContainer } from "@/constant";
 import Skills from "@/components/home/Skills";
-import Projects from "@/components/home/projects";
-import Services from "@/components/home/services";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { useReducedMotion } from "framer-motion";
-import dynamic from "next/dynamic";
-import { MoveDirection, OutMode } from "@tsparticles/engine";
 import { handleDownloadResume } from "@/utility";
 import SecondaryButton from "@/components/buttons/secondaryButton";
 import PrimaryButtons from "@/components/buttons/primaryButtons";
+import HeroBackground from "@/components/ui/HeroBackground";
+import Projects from "@/components/home/projects";
+import Services from "@/components/home/services";
 
 export default function HomePage() {
-  const shouldReduceMotion = useReducedMotion();
-  const [init, setInit] = useState(false);
-  const [particleCount, setParticleCount] = useState({
-    background: 800,
-    foreground: 400,
-  });
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -43,192 +33,6 @@ export default function HomePage() {
     },
   };
 
-  const particlesInitCb = useCallback(async () => {
-    const engineModule = await import("@tsparticles/engine");
-    const tsParticles = engineModule.tsParticles || engineModule.default;
-    if (tsParticles) {
-      const { loadAll } = await import("@tsparticles/all");
-      await loadAll(tsParticles);
-    }
-  }, []);
-
-  const particlesLoaded = useCallback(async (container?: unknown) => {
-    // console.log("Particles loaded:", container);
-  }, []);
-
-  useEffect(() => {
-    // postpone heavy particle initialization slightly to prioritize LCP metrics
-    const t = setTimeout(() => {
-      import("@tsparticles/engine")
-        .then(async (engineModule) => {
-          const tsParticles = engineModule.tsParticles || engineModule.default;
-          if (tsParticles) {
-            await particlesInitCb();
-            setInit(true);
-          }
-        })
-        .catch((err) => {
-          console.error("Failed to initialize tsParticles:", err);
-        });
-    }, 600);
-
-    return () => clearTimeout(t);
-  }, [particlesInitCb]);
-
-  useEffect(() => {
-    // Set particle count based on window size only on the client-side to avoid hydration mismatch
-    const updateParticleCount = () => {
-      const isMobile = window.innerWidth < 640;
-      setParticleCount({
-        background: isMobile ? 180 : 800,
-        foreground: isMobile ? 140 : 400,
-      });
-    };
-    updateParticleCount();
-  }, []);
-
-  // Background particles (static, tiny, some squares)
-  const backgroundParticles = useMemo(
-    () => ({
-      background: {
-        color: {
-          value: "#000000",
-        },
-      },
-      fpsLimit: 60,
-      particles: {
-        number: {
-          // Adaptive particle count — keep lighter on small screens for Web Vitals
-          value: particleCount.background,
-          density: {
-            enable: true,
-            area: 1000,
-          },
-        },
-        color: {
-          value: ["#dde2e6", "#fff", "#dde2e6"], // White, light blue, light purple
-        },
-        shape: {
-          type: ["circle", "square", "triangle"], // Added square shape
-          options: {
-            circle: {
-              weight: 0.8, // 70% chance for circles
-            },
-            square: {
-              weight: 0.2, // 20% chance for squares
-            },
-          },
-        },
-        opacity: {
-          value: { min: 0.7, max: 0.2 }, // Very faint
-          animation: {
-            enable: false,
-            speed: 0.5, // Slow twinkling
-            sync: false,
-          },
-        },
-        size: {
-          value: { min: 0.5, max: 1 }, // Tiny particles
-        },
-        move: {
-          enable: false, // Static particles
-        },
-        links: {
-          enable: false,
-        },
-      },
-      detectRetina: true,
-    }),
-    [particleCount.background]
-  );
-
-  // Foreground particles (moving, circular, larger)
-  const foregroundParticles = useMemo(
-    () => ({
-      fpsLimit: 60,
-      interactivity: {
-        events: {
-          onClick: {
-            enable: true,
-            mode: "push",
-          },
-          onHover: {},
-          resize: {
-            enable: true,
-          },
-        },
-        modes: {
-          push: {
-            quantity: 6,
-          },
-          repulse: {
-            distance: 300,
-            duration: 0.4,
-          },
-        },
-      },
-      particles: {
-        number: {
-          value: particleCount.foreground,
-          density: {
-            enable: true,
-            area: 1000,
-          },
-        },
-        color: {
-          value: ["#FFFF00"], // Keep yellow for foreground
-        },
-        shape: {
-          type: ["circle", "square", "triangle"], // Added square shape
-          options: {
-            circle: {
-              weight: 0.6, // 60% chance for circles
-            },
-            square: {
-              weight: 0.3, // 30% chance for squares
-            },
-            triangle: {
-              weight: 0.1,
-            }
-          },
-        },
-        opacity: {
-          value: { min: 0.2, max: 0.5 },
-          animation: {
-            enable: false,
-            speed: 1,
-            sync: false,
-          },
-        },
-        size: {
-          value: { min: 0.5, max: 2 },
-        },
-        move: {
-          enable: true,
-          speed: { min: 1, max: 2 },
-          direction: MoveDirection.top,
-          random: false,
-          straight: true,
-          outModes: {
-            default: OutMode.out,
-          },
-        },
-        links: {
-          enable: false,
-        },
-      },
-      detectRetina: true,
-      // If user prefers reduced motion, disable movement to respect accessibility
-      move: {
-        ...(shouldReduceMotion ? { enable: false } : {}),
-      },
-    }),
-    [particleCount.foreground, shouldReduceMotion]
-  );
-
-  // Load particles client-side only and lazily (next/dynamic)
-  const Particles = dynamic(() => import("@tsparticles/react"), { ssr: false });
-
   return (
     <div className="relative overflow-hidden" lang="en">
       {/* Add JSON-LD to the head of the document */}
@@ -238,37 +42,7 @@ export default function HomePage() {
         key="person-jsonld"
       />
 
-      {/* Particle Background Layers */}
-      {init ? (
-        <>
-          <Particles
-            id="tsparticles-background"
-            options={backgroundParticles}
-            particlesLoaded={particlesLoaded}
-            className="absolute inset-0 z-0"
-          />
-          <Particles
-            id="tsparticles-foreground"
-            options={foregroundParticles}
-            particlesLoaded={particlesLoaded}
-            className="absolute inset-0 z-0"
-          />
-          <div
-            className="absolute inset-0 z-1"
-            style={{
-              background:
-                "linear-gradient(to right,rgb(34, 113, 225) 0%, rgba(62, 62, 71, 0) 30%, rgba(0, 0, 0, 0) 100%)",
-              opacity: "25%",
-            }}
-          />
-        </>
-      ) : (
-        <>
-          <div className="absolute inset-0 flex items-center justify-center z-1">
-            <Loader2 className="w-12 h-12 text-[#d6d645] animate-spin" />{" "}
-          </div>
-        </>
-      )}
+      <HeroBackground delay={400} />
 
       {/* Header (SEO + accessibility) */}
       <header
