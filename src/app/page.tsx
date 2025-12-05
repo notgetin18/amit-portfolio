@@ -14,6 +14,7 @@ import PrimaryButtons from "@/components/buttons/primaryButtons";
 import HeroBackground from "@/components/ui/HeroBackground";
 import Projects from "@/components/home/projects";
 import Services from "@/components/home/services";
+import Testimonials from "@/components/home/testimonials";
 
 export default function HomePage() {
   const jsonLd = {
@@ -290,6 +291,17 @@ export default function HomePage() {
           <Services />
         </section>
 
+        {/* Testimonials Section */}
+        <section
+          aria-labelledby="testimonials-heading"
+          className="relative z-10 py-12"
+        >
+          <h2 id="testimonials-heading" className="sr-only">
+            Testimonials
+          </h2>
+          <Testimonials />
+        </section>
+
         {/* CTA Section / Contact — upgraded to match hero visual language */}
         <section
           aria-labelledby="contact-heading"
@@ -345,16 +357,10 @@ export default function HomePage() {
                       reached (Bright Digi Gold)
                     </div>
                     <div className="inline-flex items-center gap-2">
-                      <strong className="text-white text-lg">30%</strong> faster
-                      page loads (selected clients)
+                      <strong className="text-white text-lg">30%</strong> faster page loads via optimization
                     </div>
                     <div className="inline-flex items-center gap-2">
-                      <strong className="text-white text-lg">20%</strong>{" "}
-                      average revenue uplift
-                    </div>
-                    <div className="inline-flex items-center gap-2">
-                      <strong className="text-white text-lg">100%</strong>{" "}
-                      Client satisfaction
+                      <strong className="text-white text-lg">20%</strong> revenue uplift on key funnels
                     </div>
                   </div>
                 </div>
