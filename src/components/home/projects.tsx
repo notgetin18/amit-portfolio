@@ -9,6 +9,8 @@ import { Info, X } from "lucide-react";
 
 const Projects = () => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [isFlippedMed, setIsFlippedMed] = useState(false);
+  const [isFlippedTest, setIsFlippedTest] = useState(false);
 
   const cardVariants = {
     front: { rotateY: 0 },
@@ -78,10 +80,10 @@ const Projects = () => {
                     <div>
                       <button
                         onClick={() => setIsFlipped(true)}
-                        className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors top-2 right-2 absolute"
+                        className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors top-2 right-2 absolute duration-200 ease-in-out"
                         aria-label="Show project details"
                       >
-                        <Info className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-200  hover:text-cyan-300 " />
+                        <Info className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-200  hover:text-cyan-300 duration-300 ease-in-out" />
                       </button>
                       <div className="inline-flex items-center gap-3 mb-4">
                         <div className="px-3 rounded-full text-xs text-slate-200 bg-white/3 border border-white/5">
@@ -172,10 +174,10 @@ const Projects = () => {
                 <h4 className="text-base font-medium text-white text-center tracking-wide">Project Details</h4>
                 <button
                   onClick={() => setIsFlipped(false)}
-                  className=" p-1 w-7 h-7 absolute top-2 right-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                  className=" p-1 w-6 h-6 absolute top-2 right-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200 ease-in-out"
                   aria-label="Hide project details"
                 >
-                  <X className="w-5 h-5 text-cyan-300" />
+                  <X className="w-4 h-4 text-cyan-300 duration-200 ease-in-out" />
                 </button>
                 <div className="mt-2 flex-1 text-slate-300 text-sm leading-relaxed overflow-y-auto pr-1">
                   <ul className="list-item list-inside space-y-2">
@@ -206,127 +208,217 @@ const Projects = () => {
           {/* Right column — stacked cards */}
           <div className="flex flex-col gap-6 order-3 lg:order-2">
             <motion.div variants={fadeInUp}>
-              <Card className="overflow-hidden border border-white/15 bg-gradient-to-br from-[#071826]/20 via-[#07162b]/10 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-300">
-                <div className="relative p-2 sm:p-4 flex sm:items-start gap-4 flex-col sm:flex-row items-stretch">
-                  <div className="flex-shrink-0 w-full h-24 sm:w-48 sm:h-28 rounded-lg bg-gradient-to-br from-[#22c55e]/40 to-[#10b981]/20 flex items-center justify-center p-2">
-                    <Image
-                      alt="Medical Kundali"
-                      src="/Medical Kundali.svg"
-                      width={176}
-                      height={176}
-                      className="object-contain "
-                    />
-                  </div>
+              <motion.div
+                className="grid [grid-template-areas:'card']"
+                style={{ transformStyle: "preserve-3d" }}
+                initial={false}
+                animate={isFlippedMed ? "back" : "front"}
+                variants={cardVariants}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+              >
+                <div style={{ backfaceVisibility: "hidden", gridArea: "card" }} className="w-full h-full">
+                  <Card className="relative overflow-hidden border border-white/15 bg-gradient-to-br from-[#071826]/20 via-[#07162b]/10 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col">
+                    <button
+                      onClick={() => setIsFlippedMed(true)}
+                      className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors top-2 right-2 absolute z-10 duration-200 ease-in-out"
+                      aria-label="Show project details"
+                    >
+                      <Info className="w-4 h-4 text-neutral-200 hover:text-cyan-300 duration-200 ease-in-out" />
+                    </button>
+                    <div className="relative p-2 sm:p-4 flex sm:items-start gap-4 flex-col sm:flex-row items-stretch flex-1">
+                      <div className="flex-shrink-0 w-full h-24 sm:w-48 sm:h-28 rounded-lg bg-gradient-to-br from-[#22c55e]/40 to-[#10b981]/20 flex items-center justify-center p-2">
+                        <Image
+                          alt="Medical Kundali"
+                          src="/Medical Kundali.svg"
+                          width={176}
+                          height={176}
+                          className="object-contain "
+                        />
+                      </div>
 
-                  <div className="flex-1">
-                    <h4 className="text-lg font-semibold text-white mb-1">
-                      Medical Kundali
-                    </h4>
-                    <p className="text-sm text-slate-300 mb-3">
-                      Personalized medical insights and care recommendations
-                      built with privacy-first design.
-                    </p>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-semibold text-white mb-1">
+                          Medical Kundali
+                        </h4>
+                        <p className="text-sm text-slate-300 mb-3">
+                          Personalized medical insights and care recommendations
+                          built with privacy-first design.
+                        </p>
 
-                    <div className="flex items-center gap-2 mb-4">
-                      {["React", "Next", "Node", "MongoDB"].map((t) => (
-                        <span
-                          key={t}
-                          className="px-2 py-0.5 text-xs rounded-full bg-white/5 border border-white/5 text-slate-200"
-                        >
-                          {t}
-                        </span>
-                      ))}
+                        <div className="flex items-center gap-2 mb-4">
+                          {["React", "Next", "Node", "MongoDB"].map((t) => (
+                            <span
+                              key={t}
+                              className="px-2 py-0.5 text-xs rounded-full bg-white/5 border border-white/5 text-slate-200"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="flex gap-2">
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://github.com/notgetin18"
+                            className="bg-white/8 hover:bg-white/10 shadow-sm border border-white/6 flex items-center gap-2 px-3 py-1.5 rounded-md text-sm"
+                            aria-label="View Amit's GitHub profile"
+                          >
+                            <GitHubIcon className="w-4 h-4 text-white/90" />
+                            <span className="text-xs font-semibold text-white/90">
+                              View Code
+                            </span>
+                          </a>
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://medicalkundali.com/"
+                            className="bg-gradient-to-tr from-[#bd4204] to-[#d47406] text-gray-200 px-4 py-1.5 rounded-md text-sm"
+                          >
+                            Live Demo
+                          </a>
+                        </div>
+                      </div>
                     </div>
+                  </Card>
+                </div>
 
-                    <div className="flex gap-2">
-                      <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="https://github.com/notgetin18"
-                        className="bg-white/8 hover:bg-white/10 shadow-sm border border-white/6 flex items-center gap-2 px-3 py-1.5 rounded-md text-sm"
-                        aria-label="View Amit's GitHub profile"
-                      >
-                        <GitHubIcon className="w-4 h-4 text-white/90" />
-                        <span className="text-xs font-semibold text-white/90">
-                          View Code
-                        </span>
-                      </a>
-                      <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="https://medicalkundali.com/"
-                        className="bg-gradient-to-tr from-[#bd4204] to-[#d47406] text-gray-200 px-4 py-1.5 rounded-md text-sm"
-                      >
-                        Live Demo
-                      </a>
-                    </div>
+                {/* Back of the card */}
+                <div
+                  style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)", gridArea: "card" }}
+                  className="w-full h-full rounded-2xl overflow-hidden border border-white/15 bg-gradient-to-br from-[#061025]/40 via-[#07162b]/30 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-300 p-3 sm:p-5 flex flex-col shadow-lg"
+                >
+                  <h4 className="text-base font-medium text-white text-center tracking-wide">Project Details</h4>
+                  <button
+                    onClick={() => setIsFlippedMed(false)}
+                    className=" p-1 w-6 h-6 absolute top-2 right-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200 ease-in-out"
+                    aria-label="Hide project details"
+                  >
+                    <X className="w-4 h-4 text-cyan-300 duration-200 ease-in-out" />
+                  </button>
+                  <div className="mt-2 flex-1 text-slate-300 text-sm leading-relaxed overflow-y-auto pr-1">
+                    <ul className="list-item list-inside space-y-2">
+                      <li>
+                        👉 Developed personalized medical insights platform with AI-driven recommendations and care plans.
+                      </li>
+                      <li>
+                        👉 Implemented privacy-first design featuring end-to-end encryption and secure data handling.
+                      </li>
+                    </ul>
                   </div>
                 </div>
-              </Card>
+              </motion.div>
             </motion.div>
             <motion.div variants={fadeInUp}>
-              <Card className="overflow-hidden border border-white/15 bg-gradient-to-br from-[#061025]/40 via-[#07162b]/30 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-300">
-                <div className="relative flex flex-col sm:flex-row items-stretch p-2 sm:p-0">
-                  <div className="w-full sm:w-1/4 bg-gradient-to-tr from-[#6ee7b7]/40 to-[#06b6d4]/20 p-2 flex items-center justify-center rounded-lg sm:rounded-none">
-                    <Image
-                      alt="TestOfire"
-                      src="/Testofire.webp"
-                      width={160}
-                      height={120}
-                      className="object-contain rounded-lg h-20 w-20 sm:h-32 sm:w-32"
-                      sizes="(max-width: 640px) 80px, 128px"
-                    />
-                  </div>
+              <motion.div
+                className="grid [grid-template-areas:'card']"
+                style={{ transformStyle: "preserve-3d" }}
+                initial={false}
+                animate={isFlippedTest ? "back" : "front"}
+                variants={cardVariants}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+              >
+                <div style={{ backfaceVisibility: "hidden", gridArea: "card" }} className="w-full h-full">
+                  <Card className="relative overflow-hidden border border-white/15 bg-gradient-to-br from-[#061025]/40 via-[#07162b]/30 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-300 h-full flex flex-col">
+                    <button
+                      onClick={() => setIsFlippedTest(true)}
+                      className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors top-2 right-2 absolute z-10 duration-200 ease-in-out"
+                      aria-label="Show project details"
+                    >
+                      <Info className="w-4 h-4 text-neutral-200 hover:text-cyan-300 duration-200 ease-in-out" />
+                    </button>
+                    <div className="relative flex flex-col sm:flex-row items-stretch p-2 sm:p-0 flex-1">
+                      <div className="w-full sm:w-1/4 bg-gradient-to-tr from-[#6ee7b7]/40 to-[#06b6d4]/20 p-2 flex items-center justify-center rounded-lg sm:rounded-none">
+                        <Image
+                          alt="TestOfire"
+                          src="/Testofire.webp"
+                          width={160}
+                          height={120}
+                          className="object-contain rounded-lg h-20 w-20 sm:h-32 sm:w-32"
+                          sizes="(max-width: 640px) 80px, 128px"
+                        />
+                      </div>
 
-                  <div className="flex-1 p-4">
-                    <h4 className="text-lg font-semibold text-white mb-1">
-                      TestOfire Technologies
-                    </h4>
-                    <p className="text-sm text-slate-300 mb-3">
-                      A real-time student & coaching platform — reliable
-                      syncing and API-first architecture.
-                    </p>
+                      <div className="flex-1 p-4">
+                        <h4 className="text-lg font-semibold text-white mb-1">
+                          TestOfire Technologies
+                        </h4>
+                        <p className="text-sm text-slate-300 mb-3">
+                          A real-time student & coaching platform — reliable
+                          syncing and API-first architecture.
+                        </p>
 
-                    <div className="flex items-center gap-2 flex-wrap mb-4">
-                      {["React", "Next", "Node", "Express.js"].map((t) => (
-                        <span
-                          key={t}
-                          className="px-2 py-0.5 text-xs rounded-full bg-white/5 border border-white/5 text-slate-200"
-                        >
-                          {t}
-                        </span>
-                      ))}
+                        <div className="flex items-center gap-2 flex-wrap mb-4">
+                          {["React", "Next", "Node", "Express.js"].map((t) => (
+                            <span
+                              key={t}
+                              className="px-2 py-0.5 text-xs rounded-full bg-white/5 border border-white/5 text-slate-200"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="flex gap-2">
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://github.com/notgetin18"
+                            className="bg-white/8 hover:bg-white/10 shadow-sm border border-white/6 flex items-center gap-2 px-3 py-1.5 rounded-md text-sm"
+                            aria-label="View Amit's GitHub profile"
+                          >
+                            <GitHubIcon className="w-4 h-4 text-white/90" />
+                            <span className="text-xs font-semibold text-white/90">
+                              View Code
+                            </span>
+                          </a>
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://testofire.in/"
+                          >
+                            <span
+                              className="bg-gradient-to-tr from-[#34d399] to-[#06b6d4] text-black px-4 py-1.5 rounded-md text-sm"
+                            >Live Demo</span>
+                          </a>
+                        </div>
+                      </div>
                     </div>
+                  </Card>
+                </div>
 
-                    <div className="flex gap-2">
-                      <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="https://github.com/notgetin18"
-                        className="bg-white/8 hover:bg-white/10 shadow-sm border border-white/6 flex items-center gap-2 px-3 py-1.5 rounded-md text-sm"
-                        aria-label="View Amit's GitHub profile"
-                      >
-                        <GitHubIcon className="w-4 h-4 text-white/90" />
-                        <span className="text-xs font-semibold text-white/90">
-                          View Code
-                        </span>
-                      </a>
-                      <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="https://testofire.in/"
-                      >
-                        <span
-                          className="bg-gradient-to-tr from-[#34d399] to-[#06b6d4] text-black px-4 py-1.5 rounded-md text-sm"
-                        >Live Demo</span>
-                      </a>
-                    </div>
+                {/* Back of the card */}
+                <div
+                  style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)", gridArea: "card" }}
+                  className="w-full h-full rounded-2xl overflow-hidden border border-white/15 bg-gradient-to-br from-[#061025]/40 via-[#07162b]/30 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-300 p-3 sm:p-5 flex flex-col shadow-lg"
+                >
+                  <h4 className="text-base font-medium text-white text-center tracking-wide">Project Details</h4>
+                  <button
+                    onClick={() => setIsFlippedTest(false)}
+                    className=" p-1 w-6 h-6 absolute top-2 right-2 rounded-full bg-white/10 hover:bg-white/15 transition-colors duration-200 ease-in-out"
+                    aria-label="Hide project details"
+                  >
+                    <X className="w-4 h-4 text-cyan-300 duration-200 ease-in-out" />
+                  </button>
+                  <div className="mt-1.5 flex-1 text-slate-300 text-sm leading-relaxed overflow-y-auto pr-1">
+                    <ul className="list-item list-inside space-y-2">
+                      <li>
+                        👉 Designed API-first architecture for scalable backend services.
+                      </li>
+                      <li>
+                        👉 Developed analytics dashboard for performance tracking and insights.
+                      </li>
+                      <li>
+                        👉 Created collaborative tools for scheduling, progress sharing, and feedback.
+                      </li>
+                      <li>
+                        👉 Optimized for low-latency interactions and cross-device compatibility.
+                      </li>
+                    </ul>
                   </div>
                 </div>
-              </Card>
+              </motion.div>
             </motion.div>
-
-
           </div>
         </motion.div>
       </div>
