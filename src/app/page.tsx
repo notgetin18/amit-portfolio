@@ -14,6 +14,7 @@ import PrimaryButtons from "@/components/buttons/primaryButtons";
 import HeroBackground from "@/components/ui/HeroBackground";
 import Projects from "@/components/home/projects";
 import Services from "@/components/home/services";
+import Testimonials from "@/components/home/testimonials";
 
 export default function HomePage() {
   const jsonLd = {
@@ -271,7 +272,7 @@ export default function HomePage() {
         {/* Projects Section — each project is an article in the Projects component */}
         <section
           aria-labelledby="projects-heading"
-          className="relative z-10 py-12"
+          className="relative z-10 py-8"
         >
           <h2 id="projects-heading" className="sr-only">
             Featured Projects
@@ -282,12 +283,22 @@ export default function HomePage() {
         {/* Services */}
         <section
           aria-labelledby="services-heading"
-          className="relative z-10 py-12"
+          className="relative z-10 py-10"
         >
           <h2 id="services-heading" className="sr-only">
             Services & Offerings
           </h2>
           <Services />
+        </section>
+
+        <section
+          aria-labelledby="testimonials-heading"
+          className="relative z-10 py-10"
+        >
+          <h2 id="testimonials-heading" className="sr-only">
+            Testimonials
+          </h2>
+          <Testimonials />
         </section>
 
         {/* CTA Section / Contact — upgraded to match hero visual language */}

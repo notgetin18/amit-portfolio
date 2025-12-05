@@ -85,7 +85,7 @@ const Testimonials = () => {
                 viewport={{ once: true }}
                 className="text-center"
             >
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                <h2 className="text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] mb-3">
                     What My Collaborators Say
                 </h2>
                 <p className="mt-4 max-w-2xl mx-auto text-lg text-slate-300">
@@ -93,7 +93,7 @@ const Testimonials = () => {
                 </p>
             </motion.div>
 
-            <div className="mt-12 relative h-[320px] sm:h-[280px] md:h-[240px] flex items-center justify-center">
+            <div className="mt-10 relative h-[320px] sm:h-[280px] md:h-[240px] flex items-center justify-center">
                 <AnimatePresence initial={false} custom={direction}>
                     <motion.div
                         key={page}
@@ -119,21 +119,27 @@ const Testimonials = () => {
                         }}
                         className="absolute w-full max-w-2xl rounded-2xl border border-white/10 bg-gradient-to-br from-[#07162b]/60 to-[#071826]/50 p-6 sm:p-8 backdrop-blur-md shadow-lg"
                     >
-                        <blockquote className="text-slate-200 text-base sm:text-lg text-center">
-                            <p>&ldquo;{testimonials[testimonialIndex].quote}&rdquo;</p>
+                        <blockquote className="text-slate-100 text-base sm:text-lg leading-relaxed mb-6 relative z-10">
+                            <div className="relative">
+                                <span className="absolute -left-1 top-0 text-4xl text-cyan-200 transition-colors duration-500">“</span>
+                                <span className="px-4">{testimonials[testimonialIndex].quote}</span>
+                                <span className="absolute text-4xl text-cyan-200 transition-colors duration-500">”</span>
+                            </div>
                         </blockquote>
-                        <figcaption className="mt-6 flex flex-col items-center gap-2">
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#3ed6ac] flex items-center justify-center font-bold text-white">
-                                    {testimonials[testimonialIndex].name.charAt(0)}
-                                    {testimonials[testimonialIndex].name.split(" ")[1]?.charAt(0)}
-                                </div>
-                                <div>
-                                    <div className="font-semibold text-white">
-                                        {testimonials[testimonialIndex].name}
+                        <figcaption className="mt-3 flex flex-col gap-2">
+                            <div className="border-t border-white/10 relative z-10">
+                                <div className="flex items-center gap-4 mt-4">
+                                    <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#3ed6ac] flex items-center justify-center font-bold text-white">
+                                        {testimonials[testimonialIndex].name.charAt(0)}
+                                        {testimonials[testimonialIndex].name.split(" ")[1]?.charAt(0)}
                                     </div>
-                                    <div className="text-slate-400 text-sm">
-                                        {testimonials[testimonialIndex].title}
+                                    <div>
+                                        <div className="font-semibold text-white">
+                                            {testimonials[testimonialIndex].name}
+                                        </div>
+                                        <div className="text-slate-400 text-sm">
+                                            {testimonials[testimonialIndex].title}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -142,18 +148,18 @@ const Testimonials = () => {
                 </AnimatePresence>
 
                 <button
-                    className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-12 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                    className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-12 z-20 p-1 sm:p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
                     onClick={() => paginate(-1)}
                     aria-label="Previous testimonial"
                 >
-                    <ArrowLeft className="w-6 h-6 text-white" />
+                    <ArrowLeft className="h-4 w-4 sm:w-6 sm:h-6 text-white" />
                 </button>
                 <button
-                    className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-12 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                    className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-12 z-20 p-1 sm:p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
                     onClick={() => paginate(1)}
                     aria-label="Next testimonial"
                 >
-                    <ArrowRight className="w-6 h-6 text-white" />
+                    <ArrowRight className="h-4 w-4 sm:w-6 sm:h-6 text-white" />
                 </button>
             </div>
 

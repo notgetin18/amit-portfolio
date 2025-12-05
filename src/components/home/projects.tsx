@@ -17,8 +17,6 @@ const Projects = () => {
     back: { rotateY: 180 },
   };
 
-
-
   return (
     <section className="px-2 sm:px-6 lg:px-8 z-10">
       <div style={{ perspective: "1200px" }} className="max-w-7xl mx-auto relative">
