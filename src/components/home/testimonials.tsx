@@ -1,5 +1,8 @@
 "use client";
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { wrap } from "popmotion";
 
 // Placeholder data - replace with your actual testimonials
 const testimonials = [
@@ -17,11 +20,64 @@ const testimonials = [
         title: "Product Manager, HealthTech Startup",
         avatar: "/avatars/john-smith.png", // Replace with actual image path
     },
+    {
+        quote:
+            "Amit was instrumental in rebuilding our frontend architecture. His expertise in Next.js and performance optimization led to a 30% improvement in our page load times, which was a game-changer for our user engagement.",
+        name: "Jane Doe",
+        title: "CTO, ExampleCorp",
+        avatar: "/avatars/jane-doe.png", // Replace with actual image path
+    },
+    {
+        quote:
+            "Working with Amit on the Medical Kundali project was a fantastic experience. He has a rare ability to grasp complex product requirements and translate them into a robust, scalable backend. A true product engineer.",
+        name: "John Smith",
+        title: "Product Manager, HealthTech Startup",
+        avatar: "/avatars/john-smith.png", // Replace with actual image path
+    },
 ];
 
+const variants = {
+    enter: (direction: number) => {
+        return {
+            x: direction > 0 ? "100%" : "-100%",
+            opacity: 0,
+        };
+    },
+    center: {
+        x: 0,
+        opacity: 1,
+    },
+    exit: (direction: number) => {
+        return { x: direction < 0 ? "100%" : "-100%", opacity: 0 };
+    },
+};
+
 const Testimonials = () => {
+    const [[page, direction], setPage] = useState([0, 0]);
+    const [isHovered, setIsHovered] = useState(false);
+
+    // `wrap` function from popmotion will keep the index within the bounds of the array
+    const testimonialIndex = wrap(0, testimonials.length, page);
+
+    const paginate = useCallback((newDirection: number) => {
+        setPage([page + newDirection, newDirection]);
+    }, [page]);
+
+    useEffect(() => {
+        // If the user is hovering, don't auto-play
+        if (isHovered) return;
+
+        // Set up an interval to advance the carousel
+        const autoplayInterval = setInterval(() => {
+            paginate(1);
+        }, 5000); // Change slide every 5 seconds
+
+        // Clear the interval on component unmount or when isHovered changes
+        return () => clearInterval(autoplayInterval);
+    }, [isHovered, paginate]);
+
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -37,35 +93,79 @@ const Testimonials = () => {
                 </p>
             </motion.div>
 
-            <div className="mt-12 grid gap-8 grid-cols-1 md:grid-cols-2">
-                {testimonials.map((testimonial, index) => (
+            <div className="mt-12 relative h-[320px] sm:h-[280px] md:h-[240px] flex items-center justify-center">
+                <AnimatePresence initial={false} custom={direction}>
                     <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.2 }}
-                        viewport={{ once: true }}
-                        className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#07162b]/60 to-[#071826]/50 p-6 sm:p-8 backdrop-blur-md shadow-lg"
+                        key={page}
+                        custom={direction}
+                        variants={variants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{
+                            x: { type: "spring", stiffness: 300, damping: 30 },
+                            opacity: { duration: 0.2 },
+                        }}
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={1}
+                        onDragEnd={(e, { offset, velocity }) => {
+                            const swipe = Math.abs(offset.x) * velocity.x;
+                            if (swipe < -10000) {
+                                paginate(1);
+                            } else if (swipe > 10000) {
+                                paginate(-1);
+                            }
+                        }}
+                        className="absolute w-full max-w-2xl rounded-2xl border border-white/10 bg-gradient-to-br from-[#07162b]/60 to-[#071826]/50 p-6 sm:p-8 backdrop-blur-md shadow-lg"
                     >
-                        <blockquote className="text-slate-200 text-base sm:text-lg">
-                            <p>&ldquo;{testimonial.quote}&rdquo;</p>
+                        <blockquote className="text-slate-200 text-base sm:text-lg text-center">
+                            <p>&ldquo;{testimonials[testimonialIndex].quote}&rdquo;</p>
                         </blockquote>
-                        <figcaption className="mt-6 flex items-center gap-4">
-                            {/* You can use an Image component here if you have avatar images */}
-                            <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#3ed6ac] flex items-center justify-center font-bold text-white">
-                                {testimonial.name.charAt(0)}
-                                {testimonial.name.split(" ")[1]?.charAt(0)}
-                            </div>
-                            <div>
-                                <div className="font-semibold text-white">
-                                    {testimonial.name}
+                        <figcaption className="mt-6 flex flex-col items-center gap-2">
+                            <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#3ed6ac] flex items-center justify-center font-bold text-white">
+                                    {testimonials[testimonialIndex].name.charAt(0)}
+                                    {testimonials[testimonialIndex].name.split(" ")[1]?.charAt(0)}
                                 </div>
-                                <div className="text-slate-400 text-sm">
-                                    {testimonial.title}
+                                <div>
+                                    <div className="font-semibold text-white">
+                                        {testimonials[testimonialIndex].name}
+                                    </div>
+                                    <div className="text-slate-400 text-sm">
+                                        {testimonials[testimonialIndex].title}
+                                    </div>
                                 </div>
                             </div>
                         </figcaption>
                     </motion.div>
+                </AnimatePresence>
+
+                <button
+                    className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-12 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                    onClick={() => paginate(-1)}
+                    aria-label="Previous testimonial"
+                >
+                    <ArrowLeft className="w-6 h-6 text-white" />
+                </button>
+                <button
+                    className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-12 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                    onClick={() => paginate(1)}
+                    aria-label="Next testimonial"
+                >
+                    <ArrowRight className="w-6 h-6 text-white" />
+                </button>
+            </div>
+
+            <div className="flex justify-center gap-2 mt-8">
+                {testimonials.map((_, i) => (
+                    <button
+                        key={i}
+                        onClick={() => setPage([i, i > testimonialIndex ? 1 : -1])}
+                        className={`w-2 h-2 rounded-full transition-colors ${i === testimonialIndex ? "bg-cyan-400" : "bg-slate-600 hover:bg-slate-400"
+                            }`}
+                        aria-label={`Go to testimonial ${i + 1}`}
+                    />
                 ))}
             </div>
         </div>
