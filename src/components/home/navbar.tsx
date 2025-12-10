@@ -24,6 +24,7 @@ export default function Navbar() {
       { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
       { href: "/services", label: "Services" },
+      { href: "/blog", label: "Blog" },
     ],
     []
   );
@@ -69,8 +70,8 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={`font-semibold transition-colors duration-300 ${isActive
-                      ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
-                      : "text-slate-300 hover:text-[#3ed6ac]"
+                    ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
+                    : "text-slate-300 hover:text-[#3ed6ac]"
                     }`}
                   aria-label={`Go to ${link.label} page`}
                 >
@@ -133,8 +134,8 @@ export default function Navbar() {
                   key={`mobile-${link.href}`}
                   href={link.href}
                   className={`text-center font-semibold transition-colors duration-300 py-2 ${isActive
-                      ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
-                      : "text-slate-200 hover:text-[#3ed6ac]"
+                    ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
+                    : "text-slate-200 hover:text-[#3ed6ac]"
                     }`}
                   onClick={() => setIsMenuOpen(false)}
                   aria-label={`Go to ${link.label} page`}

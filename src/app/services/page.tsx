@@ -1,4 +1,4 @@
-import ServicesPage from '@/components/services/serviceHero'
+import Services from '@/components/services/serviceHero'
 import { Metadata } from 'next';
 import React from 'react'
 
@@ -24,14 +24,5 @@ export const metadata: Metadata = {
   ],
 };
 
-
-const page = () => {
-  return (
-    <div>
-      <ServicesPage />
-    </div>
-  )
-}
-
-export default page
+export default Services;
 

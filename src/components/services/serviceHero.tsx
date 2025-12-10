@@ -11,7 +11,7 @@ import CollaboratorsCarousel from "./teamCrousel";
 import { handleDownloadResume } from "@/utility";
 import { Button } from "../ui/button";
 
-export default function ServicesPage() {
+export default function Services() {
     return (
         <div className="min-h-screen relative overflow-y-auto bg-gradient-to-br from-[#07162b]/80 via-[#061025]/70 to-[#071826]/95">
 
