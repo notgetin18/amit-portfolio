@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Calendar, TrendingUp, Code, Wrench, Rocket, Users, ArrowRight, Database, Smartphone, Globe, Zap, CheckCircle } from "lucide-react";
+import { Calendar, TrendingUp, Code, Wrench, Rocket, Users, ArrowRight, Database, Smartphone, Globe, Zap, CheckCircle, Gift } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import PrimaryButtons from "@/components/buttons/primaryButtons";
 import SecondaryButton from "@/components/buttons/secondaryButton";
@@ -9,6 +9,7 @@ import { fadeInUp, staggerContainer } from "@/constant";
 import HeroBackground from "@/components/ui/HeroBackground";
 import CollaboratorsCarousel from "./teamCrousel";
 import { handleDownloadResume } from "@/utility";
+import { Button } from "../ui/button";
 
 export default function ServicesPage() {
     return (
@@ -201,6 +202,31 @@ export default function ServicesPage() {
                     {/* Collaborators Section */}
                     <CollaboratorsCarousel />
 
+                    {/* Seasonal Offer Section */}
+                    <motion.section
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 0.9, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        viewport={{ once: true }}
+                        className="my-16"
+                    >
+                        <div className="max-w-4xl mx-auto p-8 rounded-2xl bg-gradient-to-r from-[#06b6d4]/20 to-[#3ed6ac]/20 border border-white/10 backdrop-blur-sm text-center">
+                            <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-[#8ef3c1] to-[#06b6d4] mb-4">
+                                <Gift className="w-8 h-8 text-black" />
+                            </div>
+                            <h3 className="text-2xl md:text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] mb-3">
+                                Transparent Pricing & Holiday Offers
+                            </h3>
+                            <p className="text-slate-300 max-w-3xl mx-auto leading-relaxed mb-6">
+                                I believe in honest, transparent pricing with no hidden fees. Every project is quoted with clear, measurable value and guaranteed ROI. To celebrate the holiday season, I'm offering a special discount!
+                            </p>
+                            <div className="inline-block text-lg font-semibold text-white bg-white/10 px-6 py-3 rounded-full border border-white/20 shadow-lg">
+                                <span className="text-yellow-300">Christmas & New Year Special:</span> 15% OFF on all new projects!
+                            </div>
+                        </div>
+                    </motion.section>
+
+
                     {/* CTA Section */}
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
@@ -225,6 +251,41 @@ export default function ServicesPage() {
                             <SecondaryButton title="View Case Study" handleClick={() => { handleDownloadResume("png") }} containerStyles="px-8 py-3 rounded-3xl text-lg" />
                         </div>
                     </motion.div>
+                    {/* <motion.section
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                        className="text-center"
+                    >
+                        <Card className="p-8 bg-gradient-to-b from-[#06b6d4] to-[#3ed6ac] opacity-100 text-white">
+                            <h2 className="text-3xl font-bold mb-4">
+                                Ready to Start Your Project?
+                            </h2>
+                            <p className="text-xl text-purple-100 mb-6 max-w-2xl mx-auto">
+                                Let's discuss your requirements and create something amazing
+                                together. I'm here to turn your ideas into reality.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                <Button
+                                    asChild
+                                    size="lg"
+                                    variant="secondary"
+                                    className="px-8 py-3"
+                                >
+                                    <Link href="/contact">Get a Quote</Link>
+                                </Button>
+                                <Button
+                                    asChild
+                                    size="lg"
+                                    variant="outline"
+                                    className="px-8 py-3 border-white text-white hover:bg-white hover:text-purple-600"
+                                >
+                                    <Link href="/about">View My Work</Link>
+                                </Button>
+                            </div>
+                        </Card>
+                    </motion.section> */}
                 </div>
             </div>
         </div>
