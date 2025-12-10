@@ -8,6 +8,7 @@ import Link from "next/link";
 import { fadeInUp, staggerContainer } from "@/constant";
 import HeroBackground from "@/components/ui/HeroBackground";
 import CollaboratorsCarousel from "./teamCrousel";
+import { handleDownloadResume } from "@/utility";
 
 export default function ServicesPage() {
     return (
@@ -221,7 +222,7 @@ export default function ServicesPage() {
                             <Link href="/contact">
                                 <PrimaryButtons title="Start Discovery Call" containerStyles="px-8 py-3 rounded-3xl text-lg" />
                             </Link>
-                            <SecondaryButton title="View Case Studies" handleClick={() => {/* Scroll to projects or link */ }} containerStyles="px-8 py-3 rounded-3xl text-lg" />
+                            <SecondaryButton title="View Case Study" handleClick={() => { handleDownloadResume("png") }} containerStyles="px-8 py-3 rounded-3xl text-lg" />
                         </div>
                     </motion.div>
                 </div>
