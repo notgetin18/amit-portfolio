@@ -8,8 +8,11 @@ export const handleDownloadResume = (format: string) => {
   } else if (format === "docx") {
     url = "/Amit-kumar_Resume.docx";
     filename = "Amit_Kumar_Resume.docx";
-  } else {
-    return;
+  } else if(format === "png")  {
+    url = "/caseStudy.png";
+    filename = "Bright DiGi Gold Case Study.png";
+  } else{
+     return;
   }
 
   const a = document.createElement("a");

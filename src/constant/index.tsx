@@ -1,3 +1,12 @@
+import {
+    Calendar,
+    Clock,
+    ArrowRight,
+    BookOpen,
+    Code,
+    Lightbulb,
+} from "lucide-react";
+
 export const resumeContent = `
 AMIT KUMAR
 MERN Stack Developer
@@ -53,3 +62,39 @@ export const staggerContainer = {
     },
   },
 };
+
+export const defaultBlogPosts = [
+    {
+        id: 1,
+        title: "Building Scalable MERN Applications: Best Practices",
+        excerpt:
+            "Learn the essential patterns and practices for building robust MERN stack applications that can handle thousands of users.",
+        date: "2024-01-15",
+        readTime: "8 min read",
+        category: "Development",
+        icon: Code,
+        gradient: "from-blue-500 to-cyan-500",
+    },
+    {
+        id: 2,
+        title: "Optimizing React Performance: Real-world Techniques",
+        excerpt:
+            "Discover the performance optimization techniques I used to boost website speed by 30% in production applications.",
+        date: "2024-01-10",
+        readTime: "6 min read",
+        category: "React",
+        icon: Lightbulb,
+        gradient: "from-purple-500 to-pink-500",
+    },
+    {
+        id: 3,
+        title: "API Integration Strategies for Modern Web Apps",
+        excerpt:
+            "Explore different approaches to API integration and how to handle complex data flows in MERN applications.",
+        date: "2024-01-05",
+        readTime: "10 min read",
+        category: "Backend",
+        icon: BookOpen,
+        gradient: "from-green-500 to-teal-500",
+    },
+];

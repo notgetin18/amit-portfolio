@@ -23,6 +23,8 @@ export default function Navbar() {
       { href: "/", label: "Home" },
       { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
+      { href: "/services", label: "Services" },
+      { href: "/blog", label: "Blog" },
     ],
     []
   );
@@ -37,7 +39,7 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="w-full max-w-7xl fixed top-3 -translate-x-1/2 bg-[#07162b]/50 backdrop-blur-lg z-20 border border-white/10 rounded-xl shadow-lg shadow-black/20"
+      className="w-full max-w-7xl fixed top-3 -translate-x-1/2 bg-[#07162b]/50 backdrop-blur-lg z-20 border border-white/15 rounded-3xl shadow-lg shadow-black/20"
     >
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-2">
@@ -54,24 +56,23 @@ export default function Navbar() {
               width={192}
               height={192}
               alt="amit image"
-              className="h-16 w-16 rounded-full"
+              className="h-16 w-16 rounded-full border-2 border-white/50 shadow-md shadow-white/80"
               priority
             />
           </motion.div>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-8 border border-white/20 rounded-full px-8 py-3 shadow-sm shadow-white/30 backdrop-blur-lg">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`font-semibold transition-colors duration-300 ${
-                    isActive
-                      ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
-                      : "text-slate-300 hover:text-[#3ed6ac]"
-                  }`}
+                  className={`font-semibold transition-colors duration-300 ${isActive
+                    ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
+                    : "text-slate-300 hover:text-[#3ed6ac]"
+                    }`}
                   aria-label={`Go to ${link.label} page`}
                 >
                   {link.label}
@@ -132,11 +133,10 @@ export default function Navbar() {
                 <Link
                   key={`mobile-${link.href}`}
                   href={link.href}
-                  className={`text-center font-semibold transition-colors duration-300 py-2 ${
-                    isActive
-                      ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
-                      : "text-slate-200 hover:text-[#3ed6ac]"
-                  }`}
+                  className={`text-center font-semibold transition-colors duration-300 py-2 ${isActive
+                    ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
+                    : "text-slate-200 hover:text-[#3ed6ac]"
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                   aria-label={`Go to ${link.label} page`}
                 >

@@ -162,3 +162,31 @@ h6 {
   text-shadow: 0 10px 30px #e9eeea;
   transform: rotate(-28deg) skew(25deg);
 }
+
+.text-shine {
+  background: linear-gradient(
+    110deg,
+    rgba(240, 164, 48, 1),
+    45%,
+    rgba(255, 255, 20, 1),
+    55%,
+    rgba(240, 164, 48, 1)
+  );
+  background-size: 260% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShine 2.5s ease-out infinite alternate;
+  font-weight: 900;
+}
+@keyframes textShine {
+  to {
+    background-position: -200%;
+  }
+}
+
+.text-shine::after {
+  content: "";
+  border-color: rgba(240, 164, 48, 1);
+  background: rgba(240, 164, 48, 1);
+}
