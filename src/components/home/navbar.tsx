@@ -38,7 +38,7 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="w-full max-w-7xl fixed top-3 -translate-x-1/2 bg-[#07162b]/50 backdrop-blur-lg z-20 border border-white/10 rounded-xl shadow-lg shadow-black/20"
+      className="w-full max-w-7xl fixed top-3 -translate-x-1/2 bg-[#07162b]/50 backdrop-blur-lg z-20 border border-white/15 rounded-3xl shadow-lg shadow-black/20"
     >
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-2">
@@ -61,7 +61,7 @@ export default function Navbar() {
           </motion.div>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-8 border border-white/20 rounded-full px-8 py-3 shadow-sm shadow-white/30 backdrop-blur-lg">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
