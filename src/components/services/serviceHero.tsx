@@ -12,6 +12,7 @@ import CollaboratorsCarousel from "./teamCrousel";
 export default function ServicesPage() {
     return (
         <div className="min-h-screen relative overflow-y-auto bg-gradient-to-br from-[#07162b]/80 via-[#061025]/70 to-[#071826]/95">
+
             {/* Reuse your hero background for consistency */}
             <HeroBackground delay={200} />
 
@@ -29,13 +30,13 @@ export default function ServicesPage() {
                         className="text-center mb-16"
                     >
                         <motion.div variants={fadeInUp}>
-                            <div className="inline-flex items-center text-sm text-slate-300 uppercase tracking-widest rounded-full bg-gradient-to-r from-white/5 via-white/3 to-transparent px-3 py-1 mb-4">
+                            <div className="inline-flex items-center text-sm text-slate-300 uppercase tracking-widest rounded-full bg-gradient-to-r from-white/5 via-white/3 to-transparent px-3 py-1 my-4 sm:my-6">
                                 Tailored Solutions
                             </div>
                             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] leading-tight mb-4">
                                 Services I Deliver
                             </h1>
-                            <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                            <p className="text-lg text-slate-200 max-w-3xl mx-auto leading-relaxed">
                                 As a MERN full-stack specialist, I offer end-to-end engineering—from performant frontends to scalable backends. Flexible: Solo for rapid prototypes, or leading my curated 10+ person team for enterprise-scale delivery. Let's build what scales.
                             </p>
                         </motion.div>
@@ -51,6 +52,27 @@ export default function ServicesPage() {
                     >
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                             {[
+                                {
+                                    title: "Digital Marketing Strategy",
+                                    icon: TrendingUp,
+                                    desc: "Crafting data-driven strategies for SEO, content, and paid campaigns to boost online presence and conversions.",
+                                    priceHint: "Starting at $2.5k",
+                                    teamNote: "Growth-focused",
+                                },
+                                {
+                                    title: "Social Media Advertising",
+                                    icon: Users,
+                                    desc: "Targeted ad campaigns on platforms like Facebook, Instagram, and LinkedIn to reach your ideal audience and drive engagement.",
+                                    priceHint: "Starting at $1.5k",
+                                    teamNote: "Audience expansion",
+                                },
+                                {
+                                    title: "Lead Generation & Nurturing",
+                                    icon: Rocket,
+                                    desc: "Implementing systems to capture, qualify, and nurture leads, turning prospects into loyal customers.",
+                                    priceHint: "Starting at $3k",
+                                    teamNote: "Sales pipeline",
+                                },
                                 {
                                     title: "Product & Frontend Engineering",
                                     icon: Wrench,
@@ -93,6 +115,7 @@ export default function ServicesPage() {
                                     priceHint: "Hourly $150+",
                                     teamNote: "Personalized guidance",
                                 },
+
                             ].map((service, index) => (
                                 <motion.div
                                     key={service.title}
@@ -108,16 +131,16 @@ export default function ServicesPage() {
                                                     <service.icon className="w-6 h-6 text-black" />
                                                 </div>
                                                 <h3 className="text-lg font-semibold text-white mb-2">{service.title}</h3>
-                                                <p className="text-slate-400 mb-4 text-sm leading-relaxed">{service.desc}</p>
+                                                <p className="text-slate-300 mb-4 text-sm leading-relaxed">{service.desc}</p>
                                                 <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
-                                                    <span>{service.priceHint}</span>
-                                                    <span className="text-[#3ed6ac] font-medium">{service.teamNote}</span>
+                                                    {/* <span>{service.priceHint}</span> */}
+                                                    <span className="text-[#3ed6ac] font-medium text-sm sm:text-base">{service.teamNote}</span>
                                                 </div>
                                             </div>
                                             <Link href="/contact" className="w-full">
                                                 <SecondaryButton
                                                     title="Discuss This Service"
-                                                    containerStyles="w-full px-4 py-2 text-sm"
+                                                    containerStyles="w-full px-4 py-2 font-semibold tracking-wide text-sm rounded-full"
                                                 />
                                             </Link>
                                         </CardContent>
@@ -156,13 +179,13 @@ export default function ServicesPage() {
                                         key={item.step}
                                         initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                                         whileInView={{ opacity: 1, x: 0 }}
-                                        transition={{ duration: 0.5, delay: index * 0.2 }}
+                                        transition={{ duration: 0.5, delay: index * 0.3 }}
                                         viewport={{ once: true }}
                                         className={`relative flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} justify-between`}
                                     >
                                         <div className="flex-1 max-w-md">
-                                            <h3 className="text-lg font-semibold text-white mb-2">{item.step}</h3>
-                                            <p className="text-slate-400 text-sm">{item.desc}</p>
+                                            <h3 className="text-lg font-semibold text-white mb-2 sm:pl-4">{item.step}</h3>
+                                            <p className="text-slate-400 text-sm sm:pl-4">{item.desc}</p>
                                         </div>
                                         <div className={`w-12 h-12 rounded-full bg-gradient-to-r from-[#8ef3c1] to-[#06b6d4] flex items-center justify-center ml-4 ${index % 2 === 0 ? 'ml-4' : 'mr-4'}`}>
                                             <item.icon className="w-6 h-6 text-black" />
@@ -182,7 +205,7 @@ export default function ServicesPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
-                        className="text-center"
+                        className="text-center my-8"
                     >
                         <div className="inline-flex items-center text-sm text-slate-300 uppercase tracking-widest rounded-full bg-gradient-to-r from-white/5 via-white/3 to-transparent px-3 py-1 mb-4">
                             Next Steps

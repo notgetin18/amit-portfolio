@@ -385,7 +385,6 @@ const page = () => {
   return (
     <div>
       <ServicesPage />
-      
     </div>
   )
 }
