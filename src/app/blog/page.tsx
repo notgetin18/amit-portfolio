@@ -1,5 +1,6 @@
 "use client";
 
+import type { Metadata } from "next";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
@@ -9,8 +10,27 @@ import HeroBackground from "@/components/ui/HeroBackground";
 import { Input } from "@/components/ui/input";
 import { UpcomingArticles } from "@/components/blogs/upcomingArticles";
 
-export default function BlogPage() {
+export const metadata: Metadata = {
+  title: "Tech Blog | Amit Kumar - MERN Stack Developer",
+  description:
+    "Explore insightful articles, tutorials, and case studies on MERN stack, performance optimization, and modern web development from Amit Kumar's tech blog. Stay updated with the latest trends and best practices.",
+  keywords: [
+    "MERN stack",
+    "React",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "JavaScript",
+    "TypeScript",
+    "Web Development",
+    "Tech Blog",
+    "Performance Optimization",
+    "Full-stack Developer",
+    "Amit Kumar",
+  ],
+};
 
+function BlogPageClient() {
   return (
     <div className="min-h-screen relative overflow-y-auto bg-gradient-to-br from-[#07162b]/80 via-[#061025]/70 to-[#071826]/95">
 
@@ -109,4 +129,10 @@ export default function BlogPage() {
       </div>
     </div>
   );
+}
+
+export default function BlogPage() {
+  return (
+    <BlogPageClient />
+  )
 }
