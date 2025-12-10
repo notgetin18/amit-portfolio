@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Calendar, TrendingUp, Code, Wrench, Rocket, Users, ArrowRight } from "lucide-react";
+import { Calendar, TrendingUp, Code, Wrench, Rocket, Users, ArrowRight, Database, Smartphone, Globe, Zap, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import PrimaryButtons from "@/components/buttons/primaryButtons";
 import SecondaryButton from "@/components/buttons/secondaryButton";
@@ -14,7 +14,7 @@ export default function ServicesPage() {
         <div className="min-h-screen relative overflow-y-auto bg-gradient-to-br from-[#07162b]/80 via-[#061025]/70 to-[#071826]/95">
 
             {/* Reuse your hero background for consistency */}
-            <HeroBackground delay={200} />
+            <HeroBackground delay={300} />
 
             {/* Decorative gradients */}
             <div className="absolute -left-20 -top-10 w-72 h-72 bg-gradient-to-tr from-[#34d399]/30 to-[#06b6d4]/12 rounded-full blur-3xl mix-blend-screen pointer-events-none z-10" aria-hidden />
@@ -83,28 +83,28 @@ export default function ServicesPage() {
                                 },
                                 {
                                     title: "API Design & Backend Development",
-                                    icon: Code,
+                                    icon: Database,
                                     desc: "Robust Node/Express APIs, REST/GraphQL, payments/KYC integrations. Built for high concurrency and resilience.",
                                     priceHint: "Starting at $4k",
                                     teamNote: "Ideal for scale",
                                 },
                                 {
                                     title: "Performance Optimization",
-                                    icon: TrendingUp,
+                                    icon: Zap,
                                     desc: "Lighthouse audits, caching, and TTFB reductions—delivering 30%+ speed gains without compromising features.",
                                     priceHint: "Starting at $2k",
                                     teamNote: "Quick wins solo",
                                 },
                                 {
                                     title: "Cloud Infrastructure & DevOps",
-                                    icon: Rocket,
+                                    icon: Globe,
                                     desc: "AWS/Docker deployments, CI/CD pipelines, and cost-optimized infra for sustainable growth.",
                                     priceHint: "Starting at $3k",
                                     teamNote: "Team for complex setups",
                                 },
                                 {
                                     title: "Mobile App Development",
-                                    icon: Code,
+                                    icon: Smartphone,
                                     desc: "Cross-platform React Native apps with seamless web sync—focusing on UX and offline resilience.",
                                     priceHint: "Starting at $6k",
                                     teamNote: "Full team delivery",
