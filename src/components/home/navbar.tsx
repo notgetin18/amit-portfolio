@@ -23,6 +23,7 @@ export default function Navbar() {
       { href: "/", label: "Home" },
       { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
+      { href: "/services", label: "Services" },
     ],
     []
   );
@@ -54,7 +55,7 @@ export default function Navbar() {
               width={192}
               height={192}
               alt="amit image"
-              className="h-16 w-16 rounded-full"
+              className="h-16 w-16 rounded-full border-2 border-white/50 shadow-md shadow-white/80"
               priority
             />
           </motion.div>
@@ -67,11 +68,10 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`font-semibold transition-colors duration-300 ${
-                    isActive
+                  className={`font-semibold transition-colors duration-300 ${isActive
                       ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
                       : "text-slate-300 hover:text-[#3ed6ac]"
-                  }`}
+                    }`}
                   aria-label={`Go to ${link.label} page`}
                 >
                   {link.label}
@@ -132,11 +132,10 @@ export default function Navbar() {
                 <Link
                   key={`mobile-${link.href}`}
                   href={link.href}
-                  className={`text-center font-semibold transition-colors duration-300 py-2 ${
-                    isActive
+                  className={`text-center font-semibold transition-colors duration-300 py-2 ${isActive
                       ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
                       : "text-slate-200 hover:text-[#3ed6ac]"
-                  }`}
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                   aria-label={`Go to ${link.label} page`}
                 >

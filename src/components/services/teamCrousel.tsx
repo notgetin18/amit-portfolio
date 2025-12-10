@@ -16,18 +16,19 @@ interface TeamMember {
     role: string;
     expertise: string;
     link: string;
+    avatar: string;
 }
 
 const TeamMembersCarousel: React.FC = () => {
 
     const teamMembers: TeamMember[] = [
-        { name: "Ayush Arya", role: "Backend Developer", expertise: "Specialist in building scalable, high-performance REST APIs using Node.js, Express, and MongoDB.", link: "https://www.linkedin.com/in/ayush-arya-36505a218/" },
-        { name: "Ritesh Singh", role: "Full Stack Developer & Technical Lead", expertise: "10+ years of expertise in Node.js, TypeScript, Next.js, AWS/CI-CD pipeline management and leading AI platform development.", link: "https://www.linkedin.com/in/1124ritesh/" },
-        { name: "Shashi Bhushan Jha", role: "Full-Stack Specialist", expertise: "Expert in cross-platform mobile development using Flutter and integrating payment gateways.", link: "https://www.linkedin.com/in/shashi-bhushan-jha-7797371a3/" },
-        { name: "Mritunjay Gupta", role: "Product Engineer", expertise: "SaaS product scaling, feature lifecycle management, and B2B/B2C product strategy.", link: "https://www.linkedin.com/in/mritunjay-gupta/" },
-        { name: "Vipin Rathore", role: "Video Editor", expertise: "Professional video production and motion graphics specialist for digital marketing and content.", link: "https://www.linkedin.com/in/vipin-rathore-615a3019b/" },
-        { name: "Simran Meena", role: "Content Writer", expertise: "SEO-focused technical content creation, documentation, and user guide development.", link: "https://www.linkedin.com/in/simran-meena-a44b262a7/" },
-        { name: "Raghvender Singh", role: "UI/UX Engineer", expertise: "Frontend architecture design, responsive UI/UX.", link: "https://www.linkedin.com/in/raghvender-singh-627089121/" },
+        { name: "Ayush Arya", role: "Backend Developer", expertise: "Specialist in building scalable, high-performance REST APIs using Node.js, Express, and MongoDB.", link: "https://www.linkedin.com/in/ayush-arya-36505a218/", avatar: "/team/Ayush.jpeg" },
+        { name: "Ritesh Singh", role: "Full Stack Developer & Technical Lead", expertise: "10+ years of expertise in Node.js, TypeScript, Next.js, AWS/CI-CD pipeline management and leading AI platform development.", link: "https://www.linkedin.com/in/1124ritesh/", avatar: "/team/Ritesh.jpeg" },
+        { name: "Shashi Bhushan Jha", role: "Full-Stack Specialist", expertise: "Expert in cross-platform mobile development using Flutter and integrating payment gateways.", link: "https://www.linkedin.com/in/shashi-bhushan-jha-7797371a3/", avatar: "/team/Shashi.jpeg" },
+        { name: "Mritunjay Gupta", role: "Product Engineer", expertise: "SaaS product scaling, feature lifecycle management, and B2B/B2C product strategy.", link: "https://www.linkedin.com/in/mritunjay-gupta/", avatar: "/team/Mritunjay.jpeg" },
+        { name: "Vipin Rathore", role: "Motion Graphic Designer & Video Editor", expertise: "Professional video production and motion graphics specialist for digital marketing and content.", link: "https://www.linkedin.com/in/vipin-rathore-615a3019b/", avatar: "/team/Vipin.jpeg" },
+        { name: "Simran Meena", role: "Content Writer", expertise: "SEO-focused technical content creation, documentation, and user guide development.", link: "https://www.linkedin.com/in/simran-meena-a44b262a7/", avatar: "/team/Simran.jpeg" },
+        { name: "Raghvender Singh", role: "UI/UX Engineer", expertise: "Frontend architecture design, responsive UI/UX.", link: "https://www.linkedin.com/in/raghvender-singh-627089121/", avatar: "/team/Raghvender.jpeg" },
     ];
 
     // Duplicate the array 3 times for a continuous scroll on various screen sizes
@@ -47,9 +48,16 @@ const TeamMembersCarousel: React.FC = () => {
                 <div className="flex flex-col items-center text-center pb-4 border-b border-white/10 mb-4">
 
                     {/* Larger Avatar Placeholder */}
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#3ed6ac] flex items-center justify-center text-white text-2xl font-extrabold flex-shrink-0 mb-3">
+                    {/* <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#3ed6ac] flex items-center justify-center text-white text-2xl font-extrabold flex-shrink-0 mb-3">
                         {member.name.charAt(0)}
-                    </div>
+                    </div> */}
+
+                    <img
+                        src={member.avatar}
+                        alt={`Avatar of ${member.name}`}
+                        className="w-20 h-20 rounded-full object-cover border-2 border-white/50 shadow-md shadow-white/80 flex-shrink-0 mb-3 backdrop-blur-sm"
+                        width="64" height="64"
+                    />
 
                     <h3 className="text-xl font-bold text-white">{member.name}</h3>
                     <p className="text-sm text-[#06b6d4] font-semibold mt-0.5">{member.role}</p>
@@ -93,7 +101,13 @@ const TeamMembersCarousel: React.FC = () => {
                     Meet the Core Team
                 </h2>
                 <p className="text-sm text-slate-300 max-w-xl mx-auto mt-2">
-                    A team of experienced professionals in **MERN Stack**, **Full Stack Development**, **Mobile**, and **Product Strategy**, dedicated to high-performance delivery.
+                    A curated network of specialists in{' '}
+                    <span className="text-[#3ed6ac] font-semibold">Digital Marketing</span>,{' '}
+                    <span className="text-[#3ed6ac] font-semibold">Video Editing</span>,{' '}
+                    <span className="text-[#3ed6ac] font-semibold">Full-Stack Engineering</span>,{' '}
+                    <span className="text-[#3ed6ac] font-semibold">Mobile</span>, and{' '}
+                    <span className="text-[#3ed6ac] font-semibold">Product Strategy</span>
+                    , built to deliver robust, scalable solutions.
                 </p>
             </header>
 

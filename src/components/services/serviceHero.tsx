@@ -33,9 +33,10 @@ export default function ServicesPage() {
                             <div className="inline-flex items-center text-sm text-slate-300 uppercase tracking-widest rounded-full bg-gradient-to-r from-white/5 via-white/3 to-transparent px-3 py-1 my-4 sm:my-6">
                                 Tailored Solutions
                             </div>
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] leading-tight mb-4">
-                                Services I Deliver
-                            </h1>
+                            {/* <h1 className="text-3xl md:text-4xl font-extrabold"> Freelance Service</h1> */}
+                            <p className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] leading-tight mb-4">
+                                Services We Deliver
+                            </p>
                             <p className="text-lg text-slate-200 max-w-3xl mx-auto leading-relaxed">
                                 As a MERN full-stack specialist, I offer end-to-end engineering—from performant frontends to scalable backends. Flexible: Solo for rapid prototypes, or leading my curated 10+ person team for enterprise-scale delivery. Let's build what scales.
                             </p>

@@ -8,31 +8,24 @@ import { wrap } from "popmotion";
 const testimonials = [
     {
         quote:
-            "Amit was instrumental in rebuilding our frontend architecture. His expertise in Next.js and performance optimization led to a 30% improvement in our page load times, which was a game-changer for our user engagement.",
-        name: "Jane Doe",
-        title: "CTO, ExampleCorp",
-        avatar: "/avatars/jane-doe.png", // Replace with actual image path
+            "Amit was instrumental in rebuilding our frontend architecture. His expertise in Next.js and performance optimization led to a 30% improvement in our page load times, which was great for our user engagement.",
+        name: "Ajitesh Kumar",
+        title: "COO, Bright DiGi Gold",
+        avatar: "/avatars/jane-doe.png",
     },
     {
         quote:
-            "Working with Amit on the Medical Kundali project was a fantastic experience. He has a rare ability to grasp complex product requirements and translate them into a robust, scalable backend. A true product engineer.",
-        name: "John Smith",
-        title: "Product Manager, HealthTech Startup",
-        avatar: "/avatars/john-smith.png", // Replace with actual image path
+            "Working with Amit on the Medical Kundali project was a fantastic experience. He has a rare ability to grasp complex product requirements and translate them into a robust, scalable frontend and backend as well. A true product engineer.",
+        name: "Vinod Vishwakarma",
+        title: "Product Manager, HealthTech(Medical Kundali)",
+        avatar: "/avatars/john-smith.png",
     },
     {
         quote:
-            "Amit was instrumental in rebuilding our frontend architecture. His expertise in Next.js and performance optimization led to a 30% improvement in our page load times, which was a game-changer for our user engagement.",
-        name: "Jane Doe",
-        title: "CTO, ExampleCorp",
-        avatar: "/avatars/jane-doe.png", // Replace with actual image path
-    },
-    {
-        quote:
-            "Working with Amit on the Medical Kundali project was a fantastic experience. He has a rare ability to grasp complex product requirements and translate them into a robust, scalable backend. A true product engineer.",
-        name: "John Smith",
-        title: "Product Manager, HealthTech Startup",
-        avatar: "/avatars/john-smith.png", // Replace with actual image path
+            "Amit's expertise in React and performance optimization was instrumental in rebuilding our product architecture. He delivered a more scalable and stable platform, which was a game-changer for our user engagement.",
+        name: "Ritesh Singh",
+        title: "CTO, TestOfire",
+        avatar: "/avatars/jane-doe.png",
     },
 ];
 
@@ -81,7 +74,7 @@ const Testimonials = () => {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 2 }}
                 viewport={{ once: true }}
                 className="text-center"
             >
