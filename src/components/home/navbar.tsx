@@ -39,18 +39,11 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="w-full max-w-7xl fixed top-3 -translate-x-1/2 bg-[#07162b]/50 backdrop-blur-lg z-20 border border-white/15 rounded-3xl shadow-lg shadow-black/20"
+      className="w-full max-w-7xl fixed top-3 -translate-x-1/2 bg-[#07162b]/50 backdrop-blur-lg z-20 border border-white/15 rounded-xl sm:rounded-3xl shadow-lg shadow-black/20"
     >
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-2">
-          {/* <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
-          >
-            Amit Kumar
-          </motion.div> */}
-
-          <motion.div whileHover={{ scale: 1.05 }} className="  ">
+          <motion.div whileHover={{ scale: 1.05 }}>
             <Image
               src={amitImage}
               width={192}
@@ -69,10 +62,11 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`font-semibold transition-colors duration-300 ${isActive
-                    ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
-                    : "text-slate-300 hover:text-[#3ed6ac]"
-                    }`}
+                  className={`font-semibold transition-colors duration-300 ${
+                    isActive
+                      ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
+                      : "text-slate-300 hover:text-[#3ed6ac]"
+                  }`}
                   aria-label={`Go to ${link.label} page`}
                 >
                   {link.label}
@@ -85,13 +79,16 @@ export default function Navbar() {
           <div className="md:hidden text-white">
             <button
               onClick={toggleMenu}
-              className="text-white opacity-125 transition-colors duration-300 hover:text-[#3ed6ac] inset-0 bg-gradient-to-tr from-black/50 via-transparent to-black/10 mix-blend-overlay rounded-md p-1 shadow-lg shadow-black/50"
+              className="text-white border border-white/30 shadow-lg shadow-white/20 transition-colors duration-300 hover:text-[#3ed6ac] inset-0 bg-gradient-to-tr from-black/30 via-transparent to-black/10 mix-blend-overlay rounded-md p-1 shadow-lg shadow-black/50"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? (
                 <X className="w-6 h-6 text-white" />
               ) : (
-                <Menu style={{ color: "#fff" }} className="w-6 h-6 text-white" />
+                <Menu
+                  style={{ color: "#fff" }}
+                  className="w-6 h-6 text-white"
+                />
               )}
             </button>
           </div>
@@ -113,7 +110,10 @@ export default function Navbar() {
               }}
               aria-label="Download Amit Kumar's resume in PDF format"
             >
-              <Download style={{ fontWeight: 600 }} className="w-4 h-4 mr-1 text-white" />
+              <Download
+                style={{ fontWeight: 600 }}
+                className="w-4 h-4 mr-1 text-white"
+              />
               Resume
             </Button>
           </div>
@@ -125,7 +125,7 @@ export default function Navbar() {
           initial="closed"
           animate={isMenuOpen ? "open" : "closed"}
           className="md:hidden overflow-hidden"
-        // transition-colors duration-300 bg-[#07162b]/50 backdrop-blur-lg border border-white/15 rounded-3xl shadow-lg shadow-black/20
+          // transition-colors duration-300 bg-[#07162b]/50 backdrop-blur-lg border border-white/15 rounded-3xl shadow-lg shadow-black/20
         >
           <div className="flex flex-col space-y-4 pb-4">
             {navLinks.map((link) => {
@@ -134,10 +134,11 @@ export default function Navbar() {
                 <Link
                   key={`mobile-${link.href}`}
                   href={link.href}
-                  className={`text-center font-semibold transition-colors duration-300 py-2 ${isActive
-                    ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
-                    : "text-slate-200 hover:text-[#3ed6ac]"
-                    }`}
+                  className={`text-center font-semibold transition-colors duration-300 py-2 ${
+                    isActive
+                      ? "bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]"
+                      : "text-slate-200 hover:text-[#3ed6ac]"
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                   aria-label={`Go to ${link.label} page`}
                 >

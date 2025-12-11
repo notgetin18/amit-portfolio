@@ -69,15 +69,26 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
       fpsLimit: 60,
       particles: {
         number: {
-          value: isMobile ? 200 : 300,
+          value: isMobile ? 150 : 300,
           density: { enable: true, area: 1000 },
         },
         color: { value: ["#dde2e6", "#fff", "#dde2e6"] },
         shape: { type: ["circle", "square"] },
-        opacity: { value: { min: 0.7, max: 0.2 } },
-        size: { value: { min: 0.5, max: 1.5 } },
+        opacity: {
+          value: { min: 0.7, max: 0.2 },
+          animation: {
+            enable: false,
+            speed: 1,
+            sync: false,
+            // startValue: "max",
+            // startValue: "min",
+            minimumValue: 0.2,
+          },
+        },
+        size: { value: { min: 0.5, max: 1 } },
         move: { enable: false },
         links: { enable: false },
+        value: { min: 0.2, max: 0.7 },
       },
       detectRetina: true,
     }),
@@ -115,12 +126,12 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
       },
       particles: {
         number: {
-          value: isMobile ? 200 : 300,
+          value: isMobile ? 170 : 300,
           density: {
             enable: true,
             area: 1000,
           },
-          size: { value: { min: 1, max: 1.5 } },
+          size: { value: { min: 0.5, max: 1 } },
         },
         color: {
           value: ["#FFFF00", "#eeb056"], // Keep yellow for foreground
@@ -137,11 +148,15 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
           },
         },
         opacity: {
-          value: { min: 0.2, max: 0.5 },
+          value: { min: 0.2, max: 0.9 },
           animation: {
             enable: false,
-            speed: 1,
+            speed: 5,
             sync: false,
+            // startValue: "max",
+            // startValue: "min",
+            minimumValue: 0.5,
+            maximumValue: 1,
           },
         },
         size: {
@@ -194,8 +209,8 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
             className="absolute inset-0 z-1"
             style={{
               background:
-                "linear-gradient(to right,rgb(34, 113, 225) 0%, rgba(62, 62, 71, 0) 25%, rgba(0, 0, 0, 0) 100%)",
-              opacity: "25%",
+                "linear-gradient(to right,rgb(34, 113, 225) 0%, rgba(62, 62, 71, 0) 35%, rgba(0, 0, 0, 0) 100%)",
+              opacity: "40%",
             }}
           />
         </>
