@@ -125,6 +125,7 @@ export default function Navbar() {
           initial="closed"
           animate={isMenuOpen ? "open" : "closed"}
           className="md:hidden overflow-hidden"
+        // transition-colors duration-300 bg-[#07162b]/50 backdrop-blur-lg border border-white/15 rounded-3xl shadow-lg shadow-black/20
         >
           <div className="flex flex-col space-y-4 pb-4">
             {navLinks.map((link) => {
@@ -152,14 +153,14 @@ export default function Navbar() {
               style={{
                 fontWeight: 600,
                 borderRadius: "20px",
-                border: "0.5px solid #F9DDB5",
+                border: "1px solid #F9DDB5",
                 background:
                   "linear-gradient(90deg, #EEB056 0%,rgb(161, 103, 16) 100%)", // Gradient background
                 boxShadow: "0px 4px 8px 0pxrgba(251, 250, 250, 0.3)", // Subtle shadow for depth
                 position: "relative", // Ensure proper layering
                 outline: "none", // Remove default outline
               }}
-              className=" text-white w-full tracking-wide"
+              className=" text-white w-40 tracking-wide mx-auto"
               aria-label="Download Amit Kumar's resume in PDF format"
             >
               <Download
