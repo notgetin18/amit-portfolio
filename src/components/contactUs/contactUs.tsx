@@ -255,7 +255,7 @@ export default function ContactUs() {
                   </motion.a>
                   <motion.a
                     whileHover={{ scale: 1.1, y: -2 }}
-                    href="https://x.com/notgetin18"
+                    href="https://x.com/Amitsin40190332"
                     className="w-12 h-12 rounded-lg flex items-center justify-center text-slate-300 bg-white/10 hover:text-white hover:bg-white/20 transition-all duration-300"
                     aria-label="Visit Amit Kumar's X profile"
                   >

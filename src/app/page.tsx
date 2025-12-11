@@ -232,7 +232,7 @@ export default function HomePage() {
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
-                href="https://x.com/notgetin18"
+                href="https://x.com/Amitsin40190332"
                 className="text-gray-100 hover:text-[#eeb056] transition-colors "
                 aria-label="Visit Amit Kumar's X profile"
               >
