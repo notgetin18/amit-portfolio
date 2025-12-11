@@ -8,7 +8,7 @@ import { MoveDirection, OutMode } from "@tsparticles/engine";
 // Load particles only in the browser and when not running tests (vitest/jsdom)
 const Particles = dynamic(() => import("@tsparticles/react"), { ssr: false });
 
-export default function HeroBackground({ delay = 400 }: { delay?: number }) {
+export default function HeroBackground({ delay = 500 }: { delay?: number }) {
   const shouldReduceMotion = useReducedMotion();
   const [init, setInit] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -25,7 +25,7 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
     } catch (err) {
       // swallow — background is decorative
       // eslint-disable-next-line no-console
-      console.error("tsParticles init failed", err);
+      // console.error("tsParticles init failed", err);
     }
   }, []);
 
@@ -85,7 +85,7 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
             minimumValue: 0.2,
           },
         },
-        size: { value: { min: 0.5, max: 1 } },
+        size: { value: { min: 0.2, max: 0.7 } },
         move: { enable: false },
         links: { enable: false },
         value: { min: 0.2, max: 0.7 },
@@ -131,7 +131,7 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
             enable: true,
             area: 1000,
           },
-          size: { value: { min: 0.5, max: 1 } },
+          size: { value: { min: 0.2, max: 0.7 } },
         },
         color: {
           value: ["#FFFF00", "#eeb056"], // Keep yellow for foreground
@@ -140,10 +140,13 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
           type: ["circle", "square", "triangle"], // Added square shape
           options: {
             circle: {
-              weight: 0.8, // 70% chance for circles
+              weight: 0.7, // 70% chance for circles
             },
             square: {
               weight: 0.2, // 20% chance for squares
+            },
+            triangle: {
+              weight: 0.1, // 10% chance for triangles
             },
           },
         },
@@ -155,12 +158,12 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
             sync: false,
             // startValue: "max",
             // startValue: "min",
-            minimumValue: 0.5,
-            maximumValue: 1,
+            minimumValue: 0.2,
+            maximumValue: 0.7,
           },
         },
         size: {
-          value: { min: 0.5, max: 2 },
+          value: { min: 0.2, max: 1.5},
         },
         move: {
           enable: true,

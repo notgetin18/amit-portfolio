@@ -19,17 +19,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import StatTile from "@/components/ui/StatTile";
 import ProfileCard from "@/components/ui/ProfileCard";
 import { fadeInUp, staggerContainer } from "@/constant";
-import HeroBackground from "@/components/ui/HeroBackground";
-
+ 
 export default function AboutUs() {
   return (
-    <div className="min-h-screen relative overflow-y-auto bg-gradient-to-br from-[#07162b]/80 via-[#061025]/70 to-[#071826]/95">
-      {/* Reuse home hero background (particles + overlay) */}
-      <HeroBackground />
-      {/* Decorative gradient layers to match homepage hero visuals */}
-      <div className="absolute left-2 sm:-left-20 -top-10 w-20 sm:w-72 h-72 bg-gradient-to-tr from-[#34d399]/30 to-[#06b6d4]/12 rounded-full blur-3xl mix-blend-screen pointer-events-none z-10" aria-hidden />
-      <div className="absolute right-3 sm:-right-14 bottom-8 w-20 sm:w-80 h-80 bg-gradient-to-bl from-[#6ee7b7]/25 to-[#06b6d4]/8 rounded-full blur-3xl mix-blend-screen pointer-events-none z-10" aria-hidden />
-
+    <div className="min-h-screen relative overflow-y-auto">
       <div className="pt-28 pb-28 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}

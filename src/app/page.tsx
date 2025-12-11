@@ -47,8 +47,6 @@ export default function HomePage() {
           key="person-jsonld"
         />
 
-        <HeroBackground delay={400} />
-
         <header
           className="pt-[calc(4rem+2rem)] px-4 sm:px-6 lg:px-8 relative z-10"
           role="banner"
