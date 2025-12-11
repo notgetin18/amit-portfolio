@@ -5,11 +5,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import PrimaryButtons from "@/components/buttons/primaryButtons";
 import SecondaryButton from "@/components/buttons/secondaryButton";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { fadeInUp, staggerContainer } from "@/constant";
 import HeroBackground from "@/components/ui/HeroBackground";
-import CollaboratorsCarousel from "./teamCrousel";
 import { handleDownloadResume } from "@/utility";
 import { Button } from "../ui/button";
+
+// Dynamically import the carousel to prevent it from being in the initial JS bundle
+const CollaboratorsCarousel = dynamic(() => import("./teamCrousel"));
 
 export default function Services() {
     return (
