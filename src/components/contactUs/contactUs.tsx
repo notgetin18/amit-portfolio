@@ -429,7 +429,7 @@ export default function ContactUs() {
                     title="Send Message"
                     // Icon={Send}
                     btnType="submit"
-                    containerStyles="w-full justify-center py-3 text-xl font-semibold rounded-3xl text-xl font-semibold sm:text-2xl sm:font-bold"
+                    containerStyles="w-full justify-center py-2 sm:py-3 text-lg sm:text-xl font-semibold rounded-full"
                     ariaLabel="Send message to Amit Kumar"
                   />
                 </form>

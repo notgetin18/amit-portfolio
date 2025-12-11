@@ -18,7 +18,7 @@ export default function NotFound() {
         className="relative z-10 max-w-2xl"
       >
         <div className="flex justify-center mb-6">
-          <Frown className="w-20 h-20 text-[#3ed6ac]/40" strokeWidth={1.5} />
+          <Frown className="w-20 h-20 text-white/85" strokeWidth={1.5} />
         </div>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]">
           404 - Page Not Found
@@ -29,7 +29,10 @@ export default function NotFound() {
         </p>
         <div className="mt-8 flex justify-center">
           <Link href="/">
-            <PrimaryButtons title="Go Back Home" containerStyles={`px-4 py-2 rounded-2xl`} />
+            <PrimaryButtons
+              title="Go Back Home"
+              containerStyles={`px-4 py-2 rounded-2xl`}
+            />
           </Link>
         </div>
       </motion.div>

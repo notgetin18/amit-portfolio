@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import { MouseEventHandler } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import { Loader2 } from "lucide-react";
@@ -18,16 +18,15 @@ export interface PrimaryButtonProps {
 
 const PrimaryButtons = ({
   title,
-  containerStyles,
+  containerStyles = "",
   handleClick,
-  btnType,
-  textStyles,
+  btnType = "button",
+  textStyles = "",
   Icon,
-  isDisabled,
-  loading,
-  ariaLabel
-}: 
-PrimaryButtonProps) => {
+  isDisabled = false,
+  loading = false,         
+  ariaLabel,
+}: PrimaryButtonProps) => {
   return (
     <button
       disabled={isDisabled || loading}

@@ -49,8 +49,11 @@ export default function HomePage() {
 
         <HeroBackground delay={400} />
 
-        <header className="pt-[calc(4rem+2rem)] px-4 sm:px-6 lg:px-8 relative z-10" role="banner">
-          <div className="max-w-6xl mx-auto">
+        <header
+          className="pt-[calc(4rem+2rem)] px-4 sm:px-6 lg:px-8 relative z-10"
+          role="banner"
+        >
+          <div className="max-w-7xl mx-auto">
             <m.div
               variants={staggerContainer}
               initial="initial"
@@ -67,11 +70,20 @@ export default function HomePage() {
                     </span>
                   </h1>
 
-                  <m.p variants={fadeInUp} className="mt-6 leading-snug text-base sm:text-lg md:text-xl text-slate-200 max-w-3xl">
-                    I design and ship resilient, production-grade web applications — from fast, SEO-friendly Next.js frontends to scalable Node/Express backends and resilient cloud infra. I’ve launched SaaS products and platforms used by 1M+ users.
+                  <m.p
+                    variants={fadeInUp}
+                    className="mt-6 leading-snug text-base sm:text-lg md:text-xl text-slate-200 max-w-3xl"
+                  >
+                    I design and ship resilient, production-grade web
+                    applications — from fast, SEO-friendly Next.js frontends to
+                    scalable Node/Express backends and resilient cloud infra.
+                    I’ve launched SaaS products and platforms used by 1M+ users.
                   </m.p>
 
-                  <m.div variants={fadeInUp} className="mt-6 flex flex-wrap gap-3 items-center">
+                  <m.div
+                    variants={fadeInUp}
+                    className="mt-6 flex flex-wrap gap-3 items-center"
+                  >
                     <div className="flex flex-row gap-2 sm:gap-4 justify-center items-center">
                       <Link href="/contact">
                         <SecondaryButton
@@ -88,18 +100,27 @@ export default function HomePage() {
                     </div>
                   </m.div>
 
-                  <m.div variants={fadeInUp} className="mt-6 flex items-center gap-4 flex-wrap text-sm text-slate-300">
+                  <m.div
+                    variants={fadeInUp}
+                    className="mt-6 flex items-center gap-4 flex-wrap text-sm text-slate-300"
+                  >
                     <div className="inline-flex items-center gap-3">
-                      <strong className="text-white text-lg font-bold">1M+</strong>
+                      <strong className="text-white text-lg font-bold">
+                        1M+
+                      </strong>
                       <GlowText />
                     </div>
                     <div className="inline-flex items-center gap-3">
                       <strong className="text-white text-lg">SaaS</strong>
-                      <div className="text-sm">Medical Kundali — healthcare platform</div>
+                      <div className="text-sm">
+                        Medical Kundali — healthcare platform
+                      </div>
                     </div>
                     <div className="inline-flex items-center gap-3">
                       <strong className="text-white text-lg">Real-time</strong>
-                      <div className="text-sm">TestOfire — realtime education platform</div>
+                      <div className="text-sm">
+                        TestOfire — realtime education platform
+                      </div>
                     </div>
                   </m.div>
                 </div>
@@ -110,7 +131,6 @@ export default function HomePage() {
                     variants={fadeInUp}
                     className="relative w-[300px] sm:w-[360px] md:w-[420px] lg:w-[520px] rounded-3xl overflow-hidden shadow-2xl border border-white/5 bg-gradient-to-br from-[#07162b]/70 via-[#07162b]/40 to-[#0b1f2b]/30 p-6 backdrop-blur-md"
                   >
-                    {/* ... your gradients and Image remain the same ... */}
                     <div className="relative z-10 flex items-center justify-center p-6 bg-gradient-to-br from-white/5 to-transparent rounded-2xl">
                       <Image
                         src="/hero-illustration.svg"
@@ -122,7 +142,29 @@ export default function HomePage() {
                         fetchPriority="high"
                       />
                     </div>
-                    {/* ... rest of the card content ... */}
+                    <div className="mt-4 flex justify-between items-center gap-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-11 h-10 text-white rounded-full flex items-center justify-center text-transparent bg-gradient-to-r from-[#739d88] via-[#52a18b] to-[#508c96] drop-shadow-2xl font-bold">
+                          AK
+                        </div>
+                        <div>
+                          <div className="text-sm text-slate-200 font-semibold">
+                            Amit Kumar
+                          </div>
+                          <div className="text-xs text-slate-400">
+                            MERN Full‑Stack • Product Engineer
+                          </div>
+                        </div>
+                      </div>
+                      <div className="hidden sm:flex items-center gap-2 text-xs text-slate-300">
+                        <div className="px-1.5 py-1 bg-white/5 rounded-full">
+                          SaaS
+                        </div>
+                        <div className="px-1.5 py-1 bg-white/5 rounded-full">
+                          Real-time
+                        </div>
+                      </div>
+                    </div>
                   </m.div>
                 </div>
               </div>
@@ -135,19 +177,31 @@ export default function HomePage() {
                 className="flex justify-center gap-3 items-center flex-wrap"
                 aria-hidden
               >
-                <m.span variants={fadeInUp} className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-slate-200">
+                <m.span
+                  variants={fadeInUp}
+                  className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-slate-200"
+                >
                   ⭐ Bright Digi Gold — 1M+ users
                 </m.span>
-                <m.span variants={fadeInUp} className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-slate-200">
+                <m.span
+                  variants={fadeInUp}
+                  className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-slate-200"
+                >
                   🏥 Medical Kundali — healthcare SaaS
                 </m.span>
-                <m.span variants={fadeInUp} className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-slate-200">
+                <m.span
+                  variants={fadeInUp}
+                  className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-slate-200"
+                >
                   🎓 TestOfire — real-time EdTech
                 </m.span>
               </m.div>
 
               {/* Social icons */}
-              <m.div variants={fadeInUp} className="flex justify-center space-x-6 mt-8">
+              <m.div
+                variants={fadeInUp}
+                className="flex justify-center space-x-6 mt-8"
+              >
                 <m.a
                   whileHover={{ scale: 1.1, y: -2 }}
                   href="https://github.com/notgetin18"
@@ -190,7 +244,10 @@ export default function HomePage() {
               transition={{ delay: 1, duration: 0.6 }}
               className="flex justify-center my-4 sm:my-6"
             >
-              <m.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}>
+              <m.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}
+              >
                 <ArrowDown className="w-8 h-8 text-white" />
               </m.div>
             </m.div>
@@ -199,22 +256,39 @@ export default function HomePage() {
 
         <main className="relative z-10" id="main-content">
           <section aria-labelledby="skills-heading" className="py-6">
-            <h2 id="skills-heading" className="sr-only">Skills and Technologies</h2>
+            <h2 id="skills-heading" className="sr-only">
+              Skills and Technologies
+            </h2>
             <Skills />
           </section>
 
-          <section aria-labelledby="projects-heading" className="relative z-10 py-8">
-            <h2 id="projects-heading" className="sr-only">Featured Projects</h2>
+          <section
+            aria-labelledby="projects-heading"
+            className="relative z-10 py-8"
+          >
+            <h2 id="projects-heading" className="sr-only">
+              Featured Projects
+            </h2>
             <Projects />
           </section>
 
-          <section aria-labelledby="services-heading" className="relative z-10 py-10">
-            <h2 id="services-heading" className="sr-only">Services & Offerings</h2>
+          <section
+            aria-labelledby="services-heading"
+            className="relative z-10 py-10"
+          >
+            <h2 id="services-heading" className="sr-only">
+              Services & Offerings
+            </h2>
             <Services />
           </section>
 
-          <section aria-labelledby="testimonials-heading" className="relative z-10 py-10">
-            <h2 id="testimonials-heading" className="sr-only">Testimonials</h2>
+          <section
+            aria-labelledby="testimonials-heading"
+            className="relative z-10 py-10"
+          >
+            <h2 id="testimonials-heading" className="sr-only">
+              Testimonials
+            </h2>
             <Testimonials />
           </section>
 

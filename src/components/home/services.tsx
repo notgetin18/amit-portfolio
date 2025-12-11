@@ -10,7 +10,7 @@ const Services = () => {
     <div>
       {/* Services Section — premium, hero-matching */}
       <section className="px-4 sm:px-6 lg:px-8 z-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -39,7 +39,7 @@ const Services = () => {
             className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start"
           >
             {/* Left column: services grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {[
                 {
                   title: "Product & Frontend Engineering",
@@ -204,7 +204,7 @@ const Services = () => {
             </div>
 
             {/* Right column: impact story, metrics, CTA */}
-            <m.div variants={fadeInUp} className="space-y-6">
+            <m.div variants={fadeInUp} className="space-y-5">
               <Card className="p-6 border border-white/5 bg-gradient-to-br from-[#071826]/50 via-transparent to-[#061025]/20 backdrop-blur-md shadow-xl">
                 <div className="flex items-start gap-4">
                   <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#3ed6ac] flex items-center justify-center text-white font-semibold text-lg px-5">
@@ -222,24 +222,24 @@ const Services = () => {
                   </div>
                 </div>
 
-                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <div className="p-3 rounded-lg bg-gradient-to-tr from-white/3 to-transparent border border-white/4 text-center">
-                    <div className="text-2xl font-bold text-white">100k+</div>
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="p-2 rounded-lg bg-gradient-to-tr from-white/3 to-transparent border border-white/4 text-center">
+                    <div className="text-xl font-bold text-white">100k+</div>
                     <div className="text-xs text-slate-300">Active users</div>
                   </div>
-                  <div className="p-3 rounded-lg bg-gradient-to-tr from-white/3 to-transparent border border-white/4 text-center">
-                    <div className="text-2xl font-bold text-white">30%</div>
+                  <div className="p-2 rounded-lg bg-gradient-to-tr from-white/3 to-transparent border border-white/4 text-center">
+                    <div className="text-xl font-bold text-white">30%</div>
                     <div className="text-xs text-slate-300">
                       Speed improvement
                     </div>
                   </div>
-                  <div className="p-3 rounded-lg bg-gradient-to-tr from-white/3 to-transparent border border-white/4 text-center">
-                    <div className="text-2xl font-bold text-white">20%</div>
+                  <div className="p-2 rounded-lg bg-gradient-to-tr from-white/3 to-transparent border border-white/4 text-center">
+                    <div className="text-xl font-bold text-white">20%</div>
                     <div className="text-xs text-slate-300">Revenue uplift</div>
                   </div>
                 </div>
 
-                <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                <div className="mt-3 flex flex-col sm:flex-row items-start sm:items-center gap-3">
                   <Button
                     size="lg"
                     className="w-full sm:w-auto bg-gradient-to-tr from-[#06b6d4] to-[#8ef3c1] text-black font-semibold shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#06b6d4]"
@@ -261,7 +261,7 @@ const Services = () => {
                 </div>
               </Card>
 
-              <Card className="p-6 border border-white/5 bg-gradient-to-br from-[#061025]/40 via-[#07162b]/20 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-200 rounded-xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#8ef3c1]/25">
+              <Card className="py-4 pl-6 border border-white/5 bg-gradient-to-br from-[#061025]/40 via-[#07162b]/20 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-200 rounded-xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#8ef3c1]/25">
                 <h3 className="text-sm text-slate-200 font-semibold mb-2">
                   How I work
                 </h3>
