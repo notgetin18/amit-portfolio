@@ -272,6 +272,7 @@ const Projects = () => {
                             rel="noopener noreferrer"
                             href="https://medicalkundali.com/"
                             className="bg-gradient-to-tr from-[#bd4204] to-[#d47406] text-gray-200 px-4 py-1.5 rounded-md text-sm"
+                            aria-label="open live demo for medical kundali"
                           >
                             Live Demo
                           </a>
@@ -374,6 +375,7 @@ const Projects = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             href="https://testofire.in/"
+                            aria-label="open live demo for testOfire"
                           >
                             <span
                               className="bg-gradient-to-tr from-[#34d399] to-[#06b6d4] text-black px-4 py-1.5 rounded-md text-sm"

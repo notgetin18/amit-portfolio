@@ -161,7 +161,7 @@ const Testimonials = () => {
                     <button
                         key={i}
                         onClick={() => setPage([i, i > testimonialIndex ? 1 : -1])}
-                        className={`w-2 h-2 rounded-full transition-colors ${i === testimonialIndex ? "bg-cyan-400" : "bg-slate-600 hover:bg-slate-400"
+                        className={`w-5 h-3 rounded-full transition-colors ${i === testimonialIndex ? "bg-cyan-400" : "bg-slate-600 hover:bg-slate-400"
                             }`}
                         aria-label={`Go to testimonial ${i + 1}`}
                     />
