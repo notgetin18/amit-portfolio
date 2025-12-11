@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, m } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeInUp, staggerContainer } from "@/constant";
 
@@ -19,7 +19,7 @@ function SkillDonut({ value, size = 64, strokeWidth = 8, label }: { value: numbe
           strokeWidth={strokeWidth}
           fill="transparent"
         />
-        <motion.circle
+        <m.circle
           cx={size / 2}
           cy={size / 2}
           r={radius}
@@ -51,7 +51,7 @@ const Skills = () => {
       {/* Skills Section */}
       <section className="px-4 sm:px-6 lg:px-8 z-10">
         <div className="max-w-6xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -65,9 +65,9 @@ const Skills = () => {
             <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
               I design, build and operate production-grade web platforms — performant frontends, resilient backends, and reliable cloud infrastructure. Below are the core skill areas and my proficiency level.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
@@ -132,7 +132,7 @@ const Skills = () => {
                 ],
               },
             ].map((skillGroup, index) => (
-              <motion.div key={index} variants={fadeInUp}>
+              <m.div key={index} variants={fadeInUp}>
                 <Card className="h-full bg-gradient-to-br from-[#061025]/60 via-[#07162b]/50 to-[#071826]/40 hover:shadow-2xl transition-shadow duration-300 border border-white/5 backdrop-blur-md">
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-4">
@@ -158,9 +158,9 @@ const Skills = () => {
                     </div>
                   </CardContent>
                 </Card>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </>

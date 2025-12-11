@@ -1,5 +1,5 @@
 "use client"
-import { motion } from "framer-motion";
+import {  m } from "framer-motion";
 import GitHubIcon from "@/components/icons/GitHubIcon";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeInUp, staggerContainer } from "@/constant";
@@ -21,7 +21,7 @@ const Projects = () => {
     <section className="px-2 sm:px-6 lg:px-8 z-10">
       <div style={{ perspective: "1200px" }} className="max-w-7xl mx-auto relative">
         {/* Featured Projects — premium two-column layout */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -39,9 +39,9 @@ const Projects = () => {
             and scaled — performance-first, user-centric and
             production-hardened.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
@@ -49,8 +49,8 @@ const Projects = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start"
         >
           {/* Left: big featured project */}
-          <motion.div variants={fadeInUp} className="order-1 lg:order-1">
-            <motion.div
+          <m.div variants={fadeInUp} className="order-1 lg:order-1">
+            <m.div
               className="grid [grid-template-areas:'card']"
               style={{ transformStyle: "preserve-3d" }}
               initial={false}
@@ -200,13 +200,13 @@ const Projects = () => {
                   </ul>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Right column — stacked cards */}
           <div className="flex flex-col gap-6 order-3 lg:order-2">
-            <motion.div variants={fadeInUp}>
-              <motion.div
+            <m.div variants={fadeInUp}>
+              <m.div
                 className="grid [grid-template-areas:'card']"
                 style={{ transformStyle: "preserve-3d" }}
                 initial={false}
@@ -306,10 +306,10 @@ const Projects = () => {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
-            </motion.div>
-            <motion.div variants={fadeInUp}>
-              <motion.div
+              </m.div>
+            </m.div>
+            <m.div variants={fadeInUp}>
+              <m.div
                 className="grid [grid-template-areas:'card']"
                 style={{ transformStyle: "preserve-3d" }}
                 initial={false}
@@ -417,10 +417,10 @@ const Projects = () => {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

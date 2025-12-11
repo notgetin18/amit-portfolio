@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { wrap } from "popmotion";
 
@@ -71,7 +71,7 @@ const Testimonials = () => {
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-            <motion.div
+            <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 2 }}
@@ -84,11 +84,11 @@ const Testimonials = () => {
                 <p className="mt-4 max-w-2xl mx-auto text-lg text-slate-300">
                     I thrive on building great products and even better relationships.
                 </p>
-            </motion.div>
+            </m.div>
 
             <div className="mt-10 relative h-[320px] sm:h-[280px] md:h-[240px] flex items-center justify-center">
                 <AnimatePresence initial={false} custom={direction}>
-                    <motion.div
+                    <m.div
                         key={page}
                         custom={direction}
                         variants={variants}
@@ -137,7 +137,7 @@ const Testimonials = () => {
                                 </div>
                             </div>
                         </figcaption>
-                    </motion.div>
+                    </m.div>
                 </AnimatePresence>
 
                 <button

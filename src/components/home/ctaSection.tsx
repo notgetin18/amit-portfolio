@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Link } from 'lucide-react'
 import PrimaryButtons from '../buttons/primaryButtons'
 import SecondaryButton from '../buttons/secondaryButton'
@@ -16,7 +16,7 @@ const ctaSection = () => {
                 </h2>
 
                 <div className="max-w-7xl mx-auto">
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
@@ -113,7 +113,7 @@ const ctaSection = () => {
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </m.div>
                 </div>
             </section>
         </div>

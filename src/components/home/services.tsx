@@ -1,7 +1,5 @@
 "use client";
-
-import React from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeInUp, staggerContainer } from "@/constant";
 import { Button } from "@/components/ui/button";
@@ -13,7 +11,7 @@ const Services = () => {
       {/* Services Section — premium, hero-matching */}
       <section className="px-4 sm:px-6 lg:px-8 z-10">
         <div className="max-w-6xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -31,9 +29,9 @@ const Services = () => {
               resilient production systems — from modern frontends to scalable
               backends and secure cloud infrastructure.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
@@ -164,7 +162,7 @@ const Services = () => {
                   category: ["Technical SEO", "Lighthouse"],
                 },
               ].map((s, i) => (
-                <motion.div
+                <m.div
                   key={s.title}
                   variants={fadeInUp}
                   whileHover={{ y: -6 }}
@@ -201,12 +199,12 @@ const Services = () => {
                       </div>
                     </CardContent>
                   </Card>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
             {/* Right column: impact story, metrics, CTA */}
-            <motion.div variants={fadeInUp} className="space-y-6">
+            <m.div variants={fadeInUp} className="space-y-6">
               <Card className="p-6 border border-white/5 bg-gradient-to-br from-[#071826]/50 via-transparent to-[#061025]/20 backdrop-blur-md shadow-xl">
                 <div className="flex items-start gap-4">
                   <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#3ed6ac] flex items-center justify-center text-white font-semibold text-lg px-5">
@@ -281,11 +279,11 @@ const Services = () => {
                   Sample projects: Bright Digi Gold, TestOfire, Medical Kundali
                 </div>
               </Card>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Complementary / Specialized services */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -412,7 +410,7 @@ const Services = () => {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </div>
