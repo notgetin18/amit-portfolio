@@ -82,16 +82,16 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden text-white">
             <button
               onClick={toggleMenu}
-              className="text-slate-200 hover:text-[#3ed6ac] focus:outline-none"
+              className="text-white opacity-125 transition-colors duration-300 hover:text-[#3ed6ac] inset-0 bg-gradient-to-tr from-black/50 via-transparent to-black/10 mix-blend-overlay rounded-md p-1 shadow-lg shadow-black/50"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? (
                 <X className="w-6 h-6 text-white" />
               ) : (
-                <Menu className="w-6 h-6 text-white" />
+                <Menu style={{ color: "#fff" }} className="w-6 h-6 text-white" />
               )}
             </button>
           </div>
