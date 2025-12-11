@@ -191,20 +191,23 @@ export default function HomePage() {
             </div>
 
             {/* Achievements */}
-            <div
+            <motion.div
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
               className="flex justify-center gap-3 items-center flex-wrap"
               aria-hidden
             >
-              <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-slate-200">
+              <motion.span variants={fadeInUp} className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-slate-200">
                 ⭐ Bright Digi Gold — 1M+ users
-              </span>
-              <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-slate-200">
+              </motion.span>
+              <motion.span variants={fadeInUp} className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-slate-200">
                 🏥 Medical Kundali — healthcare SaaS
-              </span>
-              <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-slate-200">
+              </motion.span>
+              <motion.span variants={fadeInUp} className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-slate-200">
                 🎓 TestOfire — real-time EdTech
-              </span>
-            </div>
+              </motion.span>
+            </motion.div>
 
             <motion.div
               variants={fadeInUp}
