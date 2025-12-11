@@ -102,7 +102,7 @@ export default function Navbar() {
               onClick={() => handleDownloadResume("pdf")}
               className=" text-white font-medium uppercase"
               style={{
-                fontWeight: 500,
+                fontWeight: 600,
                 borderRadius: "20px",
                 border: "0.5px solid #F9DDB5",
                 background:
@@ -113,7 +113,7 @@ export default function Navbar() {
               }}
               aria-label="Download Amit Kumar's resume in PDF format"
             >
-              <Download className="w-4 h-4 mr-1 text-white " />
+              <Download style={{ fontWeight: 600 }} className="w-4 h-4 mr-1 text-white" />
               Resume
             </Button>
           </div>
