@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { useReducedMotion } from "framer-motion";
 import { MoveDirection, OutMode } from "@tsparticles/engine";
@@ -75,7 +75,7 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
         color: { value: ["#dde2e6", "#fff", "#dde2e6"] },
         shape: { type: ["circle", "square"] },
         opacity: { value: { min: 0.7, max: 0.2 } },
-        size: { value: { min: 0.5, max: 1 } },
+        size: { value: { min: 0.5, max: 1.5 } },
         move: { enable: false },
         links: { enable: false },
       },
@@ -94,19 +94,23 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
             enable: true,
             mode: "push",
           },
-          onHover: {},
+          onHover: {
+            // enable: true,
+            // mode: "repulse",
+            // parallax: { enable: true, force: 60, smooth: 10 },
+          },
           resize: {
             enable: true,
           },
         },
         modes: {
           push: {
-            quantity: 6,
+            quantity: 5,
           },
-          repulse: {
-            distance: 300,
-            duration: 0.4,
-          },
+          // repulse: {
+          //   distance: 60,
+          //   duration: 0.4,
+          // },
         },
       },
       particles: {
@@ -116,9 +120,10 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
             enable: true,
             area: 1000,
           },
+          size: { value: { min: 1, max: 1.5 } },
         },
         color: {
-          value: ["#FFFF00"], // Keep yellow for foreground
+          value: ["#FFFF00", "#eeb056"], // Keep yellow for foreground
         },
         shape: {
           type: ["circle", "square", "triangle"], // Added square shape
@@ -189,7 +194,7 @@ export default function HeroBackground({ delay = 400 }: { delay?: number }) {
             className="absolute inset-0 z-1"
             style={{
               background:
-                "linear-gradient(to right,rgb(34, 113, 225) 0%, rgba(62, 62, 71, 0) 30%, rgba(0, 0, 0, 0) 100%)",
+                "linear-gradient(to right,rgb(34, 113, 225) 0%, rgba(62, 62, 71, 0) 25%, rgba(0, 0, 0, 0) 100%)",
               opacity: "25%",
             }}
           />

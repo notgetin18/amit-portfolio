@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, LazyMotion, domAnimation, useInView } from "framer-motion";
 import { ArrowDown, Mail } from "lucide-react";
 import Image from "next/image";
 import LinkedinIcon from "@/components/icons/LinkedinIcon";
@@ -37,6 +37,9 @@ export default function HomePage() {
     },
   };
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
     <div className="relative overflow-hidden" lang="en">
       {/* Add JSON-LD to the head of the document */}
@@ -47,7 +50,6 @@ export default function HomePage() {
       />
 
       <HeroBackground delay={400} />
-
       {/* Header (SEO + accessibility) */}
       <header
         className="pt-[calc(4rem+2rem)] px-4 sm:px-6 lg:px-8 relative z-10"
@@ -65,6 +67,10 @@ export default function HomePage() {
               <div className="lg:col-span-7 px-4 sm:px-6 md:px-0">
                 <motion.h1
                   variants={fadeInUp}
+                  ref={ref}
+                  initial={{ opacity: 1 }} // Start visible to avoid render delay
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} // Animate only when in view
+                  transition={{ duration: 0.5, ease: "easeOut" }}
                   className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] drop-shadow-2xl"
                 >
                   Amit Kumar
@@ -264,52 +270,53 @@ export default function HomePage() {
           </motion.div>
         </div>
       </header>
+      {/* <LazyMotion features={domAnimation} strict> */}
+        {/* Main content (semantic) */}
+        <main className="relative z-10" id="main-content">
+          {/* Skills Section */}
+          <section aria-labelledby="skills-heading" className="py-6">
+            <h2 id="skills-heading" className="sr-only">
+              Skills and Technologies
+            </h2>
+            <Skills />
+          </section>
 
-      {/* Main content (semantic) */}
-      <main className="relative z-10" id="main-content">
-        {/* Skills Section */}
-        <section aria-labelledby="skills-heading" className="py-6">
-          <h2 id="skills-heading" className="sr-only">
-            Skills and Technologies
-          </h2>
-          <Skills />
-        </section>
+          {/* Projects Section — each project is an article in the Projects component */}
+          <section
+            aria-labelledby="projects-heading"
+            className="relative z-10 py-8"
+          >
+            <h2 id="projects-heading" className="sr-only">
+              Featured Projects
+            </h2>
+            <Projects />
+          </section>
 
-        {/* Projects Section — each project is an article in the Projects component */}
-        <section
-          aria-labelledby="projects-heading"
-          className="relative z-10 py-8"
-        >
-          <h2 id="projects-heading" className="sr-only">
-            Featured Projects
-          </h2>
-          <Projects />
-        </section>
+          {/* Services */}
+          <section
+            aria-labelledby="services-heading"
+            className="relative z-10 py-10"
+          >
+            <h2 id="services-heading" className="sr-only">
+              Services & Offerings
+            </h2>
+            <Services />
+          </section>
 
-        {/* Services */}
-        <section
-          aria-labelledby="services-heading"
-          className="relative z-10 py-10"
-        >
-          <h2 id="services-heading" className="sr-only">
-            Services & Offerings
-          </h2>
-          <Services />
-        </section>
+          <section
+            aria-labelledby="testimonials-heading"
+            className="relative z-10 py-10"
+          >
+            <h2 id="testimonials-heading" className="sr-only">
+              Testimonials
+            </h2>
+            <Testimonials />
+          </section>
 
-        <section
-          aria-labelledby="testimonials-heading"
-          className="relative z-10 py-10"
-        >
-          <h2 id="testimonials-heading" className="sr-only">
-            Testimonials
-          </h2>
-          <Testimonials />
-        </section>
-
-        {/* CTA Section / Contact */}
-        <CTAsection />
-      </main>
+          {/* CTA Section / Contact */}
+          <CTAsection />
+        </main>
+      {/* </LazyMotion> */}
     </div>
   );
 }
