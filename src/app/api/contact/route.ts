@@ -1,47 +1,48 @@
 import { Resend } from "resend";
 import { ContactEmailTemplate } from "../../../components/emailTemplates/contactEmail";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY!);
 
-interface ContactEmailProps {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
-
-export async function POST(req: Request, res: Response) {
-  console.log("process.env.RESEND_API_KEY", process.env.RESEND_API_KEY);
-
-  const { name, email, subject, message } = await req.json();
-
-  if(!name || !email || !subject || !message){
-    return Response.json({ error: "Missing required fields" }, { status: 400 });
-  }
-
-  console.log("resp", name, email, subject, message )
-
-
+export async function POST(req: Request) {
   try {
+    const body = await req.json();
+    const { name, email, subject, message } = body;
+
+    // Basic validation
+    if (!name || !email || !subject || !message) {
+      return Response.json(
+        { error: "All fields are required" },
+        { status: 400 }
+      );
+    }
+
+    console.log("Received form data:", { name, email, subject, message });
+
     const { data, error } = await resend.emails.send({
-      from: "Acme <onboarding@resend.dev>",
+      from: "Portfolio <onboarding@resend.dev>",
       to: ["notgetin18@gmail.com"],
-      subject:  subject,
+      subject: `New Portfolio Message: ${subject}`,
       react: ContactEmailTemplate({
-        name: name,
-        email: email,
-        subject: subject,
-        message: subject,
+        name,
+        email,
+        subject,
+        message,
       }),
     });
 
     if (error) {
-      console.log("error 39", error)
-      return Response.json({ error }, { status: 500 });
+      console.error("Resend error:", error);
+      return Response.json(
+        { error: error.message || "Failed to send email" },
+        { status: 500 }
+      );
     }
 
-    return Response.json({ data });
-  } catch (error) {
-    return Response.json({ error }, { status: 500 });
+    console.log("Email sent successfully:", data);
+
+    return Response.json({ success: true, data }, { status: 200 });
+  } catch (err: any) {
+    console.error("API error:", err);
+    return Response.json({ error: "Server error" }, { status: 500 });
   }
 }

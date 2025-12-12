@@ -50,7 +50,7 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                             fontWeight: 600,
                         }}
                     >
-                        New Message from Amit Portfolio
+                        New Message from Your Portfolio
                     </h1>
                 </div>
 
@@ -73,6 +73,7 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                                     marginBottom: "6px",
                                     display: "block",
                                     marginRight: "10px",
+                                    marginTop: "7px",
                                 }}
                             >
                                 From :
@@ -81,7 +82,7 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                         <div
                             style={{
                                 background: "#f8fafc",
-                                padding: "12px 16px",
+                                padding: "6px 6px",
                                 borderRadius: "8px",
                             }}
                         >
@@ -106,6 +107,7 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                                     marginBottom: "6px",
                                     display: "block",
                                     marginRight: "10px",
+                                    marginTop: "20px",
                                 }}
                             >
                                 Subject :
@@ -114,10 +116,10 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                         <div
                             style={{
                                 background: "#f8fafc",
-                                padding: "12px 16px",
+                                padding: "6px 6px",
                                 borderRadius: "8px",
                                 marginBottom: "20px",
-                                marginTop: "14px"
+                                marginTop: "14px",
                             }}
                         >
                             {subject}
@@ -130,7 +132,7 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                             color: "#555",
                             marginBottom: "10px",
                             display: "block",
-                            marginTop: "20px"
+                            marginTop: "20px",
                         }}
                     >
                         Message
@@ -156,17 +158,21 @@ export const ContactEmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
                 {/* Footer */}
                 <div
                     style={{
-                        background: "#f4f7fa",
+                        background: "linear-gradient(135deg, #06b6d4, #3ed6ac, #8ef3c1)",
                         padding: "20px",
                         textAlign: "center",
-                        fontSize: "14px",
-                        color: "#666",
+                        fontSize: "16px",
+                        color: "#FFF",
                     }}
                 >
                     Sent via your portfolio —{" "}
                     <a
                         href="https://www.amitdevjourney.xyz"
-                        style={{ color: "#3ed6ac", textDecoration: "none" }}
+                        style={{
+                            color: "#28282B",
+                            fontSize: "16px",
+                            textDecoration: "none",
+                        }}
                     >
                         amitdevjourney.xyz
                     </a>
