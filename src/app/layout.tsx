@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Sora } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/home/navbar";
-import HeroBackground from "@/components/ui/HeroBackground";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -85,7 +84,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={sora.variable}>
-      <body className="bg-black">
+      <body suppressHydrationWarning className="bg-black">
         <div className="flex justify-center ">
           <Navbar />
         </div>

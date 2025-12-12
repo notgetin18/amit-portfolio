@@ -28,6 +28,8 @@ export default function ContactUs() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
 
   const validateForm = () => {
     const newErrors = { name: "", email: "", subject: "", message: "" };
@@ -70,14 +72,77 @@ export default function ContactUs() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm()) {
-      console.log("Form submitted:", formData);
-      alert("Thank you for your message! I'll get back to you soon.");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+
+    console.log("formData ===>", formData)
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        alert(result.error || "Failed to send message");
+      }
+    } catch (error: any) {
+      alert("Network error. Please try again.");
+      console.log("error", error.message)
+    } finally {
+      setIsSubmitting(false);
     }
   };
+
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+
+  //   if (!validateForm()) return;
+
+  //   console.log("Form submitted:", formData);
+
+  //   const { name, email, subject, message } = formData;
+
+  //   try {
+  //     const response = await fetch("/api/contact", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         name,
+  //         email,
+  //         subject,
+  //         message,
+  //       }),
+  //     });
+
+  //     const result = await response.json();
+
+  //     if (response.ok) {
+  //       alert("Thank you for your message! I'll get back to you soon.");
+  //       // Or use a toast notification (recommended):
+  //       // toast.success("Message sent successfully!");
+  //       setFormData({ name: "", email: "", subject: "", message: "" });
+  //     } else {
+  //       alert(result.error || "Something went wrong. Please try again.");
+  //       // toast.error(result.error || "Failed to send message");
+  //     }
+  //   } catch (error) {
+  //     console.error("Submit error:", error);
+  //     alert("Failed to send message. Please check your connection and try again.");
+  //     // toast.error("Network error. Please try again later.");
+  //   }
+  // };
 
   const handleDownloadResume = (format: string) => {
     let url: string;
@@ -314,7 +379,6 @@ export default function ContactUs() {
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        required
                         className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac]"
                         placeholder="Your name"
                         aria-invalid={!!errors.name}
@@ -344,7 +408,6 @@ export default function ContactUs() {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        required
                         className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac]"
                         placeholder="your.email@example.com"
                         aria-invalid={!!errors.email}
@@ -376,7 +439,6 @@ export default function ContactUs() {
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
-                      required
                       className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac]"
                       placeholder="What's this about?"
                       aria-invalid={!!errors.subject}
@@ -406,7 +468,6 @@ export default function ContactUs() {
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      required
                       rows={6}
                       className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac]"
                       placeholder="Tell me about your project or just say hello..."
@@ -426,8 +487,8 @@ export default function ContactUs() {
                   </div>
 
                   <PrimaryButtons
-                    title="Send Message"
-                    // Icon={Send}
+                    isDisabled={isSubmitting}
+                    title={isSubmitting ? "Sending..." : "Send Message"}
                     btnType="submit"
                     containerStyles="w-full justify-center py-2 sm:py-3 text-lg sm:text-xl font-semibold rounded-full"
                     ariaLabel="Send message to Amit Kumar"
