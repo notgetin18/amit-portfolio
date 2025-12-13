@@ -5,6 +5,25 @@ const redis = new Redis({
   token: process.env.UPSTASH_REDIS_REST_TOKEN!,
 });
 
+// Separate function to check/add subscription (no expiry for subscriptions)
+export async function checkAndAddSubscription(
+  email: string
+): Promise<{ subscribed: boolean; message?: string }> {
+  const normalizedEmail = email.toLowerCase().trim();
+  const subKey = `subscribed:emails`; // Set for unique emails
+
+  const isMember = await redis.sismember(subKey, normalizedEmail);
+
+  if (isMember) {
+    return { subscribed: true, message: "You already subscribed to the newsletter." };
+  }
+
+  // Add to set (no expiry needed for subscriptions)
+  await redis.sadd(subKey, normalizedEmail);
+
+  return { subscribed: false };
+}
+
 export async function rateLimitByEmail(
   email: string
 ): Promise<{ allowed: boolean; remaining: number }> {

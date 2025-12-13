@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 import { BlogSubscriptionEmail } from "../../../components/emailTemplates/blogSubscriptionEmail";
-import { rateLimitByEmail } from "@/lib/rate-limit";
+import { checkAndAddSubscription, rateLimitByEmail } from "@/lib/rate-limit";
 
 const resend = new Resend(process.env.RESEND_API_KEY_BLOG_SUBSCRIPTION!);
 
@@ -19,6 +19,14 @@ export async function POST(req: Request) {
 
     console.log("Received form data from blog subscription:", { email });
 
+    const { subscribed, message } = await checkAndAddSubscription(email);
+    if (subscribed) {
+      return Response.json(
+        { error: message },
+        { status: 409 } // Conflict status for duplicates
+      );
+    }
+
     const { allowed, remaining } = await rateLimitByEmail(email);
 
     console.log("remaining", remaining);
@@ -26,8 +34,7 @@ export async function POST(req: Request) {
     if (!allowed) {
       return Response.json(
         {
-          error:
-            "Too many attempts! Please wait 2 hour before trying again.",
+          error: "Too many attempts! Please wait 2 hour before trying again.",
         },
         { status: 429 }
       );
