@@ -8,7 +8,7 @@ import HeroBackground from "@/components/ui/HeroBackground";
 import { Input } from "@/components/ui/input";
 import { UpcomingArticles } from "@/components/blogs/upcomingArticles";
 import { useRef, useState } from "react";
-import toast, { Toaster } from "react-hot-toast";  
+import toast, { Toaster } from "react-hot-toast";
 
 export function Blog() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -16,7 +16,7 @@ export function Blog() {
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitting(true);  
+    setSubmitting(true);
 
     const email = inputRef.current?.value.trim();
     if (!email) {
@@ -24,8 +24,7 @@ export function Blog() {
       toast.error("Please enter a valid email.", { duration: 3000 });
       return;
     }
-
-    console.log("email", email);
+    // console.log("email", email);
 
     try {
       const res = await fetch("/api/subscribe", {
@@ -38,7 +37,29 @@ export function Blog() {
         if (inputRef.current) {
           inputRef.current.value = ""; // Clear the input
         }
-        toast.success("Subscribed! Thanks for joining the newsletter.", { duration: 4000 });
+        toast.success(
+          <div className="text-left max-w-md">
+            <h3 className="text-xl font-bold text-white mb-2">Welcome Aboard the Code Journey! 🚀</h3>
+            <p className="text-slate-300 mb-3 leading-relaxed text-sm sm:text-base">
+              Thanks for subscribing—your inbox is now primed for deep dives into MERN mastery, perf hacks, and real-talk project wins. First post drops soon: "Scaling Next.js to 1M+ Users (Lessons from Bright DiGi Gold)."
+            </p>
+            <div className="flex gap-2 text-sm">
+              <Link href="/blog" className="text-[#06b6d4] hover:underline">Browse Teasers →</Link>
+              <span className="text-slate-500">|</span>
+              <Link href="/contact" className="text-[#06b6d4] hover:underline">Hire Me →</Link>
+            </div>
+          </div>,
+          {
+            duration: 7000,
+            style: {
+              background: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+              border: "1px solid #06b6d4",
+              borderRadius: "12px",
+              padding: "16px"
+            },
+            iconTheme: { primary: "#8ef3c1", secondary: "#1e293b" }
+          }
+        );
       } else {
         const errorData = await res.json();
         toast.error(errorData.error || "Something went wrong. Please try again.", { duration: 4000 });
@@ -46,11 +67,9 @@ export function Blog() {
     } catch (error) {
       toast.error("Network error. Please check your connection and try again.", { duration: 4000 });
     } finally {
-      setSubmitting(false); // Always reset after operation
+      setSubmitting(false);
     }
   };
-
-  console.log("render");  
 
   return (
     <>

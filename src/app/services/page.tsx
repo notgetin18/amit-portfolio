@@ -1,6 +1,5 @@
 import Services from '@/components/services/serviceHero'
 import { Metadata } from 'next';
-import React from 'react'
 
 export const metadata: Metadata = {
   title: "MERN Stack & Digital Marketing Services | Amit Kumar",

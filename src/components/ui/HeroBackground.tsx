@@ -69,13 +69,13 @@ export default function HeroBackground({ delay = 500 }: { delay?: number }) {
       fpsLimit: 60,
       particles: {
         number: {
-          value: isMobile ? 150 : 400,
+          value: isMobile ? 200 : 400,
           density: { enable: true, area: 1000 },
         },
         color: { value: ["#dde2e6", "#fff", "#dde2e6"] },
         shape: { type: ["circle", "square"] },
         opacity: {
-          value: { min: 0.7, max: 0.2 },
+          value: { min: 0.2, max: 0.7 },
           animation: {
             enable: false,
             speed: 1,
@@ -85,10 +85,10 @@ export default function HeroBackground({ delay = 500 }: { delay?: number }) {
             minimumValue: 0.2,
           },
         },
-        size: { value: { min: 0.2, max: 0.7 } },
+        size: { value: { min: 0.2, max: 1.5 } },
         move: { enable: false },
         links: { enable: false },
-        value: { min: 0.2, max: 0.7 },
+        value: { min: 0.2, max: 1 },
       },
       detectRetina: true,
     }),
@@ -126,12 +126,12 @@ export default function HeroBackground({ delay = 500 }: { delay?: number }) {
       },
       particles: {
         number: {
-          value: isMobile ? 170 : 350,
+          value: isMobile ? 280 : 350,
           density: {
             enable: true,
             area: 1000,
           },
-          size: { value: { min: 0.2, max: 0.7 } },
+          size: { value: { min: 0.2, max: 1 } },
         },
         color: {
           value: ["#FFFF00", "#eeb056"], // Keep yellow for foreground
@@ -163,7 +163,7 @@ export default function HeroBackground({ delay = 500 }: { delay?: number }) {
           },
         },
         size: {
-          value: { min: 0.2, max: 1.5},
+          value: { min: 0.2, max: 1.5 },
         },
         move: {
           enable: true,

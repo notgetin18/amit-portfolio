@@ -128,12 +128,3 @@ export const defaultBlogPosts = [
     gradient: "from-green-500 to-teal-500",
   },
 ];
-
-export const primaryButtonStyles = {
-  border: "0.5px solid #F9DDB5",
-  background: "linear-gradient(90deg, #EEB056 0%, #82540D 100%)",
-  boxShadow: "0px 4px 8px 0px #0000004D",
-  color: "#FFFFFF",
-  position: "relative",
-  outline: "none",
-};

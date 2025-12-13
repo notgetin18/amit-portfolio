@@ -31,8 +31,6 @@ const TeamMembersCarousel: React.FC = () => {
         { name: "Raghvender Singh", role: "UI/UX Engineer", expertise: "Frontend architecture design, responsive UI/UX.", link: "https://www.linkedin.com/in/raghvender-singh-627089121/", avatar: "/team/Raghvender.jpeg" },
     ];
 
-    // Duplicate the array 3 times for a continuous scroll on various screen sizes
-    const duplicatedTeamMembers = [...teamMembers, ...teamMembers, ...teamMembers, ...teamMembers];
 
     const renderCard = (member: TeamMember, index: number) => (
         <motion.div
@@ -96,11 +94,11 @@ const TeamMembersCarousel: React.FC = () => {
             <h1 className="sr-only">Meet the Core Development Team and Specialists for Full Stack and MERN Projects</h1>
 
             {/* User-facing section header (SEO-friendly content) */}
-            <header className="text-center mb-8">
+            <header className="text-center mb-8 px-4">
                 <h2 className="text-2xl md:text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]">
                     Meet the Core Team
                 </h2>
-                <p className="text-sm text-slate-300 max-w-xl mx-auto mt-2">
+                <p className="text-sm text-slate-300 max-w-xl mx-auto mt-2 px-4">
                     A curated network of specialists in{' '}
                     <span className="text-[#3ed6ac] font-semibold">Digital Marketing</span>,{' '}
                     <span className="text-[#3ed6ac] font-semibold">Video Editing</span>,{' '}
@@ -110,39 +108,75 @@ const TeamMembersCarousel: React.FC = () => {
                     , built to deliver robust, scalable solutions.
                 </p>
             </header>
+            <div className="collaborators-container overflow-x-auto overflow-y-hidden max-w-7xl mx-auto">
+                {/* Remove the animation CSS for mobile — we'll use native scroll */}
 
-            <style jsx global>{`
-                @keyframes scroll-loop {
-                    0% { transform: translateX(0); }
-                    /* Target 1/3 of the track width */
-                    100% { transform: translateX(-${animationDistance}%); } 
-                }
-                
-                .carousel-track {
-                    display: flex;
-                    /* Total width must accommodate 3 full sets of team members */
-                    width: 300%; 
-                    animation: scroll-loop ${scrollDuration}s linear infinite; 
-                }
-                
-                .collaborators-container:hover .carousel-track {
-                    animation-play-state: paused;
-                }
-                /* Optional: Hide scrollbar on desktop */
-                .collaborators-container {
-                    scrollbar-width: none;
-                    -ms-overflow-style: none; 
-                }
-                .collaborators-container::-webkit-scrollbar {
-                    display: none;
-                }
-            `}</style>
+                <style jsx global>{`
+    @keyframes scroll-loop {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
 
-            {/* The main scrolling track, holding duplicated data */}
-            <div className="carousel-track">
-                {duplicatedTeamMembers.map(renderCard)}
+    /* Auto-scroll only on desktop (screens wider than 768px) */
+    @media (min-width: 769px) {
+      .carousel-track {
+        display: flex;
+        width: 200%;
+        animation: scroll-loop 35s linear infinite;
+        will-change: transform;
+      }
+
+      .collaborators-container:hover .carousel-track {
+        animation-play-state: paused;
+      }
+    }
+
+    /* On mobile: natural horizontal scroll with snap */
+    @media (max-width: 768px) {
+      .carousel-track {
+        display: flex;
+        width: fit-content; /* Let it grow with content */
+        animation: scroll-loop 90s linear infinite;
+        will-change: transform;
+        overflow-x: scroll;
+        padding: 0 1rem;
+        gap: 1rem;
+        scroll-snap-type: x mandatory;
+      }
+
+      .carousel-track > * {
+        scroll-snap-align: start;
+        flex-shrink: 0;
+      }
+
+      /* Smooth scrolling feel */
+      .collaborators-container {
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .collaborators-container:hover .carousel-track {
+        animation-play-state: paused;
+      }
+    }
+
+    /* Hide scrollbar everywhere */
+    .collaborators-container {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .collaborators-container::-webkit-scrollbar {
+      display: none;
+    }
+  `}</style>
+
+                {/* For mobile: show 3 copies so user can scroll back and forth smoothly */}
+                <div className="carousel-track">
+                    {[...teamMembers, ...teamMembers, ...teamMembers].map((member, index) =>
+                        renderCard(member, index)
+                    )}
+                </div>
             </div>
-        </div>
+        </div >
     );
 };
 

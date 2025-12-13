@@ -44,7 +44,7 @@ export default function Services() {
         aria-hidden
       />
 
-      <div className="pt-28 pb-28 px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="pt-28 pb-28  sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
           <motion.div
@@ -79,7 +79,7 @@ export default function Services() {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
               {[
                 {
                   title: "Digital Marketing Strategy",
@@ -190,7 +190,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mb-16"
+            className="mb-16 px-4"
           >
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] mb-3">
@@ -269,7 +269,7 @@ export default function Services() {
             whileInView={{ opacity: 0.9, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="my-16"
+            className="my-16 px-4"
           >
             <div className="max-w-4xl mx-auto p-8 rounded-2xl bg-gradient-to-r from-[#06b6d4]/20 to-[#3ed6ac]/20 border border-white/10 backdrop-blur-sm text-center">
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-[#8ef3c1] to-[#06b6d4] mb-4">
@@ -299,7 +299,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center my-8"
+            className="text-center my-8 px-4"
           >
             <div className="inline-flex items-center text-sm text-slate-300 uppercase tracking-widest rounded-full bg-gradient-to-r from-white/5 via-white/3 to-transparent px-3 py-1 mb-4">
               Next Steps
