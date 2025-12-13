@@ -27,7 +27,7 @@ export async function POST(req: Request) {
       return Response.json(
         {
           error:
-            "You've reached the limit of 3 messages per hour. Please try again later.",
+            "Too many attempts! Please wait 2 hour before trying again.",
         },
         { status: 429 }
       );

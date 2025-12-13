@@ -44,6 +44,7 @@ export const BlogSubscriptionEmail: React.FC<BlogSubscriptionEmailProps> = ({
                         WebkitTextFillColor: "transparent",
                         margin: "0 0 10px 0",
                         letterSpacing: "-0.025em",
+                        borderRadius: "8px",
                     }}
                 >
                     New Blog Subscriber!
@@ -112,7 +113,7 @@ export const BlogSubscriptionEmail: React.FC<BlogSubscriptionEmailProps> = ({
                         marginBottom: "16px",
                     }}
                 >
-                    Exciting news! <strong>{subscriberEmail}</strong> has subscribed to
+                    Exciting news! <strong style={{color: "01796F"}}>{subscriberEmail}</strong> has subscribed to
                     your Tech Blog. They're eager for your insights on MERN stack
                     development, performance optimization, and real-world project stories.
                 </p>

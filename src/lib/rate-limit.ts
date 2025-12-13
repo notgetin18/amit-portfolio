@@ -5,19 +5,12 @@ const redis = new Redis({
   token: process.env.UPSTASH_REDIS_REST_TOKEN!,
 });
 
-console.log({
-  url: process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-});
-
-console.log("redis", redis);
-
 export async function rateLimitByEmail(
   email: string
 ): Promise<{ allowed: boolean; remaining: number }> {
   const key = `rate:contact:${email.toLowerCase().trim()}`;
   const limit = 3; // max 3 emails
-  const window = 3600; // 1 hour in seconds
+  const window = 7200; // 2 hour in seconds
 
   const current = await redis.get(key);
   const count = current ? Number(current) : 0;
