@@ -69,7 +69,7 @@ export default function HeroBackground({ delay = 500 }: { delay?: number }) {
       fpsLimit: 60,
       particles: {
         number: {
-          value: isMobile ? 150 : 300,
+          value: isMobile ? 150 : 400,
           density: { enable: true, area: 1000 },
         },
         color: { value: ["#dde2e6", "#fff", "#dde2e6"] },
@@ -126,7 +126,7 @@ export default function HeroBackground({ delay = 500 }: { delay?: number }) {
       },
       particles: {
         number: {
-          value: isMobile ? 170 : 300,
+          value: isMobile ? 170 : 350,
           density: {
             enable: true,
             area: 1000,
@@ -212,8 +212,8 @@ export default function HeroBackground({ delay = 500 }: { delay?: number }) {
             className="absolute inset-0 z-1"
             style={{
               background:
-                "linear-gradient(to right,rgb(34, 113, 225) 0%, rgba(62, 62, 71, 0) 35%, rgba(0, 0, 0, 0) 100%)",
-              opacity: "40%",
+                "linear-gradient(to right,rgb(34, 113, 225) 0%, rgba(62, 62, 71, 0) 30%, rgba(0, 0, 0, 0) 100%)",
+              opacity: "36%",
             }}
           />
         </>

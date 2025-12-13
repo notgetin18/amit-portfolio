@@ -7,7 +7,38 @@ import { fadeInUp, staggerContainer } from "@/constant";
 import HeroBackground from "@/components/ui/HeroBackground";
 import { Input } from "@/components/ui/input";
 import { UpcomingArticles } from "@/components/blogs/upcomingArticles";
+import { useRef } from "react";
+
+
 export function Blog() {
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const email = inputRef.current?.value.trim();
+    if (!email) return;
+
+    console.log("email", email);
+
+    const res = await fetch("/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+    if (res.ok) {
+      if (inputRef.current) {
+        inputRef.current.value = ""; // Clear the input
+      }
+      alert("Subscribed! Thanks for joining.");
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  };
+
+  console.log("rednder");
+
   return (
     <div className="min-h-screen relative overflow-y-auto bg-gradient-to-br from-[#07162b]/80 via-[#061025]/70 to-[#071826]/95">
 
@@ -82,23 +113,18 @@ export function Blog() {
                 stack development, performance tips, and project insights.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-                <Input
-                  type="text"
-                  id="email"
-                  placeholder="Enter your email"
-                  name="email"
-                  // value={formData.name}
-                  // onChange={handleInputChange}
-                  required
-                  className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac]"
-                // aria-invalid={!!errors.name}
-                // aria-describedby={
-                //   errors.name ? "name-error" : undefined
-                // }
-                />
-                <Button asChild className=" rounded-md bg-gradient-to-tr from-[#06b6d4] to-[#8ef3c1] font-semibold text-black hover:shadow-md hover:shadow-[#8ef3c1]/50 ease-in-out duration-500 transition-colors">
-                  <Link href="/contact">Subscribe</Link>
-                </Button>
+                <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+                  <Input
+                    ref={inputRef}
+                    type="email"
+                    placeholder="Enter your email"
+                    required
+                    className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac]"
+                  />
+                  <Button type="submit" className="rounded-md bg-gradient-to-tr from-[#06b6d4] to-[#8ef3c1] font-semibold text-black hover:shadow-md hover:shadow-[#8ef3c1]/50 ease-in-out duration-500 transition-colors">
+                    Subscribe
+                  </Button>
+                </form>
               </div>
             </Card>
           </motion.section>
