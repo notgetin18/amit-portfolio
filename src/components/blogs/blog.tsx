@@ -14,6 +14,20 @@ export function Blog() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [submitting, setSubmitting] = useState(false);
 
+  // Scroll handler for "Get Notified" button
+  const scrollToNewsletter = () => {
+    const element = document.getElementById("newsletter");
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest"
+      });
+      // Optional: Offset for fixed navbar (adjust -80px as needed)
+      // window.scrollBy(0, -80);
+    }
+  };
+
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
@@ -24,6 +38,7 @@ export function Blog() {
       toast.error("Please enter a valid email.", { duration: 3000 });
       return;
     }
+
     // console.log("email", email);
 
     try {
@@ -124,15 +139,19 @@ export function Blog() {
                   stack development, performance optimization, and real-world
                   project experiences. Stay tuned!
                 </p>
-                <Button asChild className="rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#8ef3c1] font-semibold text-black shadow-md shadow-[#8ef3c1]/50">
-                  <Link href="/contact">Get Notified When I Publish</Link>
+                <Button
+                  onClick={scrollToNewsletter}
+                  className="rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#8ef3c1] font-semibold text-black shadow-md shadow-[#8ef3c1]/50"
+                >
+                  Get Notified When I Publish
                 </Button>
               </Card>
             </motion.div>
             <UpcomingArticles />
 
-            {/* Newsletter Signup */}
+            {/* Newsletter Signup - Add ID for scrolling */}
             <motion.section
+              id="newsletter" // Anchor ID for smooth scroll
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
