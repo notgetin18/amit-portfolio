@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Sora } from "next/font/google";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.css";
 import Navbar from "@/components/home/navbar";
 import Footer from "@/components/footer";
@@ -90,6 +91,7 @@ export default function RootLayout({
           <Navbar />
         </div>
         {children}
+        <SpeedInsights />
         <Footer />
       </body>
     </html>
