@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { handleDownloadResume } from "@/utility";
 import Image from "next/image";
 import amitImage from "../../../public/favicons/web-app-manifest-192x192.png";
@@ -13,6 +13,28 @@ import { Download, Menu, X, Home, User, Mail, Settings, BookOpen, ArrowBigLeft }
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  // Scroll lock effect
+  useEffect(() => {
+    if (isMenuOpen) {
+      // Lock body scroll
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed"; // Prevents iOS bounce
+      document.body.style.width = "100%"; // Prevents layout shift
+    } else {
+      // Restore body scroll
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    };
+  }, [isMenuOpen]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
