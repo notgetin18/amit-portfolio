@@ -5,8 +5,8 @@ export default function GlowText() {
     const [showGlow, setShowGlow] = useState(false);
 
     useEffect(() => {
-        // Wait ~1000ms so the headline is already painted
-        const timer = setTimeout(() => setShowGlow(true), 1000);
+        // Wait ~3000ms so the headline is already painted
+        const timer = setTimeout(() => setShowGlow(true), 3000);
         return () => clearTimeout(timer);
     }, []);
 
