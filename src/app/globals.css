@@ -241,3 +241,10 @@ h6 {
     transform: translateX(0); /* Moves arrow back to original position */
   }
 }
+
+.arrow {
+  display: inline-block;
+  font-size: 2em;
+  color: #06b6d4;
+  transform: rotate(140deg);
+}
