@@ -23,8 +23,6 @@ export function Blog() {
         block: "start",
         inline: "nearest"
       });
-      // Optional: Offset for fixed navbar (adjust -80px as needed)
-      // window.scrollBy(0, -80);
     }
   };
 

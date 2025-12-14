@@ -129,8 +129,14 @@ h6 {
 }
 
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {
@@ -139,19 +145,31 @@ h6 {
 
 .neon-text {
   color: #fff;
-  text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e,
-    0 0 40px #ff005e, 0 0 80px #ff005e;
+  text-shadow:
+    0 0 5px #ff005e,
+    0 0 10px #ff005e,
+    0 0 20px #ff005e,
+    0 0 40px #ff005e,
+    0 0 80px #ff005e;
   animation: glow 2s infinite alternate;
 }
 
 @keyframes glow {
   0% {
-    text-shadow: 0 0 3px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e,
-      0 0 40px #ff005e, 0 0 80px #ff005e;
+    text-shadow:
+      0 0 3px #ff005e,
+      0 0 10px #ff005e,
+      0 0 20px #ff005e,
+      0 0 40px #ff005e,
+      0 0 80px #ff005e;
   }
   100% {
-    text-shadow: 0 0 6px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff,
-      0 0 80px #00d4ff, 0 0 160px #00d4ff;
+    text-shadow:
+      0 0 6px #00d4ff,
+      0 0 20px #00d4ff,
+      0 0 40px #00d4ff,
+      0 0 80px #00d4ff,
+      0 0 160px #00d4ff;
   }
 }
 
@@ -198,4 +216,28 @@ h6 {
   content: "";
   border-color: rgba(240, 164, 48, 1);
   background: rgba(240, 164, 48, 1);
+}
+
+.details-button {
+  display: inline-flex;
+  align-items: center;
+}
+
+.details-button .arrow-icon {
+  font-size: 1.3em; /* Increase size to make it appear bolder */
+  color: #06b6d4;
+  display: inline-block;
+  animation: arrowMove 1.5s infinite linear; /* Continuous forward movement */
+}
+
+@keyframes arrowMove {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(7px); /* Moves arrow forward */
+  }
+  100% {
+    transform: translateX(0); /* Moves arrow back to original position */
+  }
 }

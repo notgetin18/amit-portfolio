@@ -1,3 +1,4 @@
+import { TeamMember } from "@/components/types";
 import { BookOpen, Code, Lightbulb } from "lucide-react";
 
 export const resumeContent = `
@@ -126,5 +127,57 @@ export const defaultBlogPosts = [
     category: "Backend",
     icon: BookOpen,
     gradient: "from-green-500 to-teal-500",
+  },
+];
+
+export const teamMembers: TeamMember[] = [
+  {
+    name: "Ayush Arya",
+    role: "Backend Developer",
+    expertise: "Masters scalable REST APIs with Node.js, Express, and MongoDB, delivering high-performance systems through advanced caching and resilient error handling.",
+    link: "https://www.linkedin.com/in/ayush-arya-36505a218/",
+    avatar: "/team/Ayush.jpeg"
+  },
+  {
+    name: "Ritesh Singh",
+    role: "Full Stack Developer & Technical Lead",
+    expertise: "10+ years of expertise in MERN, TypeScript, Next.js, AWS/CI-CD pipeline management and leading AI platform development. Delivered SaaS based Platform.",
+    link: "https://www.linkedin.com/in/1124ritesh/",
+    avatar: "/team/Ritesh.jpeg"
+  },
+  {
+    name: "Shashi Bhushan Jha",
+    role: "Full-Stack Specialist",
+    expertise: "Leads cross-platform mobile apps via Flutter, seamlessly integrating payment gateways while prioritizing security and flawless multi-device performance.",
+    link: "https://www.linkedin.com/in/shashi-bhushan-jha-7797371a3/",
+    avatar: "/team/Shashi.jpeg"
+  },
+  {
+    name: "Mritunjay Gupta",
+    role: "Product Engineer",
+    expertise: "Drives SaaS growth through end-to-end feature lifecycles, blending B2B/B2C strategies for optimal user retention and scalable market expansion.",
+    link: "https://www.linkedin.com/in/mritunjay-gupta/",
+    avatar: "/team/Mritunjay.jpeg"
+  },
+  {
+    name: "Vipin Rathore",
+    role: "Motion Graphic Designer & Video Editor",
+    expertise: "Transforms ideas into dynamic video content and motion graphics, elevating digital marketing campaigns with storytelling that captivates and converts audiences.",
+    link: "https://www.linkedin.com/in/vipin-rathore-615a3019b/",
+    avatar: "/team/Vipin.jpeg"
+  },
+  {
+    name: "Simran Meena",
+    role: "Content Writer",
+    expertise: "Crafts SEO-optimized technical narratives, from in-depth docs to engaging user guides, making complex dev concepts accessible and search-ready for global readers.",
+    link: "https://www.linkedin.com/in/simran-meena-a44b262a7/",
+    avatar: "/team/Simran.jpeg"
+  },
+  {
+    name: "Raghvender Singh",
+    role: "UI/UX Engineer",
+    expertise: "Designs intuitive frontend architectures and responsive interfaces, leveraging Figma and React to prototype user flows that prioritize accessibility and delight.",
+    link: "https://www.linkedin.com/in/raghvender-singh-627089121/",
+    avatar: "/team/Raghvender.jpeg"
   },
 ];

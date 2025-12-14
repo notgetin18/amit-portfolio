@@ -1,6 +1,8 @@
 'use client'
+import { teamMembers } from "@/constant";
 import { motion } from "framer-motion";
 import React from 'react';
+import { TeamMember } from "../types";
 
 // Mocked components and constants necessary for this file to compile
 const Card = ({ children, className }: any) => <div className={`border rounded-lg ${className}`}>{children}</div>;
@@ -11,26 +13,7 @@ const fadeInUp = {
     animate: { opacity: 1, y: 0 },
 };
 
-interface TeamMember {
-    name: string;
-    role: string;
-    expertise: string;
-    link: string;
-    avatar: string;
-}
-
 const TeamMembersCarousel: React.FC = () => {
-
-    const teamMembers: TeamMember[] = [
-        { name: "Ayush Arya", role: "Backend Developer", expertise: "Specialist in building scalable, high-performance REST APIs using Node.js, Express, and MongoDB.", link: "https://www.linkedin.com/in/ayush-arya-36505a218/", avatar: "/team/Ayush.jpeg" },
-        { name: "Ritesh Singh", role: "Full Stack Developer & Technical Lead", expertise: "10+ years of expertise in Node.js, TypeScript, Next.js, AWS/CI-CD pipeline management and leading AI platform development.", link: "https://www.linkedin.com/in/1124ritesh/", avatar: "/team/Ritesh.jpeg" },
-        { name: "Shashi Bhushan Jha", role: "Full-Stack Specialist", expertise: "Expert in cross-platform mobile development using Flutter and integrating payment gateways.", link: "https://www.linkedin.com/in/shashi-bhushan-jha-7797371a3/", avatar: "/team/Shashi.jpeg" },
-        { name: "Mritunjay Gupta", role: "Product Engineer", expertise: "SaaS product scaling, feature lifecycle management, and B2B/B2C product strategy.", link: "https://www.linkedin.com/in/mritunjay-gupta/", avatar: "/team/Mritunjay.jpeg" },
-        { name: "Vipin Rathore", role: "Motion Graphic Designer & Video Editor", expertise: "Professional video production and motion graphics specialist for digital marketing and content.", link: "https://www.linkedin.com/in/vipin-rathore-615a3019b/", avatar: "/team/Vipin.jpeg" },
-        { name: "Simran Meena", role: "Content Writer", expertise: "SEO-focused technical content creation, documentation, and user guide development.", link: "https://www.linkedin.com/in/simran-meena-a44b262a7/", avatar: "/team/Simran.jpeg" },
-        { name: "Raghvender Singh", role: "UI/UX Engineer", expertise: "Frontend architecture design, responsive UI/UX.", link: "https://www.linkedin.com/in/raghvender-singh-627089121/", avatar: "/team/Raghvender.jpeg" },
-    ];
-
 
     const renderCard = (member: TeamMember, index: number) => (
         <motion.div
@@ -63,31 +46,26 @@ const TeamMembersCarousel: React.FC = () => {
 
                 {/* Description / Expertise Area */}
                 <div className="text-center">
-                    <p className="text-sm text-slate-400 leading-relaxed italic mb-4">
+                    <p className="text-sm text-slate-400 leading-relaxed italic mb-10">
                         {member.expertise}
                     </p>
                 </div>
 
                 {/* LinkedIn Link */}
-                <div className="flex justify-center pt-2">
+                <div className="flex justify-center items-center pt-2 bottom-4 fixed left-0 right-0">
                     <a
                         href={member.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1 transition-colors"
+                        className="border border-white/10 bg-white/10 hover:bg-white/20 text-white px-4 py-1.5 rounded-full tracking-wide text-xs sm:text-sm font-semibold flex items-center transition-colors details-button"
                         aria-label={`View ${member.name}'s LinkedIn`}
                     >
-                        View Profile <ArrowRight className="w-3 h-3" />
+                        View Profile  <ArrowRight className="arrow-icon px-2 sm:px-4 mb-1 sm:mb-0" />
                     </a>
                 </div>
             </Card>
         </motion.div>
     );
-
-    const totalCards = teamMembers.length;
-    // Calculate scroll distance needed to loop seamlessly (1/3 of the total track width)
-    const animationDistance = 100 / 3;
-    const scrollDuration = totalCards * 4; // Adjusted duration for smooth scroll (e.g., 4s per card)
 
     return (
         <div className="collaborators-container overflow-hidden max-w-7xl mx-auto">
