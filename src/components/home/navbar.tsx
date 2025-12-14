@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import { handleDownloadResume } from "@/utility";
 import Image from "next/image";
 import amitImage from "../../../public/favicons/web-app-manifest-192x192.png";
@@ -36,9 +36,9 @@ export default function Navbar() {
     };
   }, [isMenuOpen]);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen((prev) => !prev);
+  }, []);
 
   const navLinks = useMemo(
     () => [

@@ -212,8 +212,8 @@ export default function HeroBackground({ delay = 500 }: { delay?: number }) {
             className="absolute inset-0 z-1"
             style={{
               background:
-                "linear-gradient(to right,rgb(34, 113, 225) 0%, rgba(62, 62, 71, 0) 30%, rgba(0, 0, 0, 0) 100%)",
-              opacity: "36%",
+                "linear-gradient(to right,rgb(34, 113, 225) 0%, rgba(62, 62, 71, 0) 27%, rgba(0, 0, 0, 0) 100%)",
+              opacity: "35%",
             }}
           />
         </>
