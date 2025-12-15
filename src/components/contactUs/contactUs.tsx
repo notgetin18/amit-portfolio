@@ -10,19 +10,17 @@ import PrimaryButtons from "@/components/buttons/primaryButtons";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import HeroBackground from "../ui/HeroBackground";
 import { fadeInUp, staggerContainer } from "@/constant";
 import toast, { Toaster } from "react-hot-toast";
 import Link from "next/link";
 
 export default function ContactUs() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const subjectRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
 
   const [errors, setErrors] = useState({
     name: "",
@@ -30,53 +28,64 @@ export default function ContactUs() {
     subject: "",
     message: "",
   });
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const clearError = (field: keyof typeof errors) => {
+    setErrors((prev) => ({ ...prev, [field]: "" }));
+  };
+
+  const validateField = (field: keyof typeof errors, value: string) => {
+    let error = "";
+    switch (field) {
+      case "name":
+        if (!value.trim()) error = "Name is required";
+        break;
+      case "email":
+        if (!value.trim()) error = "Email is required";
+        else if (!/\S+@\S+\.\S+/.test(value)) error = "Email is invalid";
+        break;
+      case "subject":
+        if (!value.trim()) error = "Subject is required";
+        break;
+      case "message":
+        if (!value.trim()) error = "Message is required";
+        break;
+    }
+    setErrors((prev) => ({ ...prev, [field]: error }));
+    return !error;
+  };
 
   const validateForm = () => {
-    const newErrors = { name: "", email: "", subject: "", message: "" };
+    const values = {
+      name: nameRef.current?.value || "",
+      email: emailRef.current?.value || "",
+      subject: subjectRef.current?.value || "",
+      message: messageRef.current?.value || "",
+    };
+
     let isValid = true;
-
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
-      isValid = false;
-    }
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-      isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Email is invalid";
-      isValid = false;
-    }
-    if (!formData.subject.trim()) {
-      newErrors.subject = "Subject is required";
-      isValid = false;
-    }
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
-      isValid = false;
-    }
-
-    setErrors(newErrors);
+    (Object.keys(values) as Array<keyof typeof values>).forEach((field) => {
+      if (!validateField(field, values[field])) isValid = false;
+    });
     return isValid;
   };
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-    setErrors({
-      ...errors,
-      [e.target.name]: "",
-    });
+  const handleBlur = (field: keyof typeof errors) => {
+    const value = (field === "message" ? messageRef.current?.value : (field === "name" ? nameRef.current?.value : (field === "email" ? emailRef.current?.value : subjectRef.current?.value))) || "";
+    validateField(field, value);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
+
+    const formData = {
+      name: nameRef.current?.value || "",
+      email: emailRef.current?.value || "",
+      subject: subjectRef.current?.value || "",
+      message: messageRef.current?.value || "",
+    };
 
     setIsSubmitting(true);
 
@@ -99,7 +108,15 @@ export default function ContactUs() {
           </div>,
           { duration: 6000, style: { background: "#1e293b", border: "1px solid #06b6d4" } }
         );
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        
+        // Clear form fields
+        if (nameRef.current) nameRef.current.value = "";
+        if (emailRef.current) emailRef.current.value = "";
+        if (subjectRef.current) subjectRef.current.value = "";
+        if (messageRef.current) messageRef.current.value = "";
+        
+        // Clear errors
+        setErrors({ name: "", email: "", subject: "", message: "" });
       } else {
         toast.error(result.error || "Failed to send message", { duration: 4000 });
       }
@@ -345,8 +362,9 @@ export default function ContactUs() {
                           type="text"
                           id="name"
                           name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
+                          ref={nameRef}
+                          onFocus={() => clearError("name")}
+                          onBlur={() => handleBlur("name")}
                           className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac]"
                           placeholder="Your name"
                           aria-invalid={!!errors.name}
@@ -374,8 +392,9 @@ export default function ContactUs() {
                           type="email"
                           id="email"
                           name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
+                          ref={emailRef}
+                          onFocus={() => clearError("email")}
+                          onBlur={() => handleBlur("email")}
                           className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac]"
                           placeholder="your.email@example.com"
                           aria-invalid={!!errors.email}
@@ -405,8 +424,9 @@ export default function ContactUs() {
                         type="text"
                         id="subject"
                         name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
+                        ref={subjectRef}
+                        onFocus={() => clearError("subject")}
+                        onBlur={() => handleBlur("subject")}
                         className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac]"
                         placeholder="What's this about?"
                         aria-invalid={!!errors.subject}
@@ -434,8 +454,9 @@ export default function ContactUs() {
                       <Textarea
                         id="message"
                         name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
+                        ref={messageRef}
+                        onFocus={() => clearError("message")}
+                        onBlur={() => handleBlur("message")}
                         rows={6}
                         className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac]"
                         placeholder="Tell me about your project or just say hello..."
