@@ -44,7 +44,7 @@ export default function Services() {
         aria-hidden
       />
 
-      <div className="pt-28 pb-28  sm:px-6 lg:px-8 relative z-10">
+      <div className="pt-28 pb-6 sm:pb-10  sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
           <motion.div

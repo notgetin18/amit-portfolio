@@ -33,7 +33,7 @@ export default function AboutUs() {
         className="absolute right-3 sm:-right-14 bottom-8 w-20 sm:w-80 h-80 bg-gradient-to-bl from-[#6ee7b7]/25 to-[#06b6d4]/8 rounded-full blur-3xl mix-blend-screen pointer-events-none z-10"
         aria-hidden
       />
-      <div className="pt-28 pb-28 px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="pt-28 sm:pb-10 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
           <motion.div

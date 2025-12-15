@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
                     {/* Center: Quick Links */}
                     <div className="space-y-3">
                         <h4 className="text-lg font-semibold text-white">Quick Links</h4>
-                        <ul className="sm:space-y-3 text-sm flex flex-row sm:flex-col flex-wrap ">
+                        <ul className="sm:space-y-3 text-sm flex flex-row sm:flex-col flex-wrap gap-3">
                             {[
                                 { label: "About", href: "/about" },
                                 { label: "Services", href: "/services" },
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
                                         className="text-slate-300 hover:text-[#3ed6ac] transition-colors duration-200 inline-flex items-center gap-1 group"
                                     >
                                         {link.label}
-                                        <span className="opacity-0 group-hover:opacity-100 translate-x-0 group-hover:translate-x-1 transition-all">
+                                        <span className="opacity-0 group-hover:opacity-100 translate-x-0 group-hover:translate-x-1 transition-all hidden sm:block">
                                             →
                                         </span>
                                     </Link>
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
                 {/* Bottom bar */}
                 <div className="pt-6 sm:pt-8 border-t border-white/10 text-center text-sm text-slate-400">
                     <p>
-                        © {currentYear} Amit Dev Journey. Crafted with passion for clean code and great design. 
+                        © {currentYear} Amit Dev Journey. Crafted with passion for clean code and great design.
                     </p>
                     <p className='py-1 text-slate-400'>All rights reserved.</p>
                     <p className="mt-2 text-neutral-200">
