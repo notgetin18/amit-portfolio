@@ -1,10 +1,57 @@
 import AboutUs from "@/components/aboutUs/aboutUs";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Amit Kumar | MERN Full-Stack Developer",
+  title: "About Amit Kumar | MERN Full-Stack Developer",  // Perfect – root template appends "| Amit Kumar Portfolio"
   description:
     "Learn about Amit Kumar, a product-focused MERN stack developer with 4+ years of experience building scalable web applications for companies like Bright Digi Gold and TestOfire.",
+  keywords: [  // ADD some relevant ones (optional but helpful)
+    "Amit Kumar",
+    "MERN stack developer",
+    "Full-stack developer",
+    "React developer",
+    "Node.js developer",
+    "Next.js",
+    "Portfolio",
+    "Freelance developer India",
+    "Web development experience",
+  ],
+  authors: [{ name: "Amit Kumar" }],
+  alternates: {  // ADD THIS – critical to output <link rel="canonical">
+    canonical: "https://www.amitdevjourney.xyz/about",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  openGraph: {  // ADD for rich social previews (LinkedIn, Facebook, etc.)
+    title: "About Amit Kumar | MERN Full-Stack Developer",
+    description:
+      "Learn about Amit Kumar, a product-focused MERN stack developer with 4+ years of experience building scalable web applications.",
+    url: "https://www.amitdevjourney.xyz/about",
+    siteName: "Amit Kumar Portfolio",
+    images: [
+      {
+        url: "/og-image.jpg",  // Reuse your existing OG image
+        width: 1200,
+        height: 630,
+        alt: "About Amit Kumar - MERN Developer",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {  // ADD for X/Twitter cards
+    card: "summary_large_image",
+    title: "About Amit Kumar | MERN Full-Stack Developer",
+    description:
+      "Product-focused MERN stack developer with 4+ years experience building scalable apps for Bright Digi Gold, TestOfire, and more.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default AboutUs;

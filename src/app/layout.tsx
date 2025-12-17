@@ -68,6 +68,9 @@ export const metadata: Metadata = {
       "Amit Kumar, MERN stack developer, specializes in JavaScript and its frameworks, building scalable web apps with React, Node.js, and MongoDB. Explore my portfolio!",
     images: ["/og-image.jpg"],
   },
+  alternates: {
+    canonical: "./",
+  },
 };
 
 export const viewport: Viewport = {
