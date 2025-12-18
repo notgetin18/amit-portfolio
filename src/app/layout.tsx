@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Sora } from "next/font/google";
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 import "./globals.css";
 import Navbar from "@/components/home/navbar";
 import Footer from "@/components/footer";
@@ -82,6 +83,8 @@ export const viewport: Viewport = {
   ],
 };
 
+console.log("NODE_ENV", process.env.NODE_ENV);
+
 export default function RootLayout({
   children,
 }: {
@@ -94,7 +97,8 @@ export default function RootLayout({
           <Navbar />
         </div>
         {children}
-        <SpeedInsights />
+        <SpeedInsights debug={process.env.NODE_ENV === "development"} />
+        <Analytics />
         <Footer />
       </body>
     </html>

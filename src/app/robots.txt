@@ -1,6 +1,7 @@
 # Allow all web crawlers to access all content on the site.
 User-agent: *
 Allow: /
+Disallow: /_next/
 
 # Point crawlers to the sitemap for a complete list of pages.
 Sitemap: https://www.amitdevjourney.xyz/sitemap.xml
