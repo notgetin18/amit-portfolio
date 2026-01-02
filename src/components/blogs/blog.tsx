@@ -9,8 +9,11 @@ import { Input } from "@/components/ui/input";
 import { UpcomingArticles } from "@/components/blogs/upcomingArticles";
 import { useRef, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { ArrowRight } from "lucide-react";
 
-export function Blog() {
+import { BlogCard } from "@/components/blogs/BlogCard";
+
+export function Blog({ initialPosts = [] }: { initialPosts?: any[] }) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [submitting, setSubmitting] = useState(false);
 
@@ -86,12 +89,10 @@ export function Blog() {
 
   return (
     <>
-      <div className="min-h-screen relative overflow-y-auto bg-gradient-to-br from-[#07162b]/80 via-[#061025]/70 to-[#071826]/95">
+      <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#07162b]/80 via-[#061025]/70 to-[#071826]/95">
 
-        {/* Reuse your hero background for consistency */}
+        {/* Decorative gradient layers */}
         <HeroBackground delay={500} />
-
-        {/* Decorative gradients */}
         <div className="absolute left-2 sm:-left-20 -top-10 w-20 sm:w-72 h-72 bg-gradient-to-tr from-[#34d399]/30 to-[#06b6d4]/12 rounded-full blur-3xl mix-blend-screen pointer-events-none z-10" aria-hidden />
         <div className="absolute right-3 sm:-right-14 bottom-8 w-20 sm:w-80 h-80 bg-gradient-to-bl from-[#6ee7b7]/25 to-[#06b6d4]/8 rounded-full blur-3xl mix-blend-screen pointer-events-none z-10" aria-hidden />
 
@@ -120,32 +121,64 @@ export function Blog() {
               </motion.p>
             </motion.div>
 
-            {/* Coming Soon Notice */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <Card className="p-8 border border-white/15 bg-gradient-to-br from-[#061025]/50 via-[#07162b]/30 to-transparent backdrop-blur-md hover:shadow-2xl transition-all duration-300 rounded-xl">
-                <div className="text-4xl mb-4">🚀</div>
-                <h2 className="text-2xl font-bold text-slate-200 mb-4">
-                  Blog Coming Soon!
-                </h2>
-                <p className="text-lg text-slate-400 mb-6">
-                  I'm currently working on creating valuable content about MERN
-                  stack development, performance optimization, and real-world
-                  project experiences. Stay tuned!
-                </p>
-                <Button
-                  onClick={scrollToNewsletter}
-                  className="rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#8ef3c1] font-semibold text-black shadow-md shadow-[#8ef3c1]/50"
+            {initialPosts.length > 0 ? (
+              <motion.div
+                variants={staggerContainer}
+                initial="initial"
+                animate="animate"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+              >
+                {initialPosts.slice(0, 3).map((post) => (
+                  <BlogCard key={post._id} post={post} />
+                ))}
+              </motion.div>
+            ) : (
+              <>
+                {/* Coming Soon Notice */}
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="text-center mb-12"
                 >
-                  Get Notified When I Publish
+                  <Card className="p-8 border border-white/15 bg-gradient-to-br from-[#061025]/50 via-[#07162b]/30 to-transparent backdrop-blur-md hover:shadow-2xl transition-all duration-300 rounded-xl">
+                    <div className="text-4xl mb-4">🚀</div>
+                    <h2 className="text-2xl font-bold text-slate-200 mb-4">
+                      Blog Coming Soon!
+                    </h2>
+                    <p className="text-lg text-slate-400 mb-6">
+                      I'm currently working on creating valuable content about MERN
+                      stack development, performance optimization, and real-world
+                      project experiences. Stay tuned!
+                    </p>
+                    <Button
+                      onClick={scrollToNewsletter}
+                      className="rounded-full bg-gradient-to-tr from-[#06b6d4] to-[#8ef3c1] font-semibold text-black shadow-md shadow-[#8ef3c1]/50"
+                    >
+                      Get Notified When I Publish
+                    </Button>
+                  </Card>
+                </motion.div>
+                <UpcomingArticles />
+              </>
+            )}
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="flex justify-center mb-16"
+            >
+              <Link href="/blog/all">
+                <Button
+                  className="rounded-full px-8 py-6 text-lg bg-[#061025]/50 border border-[#06b6d4]/30 text-[#06b6d4] hover:bg-[#06b6d4] hover:text-[#061025] transition-all duration-300 shadow-lg hover:shadow-[#06b6d4]/40"
+                >
+                  See All Blogs
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
-              </Card>
+              </Link>
             </motion.div>
-            <UpcomingArticles />
 
             {/* Newsletter Signup - Add ID for scrolling */}
             <motion.section
