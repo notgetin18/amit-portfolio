@@ -128,7 +128,7 @@ export function Blog({ initialPosts = [] }: { initialPosts?: any[] }) {
                 animate="animate"
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
               >
-                {initialPosts.slice(0, 3).map((post) => (
+                {initialPosts.slice(0, 6).map((post) => (
                   <BlogCard key={post._id} post={post} />
                 ))}
               </motion.div>
@@ -168,14 +168,23 @@ export function Blog({ initialPosts = [] }: { initialPosts?: any[] }) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="flex justify-center mb-16"
+              className="flex justify-center mb-16 group"
             >
               <Link href="/blog/all">
                 <Button
-                  className="rounded-full px-8 py-6 text-lg bg-[#061025]/50 border border-[#06b6d4]/30 text-[#06b6d4] hover:bg-[#06b6d4] hover:text-[#061025] transition-all duration-300 shadow-lg hover:shadow-[#06b6d4]/40"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, rgba(238, 176, 86, 0.3) 0%, rgba(238, 176, 86, 0.1) 50%, rgba(238, 176, 86, 0.3) 100%)",
+                    boxShadow: "0px 4px 8px 0px #000000",
+                    border: "0.5px solid #F9DDB5",
+                    color: "#F6D4A2",
+                    position: "relative",
+                    outline: "none",
+                  }}
+                  className="rounded-full px-8 py-6 text-lg group-hover:gap-2 transition-all"
                 >
                   See All Blogs
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-2 w-5 h-5 opacity-1 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
                 </Button>
               </Link>
             </motion.div>

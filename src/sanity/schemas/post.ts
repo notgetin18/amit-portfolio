@@ -34,9 +34,10 @@ export default defineType({
       },
     }),
     defineField({
-      name: "category",
-      title: "Category",
-      type: "string",
+      name: "categories",
+      title: "Categories",
+      type: "array",
+      of: [{ type: "string" }],
       options: {
         list: [
           { title: "Development", value: "Development" },

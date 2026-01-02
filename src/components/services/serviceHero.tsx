@@ -30,19 +30,11 @@ const CollaboratorsCarousel = dynamic(() => import("./teamCrousel"));
 
 export default function Services() {
   return (
-    <div className="min-h-screen relative overflow-y-auto bg-gradient-to-br from-[#07162b]/80 via-[#061025]/70 to-[#071826]/95">
-      {/* Reuse your hero background for consistency */}
-      <HeroBackground delay={500} />
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#07162b]/80 via-[#061025]/70 to-[#071826]/95">
 
-      {/* Decorative gradients */}
-      <div
-        className="absolute left-2 sm:-left-20 -top-10 w-20 sm:w-72 h-72 bg-gradient-to-tr from-[#34d399]/30 to-[#06b6d4]/12 rounded-full blur-3xl mix-blend-screen pointer-events-none z-10"
-        aria-hidden
-      />
-      <div
-        className="absolute right-3 sm:-right-14 bottom-8 w-20 sm:w-80 h-80 bg-gradient-to-bl from-[#6ee7b7]/25 to-[#06b6d4]/8 rounded-full blur-3xl mix-blend-screen pointer-events-none z-10"
-        aria-hidden
-      />
+      <HeroBackground delay={500} />
+      <div className="absolute left-2 sm:-left-20 -top-10 w-20 sm:w-72 h-72 bg-gradient-to-tr from-[#34d399]/30 to-[#06b6d4]/12 rounded-full blur-3xl mix-blend-screen pointer-events-none z-10" aria-hidden />
+      <div className="absolute right-3 sm:-right-14 bottom-8 w-20 sm:w-80 h-80 bg-gradient-to-bl from-[#6ee7b7]/25 to-[#06b6d4]/8 rounded-full blur-3xl mix-blend-screen pointer-events-none z-10" aria-hidden />
 
       <div className="pt-28 pb-6 sm:pb-10  sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
@@ -235,9 +227,8 @@ export default function Services() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.3 }}
                     viewport={{ once: true }}
-                    className={`relative flex items-center ${
-                      index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                    } justify-between`}
+                    className={`relative flex items-center ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                      } justify-between`}
                   >
                     <div className="flex-1 max-w-md">
                       <h3 className="text-lg font-semibold text-white mb-2 sm:pl-4">
@@ -248,9 +239,8 @@ export default function Services() {
                       </p>
                     </div>
                     <div
-                      className={`w-12 h-12 rounded-full bg-gradient-to-r from-[#8ef3c1] to-[#06b6d4] flex items-center justify-center ml-4 ${
-                        index % 2 === 0 ? "ml-4" : "mr-4"
-                      }`}
+                      className={`w-12 h-12 rounded-full bg-gradient-to-r from-[#8ef3c1] to-[#06b6d4] flex items-center justify-center ml-4 ${index % 2 === 0 ? "ml-4" : "mr-4"
+                        }`}
                     >
                       <item.icon className="w-6 h-6 text-black" />
                     </div>
