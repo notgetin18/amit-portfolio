@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
-    // swcMinify: true,
     productionBrowserSourceMaps: false, // Disabled in production
     images: {
     formats: ["image/avif", "image/webp"],
@@ -9,7 +8,20 @@ const nextConfig = {
       { protocol: "https", hostname: "localhost", pathname: "**" },
       { protocol: "https", hostname: "cdn.sanity.io", pathname: "**" },
     ],
-        // unoptimized: true,
+    },
+    async redirects() {
+        return [
+            {
+                source: '/blog',
+                destination: '/blogs',
+                permanent: true,
+            },
+            {
+                source: '/blog/:slug',
+                destination: '/blogs/:slug',
+                permanent: true,
+            },
+        ]
     },
 }
 

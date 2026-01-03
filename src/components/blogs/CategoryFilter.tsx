@@ -43,10 +43,10 @@ export function CategoryFilter({ categories }: CategoryFilterProps) {
                         onClick={() => handleCategoryClick(category)}
                         disabled={isPending}
                         className={cn(
-                            "px-3 py-1.5 rounded-xl text-xs font-semibold transition-all duration-300",
+                            "px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300",
                             isActive
-                                ? "bg-[#06b6d4] text-[#020617] shadow-[0_0_20px_rgba(6,182,212,0.4)]"
-                                : "text-slate-400 hover:text-white hover:bg-white/5"
+                                ? "text-slate-200 border px-2 rounded-full border-white/25 shadow-[0_0_20px_rgba(6,182,212,0.4)]"
+                                : "text-slate-300 hover:text-white hover:border hover:border-[#06b6d4] hover:bg-[#06b6d4]/10 bg-white/5 rounded-full border-white/5"
                         )}
                     >
                         {category}

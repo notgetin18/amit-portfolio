@@ -60,7 +60,7 @@ export function Blog({ initialPosts = [] }: { initialPosts?: any[] }) {
               Thanks for subscribing—your inbox is now primed for deep dives into MERN mastery, perf hacks, and real-talk project wins. First post drops soon: "Scaling Next.js to 1M+ Users (Lessons from Bright DiGi Gold)."
             </p>
             <div className="flex gap-2 text-sm">
-              <Link href="/blog" className="text-[#06b6d4] hover:underline">Browse Teasers →</Link>
+              <Link href="/blogs" className="text-[#06b6d4] hover:underline">Browse Teasers →</Link>
               <span className="text-slate-500">|</span>
               <Link href="/contact" className="text-[#06b6d4] hover:underline">Hire Me →</Link>
             </div>
@@ -170,7 +170,7 @@ export function Blog({ initialPosts = [] }: { initialPosts?: any[] }) {
               viewport={{ once: true }}
               className="flex justify-center mb-16 group"
             >
-              <Link href="/blog/all">
+              <Link href="/blogs">
                 <Button
                   style={{
                     background:
