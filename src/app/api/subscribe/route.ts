@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 import { BlogSubscriptionEmail } from "../../../components/emailTemplates/blogSubscriptionEmail";
-import { checkAndAddSubscription, rateLimitByEmail } from "@/lib/rate-limit";
+import { checkAndAddSubscription, rateLimit } from "@/lib/rate-limit";
 
 const resend = new Resend(process.env.RESEND_API_KEY_BLOG_SUBSCRIPTION!);
 
@@ -27,15 +27,12 @@ export async function POST(req: Request) {
       );
     }
 
-    const { allowed, remaining } = await rateLimitByEmail(email);
-
-    console.log("remaining", remaining);
+    const ip = req.headers.get("x-forwarded-for") || "0.0.0.0";
+    const { allowed, error: rateLimitError } = await rateLimit(email, ip, "subscribe");
 
     if (!allowed) {
       return Response.json(
-        {
-          error: "Too many attempts! Please wait 2 hour before trying again.",
-        },
+        { error: rateLimitError || "Too many attempts! Please wait before trying again." },
         { status: 429 }
       );
     }

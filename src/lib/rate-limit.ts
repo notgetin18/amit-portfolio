@@ -24,23 +24,52 @@ export async function checkAndAddSubscription(
   return { subscribed: false };
 }
 
-export async function rateLimitByEmail(
-  email: string
-): Promise<{ allowed: boolean; remaining: number }> {
-  const key = `rate:contact:${email.toLowerCase().trim()}`;
-  const limit = 3; // max 3 emails
-  const window = 7200; // 2 hour in seconds
+export async function rateLimit(
+  email: string,
+  ip: string,
+  type: "contact" | "subscribe"
+): Promise<{ allowed: boolean; error?: string }> {
+  const normalizedEmail = email.toLowerCase().trim();
+  
+  // 1. Email-based limit (3 requests per 2 hours)
+  const emailKey = `rate:email:${type}:${normalizedEmail}`;
+  const emailLimit = 3;
+  const emailWindow = 7200; // 2 hours
 
-  const current = await redis.get(key);
-  const count = current ? Number(current) : 0;
+  // 2. IP-based limit (5 requests per 1 hour)
+  const ipKey = `rate:ip:${type}:${ip}`;
+  const ipLimit = 5;
+  const ipWindow = 3600; // 1 hour
 
-  if (count >= limit) {
-    return { allowed: false, remaining: 0 };
+  // Check both limits in parallel
+  const [emailCount, ipCount] = await Promise.all([
+    redis.get<number>(emailKey),
+    redis.get<number>(ipKey)
+  ]);
+
+  // Verify Email Limit first
+  if (emailCount && emailCount >= emailLimit) {
+    return { 
+      allowed: false, 
+      error: `Too many requests for this email. Please wait ${emailWindow / 3600} hours.` 
+    };
   }
 
-  // Increment count and set expiry
-  await redis.incr(key);
-  await redis.expire(key, window);
+  // Verify IP Limit
+  if (ipCount && ipCount >= ipLimit) {
+    return { 
+      allowed: false, 
+      error: "Too many requests from this device. Please try again later." 
+    };
+  }
 
-  return { allowed: true, remaining: limit - (count + 1) };
+  // Increment both counts and set expiries
+  const multi = redis.multi();
+  multi.incr(emailKey);
+  multi.expire(emailKey, emailWindow);
+  multi.incr(ipKey);
+  multi.expire(ipKey, ipWindow);
+  await multi.exec();
+
+  return { allowed: true };
 }
