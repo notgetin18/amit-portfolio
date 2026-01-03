@@ -1,9 +1,25 @@
 import { MetadataRoute } from "next";
+import { client } from "@/lib/sanity";
+import { groq } from "next-sanity";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-const baseUrl = "https://www.amitdevjourney.xyz/";
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = "https://www.amitdevjourney.xyz";
 
-  return [
+  // Fetch all post slugs from Sanity
+  const posts = await client.fetch(groq`*[_type == "post"] {
+    "slug": slug.current,
+    "updatedAt": _updatedAt,
+    publishedAt
+  }`);
+
+  const blogEntries: MetadataRoute.Sitemap = posts.map((post: any) => ({
+    url: `${baseUrl}/blogs/${post.slug}`,
+    lastModified: new Date(post.updatedAt || post.publishedAt || new Date()),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
+  const staticEntries: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
@@ -11,28 +27,30 @@ const baseUrl = "https://www.amitdevjourney.xyz/";
       priority: 1,
     },
     {
-      url: `${baseUrl}about`,
+      url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}contact`,
+      url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}services`,
+      url: `${baseUrl}/services`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}blogs`,
+      url: `${baseUrl}/blogs`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.8,
     },
   ];
+
+  return [...staticEntries, ...blogEntries];
 }
