@@ -30,10 +30,12 @@ export async function generateMetadata(
     const previousImages = (await parent).openGraph?.images || [];
     const ogImage = post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : "/og-image.jpg";
 
+    const categories = Array.isArray(post.categories) ? post.categories : (post.categories ? [post.categories] : ["General"]);
+
     return {
         title: `${post.title} | Amit Kumar Blog`,
         description: post.excerpt,
-        keywords: [post.category, "MERN stack", "Amit Kumar", "Developer", "Blog"],
+        keywords: [...categories, "MERN stack", "Amit Kumar", "Developer", "Blog"],
         openGraph: {
             title: post.title,
             description: post.excerpt,
@@ -43,7 +45,7 @@ export async function generateMetadata(
             type: "article",
             publishedTime: post.publishedAt,
             authors: ["Amit Kumar"],
-            tags: [post.category],
+            tags: categories,
         },
         twitter: {
             card: "summary_large_image",

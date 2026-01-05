@@ -37,16 +37,7 @@ export default defineType({
       name: "categories",
       title: "Categories",
       type: "array",
-      of: [{ type: "string" }],
-      options: {
-        list: [
-          { title: "Development", value: "Development" },
-          { title: "React", value: "React" },
-          { title: "Backend", value: "Backend" },
-          { title: "UI/UX", value: "UI/UX" },
-          { title: "Tutorial", value: "Tutorial" },
-        ],
-      },
+      of: [{ type: "reference", to: [{ type: "category" }] }],
     }),
     defineField({
       name: "publishedAt",
