@@ -2,7 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Github } from 'lucide-react';
+import { LinkedinIcon, XIcon, InstagramIcon } from '@/components/ui/social-icons';
 
 const Footer: React.FC = () => {
     const currentYear = new Date().getFullYear();
@@ -77,10 +78,10 @@ const Footer: React.FC = () => {
                         {/* Social Media Icons */}
                         <div className="flex gap-5 sm:justify-start sm:space-x-2 pt-1.5 sm:pt-0">
                             {[
-                                { icon: Linkedin, href: "https://www.linkedin.com/in/notgetin18", label: "LinkedIn" },
+                                { icon: LinkedinIcon, href: "https://www.linkedin.com/in/notgetin18", label: "LinkedIn" },
                                 { icon: Github, href: "https://github.com/notgetin18", label: "GitHub" },
-                                { icon: Twitter, href: "https://x.com/Amitsin40190332", label: "X (Twitter)" },
-                                { icon: Instagram, href: "https://www.instagram.com/notgetin18/", label: "Instagram" },
+                                { icon: XIcon, href: "https://x.com/Amitsin40190332", label: "X (Twitter)" },
+                                { icon: InstagramIcon, href: "https://www.instagram.com/notgetin18/", label: "Instagram" },
                             ].map((social) => (
                                 <a
                                     key={social.label}

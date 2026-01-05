@@ -54,7 +54,7 @@ export default async function AllBlogsPage({
     const remainingPosts = featuredPost ? posts.slice(1) : posts;
 
     return (
-        <main className="min-h-screen relative overflow-hidden bg-[#020617] pt-28 pb-20 px-4 sm:px-6 lg:px-8">
+        <main className="min-h-screen relative overflow-hidden bg-[#020617] pt-28 sm:pb-10 px-4 sm:px-6 lg:px-8">
             <HeroBackground delay={500} />
 
             {/* Dynamic Background Accents */}
@@ -99,7 +99,7 @@ export default async function AllBlogsPage({
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="mb-20"
+                        className="mb-12 sm:mb-20"
                     >
                         <Link href={`/blog/${featuredPost.slug}`}>
                             <div className="group relative rounded-3xl overflow-hidden border border-white/10 bg-[#07162b]/40 backdrop-blur-xl hover:border-[#06b6d4]/30 transition-all duration-500">
@@ -114,34 +114,34 @@ export default async function AllBlogsPage({
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent lg:hidden" />
                                     </div>
-                                    <div className="p-8 lg:p-16 flex flex-col justify-center">
+                                    <div className="p-6 sm:p-8 lg:p-16 flex flex-col justify-center">
                                         <div className="flex flex-wrap items-center gap-3 mb-6">
                                             {(Array.isArray(featuredPost.categories) ? featuredPost.categories : [featuredPost.categories]).map((cat: string, i: number) => (
-                                                <span key={i} className="px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-lg bg-[#06b6d4] text-[#020617]">
+                                                <span key={i} className="px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-lg px-3 py-1 bg-white/5 border border-white/5 text-slate-200 group-hover:bg-white/10 transition-colors group-hover:text-[#06b6d4]">
                                                     {cat}
                                                 </span>
                                             ))}
-                                            <div className="flex items-center text-slate-400 text-xs">
+                                            <div className="flex items-center text-slate-300 text-xs group-hover:text-[#06b6d4]">
                                                 <Calendar className="w-4 h-4 mr-2" />
                                                 {new Date(featuredPost.publishedAt).toLocaleDateString()}
                                             </div>
                                         </div>
 
-                                        <h2 className="text-xl sm:text-3xl font-bold text-white mb-6 group-hover:text-[#06b6d4] transition-colors leading-tight">
+                                        <h2 className="text-xl sm:text-3xl font-bold text-slate-200 group-hover:text-white mb-6 transition-colors leading-tight">
                                             {featuredPost.title}
                                         </h2>
 
-                                        <p className="text-slate-400 text-lg line-clamp-3 leading-relaxed">
+                                        <p className="text-slate-300 group-hover:text-slate-200 text-sm sm:text-lg line-clamp-3 leading-relaxed">
                                             {featuredPost.excerpt}
                                         </p>
 
-                                        <div className="flex items-center justify-between mt-auto">
-                                            <div className="flex items-center text-slate-500 font-medium italic">
-                                                <Clock className="w-4 h-4 mr-2" />
+                                        <div className="flex items-center justify-between mt-3 sm:mt-auto">
+                                            <div className="flex items-cente text-slate-200 sm:text-slate-300 font-medium italic group-hover:text-[#06b6d4] transition-colors">
+                                                <Clock className="w-4 h-4 mr-2 mt-1 sm:mt-0" />
                                                 {featuredPost.readTime || "5 min read"}
                                             </div>
-                                            <div className="inline-flex items-center text-white font-bold group-hover:translate-x-2 transition-transform">
-                                                Read Article <ArrowRight className="ml-2 w-5 h-5 text-[#06b6d4]" />
+                                            <div className="inline-flex items-center text-white font-bold group-hover:translate-x-2 transition-transform group-hover:text-[#06b6d4]">
+                                                Read Article <ArrowRight className="ml-2 w-5 h-5 text-slate-100 sm:text-[#06b6d4]" />
                                             </div>
                                         </div>
                                     </div>
@@ -152,7 +152,7 @@ export default async function AllBlogsPage({
                 )}
 
                 {/* Operations Bar (Search & Filter) */}
-                <div className="sticky top-24 z-50 mb-16">
+                <div className="sticky top-24 z-50 mb-12 sm:mb-16">
                     <div className="max-w-4xl mx-auto p-2 sm:p-3 rounded-3xl bg-[#07162b]/40 border border-white/10 shadow-2xl shadow-black/50">
                         <div className="flex flex-col md:flex-row items-center gap-4">
                             <div className="w-full md:w-1/2">

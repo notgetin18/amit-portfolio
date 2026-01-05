@@ -58,7 +58,7 @@ export function BlogCard({ post }: BlogCardProps) {
                         <div className="flex items-center gap-4 sm:gap-6 mb-4 text-[11px] text-slate-500 font-medium">
                             <div className="flex items-center bg-gradient-to-br from-[#061025]/50 via-[#07162b]/30 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-300 rounded-xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#06b6d4]/30">
                                 <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 text-[#8ef3c1] text-center" />
-                               <span className="text-neutral-300 text-xs">{new Date(post.publishedAt).toLocaleDateString()}</span>
+                                <span className="text-neutral-300 text-xs">{new Date(post.publishedAt).toLocaleDateString()}</span>
                             </div>
                             <div className="flex items-center bg-gradient-to-br from-[#061025]/50 via-[#07162b]/30 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-300 rounded-xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#06b6d4]/30">
                                 <Clock className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 text-[#8ef3c1] text-center" />
@@ -74,10 +74,10 @@ export function BlogCard({ post }: BlogCardProps) {
                             {post.excerpt}
                         </p>
 
-                        <div className="mt-auto flex items-center justify-between pt-4 border-t border-neutral-400/5">
+                        <div className="mt-auto flex items-center justify-between pt-4 border-t border-neutral-100/30 group-hover:border-[#06b6d4]/35 transition-all">
                             <span className="text-neutral-200 group-hover:text-[#06b6d4] text-xs font-bold tracking-wider uppercase flex items-center group-hover:gap-2 transition-all">
                                 Read Article
-                                <ArrowRight className="w-5 h-5 ml-1 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                <ArrowRight className="w-5 h-5 ml-3 opacity-100 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
                             </span>
                         </div>
                     </div>

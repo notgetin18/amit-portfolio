@@ -16,7 +16,7 @@ export function RelatedSidebar({ posts }: RelatedSidebarProps) {
         <aside className="space-y-8">
             <div>
                 <h3 className="text-xl font-bold text-white mb-6 pb-2 border-b border-[#06b6d4]/30 flex items-center">
-                    <span className="w-2 h-6 bg-[#06b6d4] mr-3 rounded-full" />
+                    <span className="w-2 h-6 bg-[#8ef3c1] mr-3 rounded-full" />
                     More to Read
                 </h3>
 
@@ -38,19 +38,19 @@ export function RelatedSidebar({ posts }: RelatedSidebarProps) {
                                 </div>
 
                                 <div className="flex flex-col justify-center min-w-0">
-                                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#06b6d4] mb-1">
+                                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#8ef3c1] mb-1">
                                         {Array.isArray(post.categories) ? post.categories[0] : (post.categories || "Article")}
                                     </span>
                                     <h4 className="text-sm font-bold text-slate-200 line-clamp-2 group-hover:text-white transition-colors leading-snug mb-1">
                                         {post.title}
                                     </h4>
-                                    <div className="flex items-center gap-3 text-[10px] text-slate-500">
+                                    <div className="flex items-center gap-3 text-[10px] text-slate-300">
                                         <span className="flex items-center">
-                                            <Calendar className="w-3 h-3 mr-1" />
+                                            <Calendar className="w-3 h-3 mr-1 text-[#8ef3c1]" />
                                             {new Date(post.publishedAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
                                         </span>
                                         <span className="flex items-center">
-                                            <Clock className="w-3 h-3 mr-1" />
+                                            <Clock className="w-3 h-3 mr-1 text-[#8ef3c1]" />
                                             {post.readTime || "5 min"}
                                         </span>
                                     </div>
@@ -63,7 +63,7 @@ export function RelatedSidebar({ posts }: RelatedSidebarProps) {
 
             <div className="p-6 rounded-2xl bg-gradient-to-br from-[#06b6d4]/10 to-transparent border border-[#06b6d4]/20">
                 <h4 className="text-sm font-bold text-white mb-2">Want more insights?</h4>
-                <p className="text-xs text-slate-400 mb-4 leading-relaxed">
+                <p className="text-xs text-slate-200 mb-4 leading-relaxed">
                     Follow my journey and get the latest tech tips straight to your inbox.
                 </p>
                 <Link

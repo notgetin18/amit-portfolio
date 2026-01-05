@@ -159,7 +159,7 @@ export default function HomePage() {
                           <div className="text-sm text-slate-200 font-semibold">
                             Amit Kumar
                           </div>
-                          <div className="text-xs text-slate-400">
+                          <div className="text-xs text-slate-300">
                             MERN Full‑Stack • Product Engineer
                           </div>
                         </div>

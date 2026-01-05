@@ -1,7 +1,8 @@
 "use client";
 
-import { Facebook, Linkedin, Twitter, Instagram, Share2 } from "lucide-react";
+import { Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { FacebookIcon, LinkedinIcon, XIcon, InstagramIcon } from "@/components/ui/social-icons";
 
 interface ShareButtonsProps {
     url: string;
@@ -14,39 +15,38 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
 
     const shareLinks = [
         {
-            name: "Twitter",
-            icon: <Twitter className="w-4 h-4" />,
+            name: "X",
+            icon: <XIcon className="w-5 h-5" />,
             url: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
-            color: "hover:text-[#1DA1F2] hover:bg-[#1DA1F2]/10",
+            color: "hover:text-[#1DA1F2] hover:bg-[#1DA1F2]/30",
         },
         {
             name: "Facebook",
-            icon: <Facebook className="w-4 h-4" />,
+            icon: <FacebookIcon className="w-5 h-5" />,
             url: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
-            color: "hover:text-[#4267B2] hover:bg-[#4267B2]/10",
+            color: "hover:text-[#0a66ff] hover:bg-[#0a66ff]/30",
         },
         {
             name: "LinkedIn",
-            icon: <Linkedin className="w-4 h-4" />,
+            icon: <LinkedinIcon className="w-5 h-5" />,
             url: `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`,
-            color: "hover:text-[#0077b5] hover:bg-[#0077b5]/10",
+            color: "hover:text-[#0077b5] hover:bg-[#0077b5]/30",
         },
         {
             name: "Instagram",
-            icon: <Instagram className="w-4 h-4" />,
+            icon: <InstagramIcon className="w-5 h-5" />,
             url: `https://www.instagram.com/`, // Instagram doesn't support direct URL sharing via query params like others
             color: "hover:text-[#E1306C] hover:bg-[#E1306C]/10",
         }
     ];
-
     const handleShare = (linkUrl: string) => {
         window.open(linkUrl, "_blank", "width=600,height=400");
     };
 
     return (
         <div className="flex items-center space-x-3">
-            <span className="text-sm font-medium text-slate-500 flex items-center">
-                <Share2 className="w-4 h-4 mr-2" /> Share:
+            <span className="text-sm font-medium text-slate-300 flex items-center">
+                <Share2 className="w-5 h-5 mr-2" /> Share:
             </span>
             <div className="flex space-x-2">
                 {shareLinks.map((link) => (
@@ -55,7 +55,7 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
                         variant="ghost"
                         size="icon"
                         onClick={() => handleShare(link.url)}
-                        className={`w-9 h-9 border border-white/10 text-slate-400 rounded-full transition-all duration-300 ${link.color}`}
+                        className={`w-10 h-10 border border-white/20 text-slate-200 rounded-full transition-all duration-300 ${link.color}`}
                         title={`Share on ${link.name}`}
                     >
                         {link.icon}
