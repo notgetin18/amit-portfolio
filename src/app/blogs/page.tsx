@@ -104,17 +104,17 @@ export default async function AllBlogsPage({
                         <Link href={`/blog/${featuredPost.slug}`}>
                             <div className="group relative rounded-3xl overflow-hidden border border-white/10 bg-[#07162b]/40 backdrop-blur-xl hover:border-[#06b6d4]/30 transition-all duration-500">
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden">
-                                    <div className="relative h-[300px] lg:h-[400px] overflow-hidden">
+                                    <div className="relative aspect-[16/9] overflow-hidden">
                                         <Image
                                             src={urlFor(featuredPost.mainImage).url()}
                                             alt={featuredPost.title}
                                             fill
-                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                            className="object-cover transition-transform duration-700 group-hover:scale-105"
                                             priority
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent lg:hidden" />
                                     </div>
-                                    <div className="p-6 sm:p-8 lg:p-16 flex flex-col justify-center">
+                                    <div className="p-6 sm:p-8 lg:p-11 flex flex-col justify-center">
                                         <div className="flex flex-wrap items-center gap-3 mb-6">
                                             {(Array.isArray(featuredPost.categories) ? featuredPost.categories : [featuredPost.categories]).map((cat: string, i: number) => (
                                                 <span key={i} className="px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-lg px-3 py-1 bg-white/5 border border-white/5 text-slate-200 group-hover:bg-white/10 transition-colors group-hover:text-[#06b6d4]">
@@ -135,9 +135,9 @@ export default async function AllBlogsPage({
                                             {featuredPost.excerpt}
                                         </p>
 
-                                        <div className="flex items-center justify-between mt-3 sm:mt-auto">
+                                        <div className="flex items-center justify-between mt-3">
                                             <div className="flex items-cente text-slate-200 sm:text-slate-300 font-medium italic group-hover:text-[#06b6d4] transition-colors">
-                                                <Clock className="w-4 h-4 mr-2 mt-1 sm:mt-0" />
+                                                <Clock className="w-4 h-4 mr-2 mt-1" />
                                                 {featuredPost.readTime || "5 min read"}
                                             </div>
                                             <div className="inline-flex items-center text-white font-bold group-hover:translate-x-2 transition-transform group-hover:text-[#06b6d4]">
