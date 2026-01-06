@@ -64,6 +64,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Amitsin40190332",
+    creator: "@Amitsin40190332",
     title: "Amit Kumar | MERN Stack Developer Portfolio",
     description:
       "Amit Kumar, MERN stack developer, specializes in JavaScript and its frameworks, building scalable web apps with React, Node.js, and MongoDB. Explore my portfolio!",

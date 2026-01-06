@@ -47,6 +47,8 @@ export const metadata: Metadata = {
   },
   twitter: {  // ADD for X/Twitter cards
     card: "summary_large_image",
+    site: "@Amitsin40190332",
+    creator: "@Amitsin40190332",
     title: "About Amit Kumar | MERN Full-Stack Developer",
     description:
       "Product-focused MERN stack developer with 4+ years experience building scalable apps for Bright Digi Gold, TestOfire, and more.",

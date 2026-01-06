@@ -67,8 +67,8 @@ export default function Navbar() {
         description: "Explore end-to-end development solutions from MVP to scale."
       },
       {
-        href: "/blog",
-        label: "Blog",
+        href: "/blogs",
+        label: "Blogs",
         icon: BookOpen,
         description: "Read insights on MERN, performance tips, and real-world dev stories."
       },

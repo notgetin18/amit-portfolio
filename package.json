@@ -12,8 +12,11 @@
     "test:ui": "vitest --ui"
   },
   "dependencies": {
+    "@portabletext/react": "^6.0.2",
     "@radix-ui/react-slot": "^1.2.3",
     "@react-email/render": "^2.0.0",
+    "@sanity/image-url": "^2.0.2",
+    "@sanity/vision": "^5.1.0",
     "@tsparticles/all": "^3.9.1",
     "@tsparticles/engine": "^3.9.1",
     "@tsparticles/preset-big-circles": "^3.2.0",
@@ -26,12 +29,15 @@
     "framer-motion": "^12.15.0",
     "lucide-react": "^0.511.0",
     "next": "16.0.10",
+    "next-sanity": "^12.0.7",
     "next-themes": "^0.4.6",
     "popmotion": "^11.0.5",
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.6.0",
     "resend": "^6.6.0",
+    "sanity": "^5.1.0",
+    "styled-components": "^6.1.19",
     "tailwind-merge": "^3.3.0",
     "tailwindcss-animate": "^1.0.7",
     "tsparticles": "^3.8.1"

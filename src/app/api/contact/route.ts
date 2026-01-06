@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 import { ContactEmailTemplate } from "../../../components/emailTemplates/contactEmail";
-import { rateLimitByEmail } from "@/lib/rate-limit";
+import { rateLimit } from "@/lib/rate-limit";
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
 
@@ -19,16 +19,12 @@ export async function POST(req: Request) {
 
     console.log("Received form data:", { name, email, subject, message });
 
-    const { allowed, remaining } = await rateLimitByEmail(email);
-
-    console.log("remaining", remaining);
+    const ip = req.headers.get("x-forwarded-for") || "0.0.0.0";
+    const { allowed, error: rateLimitError } = await rateLimit(email, ip, "contact");
 
     if (!allowed) {
       return Response.json(
-        {
-          error:
-            "You've reached the limit of 3 messages per 2 hours. Please try again after 2 hours.",
-        },
+        { error: rateLimitError || "Too many requests. Please try again later." },
         { status: 429 }
       );
     }

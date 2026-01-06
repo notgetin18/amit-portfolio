@@ -52,6 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {  // ADD for X/Twitter card support
     card: "summary_large_image",
+    site: "@Amitsin40190332",
+    creator: "@Amitsin40190332",
     title: "MERN Stack & Digital Marketing Services | Amit Kumar",
     description:
       "Expert MERN full-stack development, digital marketing, and DevOps services by Amit Kumar.",

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Contact Amit Kumar | Let's Build Together",  // Good – this will become "Contact Amit Kumar | Let's Build Together | Amit Kumar Portfolio" thanks to root template
   description:
     "Get in touch with Amit Kumar to discuss your next project. Available for freelance opportunities in web development, API design, and cloud infrastructure.",
-  keywords: [  // It's empty – add some for better relevance!
+  keywords: [
     "contact Amit Kumar",
     "hire MERN developer",
     "freelance full-stack developer",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Amit Kumar | Let's Build Together",
     description:
-      "Get in touch with Amit Kumar to discuss your next project. Available for freelance opportunities in web development, API design, and cloud infrastructure.",  
+      "Get in touch with Amit Kumar to discuss your next project. Available for freelance opportunities in web development, API design, and cloud infrastructure.",
     url: "https://www.amitdevjourney.xyz/contact",
     siteName: "Amit Kumar Portfolio",
     images: ["/og-image.jpg"],  // Optional: use a contact-specific image if you have one
@@ -37,10 +37,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@Amitsin40190332",
+    creator: "@Amitsin40190332",
     title: "Contact Amit Kumar | Let's Build Together",
     description:
       "Get in touch with Amit Kumar to discuss your next project. Available for freelance opportunities in web development, API design, and cloud infrastructure.",  // ADD description (was empty)
     images: ["/og-image.jpg"],
   },
 };
+
 export default ContactUs;
