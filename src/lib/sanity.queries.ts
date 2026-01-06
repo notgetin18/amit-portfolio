@@ -7,7 +7,7 @@ export const postsQuery = groq`*[_type == "post"] | order(publishedAt desc) {
   excerpt,
   mainImage,
   publishedAt,
-  "categories": coalesce(categories[]->title, categories, [category]),
+  "categories": coalesce(array::compact(categories[]->title) + categories[!defined(_type)], [category]),
   readTime
 }`;
 
@@ -18,7 +18,7 @@ export const paginatedPostsQuery = groq`*[_type == "post" && (title match $searc
   excerpt,
   mainImage,
   publishedAt,
-  "categories": coalesce(categories[]->title, categories, [category]),
+  "categories": coalesce(array::compact(categories[]->title) + categories[!defined(_type)], [category]),
   readTime
 }`;
 
@@ -26,8 +26,8 @@ export const totalPostsQuery = groq`count(*[_type == "post" && (title match $sea
 
 export const categoriesQuery = groq`array::unique([
   ...*[_type == "category"].title,
-  ...*[_type == "post"].categories[]->title,
-  ...*[_type == "post"].categories[],
+  ...*[_type == "post"].categories[@._type == "reference"]->title,
+  ...*[_type == "post"].categories[!defined(_type)],
   ...*[_type == "post"].category
 ])`;
 
@@ -39,14 +39,14 @@ export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][
   excerpt,
   mainImage,
   publishedAt,
-  "categories": coalesce(categories[]->title, categories, [category]),
+  "categories": coalesce(array::compact(categories[]->title) + categories[!defined(_type)], [category]),
   readTime,
-  "relatedPosts": *[_type == "post" && _id != ^._id] | order(count(categories[@ in ^.categories]) desc, count(categories[]->title[@ in ^.categories[]->title]) desc, publishedAt desc) [0...5] {
+  "relatedPosts": *[_type == "post" && _id != ^._id] | order(count(categories[]->title[@ in ^.categories[]->title]) desc, count(categories[@ in ^.categories]) desc, publishedAt desc) [0...5] {
     _id,
     title,
     "slug": slug.current,
     mainImage,
-    "categories": coalesce(categories[]->title, categories, [category]),
+    "categories": coalesce(array::compact(categories[]->title) + categories[!defined(_type)], [category]),
     publishedAt,
     readTime
   }

@@ -1,8 +1,7 @@
 import { client, urlFor } from "@/lib/sanity";
 import { paginatedPostsQuery, totalPostsQuery, categoriesQuery } from "@/lib/sanity.queries";
 import { BlogCard } from "@/components/blogs/BlogCard";
-import { SearchBlogs } from "@/components/blogs/SearchBlogs";
-import { CategoryFilter } from "@/components/blogs/CategoryFilter";
+import { SearchAndFilter } from "@/components/blogs/SearchAndFilter";
 import { Pagination } from "@/components/blogs/Pagination";
 import HeroBackground from "@/components/ui/HeroBackground";
 import { staggerContainer, fadeInUp } from "@/constant";
@@ -153,16 +152,7 @@ export default async function AllBlogsPage({
 
                 {/* Operations Bar (Search & Filter) */}
                 <div className="sticky top-24 z-50 mb-12 sm:mb-16">
-                    <div className="max-w-4xl mx-auto p-2 sm:p-3 rounded-3xl bg-[#07162b]/40 border border-white/10 shadow-2xl shadow-black/50">
-                        <div className="flex flex-col md:flex-row items-center gap-4">
-                            <div className="w-full md:w-1/2">
-                                <SearchBlogs />
-                            </div>
-                            <div className="w-full md:w-1/2 flex items-center justify-center">
-                                <CategoryFilter categories={categories} />
-                            </div>
-                        </div>
-                    </div>
+                    <SearchAndFilter categories={categories} />
                 </div>
 
                 {/* Article Grid */}
