@@ -1,4 +1,4 @@
-## Amit Kumar's Portfolio
+# Amit Kumar's Portfolio
 
 A modern, responsive, and interactive personal portfolio website built to showcase my web development projects and skills.
 
