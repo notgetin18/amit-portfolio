@@ -23,6 +23,7 @@ const nextConfig = {
             },
         ]
     },
+    serverExternalPackages: ['isomorphic-dompurify'],
 }
 
 module.exports = nextConfig
