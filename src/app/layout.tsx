@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     siteName: "Amit Kumar Portfolio",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://www.amitdevjourney.xyz/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Amit Kumar Portfolio",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     title: "Amit Kumar | MERN Stack Developer Portfolio",
     description:
       "Amit Kumar, MERN stack developer, specializes in JavaScript and its frameworks, building scalable web apps with React, Node.js, and MongoDB. Explore my portfolio!",
-    images: ["/og-image.jpg"],
+    images: ["https://www.amitdevjourney.xyz/og-image.jpg"],
   },
   alternates: {
     canonical: "./",

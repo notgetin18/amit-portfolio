@@ -33,7 +33,7 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
-  openGraph: {  // ADD full OG block for better social sharing
+  openGraph: {
     title: "MERN Stack & Digital Marketing Services | Amit Kumar",
     description:
       "Amit Kumar offers expert MERN full-stack development, digital marketing, and cloud DevOps services. From React/Next.js frontends to scalable Node.js backends and strategic SEO.",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     siteName: "Amit Kumar Portfolio",
     images: [
       {
-        url: "/og-image.jpg",  // Reuse your existing OG image
+        url: "https://www.amitdevjourney.xyz/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Amit Kumar Services",
@@ -50,14 +50,14 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
-  twitter: {  // ADD for X/Twitter card support
+  twitter: {
     card: "summary_large_image",
     site: "@Amitsin40190332",
     creator: "@Amitsin40190332",
     title: "MERN Stack & Digital Marketing Services | Amit Kumar",
     description:
       "Expert MERN full-stack development, digital marketing, and DevOps services by Amit Kumar.",
-    images: ["/og-image.jpg"],
+    images: ["https://www.amitdevjourney.xyz/og-image.jpg"],
   },
 };
 

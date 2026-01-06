@@ -44,7 +44,7 @@ export const metadata: Metadata = {
         siteName: "Amit Kumar Portfolio",
         images: [
             {
-                url: "/og-image.jpg",
+                url: "https://www.amitdevjourney.xyz/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "The Journal - Amit Kumar Portfolio",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
         title: "The Journal | Amit Kumar Portfolio",
         description:
             "Exploration of modern web engineering and high-performance MERN architecture by Amit Kumar.",
-        images: ["/og-image.jpg"],
+        images: ["https://www.amitdevjourney.xyz/og-image.jpg"],
     },
 };
 

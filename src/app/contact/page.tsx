@@ -31,7 +31,14 @@ export const metadata: Metadata = {
       "Get in touch with Amit Kumar to discuss your next project. Available for freelance opportunities in web development, API design, and cloud infrastructure.",
     url: "https://www.amitdevjourney.xyz/contact",
     siteName: "Amit Kumar Portfolio",
-    images: ["/og-image.jpg"],  // Optional: use a contact-specific image if you have one
+    images: [
+      {
+        url: "https://www.amitdevjourney.xyz/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Contact Amit Kumar",
+      }
+    ],
     locale: "en_IN",
     type: "website",
   },
@@ -41,8 +48,8 @@ export const metadata: Metadata = {
     creator: "@Amitsin40190332",
     title: "Contact Amit Kumar | Let's Build Together",
     description:
-      "Get in touch with Amit Kumar to discuss your next project. Available for freelance opportunities in web development, API design, and cloud infrastructure.",  // ADD description (was empty)
-    images: ["/og-image.jpg"],
+      "Get in touch with Amit Kumar to discuss your next project. Available for freelance opportunities in web development, API design, and cloud infrastructure.",
+    images: ["https://www.amitdevjourney.xyz/og-image.jpg"],
   },
 };
 
