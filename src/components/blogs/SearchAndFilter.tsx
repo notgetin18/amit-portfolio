@@ -34,7 +34,7 @@ export function SearchAndFilter({ categories }: SearchAndFilterProps) {
         }
 
         startTransition(() => {
-            router.push(`/blogs?${params.toString()}`);
+            router.push(`/blogs?${params.toString()}`, { scroll: false });
         });
     }
 

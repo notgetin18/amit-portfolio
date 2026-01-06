@@ -23,7 +23,7 @@ export function Pagination({ totalPages }: PaginationProps) {
 
     return (
         <div className="flex items-center justify-center space-x-4 mt-12 pb-20">
-            <Link href={createPageUrl(currentPage - 1)} className={currentPage <= 1 ? "pointer-events-none opacity-50" : ""}>
+            <Link href={createPageUrl(currentPage - 1)} scroll={false} className={currentPage <= 1 ? "pointer-events-none opacity-50" : ""}>
                 <Button variant="outline" className="border-white/10 bg-[#061025]/50 text-white hover:bg-[#06b6d4] hover:text-[#061025]">
                     <ChevronLeft className="w-5 h-5" />
                 </Button>
@@ -31,7 +31,7 @@ export function Pagination({ totalPages }: PaginationProps) {
 
             <div className="flex items-center space-x-2">
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                    <Link key={page} href={createPageUrl(page)}>
+                    <Link key={page} href={createPageUrl(page)} scroll={false}>
                         <Button
                             variant={currentPage === page ? "default" : "outline"}
                             className={
@@ -46,7 +46,7 @@ export function Pagination({ totalPages }: PaginationProps) {
                 ))}
             </div>
 
-            <Link href={createPageUrl(currentPage + 1)} className={currentPage >= totalPages ? "pointer-events-none opacity-50" : ""}>
+            <Link href={createPageUrl(currentPage + 1)} scroll={false} className={currentPage >= totalPages ? "pointer-events-none opacity-50" : ""}>
                 <Button variant="outline" className="border-white/10 bg-[#061025]/50 text-white hover:bg-[#06b6d4] hover:text-[#061025]">
                     <ChevronRight className="w-5 h-5" />
                 </Button>

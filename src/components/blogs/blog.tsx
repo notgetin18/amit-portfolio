@@ -10,7 +10,6 @@ import { UpcomingArticles } from "@/components/blogs/upcomingArticles";
 import { useRef, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { ArrowRight } from "lucide-react";
-
 import { BlogCard } from "@/components/blogs/BlogCard";
 
 export function Blog({ initialPosts = [] }: { initialPosts?: any[] }) {
@@ -39,8 +38,6 @@ export function Blog({ initialPosts = [] }: { initialPosts?: any[] }) {
       toast.error("Please enter a valid email.", { duration: 3000 });
       return;
     }
-
-    // console.log("email", email);
 
     try {
       const res = await fetch("/api/subscribe", {
