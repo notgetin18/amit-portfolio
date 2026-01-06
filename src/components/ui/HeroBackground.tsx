@@ -15,12 +15,11 @@ export default function HeroBackground({ delay = 500 }: { delay?: number }) {
 
   const particlesInitCb = useCallback(async () => {
     try {
-      // Dynamically load engine and presets
-      const engineModule = await import("@tsparticles/engine");
-      const tsParticles = engineModule.tsParticles || engineModule.default;
+      // Dynamically load engine and slim preset
+      const { tsParticles } = await import("@tsparticles/engine");
       if (tsParticles) {
-        const { loadAll } = await import("@tsparticles/all");
-        await loadAll(tsParticles);
+        const { loadSlim } = await import("@tsparticles/slim");
+        await loadSlim(tsParticles);
       }
     } catch (err) {
       // swallow — background is decorative
@@ -35,14 +34,27 @@ export default function HeroBackground({ delay = 500 }: { delay?: number }) {
     const isTest = typeof (import.meta as any).vitest !== "undefined";
     if (typeof window === "undefined" || isTest) return;
 
+    const scheduleInit = () => {
+      if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+        window.requestIdleCallback(async () => {
+          await particlesInitCb();
+          setInit(true);
+        });
+      } else {
+        setTimeout(async () => {
+          await particlesInitCb();
+          setInit(true);
+        }, 1);
+      }
+    };
+
     const t = setTimeout(() => {
       // load engine lazily and then mark init
       import("@tsparticles/engine")
         .then(async (engineModule) => {
-          const tsParticles = engineModule.tsParticles || engineModule.default;
+          const { tsParticles } = engineModule;
           if (tsParticles) {
-            await particlesInitCb();
-            setInit(true);
+            scheduleInit();
           }
         })
         .catch(() => {

@@ -29,7 +29,7 @@ function SkillDonut({ value, size = 64, strokeWidth = 8, label }: { value: numbe
           fill="transparent"
           initial={{ strokeDashoffset: circumference }}
           whileInView={{ strokeDashoffset: dashOffset }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           style={{ strokeDasharray: circumference }}
         />
         <defs>
@@ -175,4 +175,3 @@ export default Skills;
 //     { src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg", alt: "React" },
 //     { src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nodedotjs.svg", alt: "Node.js" },
 //   ];
-   

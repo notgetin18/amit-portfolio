@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     images: ["https://www.amitdevjourney.xyz/og-image.jpg"],
   },
   alternates: {
-    canonical: "./",
+    canonical: "https://www.amitdevjourney.xyz/",
   },
 };
 
@@ -85,7 +85,6 @@ export const viewport: Viewport = {
   ],
 };
 
-console.log("NODE_ENV", process.env.NODE_ENV);
 
 export default function RootLayout({
   children,

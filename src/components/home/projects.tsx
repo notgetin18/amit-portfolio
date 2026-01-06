@@ -1,5 +1,5 @@
 "use client"
-import {  m } from "framer-motion";
+import { m } from "framer-motion";
 import GitHubIcon from "@/components/icons/GitHubIcon";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeInUp, staggerContainer } from "@/constant";
@@ -65,6 +65,8 @@ const Projects = () => {
                       src="/Bright DiGi Gold.jpg"
                       className="p-1 rounded-xl"
                       fill
+                      priority
+                      fetchPriority="high"
                       style={{
                         opacity: 0.25,
                         objectFit: "cover",
