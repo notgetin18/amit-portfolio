@@ -27,11 +27,9 @@ export async function generateMetadata(
 
     if (!post) return { title: "Post Not Found" };
 
-    const previousImages = (await parent).openGraph?.images || [];
-    const ogImage = post.mainImage ? urlFor(post.mainImage).width(1200).height(630).fit("crop").auto("format").url() : "/og-image.jpg";
-
-    console.log("post", post);
-    console.log("ogImage", ogImage);
+    const ogImage = post.mainImage
+        ? urlFor(post.mainImage).width(1200).height(630).fit("crop").format("jpg").url()
+        : "https://www.amitdevjourney.xyz/og-image.jpg";
 
     const categories = Array.isArray(post.categories) ? post.categories : (post.categories ? [post.categories] : ["General"]);
 
@@ -43,7 +41,7 @@ export async function generateMetadata(
             canonical: `https://www.amitdevjourney.xyz/blogs/${slug}`,
         },
         authors: [{ name: "Amit Kumar" }],
-        publisher: "Vercel",
+        publisher: "Amit Kumar",
         robots: {
             index: true,
             follow: true,
@@ -63,11 +61,11 @@ export async function generateMetadata(
                     width: 1200,
                     height: 630,
                     alt: post.title,
-                },
-                ...previousImages
+                }
             ],
             type: "article",
             publishedTime: post.publishedAt,
+            authors: ["Amit Kumar"],
             tags: categories,
         },
         twitter: {

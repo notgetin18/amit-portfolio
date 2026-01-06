@@ -29,7 +29,7 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
         {
             name: "LinkedIn",
             icon: <LinkedinIcon className="w-5 h-5" />,
-            url: `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`,
+            url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
             color: "hover:text-[#0077b5] hover:bg-[#0077b5]/30",
         },
         {
