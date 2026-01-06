@@ -9,8 +9,62 @@ import * as motion from "framer-motion/client";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Calendar, Clock, Sparkles } from "lucide-react";
+import { Metadata } from "next";
 
-const POSTS_PER_PAGE = 6;
+export const metadata: Metadata = {
+    title: "The Journal | Amit Kumar Portfolio",
+    description: "Deep-dives into MERN stack development, high-performance web engineering, and digital innovation. Explore technical insights and master your craft with Amit Kumar.",
+    keywords: [
+        "Amit Kumar",
+        "MERN master",
+        "The Journal",
+        "Technical Blog",
+        "Web Engineering",
+        "SaaS Architecture",
+        "Performance Optimization",
+        "Next.js Insights",
+    ],
+    authors: [{ name: "Amit Kumar" }],
+    alternates: {
+        canonical: "https://www.amitdevjourney.xyz/blogs",
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+        },
+    },
+    openGraph: {
+        title: "The Journal | Amit Kumar Portfolio",
+        description:
+            "Deep-dives into MERN stack development, high-performance web engineering, and digital innovation. Explore technical insights and master your craft with Amit Kumar.",
+        url: "https://www.amitdevjourney.xyz/blogs",
+        siteName: "Amit Kumar Portfolio",
+        images: [
+            {
+                url: "/og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "The Journal - Amit Kumar Portfolio",
+            },
+        ],
+        locale: "en_IN",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "@Amitsin40190332",
+        creator: "@Amitsin40190332",
+        title: "The Journal | Amit Kumar Portfolio",
+        description:
+            "Exploration of modern web engineering and high-performance MERN architecture by Amit Kumar.",
+        images: ["/og-image.jpg"],
+    },
+};
+
+const POSTS_PER_PAGE = 24;
 
 export const revalidate = 1500; // revalidate every 15 minutes
 
@@ -100,7 +154,7 @@ export default async function AllBlogsPage({
                         animate={{ opacity: 1, y: 0 }}
                         className="mb-12 sm:mb-20"
                     >
-                        <Link href={`/blog/${featuredPost.slug}`}>
+                        <Link href={`/blogs/${featuredPost.slug}`}>
                             <div className="group relative rounded-3xl overflow-hidden border border-white/10 bg-[#07162b]/40 backdrop-blur-xl hover:border-[#06b6d4]/30 transition-all duration-500">
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden">
                                     <div className="relative aspect-[16/9] overflow-hidden">

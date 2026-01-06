@@ -24,7 +24,7 @@ export function RelatedSidebar({ posts }: RelatedSidebarProps) {
                     {posts.map((post) => (
                         <Link
                             key={post._id}
-                            href={`/blog/${post.slug}`}
+                            href={`/blogs/${post.slug}`}
                             className="group block"
                         >
                             <div className="flex gap-4">
@@ -67,7 +67,7 @@ export function RelatedSidebar({ posts }: RelatedSidebarProps) {
                     Follow my journey and get the latest tech tips straight to your inbox.
                 </p>
                 <Link
-                    href="/blog#newsletter"
+                    href="/#newsletter"
                     className="text-xs font-bold text-[#06b6d4] hover:underline flex items-center"
                 >
                     Join Newsletter &rarr;

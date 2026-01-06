@@ -28,29 +28,54 @@ export async function generateMetadata(
     if (!post) return { title: "Post Not Found" };
 
     const previousImages = (await parent).openGraph?.images || [];
-    const ogImage = post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : "/og-image.jpg";
+    const ogImage = post.mainImage ? urlFor(post.mainImage).width(1200).height(630).fit("crop").auto("format").url() : "/og-image.jpg";
+
+    console.log("post", post);
+    console.log("ogImage", ogImage);
 
     const categories = Array.isArray(post.categories) ? post.categories : (post.categories ? [post.categories] : ["General"]);
 
     return {
-        title: `${post.title} | Amit Kumar Blog`,
+        title: post.title,
         description: post.excerpt,
         keywords: [...categories, "MERN stack", "Amit Kumar", "Developer", "Blog"],
+        alternates: {
+            canonical: `https://www.amitdevjourney.xyz/blogs/${slug}`,
+        },
+        authors: [{ name: "Amit Kumar" }],
+        publisher: "Vercel",
+        robots: {
+            index: true,
+            follow: true,
+            googleBot: {
+                index: true,
+                follow: true,
+            },
+        },
         openGraph: {
             title: post.title,
             description: post.excerpt,
-            url: `https://www.amitdevjourney.xyz/blog/${slug}`,
+            url: `https://www.amitdevjourney.xyz/blogs/${slug}`,
             siteName: "Amit Kumar Portfolio",
-            images: [ogImage, ...previousImages],
+            images: [
+                {
+                    url: ogImage,
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                },
+                ...previousImages
+            ],
             type: "article",
             publishedTime: post.publishedAt,
-            authors: ["Amit Kumar"],
             tags: categories,
         },
         twitter: {
             card: "summary_large_image",
+            site: "@Amitsin40190332",
+            creator: "@Amitsin40190332",
             title: post.title,
-            description: post.excerpt,
+            description: post.excerpt?.length > 160 ? post.excerpt.substring(0, 157) + "..." : post.excerpt,
             images: [ogImage],
         },
     };
@@ -68,7 +93,7 @@ export default async function BlogPostPage({
         notFound();
     }
 
-    const currentUrl = `https://www.amitdevjourney.xyz/blog/${slug}`;
+    const currentUrl = `https://www.amitdevjourney.xyz/blogs/${slug}`;
     const categories = Array.isArray(post.categories) ? post.categories : (post.categories ? [post.categories] : ["General"]);
 
     return (
@@ -184,7 +209,7 @@ export default async function BlogPostPage({
                             <p className="text-slate-200 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
                                 Join 500+ developers receiving weekly technical insights and deep-dives into modern web engineering. No fluff, just code.
                             </p>
-                            <Link href="/blog#newsletter">
+                            <Link href="/">
                                 <Button className="h-14 px-12 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-[#06b6d4] to-[#8ef3c1] text-black font-semibold shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#06b6d4] hover:bg-[#8ef3c1] hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all text-lg">
                                     Join the Newsletter
                                 </Button>

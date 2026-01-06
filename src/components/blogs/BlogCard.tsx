@@ -27,7 +27,7 @@ export function BlogCard({ post }: BlogCardProps) {
             whileHover={{ y: -8, scale: 1.02 }}
             transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
         >
-            <Link href={`/blog/${post.slug}`}>
+            <Link href={`/blogs/${post.slug}`}>
                 <Card className="group relative h-full flex flex-col overflow-hidden border border-white/10 bg-[#07162b]/40 backdrop-blur-md hover:border-[#06b6d4]/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] rounded-2xl">
                     {/* Image Section */}
                     <div className="relative aspect-[16/10] overflow-hidden">
