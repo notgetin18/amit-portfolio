@@ -1,3 +1,4 @@
+import React from "react";
 import { Resend } from "resend";
 import { ContactEmailTemplate } from "../../../components/emailTemplates/contactEmail";
 import { rateLimit } from "@/lib/rate-limit";
@@ -33,12 +34,14 @@ export async function POST(req: Request) {
       from: "Portfolio <onboarding@resend.dev>",
       to: ["notgetin18@gmail.com"],
       subject: `New Portfolio Message: ${subject}`,
-      react: ContactEmailTemplate({
-        name,
-        email,
-        subject,
-        message,
-      }),
+      react: (
+        <ContactEmailTemplate
+          name={name}
+          email={email}
+          subject={subject}
+          message={message}
+        />
+      ) as React.ReactElement,
     });
 
     if (error) {

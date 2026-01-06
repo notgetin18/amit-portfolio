@@ -1,3 +1,4 @@
+import React from "react";
 import { Resend } from "resend";
 import { BlogSubscriptionEmail } from "../../../components/emailTemplates/blogSubscriptionEmail";
 import { checkAndAddSubscription, rateLimit } from "@/lib/rate-limit";
@@ -41,9 +42,9 @@ export async function POST(req: Request) {
       from: "Portfolio <onboarding@resend.dev>",
       to: ["notgetin18@gmail.com"],
       subject: `Blog Subscribtion`,
-      react: BlogSubscriptionEmail({
-        subscriberEmail: email,
-      }),
+      react: (
+        <BlogSubscriptionEmail subscriberEmail={email} />
+      ) as React.ReactElement,
     });
 
     if (error) {
