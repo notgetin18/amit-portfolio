@@ -63,6 +63,16 @@ export default defineType({
         { type: "table" },
       ],
     }),
+    defineField({
+      name: "keywords",
+      title: "Keywords",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        layout: "tags",
+      },
+      description: "Add keywords for SEO",
+    }),
   ],
   preview: {
     select: {

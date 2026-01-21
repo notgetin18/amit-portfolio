@@ -41,6 +41,7 @@ export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][
   publishedAt,
   "categories": coalesce(array::compact(categories[]->title) + categories[!defined(_type)], [category]),
   readTime,
+  keywords,
   "relatedPosts": *[_type == "post" && _id != ^._id] | order(count(categories[]->title[@ in ^.categories[]->title]) desc, count(categories[@ in ^.categories]) desc, publishedAt desc) [0...5] {
     _id,
     title,

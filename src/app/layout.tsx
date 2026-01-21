@@ -6,6 +6,7 @@ import "./globals.css";
 import Navbar from "@/components/home/navbar";
 import Footer from "@/components/footer";
 import { Toaster } from "react-hot-toast";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Amit Kumar Portfolio",
   },
   description:
-    "Amit Kumar — MERN Full‑Stack developer. I build production-grade web apps (React, Next.js, Node, Express, MongoDB) — shipped healthcare SaaS, real-time EdTech, and consumer apps with 1M+ users. Explore case studies and the dev journey.",
+    "Amit Kumar — MERN Full-Stack Developer. Building scalable SaaS, EdTech, and healthcare apps for 1M+ users with React, Node.js, and MongoDB. View my projects.",
   keywords:
     "Amit Kumar, MERN, full stack developer, React, Next.js, Node.js, Express, MongoDB, TypeScript, JavaScript, SaaS, healthcare SaaS, EdTech, real-time, 1M+ users, portfolio, freelance, India",
   authors: [{ name: "Amit Kumar" }],
@@ -121,6 +122,7 @@ export default function RootLayout({
         />
         <SpeedInsights debug={process.env.NODE_ENV === "development"} />
         <Analytics />
+        <ScrollToTop />
         <Footer />
       </body>
     </html>

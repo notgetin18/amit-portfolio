@@ -1,5 +1,6 @@
 import { client, urlFor } from "@/lib/sanity";
 import { postBySlugQuery } from "@/lib/sanity.queries";
+import { generateBlogPostSchema } from "@/lib/metadata/json-ld";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,11 +33,12 @@ export async function generateMetadata(
         : "https://www.amitdevjourney.xyz/og-image.jpg";
 
     const categories = Array.isArray(post.categories) ? post.categories : (post.categories ? [post.categories] : ["General"]);
+    const dynamicKeywords = Array.isArray(post.keywords) ? post.keywords : [];
 
     return {
         title: post.title,
         description: post.excerpt,
-        keywords: [...categories, "MERN stack", "Amit Kumar", "Developer", "Blog"],
+        keywords: [...dynamicKeywords, ...categories, "MERN stack", "Amit Kumar", "Developer", "Blog"],
         alternates: {
             canonical: `https://www.amitdevjourney.xyz/blogs/${slug}`,
         },
@@ -96,6 +98,10 @@ export default async function BlogPostPage({
 
     return (
         <main className="min-h-screen relative bg-[#020617] pt-32 pb-5 sm:pb-10 px-4 sm:px-6 lg:px-8">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBlogPostSchema(post)) }}
+            />
             <HeroBackground delay={500} />
 
             {/* Background Decor */}
@@ -199,7 +205,7 @@ export default async function BlogPostPage({
                 )}
 
                 {/* Footer Newsletter */}
-                <section className="">
+                <section>
                     <NewsletterSignup />
                 </section>
             </div>

@@ -1,4 +1,5 @@
 import AboutUs from "@/components/aboutUs/aboutUs";
+import { generateAboutPageSchema } from "@/lib/metadata/json-ld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -56,4 +57,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default AboutUs;
+export default function AboutPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateAboutPageSchema()) }}
+      />
+      <AboutUs />
+    </>
+  );
+}

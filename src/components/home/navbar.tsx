@@ -177,7 +177,7 @@ export default function Navbar() {
         // transition-colors duration-300 bg-[#07162b]/50 backdrop-blur-lg border border-white/15 rounded-3xl shadow-lg shadow-black/20
         >
           <div className="px-4 py-4 my-3 mb-4 bg-white/15 border-b border-white/20 shadow-black shadow-md rounded-sm">
-            <h2 className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] mb-0.5">Quick Navigation</h2>
+            <p className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] mb-0.5">Quick Navigation</p>
             <p className="text-sm text-slate-300">Choose the way that works for you.</p>
           </div>
 

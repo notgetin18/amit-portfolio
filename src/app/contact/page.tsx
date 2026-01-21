@@ -1,4 +1,5 @@
 import ContactUs from "@/components/contactUs/contactUs";
+import { generateContactPageSchema } from "@/lib/metadata/json-ld";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -53,4 +54,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default ContactUs;
+export default function ContactPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateContactPageSchema()) }}
+      />
+      <ContactUs />
+    </>
+  );
+}

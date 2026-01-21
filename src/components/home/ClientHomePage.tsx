@@ -53,7 +53,7 @@ export default function ClientHomePage() {
                                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] drop-shadow-2xl">
                                         Amit Kumar
                                         <span className="block text-2xl md:text-4xl font-semibold text-white/80 mt-2 tracking-normal">
-                                            MERN Full‑Stack Developer & Product Engineer
+                                            MERN Full‑Stack Developer India & Product Engineer
                                         </span>
                                     </h1>
 

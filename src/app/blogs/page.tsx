@@ -1,5 +1,6 @@
 import { client, urlFor } from "@/lib/sanity";
 import { paginatedPostsQuery, totalPostsQuery, categoriesQuery } from "@/lib/sanity.queries";
+import { generateBlogSchema } from "@/lib/metadata/json-ld";
 import { BlogCard } from "@/components/blogs/BlogCard";
 import { SearchAndFilter } from "@/components/blogs/SearchAndFilter";
 import { Pagination } from "@/components/blogs/Pagination";
@@ -10,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Calendar, Clock, Sparkles } from "lucide-react";
 import { Metadata } from "next";
+
 
 export const metadata: Metadata = {
     title: "The Journal | Amit Kumar Portfolio",
@@ -108,6 +110,10 @@ export default async function AllBlogsPage({
 
     return (
         <main className="min-h-screen relative overflow-hidden bg-[#020617] pt-28 sm:pb-10 px-4 sm:px-6 lg:px-8">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBlogSchema()) }}
+            />
             <HeroBackground delay={500} />
 
             {/* Dynamic Background Accents */}

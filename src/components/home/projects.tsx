@@ -98,9 +98,7 @@ const Projects = () => {
                         Bright DiGi Gold
                       </h3>
                       <p className="text-slate-200 max-w-2xl leading-relaxed mb-6">
-                        A production-grade digital-gold trading marketplace —
-                        built for high concurrency with optimized checkout,
-                        resilient payment integrations and observability.
+                        A production-grade digital-gold marketplace — engineered as a <strong>MERN Full Stack Developer in India</strong> for high concurrency with optimized checkout, resilient payment integrations and <strong>Next.js scalable architecture</strong>.
                       </p>
 
                       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-slate-200 mb-6">
@@ -241,8 +239,7 @@ const Projects = () => {
                           Medical Kundali
                         </h4>
                         <p className="text-sm text-slate-300 mb-3">
-                          Personalized medical insights and care recommendations
-                          built with privacy-first design.
+                          A <strong>Healthcare SaaS</strong> providing personalized medical insights and care plans — built with the <strong>MERN Stack</strong> and <strong>Secure Web Application</strong> patterns in India.
                         </p>
 
                         <div className="flex items-center gap-2 mb-4">

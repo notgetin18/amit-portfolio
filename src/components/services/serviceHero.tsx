@@ -23,7 +23,6 @@ import dynamic from "next/dynamic";
 import { fadeInUp, staggerContainer } from "@/constant";
 import HeroBackground from "@/components/ui/HeroBackground";
 import { handleDownloadResume } from "@/utility";
-import { Button } from "../ui/button";
 
 // Dynamically import the carousel to prevent it from being in the initial JS bundle
 const CollaboratorsCarousel = dynamic(() => import("./teamCrousel"));

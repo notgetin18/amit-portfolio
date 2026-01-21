@@ -1,8 +1,9 @@
 import Services from '@/components/services/serviceHero';
+import { generateServiceSchema } from '@/lib/metadata/json-ld';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "MERN Stack & Digital Marketing Services | Amit Kumar",  // Excellent – root template appends "| Amit Kumar Portfolio"
+  title: "MERN Stack & Digital Marketing Services | Amit Kumar",
   description:
     "Amit Kumar offers expert MERN full-stack development, digital marketing, and cloud DevOps services. From React/Next.js frontends to scalable Node.js backends and strategic SEO, I deliver end-to-end solutions for projects of any scale.",
   keywords: [
@@ -61,4 +62,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default Services;
+export default function ServicesPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateServiceSchema()) }}
+      />
+      <Services />
+    </>
+  );
+}
