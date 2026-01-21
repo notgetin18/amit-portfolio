@@ -10,7 +10,6 @@ import PortableText from "@/components/blogs/PortableText";
 import { BlogCard } from "@/components/blogs/BlogCard";
 import { ShareButtons } from "@/components/blogs/ShareButtons";
 import { RelatedSidebar } from "@/components/blogs/RelatedSidebar";
-import HeroBackground from "@/components/ui/HeroBackground";
 import { NewsletterSignup } from "@/components/blogs/NewsletterSignup";
 import type { Metadata, ResolvingMetadata } from "next";
 
@@ -103,17 +102,15 @@ export default async function BlogPostPage({
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBlogPostSchema(post)) }}
             />
-            <HeroBackground delay={500} />
-
             {/* Background Decor */}
-            <div className="absolute left-0 top-0 w-full h-[600px] bg-gradient-to-b from-[#06b6d4]/5 via-[#06b6d4]/2 to-transparent pointer-events-none" />
+            <div className="absolute left-0 top-0 w-full h-[300px] bg-gradient-to-b from-[#06b6d4]/3 to-transparent pointer-events-none" />
 
             <div className="max-w-7xl mx-auto relative z-10">
-                <Link href="/blogs" className="inline-flex items-center text-slate-100 hover:text-[#8ef3c1] font-semibold mb-6 sm:mb-10 transition-all group">
-                    <div className="w-8 h-8 rounded-full bg-[#06b6d4]/10 flex items-center justify-center mr-3 group-hover:bg-[#06b6d4]/20 transition-colors">
+                <Link href="/blogs" className="inline-flex items-center text-slate-300 hover:text-[#8ef3c1] font-semibold mb-6 sm:mb-10 transition-all group">
+                    <div className="w-8 h-8 rounded-full bg-[#06b6d4]/5 flex items-center justify-center mr-3 group-hover:bg-[#06b6d4]/10 transition-colors">
                         <ArrowLeft className="w-4 h-4 text-center text-[#8ef3c1] transition-transform group-hover:-translate-x-1" />
                     </div>
-                    Back to Articles
+                    Back to Journal
                 </Link>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-20">
@@ -122,37 +119,30 @@ export default async function BlogPostPage({
                         <header className="mb-12">
                             <div className="flex flex-wrap items-center gap-3 mb-8">
                                 {categories.map((cat: string, i: number) => (
-                                    <span key={i} className="px-5 py-2 text-xs font-black uppercase tracking-[0.15em] rounded-lg bg-white/5 border border-white/5 text-slate-200">
+                                    <span key={i} className="px-5 py-2 text-[10px] font-black uppercase tracking-[0.2em] rounded-full bg-white/5 border border-white/5 text-slate-400">
                                         {cat}
                                     </span>
                                 ))}
-                                <div className="flex items-center text-slate-300 text-sm font-medium mt-1">
-                                    <Calendar className="w-4 h-4 mr-2 text-[#8ef3c1]" />
+                                <div className="flex items-center text-slate-400 text-xs font-medium mt-1">
+                                    <Calendar className="w-3.5 h-3.5 mr-2 text-[#06b6d4]/60" />
                                     {new Date(post.publishedAt).toLocaleDateString("en-US", {
                                         month: "long",
                                         day: "numeric",
                                         year: "numeric"
                                     })}
                                 </div>
-                                <div className="flex items-center text-slate-300 text-sm font-medium mt-1">
-                                    <Clock className="w-4 h-4 mr-2 text-[#8ef3c1]" />
+                                <div className="flex items-center text-slate-400 text-xs font-medium mt-1">
+                                    <Clock className="w-3.5 h-3.5 mr-2 text-[#06b6d4]/60" />
                                     {post.readTime || "5 min read"}
                                 </div>
                             </div>
 
-                            <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-slate-100 leading-[1.1] mb-8">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-100 leading-[1.1] mb-8 tracking-tight">
                                 {post.title}
                             </h1>
 
-                            {/* <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 p-6 rounded-2xl bg-[#07162b]/40 border border-white/5 backdrop-blur-sm mb-12">
-                                <div className="text-[#06b6d4] font-bold italic tracking-wide">
-                                    {hashtags}
-                                </div>
-                                <ShareButtons url={currentUrl} title={post.title} />
-                            </div> */}
-
                             {post.mainImage && (
-                                <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 mb-7 sm:mb-12 bg-[#020617]/50">
+                                <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden border border-white/5 shadow-2xl shadow-black/50 mb-10 sm:mb-16 bg-[#020617]/40">
                                     <Image
                                         loader={sanityImageLoader}
                                         src={urlFor(post.mainImage).url()}
@@ -162,12 +152,18 @@ export default async function BlogPostPage({
                                         className="object-contain"
                                         priority
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/40 to-transparent" />
                                 </div>
                             )}
                         </header>
 
-                        <article className="prose prose-invert prose-lg max-w-none prose-headings:text-slate-100 prose-headings:font-black prose-p:text-slate-100 prose-p:leading-relaxed prose-a:text-[#06b6d4] prose-a:no-underline hover:prose-a:underline prose-strong:text-white prose-code:text-[#3ed6ac] prose-pre:bg-[#07162b] prose-pre:border prose-pre:border-white/5 border-b border-white/30 pb-16">
+                        <article className="prose prose-invert prose-slate max-w-none 
+                            prose-p:text-slate-300 prose-p:leading-[1.8] prose-p:mb-8 text-lg
+                            prose-headings:text-slate-100 prose-headings:font-black tracking-tight
+                            prose-a:text-[#06b6d4] prose-a:no-underline hover:prose-a:underline 
+                            prose-strong:text-white prose-code:text-[#3ed6ac] 
+                            prose-pre:bg-[#07162b] prose-pre:border prose-pre:border-white/5 
+                            border-b border-white/10 pb-16"
+                        >
                             <PortableText value={post.body} />
                         </article>
 

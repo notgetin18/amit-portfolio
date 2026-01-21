@@ -36,13 +36,13 @@ const components = {
         ),
     },
     block: {
-        h1: ({ children }: any) => <h1 className="text-3xl sm:text-4xl font-bold my-5 text-white">{children}</h1>,
-        h2: ({ children }: any) => <h2 className="text-2xl sm:text-3xl font-bold my-4 text-white">{children}</h2>,
-        h3: ({ children }: any) => <h3 className="text-xl sm:text-2xl font-bold my-3 text-white">{children}</h3>,
-        h4: ({ children }: any) => <h4 className="text-lg sm:text-xl font-bold my-2 text-white">{children}</h4>,
-        normal: ({ children }: any) => <p className="text-slate-300 leading-relaxed mb-3">{children}</p>,
+        h1: ({ children }: any) => <h1 className="text-3xl sm:text-4xl font-black mt-12 mb-6 text-slate-100 tracking-tight">{children}</h1>,
+        h2: ({ children }: any) => <h2 className="text-2xl sm:text-3xl font-black mt-10 mb-5 text-slate-100 tracking-tight">{children}</h2>,
+        h3: ({ children }: any) => <h3 className="text-xl sm:text-2xl font-bold mt-8 mb-4 text-slate-100 tracking-tight">{children}</h3>,
+        h4: ({ children }: any) => <h4 className="text-lg sm:text-xl font-bold mt-6 mb-3 text-slate-100 tracking-tight">{children}</h4>,
+        normal: ({ children }: any) => <p className="text-slate-300 leading-[1.8] mb-8 text-[17px] sm:text-lg">{children}</p>,
         blockquote: ({ children }: any) => (
-            <blockquote className="border-l-4 border-[#06b6d4] pl-4 italic my-6 text-slate-400">
+            <blockquote className="border-l-4 border-[#06b6d4] pl-6 italic my-10 text-slate-400 bg-white/5 py-6 rounded-r-xl">
                 {children}
             </blockquote>
         ),
