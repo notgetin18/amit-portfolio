@@ -4,9 +4,13 @@ import React from 'react';
 import Link from 'next/link';
 import { Github } from 'lucide-react';
 import { LinkedinIcon, XIcon, InstagramIcon } from '@/components/ui/social-icons';
+import { usePathname } from 'next/navigation';
 
 const Footer: React.FC = () => {
+    const pathname = usePathname();
     const currentYear = new Date().getFullYear();
+
+    if (pathname.startsWith("/studio")) return null;
 
     return (
         <footer className="relative pt-10 pb-12 overflow-hidden bg-gradient-to-t from-[#061025]/90 via-[#07162b]/70 to-transparent">

@@ -13,6 +13,7 @@ import { Download, Menu, X, Home, User, Mail, Settings, BookOpen, ArrowBigLeft }
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  if (pathname.startsWith("/studio")) return null;
 
   // Scroll lock effect
   useEffect(() => {

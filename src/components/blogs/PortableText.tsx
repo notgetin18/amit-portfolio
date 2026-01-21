@@ -14,6 +14,23 @@ const components = {
                 />
             </div>
         ),
+        table: ({ value }: any) => (
+            <div className="overflow-x-auto my-8 rounded-xl border border-white/10 bg-[#07162b]/40 backdrop-blur-xl">
+                <table className="w-full text-sm text-left text-slate-300">
+                    <tbody className="divide-y divide-white/5">
+                        {value.rows.map((row: any, i: number) => (
+                            <tr key={row._key} className={i === 0 ? "bg-white/5 font-semibold text-white" : ""}>
+                                {row.cells.map((cell: string, j: number) => (
+                                    <td key={j} className="px-2 sm:px-6 py-4 whitespace-nowrap">
+                                        {cell}
+                                    </td>
+                                ))}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        ),
     },
     block: {
         h1: ({ children }: any) => <h1 className="text-4xl font-bold my-6 text-white">{children}</h1>,
