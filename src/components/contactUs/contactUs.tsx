@@ -106,7 +106,7 @@ export default function ContactUs() {
             <p className="text-slate-300 mb-4">Thanks, {formData.name}! I'll reply within 24h with next steps.</p>
             <Link href="/services" className="text-[#06b6d4] hover:underline text-sm">Explore Services →</Link>
           </div>,
-          { duration: 6000, style: { background: "#1e293b", border: "1px solid #06b6d4" } }
+          { duration: 5000, style: { background: "#1e293b", border: "1px solid #06b6d4" } }
         );
         
         // Clear form fields

@@ -29,14 +29,14 @@ export function RelatedSidebar({ posts }: RelatedSidebarProps) {
                             className="group block"
                         >
                             <div className="flex gap-4">
-                                <div className="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden border border-white/10 group-hover:border-[#06b6d4]/40 transition-colors">
+                                <div className="relative w-28 h-28 shrink-0 rounded-lg overflow-hidden border border-white/10 group-hover:border-[#06b6d4]/40 transition-colors bg-[#020617]/50">
                                     <Image
                                         loader={sanityImageLoader}
-                                        src={urlFor(post.mainImage).url()}
+                                        src={urlFor(post.thumbnailImage || post.mainImage).url()}
                                         alt={post.title}
                                         fill
                                         sizes="80px"
-                                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                        className="object-contain transition-transform duration-500 group-hover:scale-110"
                                     />
                                 </div>
 
@@ -44,16 +44,16 @@ export function RelatedSidebar({ posts }: RelatedSidebarProps) {
                                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#8ef3c1] mb-1">
                                         {Array.isArray(post.categories) ? post.categories[0] : (post.categories || "Article")}
                                     </span>
-                                    <h4 className="text-sm font-bold text-slate-200 line-clamp-2 group-hover:text-white transition-colors leading-snug mb-1">
+                                    <h4 className="text-base font-bold text-slate-200 line-clamp-3 group-hover:text-white transition-colors leading-snug mb-1.5">
                                         {post.title}
                                     </h4>
-                                    <div className="flex items-center gap-3 text-[10px] text-slate-300">
-                                        <span className="flex items-center">
-                                            <Calendar className="w-3 h-3 mr-1 text-[#8ef3c1]" />
+                                    <div className="flex items-center gap-3 text-[12px] sm:text-xs text-slate-300">
+                                        {/* <span className="flex items-center">
+                                            <Calendar className="w-4 h-4 mr-1 text-[#8ef3c1]" />
                                             {new Date(post.publishedAt).toLocaleDateString("en-US", { month: 'short', day: 'numeric' })}
-                                        </span>
+                                        </span> */}
                                         <span className="flex items-center">
-                                            <Clock className="w-3 h-3 mr-1 text-[#8ef3c1]" />
+                                            <Clock className="w-4 h-4 mr-1 text-[#8ef3c1]" />
                                             {post.readTime || "5 min"}
                                         </span>
                                     </div>

@@ -34,6 +34,15 @@ export default defineType({
       },
     }),
     defineField({
+      name: "thumbnailImage",
+      title: "Thumbnail image",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      description: "Fallback to main image if not provided. Best for square (1:1) aspect ratio.",
+    }),
+    defineField({
       name: "categories",
       title: "Categories",
       type: "array",

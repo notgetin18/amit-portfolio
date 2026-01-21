@@ -6,6 +6,7 @@ export const postsQuery = groq`*[_type == "post"] | order(publishedAt desc) {
   "slug": slug.current,
   excerpt,
   mainImage,
+  thumbnailImage,
   publishedAt,
   "categories": coalesce(array::compact(categories[]->title) + categories[!defined(_type)], [category]),
   readTime
@@ -17,6 +18,7 @@ export const paginatedPostsQuery = groq`*[_type == "post" && (title match $searc
   "slug": slug.current,
   excerpt,
   mainImage,
+  thumbnailImage,
   publishedAt,
   "categories": coalesce(array::compact(categories[]->title) + categories[!defined(_type)], [category]),
   readTime
@@ -38,6 +40,7 @@ export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][
   body,
   excerpt,
   mainImage,
+  thumbnailImage,
   publishedAt,
   "categories": coalesce(array::compact(categories[]->title) + categories[!defined(_type)], [category]),
   readTime,
@@ -47,6 +50,7 @@ export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][
     title,
     "slug": slug.current,
     mainImage,
+    thumbnailImage,
     "categories": coalesce(array::compact(categories[]->title) + categories[!defined(_type)], [category]),
     publishedAt,
     readTime

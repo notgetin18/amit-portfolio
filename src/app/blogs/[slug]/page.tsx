@@ -152,14 +152,14 @@ export default async function BlogPostPage({
                             </div> */}
 
                             {post.mainImage && (
-                                <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 mb-7 sm:mb-12">
+                                <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 mb-7 sm:mb-12 bg-[#020617]/50">
                                     <Image
                                         loader={sanityImageLoader}
                                         src={urlFor(post.mainImage).url()}
                                         alt={post.title}
                                         fill
                                         sizes="(max-width: 1280px) 100vw, 1280px"
-                                        className="object-cover"
+                                        className="object-contain"
                                         priority
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/40 to-transparent" />

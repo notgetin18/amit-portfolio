@@ -47,7 +47,7 @@ export function NewsletterSignup() {
             </div>
           </div>,
           {
-            duration: 7000,
+            duration: 4000,
             style: {
               background: "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
               border: "1px solid #06b6d4",
@@ -76,7 +76,7 @@ export function NewsletterSignup() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className="text-center py-8 px-4"
+      className="text-center pt-8 sm:pt-12 px-4"
     >
       <Card className="p-5 sm:p-10 max-w-4xl mx-auto bg-gradient-to-r from-[#06b6d4]/20 to-[#3ed6ac]/20 border border-white/10 backdrop-blur-sm text-center">
         <h2 className="text-2xl sm:text-4xl font-extrabold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]">Stay Updated</h2>

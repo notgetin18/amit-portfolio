@@ -14,6 +14,7 @@ interface BlogCardProps {
         slug: string;
         excerpt: string;
         mainImage?: any;
+        thumbnailImage?: any;
         categories: string[];
         readTime?: string;
         publishedAt: string;
@@ -31,14 +32,14 @@ export function BlogCard({ post }: BlogCardProps) {
             <Link href={`/blogs/${post.slug}`}>
                 <Card className="group relative h-full flex flex-col overflow-hidden border border-white/10 bg-[#07162b]/40 backdrop-blur-md hover:border-[#06b6d4]/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] rounded-2xl">
                     {/* Image Section */}
-                    <div className="relative aspect-[16/10] overflow-hidden">
+                    <div className="relative aspect-[16/9] overflow-hidden bg-[#020617]/50">
                         <Image
                             loader={sanityImageLoader}
-                            src={urlFor(post.mainImage).url()}
+                            src={urlFor(post.mainImage || post.thumbnailImage).url()}
                             alt={post.title}
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            className="object-contain transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-60" />
 

@@ -6,14 +6,14 @@ import Image from "next/image";
 const components = {
     types: {
         image: ({ value }: any) => (
-            <div className="relative w-full h-96 my-6 sm:my-8 rounded-xl overflow-hidden border border-white/10">
+            <div className="relative w-full h-96 my-6 sm:my-8 rounded-xl overflow-hidden border border-white/10 bg-[#020617]/50">
                 <Image
                     loader={sanityImageLoader}
                     src={urlFor(value).url()}
                     alt={value.alt || "Blog image"}
                     fill
                     sizes="(max-width: 1280px) 100vw, 800px"
-                    className="object-cover"
+                    className="object-contain"
                 />
             </div>
         ),
