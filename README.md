@@ -4,23 +4,22 @@ A modern, responsive, and interactive personal portfolio website built to showca
 
 ## 🚀 Tech Stack
 
--   **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
+-   **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
 -   **Language:** [TypeScript](https://www.typescriptlang.org/)
 -   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 -   **Animations:** [Framer Motion](https://www.framer.com/motion/)
+-   **CMS:** [Sanity.io](https://www.sanity.io/)
 -   **Database/Rate Limiting:** [Upstash Redis](https://upstash.com/)
 -   **Email:** [Resend](https://resend.com/)
--   **Particles:** [TSParticles](https://github.com/matteobruni/tsparticles)
--   **Testing:** [Vitest](https://vitest.dev/)
+-   **Monitoring:** [Vercel Analytics & Speed Insights](https://vercel.com/analytics)
 
 ## ✨ Key Features
 
--   **Responsive Design:** Optimized for all device sizes.
--   **Dark/Light Mode:** Seamless theme switching.
--   **Interactive UI:** Smooth animations and transitions using Framer Motion.
--   **Contact Form:** Integrated with Resend for emails and Upstash Redis for rate limiting.
--   **Resume Download:** Easy access to download resume in multiple formats (PDF, DOCX).
--   **Blog Section:** Dedicated area for sharing technical insights.
+-   **Optimized Newsletter:** Reusable subscription system integrated into home, blog archive, and every article with smooth scroll navigation and global toast notifications.
+-   **Performance-First Blog:** Content-driven architecture using Sanity CMS with optimized images and SEO metadata.
+-   **Resilient Rate Limiting:** Fail-open protection via Upstash Redis to ensure service availability during infrastructure downtime.
+-   **Responsive Design:** Mobile-first UI with premium aesthetics, glassmorphism, and micro-animations.
+-   **Contact Form:** Robust lead generation with real-time validation and Resend email integration.
 
 ## 🛠️ Getting Started
 
@@ -28,7 +27,7 @@ Follow these steps to set up the project locally.
 
 ### Prerequisites
 
--   Node.js (18+ recommended)
+-   Node.js (20+ recommended)
 -   npm, yarn, pnpm, or bun
 
 ### Installation
@@ -36,7 +35,7 @@ Follow these steps to set up the project locally.
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/amit-portfolio.git
+    git clone https://github.com/notgetin18/amit-portfolio.git
     cd amit-portfolio
     ```
 
@@ -44,20 +43,19 @@ Follow these steps to set up the project locally.
 
     ```bash
     npm install
-    # or
-    yarn install
-    # or
-    pnpm install
     ```
 
 3.  **Set up environment variables:**
 
-    Create a `.env` file in the root directory and add the following keys (you will need credentials from Upstash and Resend):
+    Create a `.env` file in the root directory:
 
     ```env
-    UPSTASH_REDIS_REST_URL=your_upstash_url
-    UPSTASH_REDIS_REST_TOKEN=your_upstash_token
-    # Add other necessary keys like RESEND_API_KEY if applicable
+    RESEND_API_KEY=re_...
+    RESEND_API_KEY_BLOG_SUBSCRIPTION=re_...
+    UPSTASH_REDIS_REST_URL=https://...
+    UPSTASH_REDIS_REST_TOKEN=...
+    NEXT_PUBLIC_SANITY_PROJECT_ID=...
+    NEXT_PUBLIC_SANITY_DATASET=production
     ```
 
 4.  **Run the development server:**
@@ -67,16 +65,6 @@ Follow these steps to set up the project locally.
     ```
 
     Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## 🧪 Running Tests
-
-To run the test suite:
-
-```bash
-npm run test
-# or to run with UI
-npm run test:ui
-```
 
 ## 📄 License
 
