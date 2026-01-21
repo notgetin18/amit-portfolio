@@ -98,16 +98,15 @@ html {
   /* Headings should use Satoshi for a clean modern contrast */
 }
 
-/* fallback shown for clarity */
+/* Heading styles: Sora (sans) — cleaner modern look */
 :root {
-  /* The --font-satoshi variable will be injected by next/font in layout.tsx */
-  --font-satoshi: "Satoshi", sans-serif;
+  --font-satoshi: var(--font-sora);
 }
 
 /* tuned heading styles */
 /* Heading styles: Satoshi (sans) — cleaner modern look that pairs with Sora */
 h1 {
-  font-family: var(--font-satoshi);
+  font-family: var(--font-sora);
   font-weight: 700; /* strong for dark backgrounds */
   letter-spacing: -0.02em; /* slightly tighter for big titles */
   line-height: 1.05;
@@ -115,7 +114,7 @@ h1 {
 }
 
 h2 {
-  font-family: var(--font-satoshi);
+  font-family: var(--font-sora);
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.15;
@@ -127,7 +126,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-satoshi);
+  font-family: var(--font-sora);
   font-weight: 500;
   line-height: 1.2;
 }

@@ -26,7 +26,7 @@ export default function ClientHomePage() {
     return (
         <LazyMotion features={domAnimation} strict>
             <div className="relative overflow-hidden">
-                <HeroBackground delay={1500} />
+                <HeroBackground delay={2500} />
                 <div
                     className="absolute left-2 sm:-left-20 -top-10 w-20 sm:w-72 h-72 bg-gradient-to-tr from-[#34d399]/30 to-[#06b6d4]/12 rounded-full blur-3xl mix-blend-screen pointer-events-none z-10"
                     aria-hidden
