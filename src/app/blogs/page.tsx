@@ -123,7 +123,7 @@ export default async function AllBlogsPage({
                         className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#06b6d4]/10 border border-[#06b6d4]/20 text-[#06b6d4] text-sm font-medium mb-6"
                     >
                         <Sparkles className="w-4 h-4" />
-                        <span className="text-[#fff">Insights & Innovations</span>
+                        <span className="text-[#fff]">Insights & Innovations</span>
                     </motion.div>
 
                     <motion.div
@@ -189,7 +189,7 @@ export default async function AllBlogsPage({
                                         </p>
 
                                         <div className="flex items-center justify-between mt-3">
-                                            <div className="flex items-cente text-slate-200 sm:text-slate-300 font-medium italic group-hover:text-[#06b6d4] transition-colors">
+                                            <div className="flex items-center text-slate-200 sm:text-slate-300 font-medium italic group-hover:text-[#06b6d4] transition-colors">
                                                 <Clock className="w-4 h-4 mr-2 mt-1" />
                                                 {featuredPost.readTime || "5 min read"}
                                             </div>
