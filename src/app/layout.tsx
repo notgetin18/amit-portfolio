@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 import Navbar from "@/components/home/navbar";
 import Footer from "@/components/footer";
+import { Toaster } from "react-hot-toast";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -98,6 +99,26 @@ export default function RootLayout({
           <Navbar />
         </div>
         {children}
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            style: {
+              background: "#1e293b",
+              color: "#f1f5f9",
+              border: "1px solid #334155",
+            },
+            success: {
+              style: {
+                borderColor: "#10b981",
+              },
+            },
+            error: {
+              style: {
+                borderColor: "#ef4444",
+              },
+            },
+          }}
+        />
         <SpeedInsights debug={process.env.NODE_ENV === "development"} />
         <Analytics />
         <Footer />

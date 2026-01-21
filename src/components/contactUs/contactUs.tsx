@@ -13,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useRef, useState } from "react";
 import HeroBackground from "../ui/HeroBackground";
 import { fadeInUp, staggerContainer } from "@/constant";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import Link from "next/link";
 
 export default function ContactUs() {
@@ -494,26 +494,6 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
-      <Toaster
-        position="top-right"
-        toastOptions={{
-          style: {
-            background: "#1e293b",
-            color: "#f1f5f9",
-            border: "1px solid #334155",
-          },
-          success: {
-            style: {
-              borderColor: "#10b981",
-            },
-          },
-          error: {
-            style: {
-              borderColor: "#ef4444",
-            },
-          },
-        }}
-      />
     </>
   );
 }

@@ -15,10 +15,12 @@ import PrimaryButtons from "@/components/buttons/primaryButtons";
 import HeroBackground from "@/components/ui/HeroBackground";
 import GlowText from "@/components/home/glowText";
 
+
 const Projects = React.lazy(() => import("@/components/home/projects"));
 const Services = React.lazy(() => import("@/components/home/services"));
 const Testimonials = React.lazy(() => import("@/components/home/testimonials"));
 const CTAsection = React.lazy(() => import("@/components/home/ctaSection"));
+
 
 export default function ClientHomePage() {
     return (
@@ -276,7 +278,6 @@ export default function ClientHomePage() {
                         </h2>
                         <Testimonials />
                     </section>
-
                     <CTAsection />
                 </main>
             </div>

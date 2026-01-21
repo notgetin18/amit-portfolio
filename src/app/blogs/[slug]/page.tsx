@@ -9,7 +9,7 @@ import { BlogCard } from "@/components/blogs/BlogCard";
 import { ShareButtons } from "@/components/blogs/ShareButtons";
 import { RelatedSidebar } from "@/components/blogs/RelatedSidebar";
 import HeroBackground from "@/components/ui/HeroBackground";
-import { Button } from "@/components/ui/button";
+import { NewsletterSignup } from "@/components/blogs/NewsletterSignup";
 import type { Metadata, ResolvingMetadata } from "next";
 
 export const revalidate = 1500; // revalidate every 15 minutes
@@ -198,22 +198,9 @@ export default async function BlogPostPage({
                     </section>
                 )}
 
-                {/* Footer CTA */}
-                <section className="mt-8 sm:mt-24 p-1 rounded-3xl bg-gradient-to-r from-[#06b6d4] via-[#3ed6ac] to-[#06b6d4]">
-                    <div className="bg-[#020617] p-12 sm:p-20 rounded-[calc(1.5rem-1px)] text-center relative overflow-hidden">
-                        <div className="absolute top-0 left-0 w-full h-full bg-[#06b6d4]/5 pointer-events-none" />
-                        <div className="relative z-10">
-                            <h3 className="mb-6 text-3xl sm:text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] leading-tight">Master Your Craft</h3>
-                            <p className="text-slate-200 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-                                Join 500+ developers receiving weekly technical insights and deep-dives into modern web engineering. No fluff, just code.
-                            </p>
-                            <Link href="/">
-                                <Button className="h-14 px-12 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-[#06b6d4] to-[#8ef3c1] text-black font-semibold shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#06b6d4] hover:bg-[#8ef3c1] hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all text-lg">
-                                    Join the Newsletter
-                                </Button>
-                            </Link>
-                        </div>
-                    </div>
+                {/* Footer Newsletter */}
+                <section className="">
+                    <NewsletterSignup />
                 </section>
             </div>
         </main>

@@ -23,6 +23,8 @@ export async function POST(req: Request) {
     const ip = req.headers.get("x-forwarded-for") || "0.0.0.0";
     const { allowed, error: rateLimitError } = await rateLimit(email, ip, "contact");
 
+    console.log("Rate limit:", allowed, rateLimitError);
+
     if (!allowed) {
       return Response.json(
         { error: rateLimitError || "Too many requests. Please try again later." },
