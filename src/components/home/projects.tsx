@@ -67,6 +67,7 @@ const Projects = () => {
                       fill
                       priority
                       fetchPriority="high"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                       style={{
                         opacity: 0.25,
                         objectFit: "cover",
@@ -230,7 +231,8 @@ const Projects = () => {
                           src="/Medical Kundali.svg"
                           width={176}
                           height={176}
-                          className="object-contain "
+                          className="object-contain"
+                          style={{ width: 'auto', height: 'auto' }}
                         />
                       </div>
 
@@ -333,6 +335,7 @@ const Projects = () => {
                           width={160}
                           height={120}
                           className="object-contain rounded-lg h-20 w-20 sm:h-32 sm:w-32"
+                          style={{ width: 'auto', height: 'auto' }}
                           sizes="(max-width: 640px) 80px, 128px"
                         />
                       </div>

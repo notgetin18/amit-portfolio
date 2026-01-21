@@ -5,6 +5,7 @@ import { Clock, ArrowRight, Calendar } from "lucide-react";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { urlFor } from "@/lib/sanity";
+import { sanityImageLoader } from "@/lib/image-loader";
 import Image from "next/image";
 
 interface BlogCardProps {
@@ -32,9 +33,11 @@ export function BlogCard({ post }: BlogCardProps) {
                     {/* Image Section */}
                     <div className="relative aspect-[16/10] overflow-hidden">
                         <Image
+                            loader={sanityImageLoader}
                             src={urlFor(post.mainImage).url()}
                             alt={post.title}
                             fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             className="object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-60" />
@@ -58,7 +61,7 @@ export function BlogCard({ post }: BlogCardProps) {
                         <div className="flex items-center gap-4 sm:gap-6 mb-4 text-[11px] text-slate-500 font-medium">
                             <div className="flex items-center bg-gradient-to-br from-[#061025]/50 via-[#07162b]/30 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-300 rounded-xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#06b6d4]/30">
                                 <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 text-[#8ef3c1] text-center" />
-                                <span className="text-neutral-300 text-xs">{new Date(post.publishedAt).toLocaleDateString()}</span>
+                                <span className="text-neutral-300 text-xs">{new Date(post.publishedAt).toLocaleDateString("en-US")}</span>
                             </div>
                             <div className="flex items-center bg-gradient-to-br from-[#061025]/50 via-[#07162b]/30 to-transparent backdrop-blur-md hover:shadow-2xl transition-shadow duration-300 rounded-xl focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-[#06b6d4]/30">
                                 <Clock className="w-4 h-4 sm:w-5 sm:h-5 mr-1.5 text-[#8ef3c1] text-center" />

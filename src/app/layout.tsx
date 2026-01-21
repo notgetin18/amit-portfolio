@@ -94,7 +94,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={sora.variable}>
+    <html lang="en" className={sora.variable} data-scroll-behavior="smooth">
       <body suppressHydrationWarning className="bg-black">
         <div className="flex justify-center ">
           <Navbar />

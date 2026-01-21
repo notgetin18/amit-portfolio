@@ -95,10 +95,10 @@ export default function Navbar() {
             <motion.div whileHover={{ scale: 1.05 }}>
               <Image
                 src={amitImage}
-                width={192}
-                height={192}
+                width={64}
+                height={64}
                 alt="amit image"
-                className="h-16 w-16 rounded-full border-2 border-white/80 shadow-md shadow-white/50"
+                className="rounded-full border-2 border-white/80 shadow-md shadow-white/50"
                 priority
               />
             </motion.div>

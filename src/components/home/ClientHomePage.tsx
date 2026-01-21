@@ -125,6 +125,7 @@ export default function ClientHomePage() {
                                                 width={900}
                                                 height={600}
                                                 className="w-full h-auto"
+                                                style={{ height: 'auto' }}
                                                 priority
                                                 fetchPriority="high"
                                             />

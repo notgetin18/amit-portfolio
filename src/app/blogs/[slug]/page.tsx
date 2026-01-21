@@ -1,4 +1,5 @@
 import { client, urlFor } from "@/lib/sanity";
+import { sanityImageLoader } from "@/lib/image-loader";
 import { postBySlugQuery } from "@/lib/sanity.queries";
 import { generateBlogPostSchema } from "@/lib/metadata/json-ld";
 import { notFound } from "next/navigation";
@@ -153,9 +154,11 @@ export default async function BlogPostPage({
                             {post.mainImage && (
                                 <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 mb-7 sm:mb-12">
                                     <Image
+                                        loader={sanityImageLoader}
                                         src={urlFor(post.mainImage).url()}
                                         alt={post.title}
                                         fill
+                                        sizes="(max-width: 1280px) 100vw, 1280px"
                                         className="object-cover"
                                         priority
                                     />

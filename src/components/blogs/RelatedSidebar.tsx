@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "@/lib/sanity";
+import { sanityImageLoader } from "@/lib/image-loader";
 import { Calendar, Clock } from "lucide-react";
 
 interface RelatedSidebarProps {
@@ -30,9 +31,11 @@ export function RelatedSidebar({ posts }: RelatedSidebarProps) {
                             <div className="flex gap-4">
                                 <div className="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden border border-white/10 group-hover:border-[#06b6d4]/40 transition-colors">
                                     <Image
+                                        loader={sanityImageLoader}
                                         src={urlFor(post.mainImage).url()}
                                         alt={post.title}
                                         fill
+                                        sizes="80px"
                                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
                                 </div>
@@ -47,7 +50,7 @@ export function RelatedSidebar({ posts }: RelatedSidebarProps) {
                                     <div className="flex items-center gap-3 text-[10px] text-slate-300">
                                         <span className="flex items-center">
                                             <Calendar className="w-3 h-3 mr-1 text-[#8ef3c1]" />
-                                            {new Date(post.publishedAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
+                                            {new Date(post.publishedAt).toLocaleDateString("en-US", { month: 'short', day: 'numeric' })}
                                         </span>
                                         <span className="flex items-center">
                                             <Clock className="w-3 h-3 mr-1 text-[#8ef3c1]" />

@@ -3,11 +3,12 @@ const nextConfig = {
     reactStrictMode: true,
     productionBrowserSourceMaps: false, // Disabled in production
     images: {
-    formats: ["image/avif", "image/webp"],
-    remotePatterns: [
-      { protocol: "https", hostname: "localhost", pathname: "**" },
-      { protocol: "https", hostname: "cdn.sanity.io", pathname: "**" },
-    ],
+        formats: ["image/avif", "image/webp"],
+        dangerouslyAllowSVG: true,
+        remotePatterns: [
+            { protocol: "https", hostname: "cdn.sanity.io", pathname: "**" },
+            { protocol: "https", hostname: "**.sanity.io", pathname: "**" },
+        ],
     },
     async redirects() {
         return [
@@ -26,4 +27,4 @@ const nextConfig = {
     serverExternalPackages: ['isomorphic-dompurify'],
 }
 
-module.exports = nextConfig
+export default nextConfig

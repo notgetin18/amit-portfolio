@@ -1,4 +1,5 @@
 import { client, urlFor } from "@/lib/sanity";
+import { sanityImageLoader } from "@/lib/image-loader";
 import { paginatedPostsQuery, totalPostsQuery, categoriesQuery } from "@/lib/sanity.queries";
 import { generateBlogSchema } from "@/lib/metadata/json-ld";
 import { BlogCard } from "@/components/blogs/BlogCard";
@@ -165,9 +166,11 @@ export default async function AllBlogsPage({
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden">
                                     <div className="relative aspect-[16/9] overflow-hidden">
                                         <Image
+                                            loader={sanityImageLoader}
                                             src={urlFor(featuredPost.mainImage).url()}
                                             alt={featuredPost.title}
                                             fill
+                                            sizes="(max-width: 1024px) 100vw, 50vw"
                                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                                             priority
                                         />
@@ -182,7 +185,7 @@ export default async function AllBlogsPage({
                                             ))}
                                             <div className="flex items-center text-slate-300 text-xs group-hover:text-[#06b6d4]">
                                                 <Calendar className="w-4 h-4 mr-2" />
-                                                {new Date(featuredPost.publishedAt).toLocaleDateString()}
+                                                {new Date(featuredPost.publishedAt).toLocaleDateString("en-IN")}
                                             </div>
                                         </div>
 
