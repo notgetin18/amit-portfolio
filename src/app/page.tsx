@@ -1,5 +1,7 @@
 import ClientHomePage from "@/components/home/ClientHomePage";
 import { generatePersonSchema, generateWebsiteSchema, generateSoftwareAppSchema } from "@/lib/metadata/json-ld";
+import Hero from "@/components/home/Hero";
+import HeroBackground from "@/components/ui/HeroBackground";
 
 export default function HomePage() {
   const jsonLd = {
@@ -18,7 +20,11 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         key="person-jsonld"
       />
-      <ClientHomePage />
+      <div className="relative overflow-hidden">
+        <HeroBackground delay={2500} />
+        <Hero />
+        <ClientHomePage />
+      </div>
     </>
   );
 }
