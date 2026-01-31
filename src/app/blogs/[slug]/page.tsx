@@ -1,6 +1,6 @@
 import { client, urlFor } from "@/lib/sanity";
 import { sanityImageLoader } from "@/lib/image-loader";
-import { postBySlugQuery } from "@/lib/sanity.queries";
+import { postBySlugQuery, postSlugsQuery } from "@/lib/sanity.queries";
 import { generateBlogPostSchema } from "@/lib/metadata/json-ld";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -14,6 +14,11 @@ import { NewsletterSignup } from "@/components/blogs/NewsletterSignup";
 import type { Metadata, ResolvingMetadata } from "next";
 
 export const revalidate = 1500; // revalidate every 15 minutes
+
+export async function generateStaticParams() {
+    const slugs = await client.fetch(postSlugsQuery);
+    return slugs.map((slug: string) => ({ slug }));
+}
 
 async function getPost(slug: string) {
     return await client.fetch(postBySlugQuery, { slug });

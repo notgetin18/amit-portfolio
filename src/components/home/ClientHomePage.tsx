@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { ArrowDown, Mail } from "lucide-react";
 import Image from "next/image";
@@ -41,10 +41,7 @@ export default function ClientHomePage() {
                     role="banner"
                 >
                     <div className="max-w-7xl mx-auto">
-                        <m.div
-                            variants={staggerContainer}
-                            initial="initial"
-                            animate="animate"
+                        <div
                             className="text-center lg:text-left"
                         >
                             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-6 sm:py-10 md:py-12">
@@ -57,18 +54,16 @@ export default function ClientHomePage() {
                                         </span>
                                     </h1>
 
-                                    <m.p
-                                        variants={fadeInUp}
+                                    <p
                                         className="mt-6 leading-snug text-base sm:text-lg md:text-xl text-slate-200 max-w-3xl"
                                     >
                                         I design and ship resilient, production-grade web
                                         applications — from fast, SEO-friendly Next.js frontends to
                                         scalable Node/Express backends and resilient cloud infra.
                                         I’ve launched SaaS products and platforms used by 1M+ users.
-                                    </m.p>
+                                    </p>
 
-                                    <m.div
-                                        variants={fadeInUp}
+                                    <div
                                         className="mt-6 flex flex-wrap gap-3 items-center"
                                     >
                                         <div className="flex flex-row gap-2 sm:gap-4 justify-center items-center">
@@ -85,10 +80,9 @@ export default function ClientHomePage() {
                                                 />
                                             </Link>
                                         </div>
-                                    </m.div>
+                                    </div>
 
-                                    <m.div
-                                        variants={fadeInUp}
+                                    <div
                                         className="mt-6 flex items-center gap-4 flex-wrap text-sm text-slate-300"
                                     >
                                         <div className="inline-flex items-center gap-3">
@@ -109,13 +103,12 @@ export default function ClientHomePage() {
                                                 TestOfire — realtime education platform
                                             </div>
                                         </div>
-                                    </m.div>
+                                    </div>
                                 </div>
 
                                 {/* Right column – hero image */}
                                 <div className="lg:col-span-5 flex justify-center lg:justify-end px-4 sm:px-6 md:px-0">
-                                    <m.div
-                                        variants={fadeInUp}
+                                    <div
                                         className="relative w-[300px] sm:w-[360px] md:w-[420px] lg:w-[520px] rounded-3xl overflow-hidden shadow-2xl border border-white/5 bg-gradient-to-br from-[#07162b]/70 via-[#07162b]/40 to-[#0b1f2b]/30 p-6 backdrop-blur-md"
                                     >
                                         <div className="relative z-10 flex items-center justify-center p-6 bg-gradient-to-br from-white/5 to-transparent rounded-2xl">
@@ -153,77 +146,66 @@ export default function ClientHomePage() {
                                                 </div>
                                             </div>
                                         </div>
-                                    </m.div>
+                                    </div>
                                 </div>
                             </div>
 
                             {/* Achievements badges */}
-                            <m.div
-                                variants={staggerContainer}
-                                initial="initial"
-                                animate="animate"
+                            <div
                                 className="flex justify-center gap-3 items-center flex-wrap"
                                 aria-hidden
                             >
-                                <m.span
-                                    variants={fadeInUp}
+                                <span
                                     className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-slate-200"
                                 >
                                     ⭐ Bright Digi Gold — 1M+ users
-                                </m.span>
-                                <m.span
-                                    variants={fadeInUp}
+                                </span>
+                                <span
                                     className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-slate-200"
                                 >
                                     🏥 Medical Kundali — healthcare SaaS
-                                </m.span>
-                                <m.span
-                                    variants={fadeInUp}
+                                </span>
+                                <span
                                     className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-slate-200"
                                 >
                                     🎓 TestOfire — real-time EdTech
-                                </m.span>
-                            </m.div>
+                                </span>
+                            </div>
 
                             {/* Social icons */}
-                            <m.div
-                                variants={fadeInUp}
+                            <div
                                 className="flex justify-center space-x-6 mt-8"
                             >
-                                <m.a
-                                    whileHover={{ scale: 1.1, y: -2 }}
+                                <a
                                     href="https://github.com/notgetin18"
-                                    className="text-gray-200 hover:text-[#eeb056] transition-colors"
+                                    className="text-gray-200 hover:text-[#eeb056] transition-transform hover:scale-110"
                                     aria-label="GitHub"
                                 >
                                     <GitHubIcon className="w-7 h-7" />
-                                </m.a>
-                                <m.a
-                                    whileHover={{ scale: 1.1, y: -2 }}
+                                </a>
+                                <a
                                     href="https://www.linkedin.com/in/notgetin18"
-                                    className="text-gray-200 hover:text-[#eeb056] transition-colors"
+                                    className="text-gray-200 hover:text-[#eeb056] transition-transform hover:scale-110"
                                     aria-label="LinkedIn"
                                 >
                                     <LinkedinIcon className="w-7 h-7" />
-                                </m.a>
-                                <m.a
-                                    whileHover={{ scale: 1.1, y: -2 }}
+                                </a>
+                                <a
                                     href="https://x.com/Amitsin40190332"
-                                    className="text-gray-100 hover:text-[#eeb056] transition-colors"
+                                    className="text-gray-100 hover:text-[#eeb056] transition-transform hover:scale-110"
                                     aria-label="X"
                                 >
                                     <XIcon className="w-10 h-10 my-1" />
-                                </m.a>
-                                <m.a
-                                    whileHover={{ scale: 1.1, y: -2 }}
+                                </a>
+                                <a
                                     href="mailto:notgetin18@gmail.com"
-                                    className="text-gray-200 hover:text-[#eeb056] transition-colors"
+                                    className="text-gray-200 hover:text-[#eeb056] transition-transform hover:scale-110"
                                     aria-label="Email"
                                 >
                                     <Mail className="w-7 h-7" />
-                                </m.a>
-                            </m.div>
-                        </m.div>
+                                </a>
+                            </div>
+                        </div>
 
                         {/* Arrow down */}
                         <m.div
@@ -257,7 +239,9 @@ export default function ClientHomePage() {
                         <h2 id="projects-heading" className="sr-only">
                             Featured Projects
                         </h2>
-                        <Projects />
+                        <Suspense fallback={<div className="w-full h-96 flex items-center justify-center"><div className="w-8 h-8 border-4 border-cyan-500 rounded-full border-t-transparent animate-spin"></div></div>}>
+                            <Projects />
+                        </Suspense>
                     </section>
 
                     <section
@@ -267,7 +251,9 @@ export default function ClientHomePage() {
                         <h2 id="services-heading" className="sr-only">
                             Services & Offerings
                         </h2>
-                        <Services />
+                        <Suspense fallback={<div className="w-full h-96 flex items-center justify-center"><div className="w-8 h-8 border-4 border-cyan-500 rounded-full border-t-transparent animate-spin"></div></div>}>
+                            <Services />
+                        </Suspense>
                     </section>
 
                     <section
@@ -277,9 +263,13 @@ export default function ClientHomePage() {
                         <h2 id="testimonials-heading" className="sr-only">
                             Testimonials
                         </h2>
-                        <Testimonials />
+                        <Suspense fallback={<div className="w-full h-96 flex items-center justify-center"><div className="w-8 h-8 border-4 border-cyan-500 rounded-full border-t-transparent animate-spin"></div></div>}>
+                            <Testimonials />
+                        </Suspense>
                     </section>
-                    <CTAsection />
+                    <Suspense fallback={<div className="w-full h-40"></div>}>
+                        <CTAsection />
+                    </Suspense>
                 </main>
             </div>
         </LazyMotion>

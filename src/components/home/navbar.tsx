@@ -83,11 +83,8 @@ export default function Navbar() {
   };
 
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className={`w-full max-w-7xl fixed top-3 -translate-x-1/2 bg-[#07162b]/50 backdrop-blur-lg z-20 border-[0.5px] sm:border border-[#06b6d4] sm:border-white/15 rounded-xl sm:rounded-3xl shadow-[#06b6d4] sm:shadow-black/20 ${isMenuOpen ? "shadow-sm" : ""}`}
+    <nav
+      className={`w-full max-w-7xl fixed top-3   bg-[#07162b]/50 backdrop-blur-lg z-20 border-[0.5px] sm:border border-[#06b6d4] sm:border-white/15 rounded-xl sm:rounded-3xl shadow-[#06b6d4] sm:shadow-black/20 ${isMenuOpen ? "shadow-sm" : ""}`}
     >
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-2">
@@ -233,7 +230,7 @@ export default function Navbar() {
           </div>
         </motion.div>
       </div>
-    </motion.nav>
+    </nav>
   );
 }
 
