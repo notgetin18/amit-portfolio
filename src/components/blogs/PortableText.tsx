@@ -76,7 +76,7 @@ const components = {
         ),
     },
     block: {
-        h1: ({ children }: any) => <h1 className="text-3xl sm:text-4xl font-black mt-10 mb-6 text-slate-100 tracking-tight">{children}</h1>,
+        h1: ({ children }: any) => <h1 className="text-3xl sm:text-4xl font-black mt-10 mb-6 text-slate-100 tracking-relaxed sm:tracking-tight">{children}</h1>,
         h2: ({ children }: any) => <h2 className="text-2xl sm:text-3xl font-black mt-8 mb-5 text-slate-100 tracking-tight">{children}</h2>,
         h3: ({ children }: any) => <h3 className="text-xl sm:text-2xl font-bold mt-6 mb-4 text-slate-100 tracking-tight">{children}</h3>,
         h4: ({ children }: any) => <h4 className="text-lg sm:text-xl font-bold mt-4 mb-3 text-slate-100 tracking-tight">{children}</h4>,
