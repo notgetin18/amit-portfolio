@@ -40,7 +40,9 @@ const components = {
         h2: ({ children }: any) => <h2 className="text-2xl sm:text-3xl font-black mt-10 mb-5 text-slate-100 tracking-tight">{children}</h2>,
         h3: ({ children }: any) => <h3 className="text-xl sm:text-2xl font-bold mt-8 mb-4 text-slate-100 tracking-tight">{children}</h3>,
         h4: ({ children }: any) => <h4 className="text-lg sm:text-xl font-bold mt-6 mb-3 text-slate-100 tracking-tight">{children}</h4>,
-        normal: ({ children }: any) => <p className="text-slate-300 leading-[1.8] mb-8 text-[17px] sm:text-lg">{children}</p>,
+        h5: ({ children }: any) => <h5 className="text-base font-medium mt-6 mb-3 text-slate-100 tracking-tight">{children}</h5>,
+        h6: ({ children }: any) => <h6 className="text-xs font-medium mt-6 mb-3 text-slate-100 tracking-tight">{children}</h6>,
+        normal: ({ children }: any) => <p className="text-slate-300 leading-[1.8]  sm:mb-6 mb-4 text-[17px] sm:text-lg">{children}</p>,
         blockquote: ({ children }: any) => (
             <blockquote className="border-l-4 border-[#06b6d4] pl-6 italic my-10 text-slate-400 bg-white/5 py-6 rounded-r-xl">
                 {children}
