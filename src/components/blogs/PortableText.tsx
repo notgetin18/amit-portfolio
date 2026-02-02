@@ -6,7 +6,7 @@ import Image from "next/image";
 const components = {
     types: {
         image: ({ value }: any) => (
-            <div className="relative w-full h-96 my-6 sm:my-8 rounded-xl overflow-hidden border border-white/10 bg-[#020617]/50">
+            <div className="relative w-full aspect-[16/9] my-4 sm:my-6 rounded-xl overflow-hidden">
                 <Image
                     loader={sanityImageLoader}
                     src={urlFor(value).url()}

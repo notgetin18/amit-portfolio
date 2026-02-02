@@ -162,12 +162,12 @@ export default async function BlogPostPage({
                         </header>
 
                         <article className="prose prose-invert prose-slate max-w-none 
-                            prose-p:text-slate-300 prose-p:leading-[1.8] prose-p:mb-8 text-lg
+                            prose-p:text-slate-300 prose-p:leading-[1.8] prose-p:mb-4 prose-p:text-sm prose-sm:text-lg
                             prose-headings:text-slate-100 prose-headings:font-black tracking-tight
                             prose-a:text-[#06b6d4] prose-a:no-underline hover:prose-a:underline 
                             prose-strong:text-white prose-code:text-[#3ed6ac] 
                             prose-pre:bg-[#07162b] prose-pre:border prose-pre:border-white/5 
-                            border-b border-white/10 pb-16"
+                            border-b border-white/10 pb-12"
                         >
                             <PortableText value={post.body} />
                         </article>
