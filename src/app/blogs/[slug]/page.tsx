@@ -130,7 +130,7 @@ export default async function BlogPostPage({
                                 ))}
                                 <div className="flex items-center text-slate-400 text-xs font-medium mt-1">
                                     <Calendar className="w-3.5 h-3.5 mr-2 text-[#06b6d4]/60" />
-                                    {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                                    {new Date(post.publishedAt).toLocaleDateString("en-IN", {
                                         month: "long",
                                         day: "numeric",
                                         year: "numeric"

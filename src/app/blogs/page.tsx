@@ -162,9 +162,9 @@ export default async function AllBlogsPage({
                         className="mb-12 sm:mb-20"
                     >
                         <Link href={`/blogs/${featuredPost.slug}`}>
-                            <div className="group relative rounded-3xl overflow-hidden border border-white/10 bg-[#07162b]/40 backdrop-blur-xl hover:border-[#06b6d4]/30 transition-all duration-500">
+                            <div className="group relative rounded-3xl overflow-hidden border border-[#06b6d4]/30 sm:border-white/10 hover:border-[#06b6d4]/30 bg-[#07162b]/40 backdrop-blur-xl transition-all duration-500">
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden">
-                                    <div className="relative aspect-[16/9] overflow-hidden bg-[#020617]/50">
+                                    <div className="relative sm:h-full aspect-[16/9] overflow-hidden bg-[#020617]/50">
                                         <Image
                                             loader={sanityImageLoader}
                                             src={urlFor(featuredPost.mainImage).url()}
@@ -176,34 +176,40 @@ export default async function AllBlogsPage({
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent lg:hidden" />
                                     </div>
-                                    <div className="p-6 sm:p-8 lg:p-11 flex flex-col justify-center">
+                                    <div className="p-4 sm:p-8 flex flex-col justify-center">
                                         <div className="flex flex-wrap items-center gap-3 mb-6">
                                             {(Array.isArray(featuredPost.categories) ? featuredPost.categories : [featuredPost.categories]).map((cat: string, i: number) => (
-                                                <span key={i} className="px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-lg px-3 py-1 bg-white/5 border border-white/5 text-slate-200 group-hover:bg-white/10 transition-colors group-hover:text-[#06b6d4]">
+                                                <span key={i} className="px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-lg px-3 py-1 bg-white/5 border border-white/5 text-[#06b6d4]  sm:text-slate-200 group-hover:bg-white/10 transition-colors group-hover:text-[#06b6d4]">
                                                     {cat}
                                                 </span>
                                             ))}
-                                            <div className="flex items-center text-slate-300 text-xs group-hover:text-[#06b6d4]">
-                                                <Calendar className="w-4 h-4 mr-2" />
-                                                {new Date(featuredPost.publishedAt).toLocaleDateString("en-IN")}
+                                            <div className="flex items-center justify-center text-slate-300 text-xs group-hover:text-[#06b6d4]">
+                                                <Calendar className="w-4 h-4 mr-2 text-slate-300" />
+                                                <div className="flex items-center justify-center text-[#06b6d4] sm:text-slate-300">
+                                                    {new Date(featuredPost.publishedAt).toLocaleDateString("en-IN")}
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <h2 className="text-xl sm:text-3xl font-bold text-slate-200 group-hover:text-white mb-6 transition-colors leading-tight">
+                                        <h2 className="text-xl sm:text-2xl font-bold text-slate-200 group-hover:text-white mb-4 sm:mb-6 transition-colors leading-relaxed sm:leading-tight">
                                             {featuredPost.title}
                                         </h2>
 
-                                        <p className="text-slate-300 group-hover:text-slate-200 text-sm sm:text-lg line-clamp-3 leading-relaxed">
+                                        <p className="text-slate-300 group-hover:text-slate-200 text-sm sm:text-lg line-clamp-3 leading-relaxed mb-3">
                                             {featuredPost.excerpt}
                                         </p>
 
                                         <div className="flex items-center justify-between mt-3">
-                                            <div className="flex items-center text-slate-200 sm:text-slate-300 font-medium italic group-hover:text-[#06b6d4] transition-colors">
-                                                <Clock className="w-4 h-4 mr-2 mt-1" />
-                                                {featuredPost.readTime || "5 min read"}
+                                            <div className="flex items-center justify-center text-[#06b6d4] sm:text-slate-300 font-medium italic group-hover:text-[#06b6d4] transition-colors">
+                                                <div>
+                                                    <Clock className="w-5 h-5 mr-2 text-slate-300 group-hover:text-[#06b6d4]" />
+                                                </div>
+                                                <div>
+                                                    {featuredPost.readTime || "5 min read"}
+                                                </div>
                                             </div>
-                                            <div className="inline-flex items-center text-white font-bold group-hover:translate-x-2 transition-transform group-hover:text-[#06b6d4]">
-                                                Read Article <ArrowRight className="ml-2 w-5 h-5 text-slate-100 sm:text-[#06b6d4]" />
+                                            <div className="inline-flex items-center text-[#06b6d4] sm:text-white font-bold group-hover:translate-x-2 transition-transform group-hover:text-[#06b6d4]">
+                                                Read Article <ArrowRight className="ml-2 w-5 h-5 text-slate-300 group-hover:text-[#06b6d4]" />
                                             </div>
                                         </div>
                                     </div>

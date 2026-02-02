@@ -3,6 +3,7 @@ import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./src/sanity/schemas";
 import { table } from "@sanity/table";
+import { codeInput } from "@sanity/code-input";
 
 export default defineConfig({
   name: "default",
@@ -13,7 +14,7 @@ export default defineConfig({
 
   basePath: "/studio",
 
-  plugins: [structureTool(), visionTool(), table()],
+  plugins: [structureTool(), visionTool(), table(), codeInput()],
 
   schema: {
     types: schemaTypes,
