@@ -124,11 +124,11 @@ export default async function BlogPostPage({
                         <header className="mb-12">
                             <div className="flex flex-wrap items-center gap-3 mb-8">
                                 {categories.map((cat: string, i: number) => (
-                                    <span key={i} className="px-5 py-2 text-[10px] font-black uppercase tracking-[0.2em] rounded-full bg-white/5 border border-white/5 text-slate-400">
+                                    <span key={i} className="px-5 py-2 text-[10px] font-black uppercase tracking-[0.2em] rounded-lg bg-white/5 border border-white/5 text-slate-400">
                                         {cat}
                                     </span>
                                 ))}
-                                <div className="flex items-center text-slate-400 text-xs font-medium mt-1">
+                                <div className="flex items-center text-slate-300 text-xs font-medium mt-2">
                                     <Calendar className="w-3.5 h-3.5 mr-2 text-[#06b6d4]/60" />
                                     {new Date(post.publishedAt).toLocaleDateString("en-IN", {
                                         month: "long",
@@ -136,13 +136,13 @@ export default async function BlogPostPage({
                                         year: "numeric"
                                     })}
                                 </div>
-                                <div className="flex items-center text-slate-400 text-xs font-medium mt-1">
+                                <div className="flex items-center text-slate-300 text-xs font-medium mt-2">
                                     <Clock className="w-3.5 h-3.5 mr-2 text-[#06b6d4]/60" />
                                     {post.readTime || "5 min read"}
                                 </div>
                             </div>
 
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-100 leading-[1.1] mb-8 tracking-tight">
+                            <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-slate-100 leading-[1.1] mb-8 tracking-wide sm:tracking-tight">
                                 {post.title}
                             </h1>
 
@@ -167,12 +167,12 @@ export default async function BlogPostPage({
                             prose-a:text-[#06b6d4] prose-a:no-underline hover:prose-a:underline 
                             prose-strong:text-white prose-code:text-[#3ed6ac] 
                             prose-pre:bg-[#07162b] prose-pre:border prose-pre:border-white/5 
-                            border-b border-white/10 pb-12"
+                            border-b border-white/10 pb-6 sm:pb-12"
                         >
                             <PortableText value={post.body} />
                         </article>
 
-                        <div className="py-12 flex flex-col items-center gap-6 border-b border-white/30">
+                        <div className="py-6 sm:py-12 flex flex-col items-center gap-6 border-b border-white/30">
                             <h4 className="text-sm font-bold text-slate-200 uppercase tracking-widest flex items-center">
                                 <Share2 className="w-4 h-4 mr-2" /> Share this Article
                             </h4>

@@ -15,8 +15,22 @@ export function RelatedSidebar({ posts }: RelatedSidebarProps) {
 
     return (
         <aside className="space-y-8">
+
+            <div className="p-6 rounded-2xl bg-gradient-to-br from-[#06b6d4]/10 to-transparent border border-[#06b6d4]/20">
+                <h4 className="text-sm font-bold text-white mb-2">Want more insights?</h4>
+                <p className="text-xs text-slate-200 mb-4 leading-relaxed">
+                    Follow my journey and get the latest tech tips straight to your inbox.
+                </p>
+                <Link
+                    href="#newsletter"
+                    className="text-xs font-bold text-[#06b6d4] hover:underline flex items-center"
+                >
+                    Join Newsletter &rarr;
+                </Link>
+            </div>
+
             <div>
-                <h3 className="text-xl font-bold text-white mb-6 pb-2 border-b border-[#06b6d4]/30 flex items-center">
+                <h3 className="text-xl pt-3 sm:pt-0 font-bold text-white mb-6 pb-2 border-b border-[#06b6d4]/30 flex items-center">
                     <span className="w-2 h-6 bg-[#8ef3c1] mr-3 rounded-full" />
                     More to Read
                 </h3>
@@ -62,19 +76,6 @@ export function RelatedSidebar({ posts }: RelatedSidebarProps) {
                         </Link>
                     ))}
                 </div>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-[#06b6d4]/10 to-transparent border border-[#06b6d4]/20">
-                <h4 className="text-sm font-bold text-white mb-2">Want more insights?</h4>
-                <p className="text-xs text-slate-200 mb-4 leading-relaxed">
-                    Follow my journey and get the latest tech tips straight to your inbox.
-                </p>
-                <Link
-                    href="#newsletter"
-                    className="text-xs font-bold text-[#06b6d4] hover:underline flex items-center"
-                >
-                    Join Newsletter &rarr;
-                </Link>
             </div>
         </aside>
     );

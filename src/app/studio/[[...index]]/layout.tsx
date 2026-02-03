@@ -9,8 +9,8 @@ export default function StudioLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en">
-            <body suppressHydrationWarning={true}>{children}</body>
+        <html suppressHydrationWarning={true} lang="en">
+            <body>{children}</body>
         </html>
     );
 }
