@@ -142,7 +142,7 @@ export default async function BlogPostPage({
                                 </div>
                             </div>
 
-                            <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-slate-100 leading-[1.1] mb-8 tracking-wide sm:tracking-tight">
+                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-100 leading-[1.1] mb-8 tracking-wide sm:tracking-tight">
                                 {post.title}
                             </h1>
 
