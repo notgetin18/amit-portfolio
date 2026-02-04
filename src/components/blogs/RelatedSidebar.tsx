@@ -5,6 +5,8 @@ import Link from "next/link";
 import { urlFor } from "@/lib/sanity";
 import { sanityImageLoader } from "@/lib/image-loader";
 import { Calendar, Clock } from "lucide-react";
+import { LazyMotion, domAnimation, m } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/constant";
 
 interface RelatedSidebarProps {
     posts: any[];
@@ -14,69 +16,74 @@ export function RelatedSidebar({ posts }: RelatedSidebarProps) {
     if (!posts || posts.length === 0) return null;
 
     return (
-        <aside className="space-y-8">
-
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-[#06b6d4]/10 to-transparent border border-[#06b6d4]/20">
-                <h4 className="text-sm font-bold text-white mb-2">Want more insights?</h4>
-                <p className="text-xs text-slate-200 mb-4 leading-relaxed">
-                    Follow my journey and get the latest tech tips straight to your inbox.
-                </p>
-                <Link
-                    href="#newsletter"
-                    className="text-xs font-bold text-[#06b6d4] hover:underline flex items-center"
+        <LazyMotion features={domAnimation}>
+            <m.aside
+                variants={staggerContainer}
+                initial="initial"
+                animate="animate"
+                className="space-y-8"
+            >
+                <m.div
+                    variants={fadeInUp}
+                    className="p-6 rounded-2xl bg-gradient-to-br from-[#06b6d4]/10 to-transparent border border-[#06b6d4]/20"
                 >
-                    Join Newsletter &rarr;
-                </Link>
-            </div>
+                    <h4 className="text-sm font-bold text-white mb-2">Want more insights?</h4>
+                    <p className="text-xs text-slate-200 mb-4 leading-relaxed">
+                        Follow my journey and get the latest tech tips straight to your inbox.
+                    </p>
+                    <Link
+                        href="#newsletter"
+                        className="text-xs font-bold text-[#06b6d4] hover:underline flex items-center"
+                    >
+                        Join Newsletter &rarr;
+                    </Link>
+                </m.div>
 
-            <div>
-                <h3 className="text-xl pt-3 sm:pt-0 font-bold text-white mb-6 pb-2 border-b border-[#06b6d4]/30 flex items-center">
-                    <span className="w-2 h-6 bg-[#8ef3c1] mr-3 rounded-full" />
-                    More to Read
-                </h3>
+                <m.div variants={fadeInUp}>
+                    <h3 className="text-xl pt-3 sm:pt-0 font-bold text-white mb-6 pb-2 border-b border-[#06b6d4]/30 flex items-center">
+                        <span className="w-2 h-6 bg-[#8ef3c1] mr-3 rounded-full" />
+                        More to Read
+                    </h3>
 
-                <div className="space-y-6">
-                    {posts.map((post) => (
-                        <Link
-                            key={post._id}
-                            href={`/blogs/${post.slug}`}
-                            className="group block"
-                        >
-                            <div className="flex gap-4">
-                                <div className="relative w-28 h-28 shrink-0 rounded-lg overflow-hidden border border-white/10 group-hover:border-[#06b6d4]/40 transition-colors bg-[#020617]/50">
-                                    <Image
-                                        loader={sanityImageLoader}
-                                        src={urlFor(post.thumbnailImage || post.mainImage).url()}
-                                        alt={post.title}
-                                        fill
-                                        sizes="80px"
-                                        className="object-contain transition-transform duration-500 group-hover:scale-110"
-                                    />
-                                </div>
+                    <div className="space-y-6">
+                        {posts.map((post) => (
+                            <Link
+                                key={post._id}
+                                href={`/blogs/${post.slug}`}
+                                className="group block"
+                            >
+                                <div className="flex gap-4">
+                                    <div className="relative w-28 h-28 shrink-0 rounded-lg overflow-hidden border border-white/10 group-hover:border-[#06b6d4]/40 transition-colors bg-[#020617]/50">
+                                        <Image
+                                            loader={sanityImageLoader}
+                                            src={urlFor(post.thumbnailImage || post.mainImage).url()}
+                                            alt={post.title}
+                                            fill
+                                            sizes="80px"
+                                            className="object-contain transition-transform duration-500 group-hover:scale-110"
+                                        />
+                                    </div>
 
-                                <div className="flex flex-col justify-center min-w-0">
-                                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#8ef3c1] mb-1">
-                                        {Array.isArray(post.categories) ? post.categories[0] : (post.categories || "Article")}
-                                    </span>
-                                    <h4 className="text-base font-bold text-slate-200 line-clamp-3 group-hover:text-white transition-colors leading-snug mb-1.5">
-                                        {post.title}
-                                    </h4>
-                                    <div className="flex items-center gap-3 text-[12px] sm:text-xs text-slate-300">
-                                        {/* <span className="flex items-center">
-                                            <Calendar className="w-4 h-4 mr-1 text-[#8ef3c1]" />
-                                            {new Date(post.publishedAt).toLocaleDateString("en-US", { month: 'short', day: 'numeric' })}
-                                        </span> */}
-                                        <span className="flex items-center">
-                                            <Clock className="w-4 h-4 mr-1 text-[#8ef3c1]" />
-                                            {post.readTime || "5 min"}
+                                    <div className="flex flex-col justify-center min-w-0">
+                                        <span className="text-[11px] font-bold uppercase tracking-wider text-[#8ef3c1] mb-1">
+                                            {Array.isArray(post.categories) ? post.categories[0] : (post.categories || "Article")}
                                         </span>
+                                        <h4 className="text-base font-bold text-slate-200 line-clamp-3 group-hover:text-white transition-colors leading-snug mb-1.5">
+                                            {post.title}
+                                        </h4>
+                                        <div className="flex items-center gap-3 text-[12px] sm:text-xs text-slate-300">
+                                            <span className="flex items-center">
+                                                <Clock className="w-4 h-4 mr-1 text-[#8ef3c1]" />
+                                                {post.readTime || "5 min"}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
-            </div>
-        </aside>
+                            </Link>
+                        ))}
+                    </div>
+                </m.div>
+            </m.aside>
+        </LazyMotion>
     );
 }

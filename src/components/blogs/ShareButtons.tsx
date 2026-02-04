@@ -3,6 +3,7 @@
 import { Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FacebookIcon, LinkedinIcon, XIcon, InstagramIcon } from "@/components/ui/social-icons";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 
 interface ShareButtonsProps {
     url: string;
@@ -44,24 +45,32 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
     };
 
     return (
-        <div className="flex items-center space-x-3">
-            <span className="text-sm font-medium text-slate-300 flex items-center">
-                <Share2 className="w-5 h-5 mr-2" /> Share:
-            </span>
-            <div className="flex space-x-2">
-                {shareLinks.map((link) => (
-                    <Button
-                        key={link.name}
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleShare(link.url)}
-                        className={`w-10 h-10 border border-white/20 text-slate-200 rounded-full transition-all duration-300 ${link.color}`}
-                        title={`Share on ${link.name}`}
-                    >
-                        {link.icon}
-                    </Button>
-                ))}
+        <LazyMotion features={domAnimation}>
+            <div className="flex items-center space-x-3">
+                <span className="text-sm font-medium text-slate-300 flex items-center">
+                    <Share2 className="w-5 h-5 mr-2" /> Share:
+                </span>
+                <div className="flex space-x-2">
+                    {shareLinks.map((link, index) => (
+                        <m.div
+                            key={link.name}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: index * 0.1 }}
+                        >
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => handleShare(link.url)}
+                                className={`w-10 h-10 border border-white/20 text-slate-200 rounded-full transition-all duration-300 ${link.color}`}
+                                title={`Share on ${link.name}`}
+                            >
+                                {link.icon}
+                            </Button>
+                        </m.div>
+                    ))}
+                </div>
             </div>
-        </div>
+        </LazyMotion>
     );
 }
