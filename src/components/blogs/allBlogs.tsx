@@ -36,7 +36,7 @@ export default function AllBlogsContent({
 
     return (
         <LazyMotion features={domAnimation}>
-            <main className="min-h-screen relative overflow-hidden bg-[#020617] pt-28 sm:pb-10 px-4 sm:px-6 lg:px-8">
+            <div className="min-h-screen relative overflow-hidden bg-[#020617] pt-28 sm:pb-10 px-4 sm:px-6 lg:px-8">
                 <HeroBackground delay={500} />
 
                 {/* Dynamic Background Accents */}
@@ -173,7 +173,7 @@ export default function AllBlogsContent({
                         </div>
                     )}
                 </div>
-            </main>
+            </div>
         </LazyMotion>
     );
 }

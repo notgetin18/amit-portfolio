@@ -97,10 +97,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true} className={sora.variable} data-scroll-behavior="smooth">
       <body className="bg-black">
-        <div className="flex justify-center ">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#06b6d4] focus:text-white focus:rounded-lg focus:font-bold"
+        >
+          Skip to main content
+        </a>
+        <header className="flex justify-center ">
           <Navbar />
-        </div>
-        {children}
+        </header>
+        <main id="main-content">
+          {children}
+        </main>
         <Toaster
           position="top-right"
           toastOptions={{

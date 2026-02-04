@@ -15,7 +15,7 @@ export default function HomeContent() {
     return (
         <LazyMotion features={domAnimation} strict>
             <div className="relative overflow-hidden">
-                <main className="relative z-10" id="main-content">
+                <div className="relative z-10">
                     <section aria-labelledby="skills-heading" className="py-6">
                         <h2 id="skills-heading" className="sr-only">
                             Skills and Technologies
@@ -61,7 +61,7 @@ export default function HomeContent() {
                     <Suspense fallback={<div className="w-full h-40"></div>}>
                         <CTAsection />
                     </Suspense>
-                </main>
+                </div>
             </div>
         </LazyMotion>
     );

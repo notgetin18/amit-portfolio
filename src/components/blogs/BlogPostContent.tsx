@@ -23,7 +23,7 @@ export default function BlogPostContent({ post, currentUrl }: BlogPostContentPro
 
     return (
         <LazyMotion features={domAnimation}>
-            <main className="min-h-screen relative bg-[#020617] pt-32 pb-5 sm:pb-10 px-4 sm:px-6 lg:px-8">
+            <div className="min-h-screen relative bg-[#020617] pt-32 pb-5 sm:pb-10 px-4 sm:px-6 lg:px-8">
                 {/* Background Decor */}
                 <div className="absolute left-0 top-0 w-full h-[300px] bg-gradient-to-b from-[#06b6d4]/3 to-transparent pointer-events-none" />
 
@@ -159,7 +159,7 @@ export default function BlogPostContent({ post, currentUrl }: BlogPostContentPro
                         <NewsletterSignup />
                     </m.section>
                 </div>
-            </main>
+            </div>
         </LazyMotion>
     );
 }
