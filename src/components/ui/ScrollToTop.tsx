@@ -24,8 +24,22 @@ export default function ScrollToTop() {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    let timeoutId: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      if (timeoutId) return;
+
+      timeoutId = setTimeout(() => {
+        toggleVisibility();
+        (timeoutId as any) = null;
+      }, 100);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
@@ -35,7 +49,7 @@ export default function ScrollToTop() {
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
-          whileHover={{ 
+          whileHover={{
             scale: 1.1,
             boxShadow: "0 0 20px rgba(6, 182, 212, 0.4)"
           }}
@@ -45,7 +59,7 @@ export default function ScrollToTop() {
           aria-label="Scroll to top"
         >
           <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5" />
-          
+
           {/* Subtle glow effect */}
           <div className="absolute inset-0 rounded-full bg-[#8ef3c1]/10 blur-md -z-10 animate-pulse" />
         </motion.button>

@@ -1,5 +1,5 @@
 "use client"
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,7 @@ import { NewsletterSignup } from "@/components/blogs/NewsletterSignup";
 export function Blog({ initialPosts = [] }: { initialPosts?: any[] }) {
 
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#07162b]/80 via-[#061025]/70 to-[#071826]/95">
 
         {/* Decorative gradient layers */}
@@ -25,30 +25,30 @@ export function Blog({ initialPosts = [] }: { initialPosts?: any[] }) {
         <div className="pt-28 pb-8 sm:pb-10 px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-7xl mx-auto">
             {/* Hero Section */}
-            <motion.div
+            <m.div
               variants={staggerContainer}
               initial="initial"
               animate="animate"
               className="text-center mb-10 sm:mb-14"
             >
-              <motion.h1
+              <m.h1
                 variants={fadeInUp}
                 className="mt-4 sm:mt-6 inline-flex items-center text-4xl sm:text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] leading-tight mb-4"
               >
                 Tech Blog
-              </motion.h1>
-              <motion.p
+              </m.h1>
+              <m.p
                 variants={fadeInUp}
                 className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
               >
                 Sharing insights, tutorials, and experiences from my journey as a
                 MERN stack developer. Learn about best practices, performance
                 optimization, and modern web development.
-              </motion.p>
-            </motion.div>
+              </m.p>
+            </m.div>
 
             {initialPosts.length > 0 ? (
-              <motion.div
+              <m.div
                 variants={staggerContainer}
                 initial="initial"
                 animate="animate"
@@ -57,11 +57,11 @@ export function Blog({ initialPosts = [] }: { initialPosts?: any[] }) {
                 {initialPosts.slice(0, 6).map((post) => (
                   <BlogCard key={post._id} post={post} />
                 ))}
-              </motion.div>
+              </m.div>
             ) : (
               <>
                 {/* Coming Soon Notice */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
@@ -93,12 +93,12 @@ export function Blog({ initialPosts = [] }: { initialPosts?: any[] }) {
                       Get Notified When I Publish
                     </Button>
                   </Card>
-                </motion.div>
+                </m.div>
                 <UpcomingArticles />
               </>
             )}
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -122,13 +122,13 @@ export function Blog({ initialPosts = [] }: { initialPosts?: any[] }) {
                   <ArrowRight className="ml-2 w-5 h-5 opacity-1 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
                 </Button>
               </Link>
-            </motion.div>
+            </m.div>
 
             {/* Newsletter Signup */}
             <NewsletterSignup />
           </div>
         </div>
       </div>
-    </>
+    </LazyMotion>
   );
 }

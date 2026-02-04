@@ -1,8 +1,8 @@
 "use client";
 
 import type React from "react";
-import { motion } from "framer-motion";
-import { Mail, Phone, Download, MapPin, Send } from "lucide-react";
+import { LazyMotion, domAnimation, m } from "framer-motion";
+import { Mail, Phone, Download, MapPin } from "lucide-react";
 import LinkedinIcon from "@/components/icons/LinkedinIcon";
 import XIcon from "@/components/icons/XIcon";
 import GitHubIcon from "@/components/icons/GitHubIcon";
@@ -28,7 +28,7 @@ export default function ContactUs() {
     subject: "",
     message: "",
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const clearError = (field: keyof typeof errors) => {
@@ -108,13 +108,13 @@ export default function ContactUs() {
           </div>,
           { duration: 5000, style: { background: "#1e293b", border: "1px solid #06b6d4" } }
         );
-        
+
         // Clear form fields
         if (nameRef.current) nameRef.current.value = "";
         if (emailRef.current) emailRef.current.value = "";
         if (subjectRef.current) subjectRef.current.value = "";
         if (messageRef.current) messageRef.current.value = "";
-        
+
         // Clear errors
         setErrors({ name: "", email: "", subject: "", message: "" });
       } else {
@@ -151,7 +151,7 @@ export default function ContactUs() {
   };
 
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#07162b]/80 via-[#061025]/70 to-[#071826]/95">
         {/* Decorative gradient layers */}
         <HeroBackground delay={500} />
@@ -161,31 +161,31 @@ export default function ContactUs() {
         <div className="pt-32 pb-10 sm:pb-16 px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-6xl mx-auto">
             {/* Hero Section */}
-            <motion.div
+            <m.div
               variants={staggerContainer}
               initial="initial"
               animate="animate"
               className="text-center mb-12 sm:mb-16"
             >
-              <motion.h1
+              <m.h1
                 variants={fadeInUp}
                 className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] mb-4"
               >
                 Let's Connect
-              </motion.h1>
-              <motion.p
+              </m.h1>
+              <m.p
                 variants={fadeInUp}
                 className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed"
               >
                 Ready to discuss your next project or just want to say hello? I'm
                 available for freelance opportunities and would love to explore
                 how we can work together.
-              </motion.p>
-            </motion.div>
+              </m.p>
+            </m.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
               {/* Contact Information */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
@@ -202,13 +202,13 @@ export default function ContactUs() {
                   </p>
                 </div>
 
-                <motion.div
+                <m.div
                   variants={staggerContainer}
                   initial="initial"
                   animate="animate"
                   className="space-y-4"
                 >
-                  <motion.div variants={fadeInUp}>
+                  <m.div variants={fadeInUp}>
                     <Card className="p-4 bg-white/5 border border-white/10 hover:border-white/20 transition-colors duration-300">
                       <div className="flex items-center gap-4">
                         <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
@@ -228,9 +228,9 @@ export default function ContactUs() {
                         </div>
                       </div>
                     </Card>
-                  </motion.div>
+                  </m.div>
 
-                  <motion.div variants={fadeInUp}>
+                  <m.div variants={fadeInUp}>
                     <Card className="p-4 bg-white/5 border border-white/10 hover:border-white/20 transition-colors duration-300">
                       <div className="flex items-center gap-4">
                         <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
@@ -250,9 +250,9 @@ export default function ContactUs() {
                         </div>
                       </div>
                     </Card>
-                  </motion.div>
+                  </m.div>
 
-                  <motion.div variants={fadeInUp}>
+                  <m.div variants={fadeInUp}>
                     <Card className="p-4 bg-white/5 border border-white/10 hover:border-white/20 transition-colors duration-300">
                       <div className="flex items-center gap-4">
                         <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
@@ -266,11 +266,11 @@ export default function ContactUs() {
                         </div>
                       </div>
                     </Card>
-                  </motion.div>
-                </motion.div>
+                  </m.div>
+                </m.div>
 
                 {/* Social Links */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
@@ -281,35 +281,35 @@ export default function ContactUs() {
                     Follow Me
                   </h3>
                   <div className="flex space-x-4">
-                    <motion.a
+                    <m.a
                       whileHover={{ scale: 1.05, y: -2 }}
                       href="https://www.github.com/notgetin18"
                       className="w-12 h-12 rounded-lg flex items-center justify-center text-slate-300 bg-white/10 hover:text-white hover:bg-white/20 transition-all duration-300"
                       aria-label="Visit Amit Kumar's GitHub profile"
                     >
                       <GitHubIcon className="w-7 h-7" />
-                    </motion.a>
-                    <motion.a
+                    </m.a>
+                    <m.a
                       whileHover={{ scale: 1.1, y: -2 }}
                       href="https://www.linkedin.com/in/notgetin18"
                       className="w-12 h-12 rounded-lg flex items-center justify-center text-slate-300 bg-white/10 hover:text-white hover:bg-white/20 transition-all duration-300"
                       aria-label="Visit Amit Kumar's LinkedIn profile"
                     >
                       <LinkedinIcon className="w-7 h-7" />
-                    </motion.a>
-                    <motion.a
+                    </m.a>
+                    <m.a
                       whileHover={{ scale: 1.1, y: -2 }}
                       href="https://x.com/Amitsin40190332"
                       className="w-12 h-12 rounded-lg flex items-center justify-center text-slate-300 bg-white/10 hover:text-white hover:bg-white/20 transition-all duration-300"
                       aria-label="Visit Amit Kumar's X profile"
                     >
                       <XIcon className="w-10 h-10 pt-2.5 pl-2.5" />
-                    </motion.a>
+                    </m.a>
                   </div>
-                </motion.div>
+                </m.div>
 
                 {/* Resume Download */}
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
@@ -334,11 +334,11 @@ export default function ContactUs() {
                       <span>Download Resume (DOCX)</span>
                     </div>
                   </div>
-                </motion.div>
-              </motion.div>
+                </m.div>
+              </m.div>
 
               {/* Contact Form */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -489,11 +489,11 @@ export default function ContactUs() {
                     via email.
                   </p>
                 </Card>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </LazyMotion>
   );
 }

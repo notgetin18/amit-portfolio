@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -69,39 +69,41 @@ export function NewsletterSignup() {
   };
 
   return (
-    <motion.section
-      id="newsletter" // Anchor ID for smooth scroll
-      style={{ scrollMarginTop: '100px' }}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="text-center pt-20 pb-10 px-4"
-    >
-      <Card className="p-5 sm:p-10 max-w-4xl mx-auto bg-gradient-to-r from-[#06b6d4]/20 to-[#3ed6ac]/20 border border-white/10 backdrop-blur-sm text-center">
-        <h2 className="text-2xl sm:text-4xl font-extrabold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]">Stay Updated</h2>
-        <p className="text-sm sm:text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-          Be the first to know when I publish new articles about MERN
-          stack development, performance tips, and project insights.
-        </p>
-        <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto w-full">
-          <Input
-            ref={inputRef}
-            type="email"
-            placeholder="Enter your email"
-            required
-            disabled={submitting}
-            className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac] disabled:opacity-50"
-          />
-          <Button
-            type="submit"
-            disabled={submitting}
-            className="rounded-md bg-gradient-to-tr from-[#06b6d4] to-[#8ef3c1] font-semibold text-black hover:shadow-md hover:shadow-[#8ef3c1]/50 ease-in-out duration-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex-1 sm:flex-none"
-          >
-            {submitting ? "Subscribing..." : "Subscribe"}
-          </Button>
-        </form>
-      </Card>
-    </motion.section>
+    <LazyMotion features={domAnimation}>
+      <m.section
+        id="newsletter" // Anchor ID for smooth scroll
+        style={{ scrollMarginTop: '100px' }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center pt-20 pb-10 px-4"
+      >
+        <Card className="p-5 sm:p-10 max-w-4xl mx-auto bg-gradient-to-r from-[#06b6d4]/20 to-[#3ed6ac]/20 border border-white/10 backdrop-blur-sm text-center">
+          <h2 className="text-2xl sm:text-4xl font-extrabold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4]">Stay Updated</h2>
+          <p className="text-sm sm:text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Be the first to know when I publish new articles about MERN
+            stack development, performance tips, and project insights.
+          </p>
+          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto w-full">
+            <Input
+              ref={inputRef}
+              type="email"
+              placeholder="Enter your email"
+              required
+              disabled={submitting}
+              className="w-full bg-white/5 border-white/20 text-white placeholder:text-slate-400 focus:ring-[#3ed6ac] disabled:opacity-50"
+            />
+            <Button
+              type="submit"
+              disabled={submitting}
+              className="rounded-md bg-gradient-to-tr from-[#06b6d4] to-[#8ef3c1] font-semibold text-black hover:shadow-md hover:shadow-[#8ef3c1]/50 ease-in-out duration-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex-1 sm:flex-none"
+            >
+              {submitting ? "Subscribing..." : "Subscribe"}
+            </Button>
+          </form>
+        </Card>
+      </m.section>
+    </LazyMotion>
   );
 }
