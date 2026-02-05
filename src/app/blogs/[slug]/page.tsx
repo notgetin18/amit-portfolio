@@ -100,7 +100,7 @@ export default async function BlogPostPage({
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBlogPostSchema(post)) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBlogPostSchema(post, ogImage)) }}
             />
             <script
                 type="application/ld+json"
