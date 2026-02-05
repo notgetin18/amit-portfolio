@@ -78,7 +78,18 @@ export function generateBlogPostSchema(post: any) {
     "description": post.excerpt,
     "image": post.mainImage ? post.mainImage : `${BASE_URL}/og-image.jpg`,
     "datePublished": post.publishedAt,
-    "author": { "@id": PERSON_ID },
+    "dateModified": post.updatedAt || post.publishedAt,
+    "author": {
+      "@type": "Person",
+      "@id": PERSON_ID,
+      "name": "Amit Kumar",
+      "url": BASE_URL,
+      "sameAs": [
+        "https://github.com/notgetin18",
+        "https://www.linkedin.com/in/notgetin18",
+        "https://x.com/Amitsin40190332"
+      ]
+    },
     "publisher": {
       "@type": "Organization",
       "name": "Amit Dev Journey",

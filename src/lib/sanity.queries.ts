@@ -42,6 +42,7 @@ export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][
   mainImage,
   thumbnailImage,
   publishedAt,
+  "updatedAt": _updatedAt,
   "categories": coalesce(array::compact(categories[]->title) + categories[!defined(_type)], [category]),
   readTime,
   keywords,

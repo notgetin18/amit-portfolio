@@ -49,6 +49,12 @@ export default function Head() {
         <>
             {/* canonical + basic fallbacks stay in metadata in layout.tsx */}
             <link rel="canonical" href="https://www.amitdevjourney.xyz/" />
+            <link
+                rel="alternate"
+                type="application/rss+xml"
+                title="The Journal | Amit Kumar Portfolio"
+                href="https://www.amitdevjourney.xyz/rss.xml"
+            />
             <script
                 key="person-jsonld"
                 type="application/ld+json"
