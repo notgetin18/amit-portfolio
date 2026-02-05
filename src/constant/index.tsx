@@ -181,3 +181,26 @@ export const teamMembers: TeamMember[] = [
     avatar: "/team/Raghvender.jpeg"
   },
 ];
+
+export const faqItems = [
+  {
+    question: "What makes a portfolio the best example?",
+    answer:
+      "A best portfolio example shows real outcomes, clear problem-solving, and credible proof. It combines strong case studies, performance and UX details, and measurable impact like users reached or conversion lift.",
+  },
+  {
+    question: "How many projects should a developer portfolio include?",
+    answer:
+      "Three to five strong case studies beat a long list. Each should show the problem, approach, architecture decisions, and results.",
+  },
+  {
+    question: "Do I need a portfolio if I already have a resume?",
+    answer:
+      "Yes. A resume lists skills, while a portfolio proves them with real examples, screenshots, and live links.",
+  },
+  {
+    question: "How can I improve my portfolio's ranking on Google?",
+    answer:
+      "Create a focused landing page, write supporting blog posts, add structured data (FAQ and breadcrumbs), and earn backlinks from developer communities and portfolios lists.",
+  },
+];

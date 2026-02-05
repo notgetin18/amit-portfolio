@@ -81,7 +81,7 @@ export default function HeroBackground({ delay = 500 }: { delay?: number }) {
       fpsLimit: 60,
       particles: {
         number: {
-          value: isMobile ? 200 : 400,
+          value: isMobile ? 200 : 450,
           density: { enable: true, area: 1000 },
         },
         color: { value: ["#dde2e6", "#fff", "#dde2e6"] },
@@ -97,7 +97,7 @@ export default function HeroBackground({ delay = 500 }: { delay?: number }) {
             minimumValue: 0.2,
           },
         },
-        size: { value: { min: 0.2, max: 1.5 } },
+        size: { value: { min: 0.3, max: 1.5 } },
         move: { enable: false },
         links: { enable: false },
         value: { min: 0.2, max: 1 },
@@ -138,12 +138,12 @@ export default function HeroBackground({ delay = 500 }: { delay?: number }) {
       },
       particles: {
         number: {
-          value: isMobile ? 280 : 350,
+          value: isMobile ? 280 : 500,
           density: {
             enable: true,
             area: 1000,
           },
-          size: { value: { min: 0.2, max: 1 } },
+          size: { value: { min: 0.2, max: 1.3 } },
         },
         color: {
           value: ["#FFFF00", "#eeb056"], // Keep yellow for foreground
@@ -175,7 +175,7 @@ export default function HeroBackground({ delay = 500 }: { delay?: number }) {
           },
         },
         size: {
-          value: { min: 0.2, max: 1.5 },
+          value: { min: 0.5, max: 1.5 },
         },
         move: {
           enable: true,

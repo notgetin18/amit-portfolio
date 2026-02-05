@@ -39,6 +39,13 @@ const Footer: React.FC = () => {
                             Full-stack engineer delivering scalable web applications, performant backends, and modern user experiences.
                             Solo or with a curated expert team — built for measurable impact.
                         </p>
+                        <a
+                            href="/best-portfolio"
+                            aria-label="Go to portfolio"
+                            className="inline-block mt-2 text-sm font-medium text-[#fff]"
+                        >
+                            <span className="hover:underline hover:text-[#8ef3c1] duration-300 ease-in-out transition-all">Go to portfolio →</span>
+                        </a>
                     </div>
 
                     {/* Center: Quick Links */}
