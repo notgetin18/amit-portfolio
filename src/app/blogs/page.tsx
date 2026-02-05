@@ -1,6 +1,6 @@
 import { client } from "@/lib/sanity";
 import { paginatedPostsQuery, totalPostsQuery, categoriesQuery } from "@/lib/sanity.queries";
-import { generateBlogSchema } from "@/lib/metadata/json-ld";
+import { generateBlogSchema, generateBreadcrumbSchema } from "@/lib/metadata/json-ld";
 import AllBlogsContent from "@/components/blogs/allBlogs";
 import { Metadata } from "next";
 
@@ -101,6 +101,17 @@ export default async function AllBlogsPage({
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBlogSchema()) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        generateBreadcrumbSchema([
+                            { name: "Home", url: "https://www.amitdevjourney.xyz/" },
+                            { name: "Blogs", url: "https://www.amitdevjourney.xyz/blogs" },
+                        ])
+                    ),
+                }}
             />
             <AllBlogsContent
                 posts={posts}

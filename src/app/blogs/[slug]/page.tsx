@@ -1,6 +1,6 @@
 import { client } from "@/lib/sanity";
 import { postBySlugQuery, postSlugsQuery } from "@/lib/sanity.queries";
-import { generateBlogPostSchema } from "@/lib/metadata/json-ld";
+import { generateBlogPostSchema, generateBreadcrumbSchema } from "@/lib/metadata/json-ld";
 import { notFound } from "next/navigation";
 import BlogPostContent from "@/components/blogs/BlogPostContent";
 import type { Metadata, ResolvingMetadata } from "next";
@@ -92,12 +92,27 @@ export default async function BlogPostPage({
     }
 
     const currentUrl = `https://www.amitdevjourney.xyz/blogs/${slug}`;
+    const ogImage = post.mainImage
+        ? urlFor(post.mainImage).width(1200).height(630).fit("crop").format("jpg").url()
+        : "https://www.amitdevjourney.xyz/og-image.jpg";
 
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBlogPostSchema(post)) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(
+                        generateBreadcrumbSchema([
+                            { name: "Home", url: "https://www.amitdevjourney.xyz/" },
+                            { name: "Blogs", url: "https://www.amitdevjourney.xyz/blogs" },
+                            { name: post.title, url: currentUrl },
+                        ])
+                    ),
+                }}
             />
             <BlogPostContent post={post} currentUrl={currentUrl} />
         </>
