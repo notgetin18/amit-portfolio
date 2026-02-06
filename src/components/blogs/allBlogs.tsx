@@ -1,5 +1,5 @@
 "use client";
-
+import { Suspense } from "react";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -144,7 +144,9 @@ export default function AllBlogsContent({
 
                     {/* Operations Bar (Search & Filter) */}
                     <div className="sticky top-24 z-50 mb-12 sm:mb-16">
-                        <SearchAndFilter categories={categories} />
+                        <Suspense fallback={<div className="h-16 w-full bg-[#07162b]/40 rounded-3xl animate-pulse" />}>
+                            <SearchAndFilter categories={categories} />
+                        </Suspense>
                     </div>
 
                     {/* Article Grid */}
@@ -169,7 +171,9 @@ export default function AllBlogsContent({
 
                     {totalPages > 1 && (
                         <div className="mt-20">
-                            <Pagination totalPages={totalPages} />
+                            <Suspense fallback={<div className="h-10 w-full bg-[#07162b]/40 rounded-3xl animate-pulse" />}>
+                                <Pagination totalPages={totalPages} />
+                            </Suspense>
                         </div>
                     )}
                 </div>
