@@ -23,7 +23,7 @@ export default function BlogPostContent({ post, currentUrl }: BlogPostContentPro
 
     return (
         <LazyMotion features={domAnimation}>
-            <div className="min-h-screen relative bg-[#020617] pt-32 pb-5 sm:pb-10 px-4 sm:px-6 lg:px-8">
+            <div className="min-h-screen relative bg-[#212121]/45 pt-32 pb-5 sm:pb-10 px-4 sm:px-6 lg:px-8">
                 {/* Background Decor */}
                 <div className="absolute left-0 top-0 w-full h-[300px] bg-gradient-to-b from-[#06b6d4]/3 to-transparent pointer-events-none" />
 
@@ -52,20 +52,20 @@ export default function BlogPostContent({ post, currentUrl }: BlogPostContentPro
                             <header className="mb-12">
                                 <m.div variants={fadeInUp} className="flex flex-wrap items-center gap-3 mb-8">
                                     {categories.map((cat: string, i: number) => (
-                                        <span key={i} className="px-5 py-2 text-[10px] font-black uppercase tracking-[0.2em] rounded-lg bg-white/5 border border-white/5 text-slate-400">
+                                        <span key={i} className="px-5 py-2 text-[10px] font-black uppercase tracking-[0.2em] rounded-lg bg-white/5 border border-white/15 text-slate-200">
                                             {cat}
                                         </span>
                                     ))}
-                                    <div className="flex items-center text-slate-300 text-xs font-medium mt-2">
-                                        <Calendar className="w-3.5 h-3.5 mr-2 text-[#06b6d4]/60" />
+                                    <div className="flex items-center text-slate-200 text-xs font-medium mt-2">
+                                        <Calendar className=" w-4 h-4 mr-2 text-[#06b6d4]/70" />
                                         {new Date(post.publishedAt).toLocaleDateString("en-IN", {
                                             month: "long",
                                             day: "numeric",
                                             year: "numeric"
                                         })}
                                     </div>
-                                    <div className="flex items-center text-slate-300 text-xs font-medium mt-2">
-                                        <Clock className="w-3.5 h-3.5 mr-2 text-[#06b6d4]/60" />
+                                    <div className="flex items-center text-slate-200 text-xs font-medium mt-2">
+                                        <Clock className="w-4 h-4 mr-2 text-[#06b6d4]/70" />
                                         {post.readTime || "5 min read"}
                                     </div>
                                 </m.div>

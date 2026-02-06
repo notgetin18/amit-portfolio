@@ -88,10 +88,11 @@ const components = {
                 {children}
             </blockquote>
         ),
+
     },
     list: {
-        bullet: ({ children }: any) => <ul className="list-disc list-inside mb-3 sm:mb-4 text-slate-300 space-y-2">{children}</ul>,
-        number: ({ children }: any) => <ol className="list-decimal list-inside mb-3 sm:mb-4 text-slate-300 space-y-2">{children}</ol>,
+        bullet: ({ children }: any) => <ul className="list-disc list-inside pl-2.5 mb-3 sm:mb-4 text-slate-300 space-y-2">{children}</ul>,
+        number: ({ children }: any) => <ol className="list-decimal list-inside pl-2.5 mb-3 sm:mb-4 text-slate-300 space-y-2">{children}</ol>,
     },
     marks: {
         link: ({ children, value }: any) => {
