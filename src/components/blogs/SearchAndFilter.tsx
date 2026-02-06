@@ -8,7 +8,7 @@ import { CategoryFilter } from "./CategoryFilter";
 interface SearchAndFilterProps {
     categories: string[];
 }
-
+console.log("categories");
 export function SearchAndFilter({ categories }: SearchAndFilterProps) {
     const router = useRouter();
     const searchParams = useSearchParams();
