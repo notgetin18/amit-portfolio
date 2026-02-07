@@ -273,7 +273,7 @@ export default function Services() {
                 </p>
                 <div className="inline-block text-lg font-semibold text-white bg-white/10 px-6 py-3 rounded-full border border-white/20 shadow-lg">
                   <span className="text-yellow-300">
-                    Christmas & New Year Special:
+                    Special Offer :
                   </span>{" "}
                   15% OFF on all new projects!
                 </div>
@@ -294,7 +294,7 @@ export default function Services() {
               <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-4">
                 Ready to Scope Your Project?
               </h2>
-              <p className="text-slate-400 mb-6 max-w-xl mx-auto">
+              <p className="text-slate-300 mb-6 max-w-xl mx-auto">
                 Whether it's a quick audit or full-team build, I'm here to deliver
                 measurable impact.
               </p>

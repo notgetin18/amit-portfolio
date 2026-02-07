@@ -116,7 +116,7 @@ const Footer: React.FC = () => {
                     </p>
                     <p className='py-1 text-slate-400'>All rights reserved.</p>
                     <p className="mt-2 text-neutral-200">
-                        Special Holiday Offer: {" "}
+                        Special Offer : {" "}
                         <span className="text-yellow-300 font-semibold">15% OFF</span> on all new projects booked this season!
                     </p>
                 </div>

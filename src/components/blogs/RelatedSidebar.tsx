@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "@/lib/sanity";
 import { sanityImageLoader } from "@/lib/image-loader";
-import { Calendar, Clock } from "lucide-react";
+import { Clock } from "lucide-react";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/constant";
 
@@ -14,8 +14,6 @@ interface RelatedSidebarProps {
 
 export function RelatedSidebar({ posts }: RelatedSidebarProps) {
     if (!posts || posts.length === 0) return null;
-
-    console.log(posts);
 
     return (
         <LazyMotion features={domAnimation}>
@@ -55,7 +53,7 @@ export function RelatedSidebar({ posts }: RelatedSidebarProps) {
                                 className="group block"
                             >
                                 <div className="flex gap-4">
-                                    <div className="relative w-28 h-28 shrink-0 rounded-lg overflow-hidden border border-white/15 group-hover:border-[#06b6d4]/40 transition-colors bg-[#020617]/50">
+                                    <div className="relative w-28 h-28 sm:w-32 sm:h-32 shrink-0 rounded-lg overflow-hidden border border-[#06b6d4]/40 sm:border-white/15 group-hover:border-[#06b6d4]/40 transition-colors bg-[#020617]/50">
                                         <Image
                                             loader={sanityImageLoader}
                                             src={urlFor(post.thumbnailImage || post.mainImage).url()}
@@ -69,12 +67,12 @@ export function RelatedSidebar({ posts }: RelatedSidebarProps) {
                                     <div className="flex flex-col justify-center min-w-0">
                                         <span className="text-[11px] font-bold uppercase tracking-wider text-[#8ef3c1] mb-1">
                                             {post.categories.slice(0, 2).map((category: any, index: number) => (
-                                                <span className="border border-[#8ef3c1]/20 px-2 rounded mr-1" key={index}>
+                                                <span className="border border-[#8ef3c1]/20 px-2 rounded mr-1.5 text-center" key={index}>
                                                     {category}
                                                 </span>
                                             ))}
                                         </span>
-                                        <h4 className="text-base font-thin text-slate-200 line-clamp-3 group-hover:text-white transition-colors leading-snug mb-1.5">
+                                        <h4 className="text-base sm:text-sm font-thin text-slate-200 line-clamp-3 group-hover:text-white transition-colors leading-snug mb-1.5">
                                             {post.title}
                                         </h4>
                                         <div className="flex items-center gap-3 text-[12px] sm:text-xs text-slate-300">

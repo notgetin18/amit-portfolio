@@ -208,8 +208,8 @@ export default function ContactUs() {
                   animate="animate"
                   className="space-y-4"
                 >
-                  <m.div variants={fadeInUp}>
-                    <Card className="p-4 bg-white/5 border border-white/10 hover:border-white/20 transition-colors duration-300">
+                  <m.div variants={fadeInUp} className="">
+                    <Card className="p-4 bg-white/5 border border-white/10 hover:border-white/30 transition-colors duration-300">
                       <div className="flex items-center gap-4">
                         <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
                           <Mail className="w-5 h-5 text-[#3ed6ac]" />
@@ -231,7 +231,7 @@ export default function ContactUs() {
                   </m.div>
 
                   <m.div variants={fadeInUp}>
-                    <Card className="p-4 bg-white/5 border border-white/10 hover:border-white/20 transition-colors duration-300">
+                    <Card className="p-4 bg-white/5 border border-white/10 hover:border-white/30 transition-colors duration-300">
                       <div className="flex items-center gap-4">
                         <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
                           <Phone className="w-5 h-5 text-[#3ed6ac]" />
@@ -280,7 +280,7 @@ export default function ContactUs() {
                   <h3 className="text-xl font-semibold text-white mb-4">
                     Follow Me
                   </h3>
-                  <div className="flex space-x-4">
+                  <div className="flex space-x-4 backdrop-blur-lg">
                     <m.a
                       whileHover={{ scale: 1.05, y: -2 }}
                       href="https://www.github.com/notgetin18"

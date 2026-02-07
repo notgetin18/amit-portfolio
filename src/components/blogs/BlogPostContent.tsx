@@ -137,7 +137,7 @@ export default function BlogPostContent({ post, currentUrl }: BlogPostContentPro
                                     <Tag className="w-5 h-5 mr-2 sm:w-8 sm:h-8 text-[#8ef3c1]" />
                                     Deep Dive Further
                                 </h2>
-                                <Link href="/blogs" className="text-sm font-bold tracking-wider text-[#8ef3c1] hover:underline">
+                                <Link href="/blogs" className="text-sm font-semibold tracking-wider text-[#8ef3c1] hover:underline">
                                     View all articles &rarr;
                                 </Link>
                             </div>
