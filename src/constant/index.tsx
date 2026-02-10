@@ -10,7 +10,7 @@ Phone: (+91) 9660637657
 Address: Laxmi Nagar, New Delhi - 110092
 
 Github: https://github.com/notgetin18
-Linkedin: https://www.linkedin.com/in/notgetin18
+Linkedin: https://www.linkedin.com/in/mern-expert-amit
 X: https://x.com/Amitsin40190332
 Portfolio: https://www.amitdevjourney.xyz/
 

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Sora } from "next/font/google";
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Navbar from "@/components/home/navbar";
 import Footer from "@/components/footer";
@@ -18,13 +18,13 @@ const sora = Sora({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.amitdevjourney.xyz/"),
   title: {
-    default: "Amit Kumar | MERN Full-Stack Developer & Portfolio",
+    default: "Amit Kumar | Expert MERN Stack Developer & Learn in Public",
     template: "%s | Amit Kumar Portfolio",
   },
   description:
-    "Amit Kumar — MERN Full-Stack Developer. Building scalable SaaS, EdTech, and healthcare apps for 1M+ users with React, Node.js, and MongoDB. View my projects.",
+    "Amit Kumar — Expert MERN Stack Developer. Building scalable 1M+ user SaaS platforms. Learning in Public: sharing insights on React, Node.js, and scalable architecture.",
   keywords:
-    "Amit Kumar, MERN, full stack developer, React, Next.js, Node.js, Express, MongoDB, TypeScript, JavaScript, SaaS, healthcare SaaS, EdTech, real-time, 1M+ users, portfolio, freelance, India",
+    "Amit Kumar, MERN Developer Expert, full stack developer, React master, Next.js, Node.js, MongoDB, TypeScript, SaaS architecture, India, tech influencer",
   authors: [{ name: "Amit Kumar" }],
   robots: {
     index: true,
@@ -88,14 +88,18 @@ export const viewport: Viewport = {
   ],
 };
 
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning={true} className={sora.variable} data-scroll-behavior="smooth">
+    <html
+      lang="en"
+      suppressHydrationWarning={true}
+      className={sora.variable}
+      data-scroll-behavior="smooth"
+    >
       <body className="bg-black">
         <a
           href="#main-content"
@@ -106,9 +110,7 @@ export default function RootLayout({
         <header className="flex justify-center ">
           <Navbar />
         </header>
-        <main id="main-content">
-          {children}
-        </main>
+        <main id="main-content">{children}</main>
         <Toaster
           position="top-right"
           toastOptions={{

@@ -12,19 +12,22 @@ export const PERSON_SCHEMA = {
   "@id": PERSON_ID,
   name: "Amit Kumar",
   url: BASE_URL,
-  jobTitle: "MERN Full-Stack Developer & Product Engineer",
+  jobTitle: "MERN Developer Expert & Product Engineer",
   image: `${BASE_URL}/og-image.jpg`,
   sameAs: [
     "https://github.com/notgetin18",
-    "https://www.linkedin.com/in/notgetin18",
+    "https://www.linkedin.com/in/mern-expert-amit",
     "https://x.com/Amitsin40190332",
+    "https://www.facebook.com/singh.amit.18041",
+    "https://dev.to/mern-expert-amit",
+    "https://www.instagram.com/notgetin18/",
   ],
   worksFor: {
     "@type": "Organization",
     name: "Bright DiGi Gold",
   },
   knowsAbout: [
-    "MERN Stack",
+    "MERN Developer Expert",
     "React",
     "Next.js",
     "Node.js",
@@ -32,6 +35,7 @@ export const PERSON_SCHEMA = {
     "TypeScript",
     "FinTech Development",
     "SaaS Architecture",
+    "Scalable Web Systems",
   ],
 };
 
@@ -99,7 +103,7 @@ export function generateBlogPostSchema(post: any, ogImage: string) {
       url: BASE_URL,
       sameAs: [
         "https://github.com/notgetin18",
-        "https://www.linkedin.com/in/notgetin18",
+        "https://www.linkedin.com/in/mern-expert-amit",
         "https://x.com/Amitsin40190332",
       ],
     },

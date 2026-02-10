@@ -8,7 +8,7 @@ export default function Head() {
             url: "https://www.amitdevjourney.xyz/",
             sameAs: [
                 "https://github.com/notgetin18",
-                "https://www.linkedin.com/in/notgetin18",
+                "https://www.linkedin.com/in/mern-expert-amit",
                 "https://x.com/Amitsin40190332",
             ],
             knowsAbout: [
