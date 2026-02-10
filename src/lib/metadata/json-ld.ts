@@ -15,7 +15,7 @@ export const PERSON_SCHEMA = {
   jobTitle: "MERN Developer Expert & Product Engineer",
   image: `${BASE_URL}/og-image.jpg`,
   sameAs: [
-    "https://github.com/notgetin18",
+    "https://github.com/mern-expert-amit",
     "https://www.linkedin.com/in/mern-expert-amit",
     "https://x.com/Amitsin40190332",
     "https://www.facebook.com/singh.amit.18041",
@@ -102,9 +102,10 @@ export function generateBlogPostSchema(post: any, ogImage: string) {
       name: "Amit Kumar",
       url: BASE_URL,
       sameAs: [
-        "https://github.com/notgetin18",
+        "https://github.com/mern-expert-amit",
         "https://www.linkedin.com/in/mern-expert-amit",
         "https://x.com/Amitsin40190332",
+        "https://dev.to/mern-expert-amit",
       ],
     },
     publisher: {

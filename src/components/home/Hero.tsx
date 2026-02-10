@@ -144,7 +144,7 @@ export default function Hero() {
             {/* Social icons */}
             <div className="flex justify-center space-x-6 mt-8">
               <a
-                href="https://github.com/notgetin18"
+                href="https://github.com/mern-expert-amit"
                 className="text-gray-200 hover:text-[#eeb056] transition-transform hover:scale-110"
                 aria-label="GitHub"
               >

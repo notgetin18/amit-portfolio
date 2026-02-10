@@ -108,7 +108,7 @@ const Footer: React.FC = () => {
                 },
                 {
                   icon: Github,
-                  href: "https://github.com/notgetin18",
+                  href: "https://github.com/mern-expert-amit",
                   label: "GitHub",
                 },
                 {
