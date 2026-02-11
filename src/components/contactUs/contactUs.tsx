@@ -291,7 +291,7 @@ export default function ContactUs() {
                     </m.a>
                     <m.a
                       whileHover={{ scale: 1.1, y: -2 }}
-                      href="https://www.linkedin.com/in/mern-expert-amit"
+                      href="https://www.linkedin.com/in/mern-developer-expert-amit"
                       className="w-12 h-12 rounded-lg flex items-center justify-center text-slate-300 bg-white/10 hover:text-white hover:bg-white/20 transition-all duration-300"
                       aria-label="Visit Amit Kumar's LinkedIn profile"
                     >

@@ -103,12 +103,12 @@ const Footer: React.FC = () => {
               {[
                 {
                   icon: LinkedinIcon,
-                  href: "https://www.linkedin.com/in/mern-expert-amit",
+                  href: "https://www.linkedin.com/in/mern-developer-expert-amit",
                   label: "LinkedIn",
                 },
                 {
                   icon: Github,
-                  href: "https://github.com/mern-expert-amit",
+                  href: "https://github.com/mern-developer-expert",
                   label: "GitHub",
                 },
                 {
@@ -123,12 +123,12 @@ const Footer: React.FC = () => {
                 },
                 {
                   icon: FacebookIcon,
-                  href: "https://www.facebook.com/singh.amit.18041",
+                  href: "https://www.facebook.com/mern.developer.expert",
                   label: "Facebook",
                 },
                 {
                   icon: InstagramIcon,
-                  href: "https://www.instagram.com/notgetin18/",
+                  href: "https://www.instagram.com/mern_developer_expert/",
                   label: "Instagram",
                 },
               ].map((social) => (

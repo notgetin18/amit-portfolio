@@ -143,7 +143,7 @@ const Projects = () => {
                       <a
                         target="_blank"
                         rel="noopener noreferrer"
-                        href="https://github.com/mern-expert-amit"
+                        href="https://github.com/mern-developer-expert"
                         className="bg-white/8 hover:bg-white/10 shadow-sm border border-white/6 flex items-center gap-2 px-3 py-1.5 rounded-md text-sm"
                         aria-label="View Amit's GitHub profile"
                       >
@@ -259,7 +259,7 @@ const Projects = () => {
                           <a
                             target="_blank"
                             rel="noopener noreferrer"
-                            href="https://github.com/mern-expert-amit"
+                            href="https://github.com/mern-developer-expert"
                             className="bg-white/8 hover:bg-white/10 shadow-sm border border-white/6 flex items-center gap-2 px-3 py-1.5 rounded-md text-sm"
                             aria-label="View Amit's GitHub profile"
                           >
@@ -364,7 +364,7 @@ const Projects = () => {
                           <a
                             target="_blank"
                             rel="noopener noreferrer"
-                            href="https://github.com/mern-expert-amit"
+                            href="https://github.com/mern-developer-expert"
                             className="bg-white/8 hover:bg-white/10 shadow-sm border border-white/6 flex items-center gap-2 px-3 py-1.5 rounded-md text-sm"
                             aria-label="View Amit's GitHub profile"
                           >

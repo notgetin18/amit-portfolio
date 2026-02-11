@@ -9,8 +9,8 @@ Email: notgetin18@gmail.com
 Phone: (+91) 9660637657
 Address: Laxmi Nagar, New Delhi - 110092
 
-Github: https://github.com/mern-expert-amit
-Linkedin: https://www.linkedin.com/in/mern-expert-amit
+Github: https://github.com/mern-developer-expert
+Linkedin: https://www.linkedin.com/in/mern-developer-expert-amit
 X: https://x.com/Amitsin40190332
 Portfolio: https://www.amitdevjourney.xyz/
 
