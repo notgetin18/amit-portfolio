@@ -27,8 +27,8 @@ export function BlogCard({ post }: BlogCardProps) {
     return (
         <LazyMotion features={domAnimation}>
             <m.div
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                whileHover={{ y: -6, scale: 1.02 }}
+                transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
             >
                 <Link href={`/blogs/${post.slug}`}>
                     <Card className="group relative h-full flex flex-col overflow-hidden border border-white/10 bg-[#07162b]/40 backdrop-blur-md hover:border-[#06b6d4]/40 transition-all duration-500 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)] rounded-2xl">
@@ -71,7 +71,7 @@ export function BlogCard({ post }: BlogCardProps) {
                                 </div>
                             </div>
 
-                            <h3 className="text-xl font-bold text-neutral-200 mb-3 line-clamp-2 leading-tight group-hover:text-white transition-colors">
+                            <h3 className="text-lg sm:text-xl font-semibold text-neutral-200 mb-2 line-clamp-3 sm:line-clamp-2 leading-normal sm:leading-tight group-hover:text-white transition-colors">
                                 {post.title}
                             </h3>
 

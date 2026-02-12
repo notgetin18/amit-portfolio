@@ -40,7 +40,8 @@ export default defineType({
       options: {
         hotspot: true,
       },
-      description: "Fallback to main image if not provided. Best for square (1:1) aspect ratio.",
+      description:
+        "Fallback to main image if not provided. Best for square (1:1) aspect ratio.",
     }),
     defineField({
       name: "categories",
@@ -64,7 +65,25 @@ export default defineType({
       title: "Body",
       type: "array",
       of: [
-        { type: "block" },
+        {
+          type: "block",
+          marks: {
+            annotations: [
+              {
+                name: "color",
+                title: "Color",
+                type: "object",
+                fields: [
+                  {
+                    name: "hex",
+                    title: "Hex Color",
+                    type: "string",
+                  },
+                ],
+              },
+            ],
+          },
+        },
         {
           type: "image",
           options: { hotspot: true },

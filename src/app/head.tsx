@@ -7,8 +7,8 @@ export default function Head() {
             jobTitle: "Full‑Stack MERN Developer",
             url: "https://www.amitdevjourney.xyz/",
             sameAs: [
-                "https://github.com/notgetin18",
-                "https://www.linkedin.com/in/notgetin18",
+                "https://github.com/mern-developer-expert",
+                "https://www.linkedin.com/in/mern-developer-expert-amit",
                 "https://x.com/Amitsin40190332",
             ],
             knowsAbout: [
