@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   description:
     "Amit Kumar — MERN Full-Stack Developer. Building scalable SaaS, EdTech, and healthcare apps for 1M+ users with React, Node.js, and MongoDB. View my projects.",
   keywords:
-    "Amit Kumar, MERN, full stack developer, React, Next.js, Node.js, Express, MongoDB, TypeScript, JavaScript, SaaS, healthcare SaaS, EdTech, real-time, 1M+ users, portfolio, freelance, India",
+    "Amit Kumar, MERN, full stack developer, MERN Developer, MERN Stack Developer, MERN developer expert, React, Next.js, Node.js, Express, MongoDB, TypeScript, JavaScript, SaaS, healthcare SaaS, EdTech, real-time, 1M+ users, portfolio, freelance, India",
   authors: [{ name: "Amit Kumar" }],
   robots: {
     index: true,

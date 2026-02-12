@@ -263,7 +263,7 @@ export default function Services() {
                   <Gift className="w-8 h-8 text-black" />
                 </div>
                 <h3 className="text-2xl md:text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-[#8ef3c1] via-[#3ed6ac] to-[#06b6d4] mb-3">
-                  Transparent Pricing & Holiday Offers
+                  Transparent Pricing & Offers
                 </h3>
                 <p className="text-slate-300 max-w-3xl mx-auto leading-relaxed mb-6">
                   I believe in honest, transparent pricing with no hidden fees.

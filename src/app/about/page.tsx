@@ -3,16 +3,18 @@ import { generateAboutPageSchema } from "@/lib/metadata/json-ld";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Amit Kumar | MERN Full-Stack Developer",  // Perfect – root template appends "| Amit Kumar Portfolio"
+  title: "About Amit Kumar | MERN Full-Stack Developer",
   description:
     "Learn about Amit Kumar, a product-focused MERN stack developer with 4+ years of experience building scalable web applications for companies like Bright Digi Gold and TestOfire.",
-  keywords: [  // ADD some relevant ones (optional but helpful)
+  keywords: [
     "Amit Kumar",
     "MERN stack developer",
+    "MERN developer expert",
     "Full-stack developer",
     "React developer",
     "Node.js developer",
     "Next.js",
+    "best-portfolio",
     "Portfolio",
     "Freelance developer India",
     "Web development experience",

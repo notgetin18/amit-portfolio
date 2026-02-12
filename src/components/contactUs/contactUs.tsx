@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useRef, useState } from "react";
 import HeroBackground from "../ui/HeroBackground";
 import { fadeInUp, staggerContainer } from "@/constant";
+import { handleDownloadResume } from "@/utility";
 import toast from "react-hot-toast";
 import Link from "next/link";
 
@@ -128,27 +129,7 @@ export default function ContactUs() {
     }
   };
 
-  const handleDownloadResume = (format: string) => {
-    let url: string;
-    let filename: string;
 
-    if (format === "pdf") {
-      url = "/Amit-Resume.pdf";
-      filename = "Amit_Kumar_Resume.pdf";
-    } else if (format === "docx") {
-      url = "/Amit-Resume.docx";
-      filename = "Amit_Kumar_Resume.docx";
-    } else {
-      return;
-    }
-
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  };
 
   return (
     <LazyMotion features={domAnimation}>

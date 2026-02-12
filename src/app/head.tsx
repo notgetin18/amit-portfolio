@@ -30,7 +30,7 @@ export default function Head() {
             "@type": "CreativeWork",
             name: "Amit Kumar — Resume",
             description: "Official resume / CV for Amit Kumar — Full‑Stack MERN Developer.",
-            url: "https://www.amitdevjourney.xyz/Amit-Resume.pdf",
+            url: "https://docs.google.com/document/d/1WQormpR0rl5oz-JgnFhqoH9MPsg3zvAwqA29mZzNNzw/export?format=pdf",
             encodingFormat: "application/pdf"
         },
         {

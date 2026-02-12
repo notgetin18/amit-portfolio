@@ -3,16 +3,16 @@ export const handleDownloadResume = (format: string) => {
   let filename: string;
 
   if (format === "pdf") {
-    url = "/Amit-Resume.pdf";
+    url = "https://docs.google.com/document/d/1WQormpR0rl5oz-JgnFhqoH9MPsg3zvAwqA29mZzNNzw/export?format=pdf";
     filename = "Amit_Kumar_Resume.pdf";
   } else if (format === "docx") {
-    url = "/Amit-kumar_Resume.docx";
+    url = "https://docs.google.com/document/d/1WQormpR0rl5oz-JgnFhqoH9MPsg3zvAwqA29mZzNNzw/export?format=docx";
     filename = "Amit_Kumar_Resume.docx";
-  } else if(format === "png")  {
+  } else if (format === "png") {
     url = "/caseStudy.png";
     filename = "Bright DiGi Gold Case Study.png";
-  } else{
-     return;
+  } else {
+    return;
   }
 
   const a = document.createElement("a");
